@@ -1,0 +1,420 @@
+/* =====================================================================
+   DENTAL MATERIALS · LECTURE DESIGN SYSTEM  (identidade "Clinical Clean")
+   ---------------------------------------------------------------------
+   Arquivo compartilhado por TODAS as aulas. Não edite por aula:
+   se precisar de um estilo novo, adicione um componente aqui.
+
+   Mapa semântico das cores (isto tem significado, não é enfeite):
+     TEAL (frio)  = ciência / mecanismo / laboratório
+     ÂMBAR (quente) = clínica / paciente / decisão clínica
+     ROSA         = equívoco / alerta / "cuidado"
+     PAINEL ESCURO = "bancada de mecanismo" (onde as animações brilham)
+
+   Assinatura visual: a barra de progresso "polimeriza" conforme você
+   rola a página (monômeros que se ligam numa cadeia).
+   ===================================================================== */
+
+/* ---------- 1. TOKENS (as variáveis do curso inteiro) ---------------- */
+:root {
+  /* Cores base */
+  --c-paper:        #FBFCFD;   /* fundo da página (branco frio) */
+  --c-surface:      #FFFFFF;   /* cartões / superfícies elevadas */
+  --c-ink:          #0F1B2A;   /* texto principal (azul-tinta quase preto) */
+  --c-ink-soft:     #33475B;   /* texto secundário */
+  --c-muted:        #64768A;   /* legendas, metadados */
+  --c-line:         #E3E9EF;   /* linhas / bordas hairline */
+  --c-line-strong:  #C9D4DE;
+
+  /* Acentos semânticos */
+  --c-primary:      #0C7489;   /* teal — ciência */
+  --c-primary-ink:  #0A5C6D;
+  --c-primary-wash: #E7F4F6;   /* fundo teal muito claro */
+  --c-clinical:     #B45309;   /* âmbar — clínica */
+  --c-clinical-wash:#FDF3E7;
+  --c-warn:         #BE123C;   /* rosa — equívoco */
+  --c-warn-wash:    #FDECEF;
+  --c-ok:           #15803D;   /* verde — acerto/quiz correto */
+  --c-ok-wash:      #E9F6ED;
+
+  /* Painel escuro (bancada de mecanismo) */
+  --c-dark:         #0B1B2B;
+  --c-dark-2:       #10273B;
+  --c-dark-ink:     #E8F1F6;
+  --c-dark-muted:   #8FA9BC;
+  --c-dark-line:    #1E3A52;
+
+  /* Tipografia */
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif; /* técnica, com caráter */
+  --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, "Consolas", monospace; /* fórmulas químicas / dados */
+
+  /* Escala de tamanhos (base grande para PROJEÇÃO em sala) */
+  --fs-base:  1.15rem;    /* ~18.4px */
+  --fs-sm:    0.9rem;
+  --fs-lg:    1.3rem;
+  --fs-xl:    1.7rem;
+  --fs-2xl:   2.3rem;
+  --fs-3xl:   3.2rem;
+  --fs-hero:  clamp(2.6rem, 6vw, 4.6rem);
+  --lh-body:  1.68;
+
+  /* Espaçamento e formas */
+  --space:    1.25rem;
+  --radius:   14px;
+  --radius-sm:9px;
+  --maxw-read: 74ch;        /* medida de leitura confortável */
+  --maxw-wide: 1180px;      /* largura de seções largas / figuras */
+  --shadow:   0 1px 2px rgba(15,27,42,.05), 0 8px 28px rgba(15,27,42,.07);
+  --shadow-lg:0 12px 48px rgba(15,27,42,.14);
+  --ring:     0 0 0 3px rgba(12,116,137,.28);
+}
+
+/* ---------- 2. RESET LEVE ------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 76px; /* ao "pular" para uma seção, ela para abaixo da barra */ }
+body {
+  margin: 0;
+  background: var(--c-paper);
+  color: var(--c-ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--c-primary-ink); text-underline-offset: 3px; }
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; color: var(--c-ink); font-weight: 600; letter-spacing: -0.01em; }
+:focus-visible { outline: none; box-shadow: var(--ring); border-radius: 6px; }
+
+/* ---------- 3. LAYOUT ----------------------------------------------- */
+.l-read  { max-width: var(--maxw-read); margin-inline: auto; padding-inline: 1.25rem; }
+.l-wide  { max-width: var(--maxw-wide); margin-inline: auto; padding-inline: 1.25rem; }
+
+/* Uma "seção" da aula: bloco vertical com respiro generoso */
+.section { padding: clamp(3rem, 7vw, 6rem) 0; border-top: 1px solid var(--c-line);
+  scroll-margin-top: 76px; }
+.section:first-of-type { border-top: 0; }
+
+/* Sobrescrita ("eyebrow"): rótulo pequeno em maiúsculas com marcador de elo */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: .55rem;
+  font-family: var(--font-mono);
+  font-size: .78rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--c-primary-ink); font-weight: 500; margin: 0 0 1rem;
+}
+.eyebrow::before { /* mini-elo de polímero */
+  content: ""; width: 26px; height: 10px; flex: none;
+  background:
+    radial-gradient(circle at 5px 5px, var(--c-primary) 3.2px, transparent 3.6px),
+    radial-gradient(circle at 21px 5px, var(--c-primary) 3.2px, transparent 3.6px);
+  border-top: 2px solid var(--c-primary);
+  border-bottom: 0; margin-top: 2px;
+}
+
+.section h2 { font-size: var(--fs-2xl); margin: 0 0 .6rem; }
+.section h3 { font-size: var(--fs-xl); margin: 2.2rem 0 .5rem; color: var(--c-primary-ink); }
+.section p  { margin: 0 0 1.05rem; }
+.lead { font-size: var(--fs-lg); color: var(--c-ink-soft); }
+
+/* Frase-âncora: a UMA coisa que fica na tela por seção (formato "enxuto") */
+.statement { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.5rem, 2.6vw, 2.05rem);
+  line-height: 1.32; color: var(--c-ink); max-width: 34ch; margin: .3rem 0 1.4rem; }
+.statement b { color: var(--c-primary-ink); }
+.statement--clinical b { color: var(--c-clinical); }
+.substatement { font-size: var(--fs-lg); color: var(--c-ink-soft); max-width: 56ch; margin: -.6rem 0 1.4rem; }
+/* Seção enxuta: conteúdo centralizado verticalmente, como um slide */
+.section--slide { min-height: 62vh; display: flex; flex-direction: column; justify-content: center; }
+
+/* Listas com bullets em forma de elo */
+.section ul { padding-left: 0; list-style: none; margin: 0 0 1.1rem; }
+.section ul li { position: relative; padding-left: 1.7rem; margin: .5rem 0; }
+.section ul li::before {
+  content: ""; position: absolute; left: 0; top: .62em;
+  width: 10px; height: 10px; border-radius: 50%;
+  border: 2px solid var(--c-primary); background: var(--c-primary-wash);
+}
+
+/* ---------- 4. BARRA DE PROGRESSO "POLIMERIZANTE" (assinatura) ------ */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(251,252,253,.86); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--c-line);
+}
+.topbar__row { max-width: var(--maxw-wide); margin-inline: auto; padding: .6rem 1.25rem;
+  display: flex; align-items: center; gap: 1rem; }
+.topbar__home { font-family: var(--font-mono); font-size: .8rem; text-decoration: none;
+  color: var(--c-muted); white-space: nowrap; }
+.topbar__home:hover { color: var(--c-primary-ink); }
+.topbar__title { font-family: var(--font-display); font-weight: 600; font-size: .95rem;
+  color: var(--c-ink); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* trilho onde a "cadeia" cresce */
+.progress { height: 4px; background: var(--c-line); position: relative; overflow: hidden; }
+.progress__bar { height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--c-primary) 0%, #14A0B8 100%);
+  transition: width .12s linear; }
+
+/* ---------- 5. NAVEGAÇÃO DE SEÇÕES (índice lateral fixo) ------------ */
+.secnav { position: fixed; top: 50%; right: 18px; transform: translateY(-50%);
+  z-index: 40; display: flex; flex-direction: column; gap: .55rem; }
+.secnav a { width: 12px; height: 12px; border-radius: 50%; background: var(--c-line-strong);
+  border: 2px solid transparent; transition: all .2s; position: relative; }
+.secnav a:hover { background: var(--c-primary); transform: scale(1.25); }
+.secnav a.is-active { background: var(--c-primary); box-shadow: 0 0 0 4px var(--c-primary-wash); }
+.secnav a span { position: absolute; right: 22px; top: 50%; transform: translateY(-50%);
+  background: var(--c-ink); color: #fff; font-size: .72rem; padding: .2rem .5rem; border-radius: 6px;
+  white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .18s; font-family: var(--font-mono); }
+.secnav a:hover span { opacity: 1; }
+@media (max-width: 1100px) { .secnav { display: none; } }
+
+/* ---------- 6. HERO ------------------------------------------------- */
+.hero { position: relative; overflow: hidden; scroll-margin-top: 76px;
+  background:
+    radial-gradient(120% 90% at 90% -10%, var(--c-primary-wash) 0%, transparent 55%),
+    var(--c-paper);
+  padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2.5rem, 6vw, 4.5rem); }
+.hero__eyebrow { color: var(--c-primary-ink); }
+.hero h1 { font-size: var(--fs-hero); margin: .4rem 0 1.1rem; max-width: 20ch; }
+.hero__frame { font-size: var(--fs-lg); color: var(--c-ink-soft); max-width: 60ch; margin: 0 0 1.6rem; }
+.hero__hook {
+  border-left: 4px solid var(--c-clinical); background: var(--c-clinical-wash);
+  padding: 1rem 1.25rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  max-width: 62ch; color: var(--c-ink); }
+.hero__hook b { color: var(--c-clinical); }
+.hero__meta { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; margin-top: 1.6rem;
+  font-family: var(--font-mono); font-size: .82rem; color: var(--c-muted); }
+
+/* ---------- 7. CARTÕES / GRIDS -------------------------------------- */
+.grid { display: grid; gap: 1.1rem; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 820px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+.card { background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--radius);
+  padding: 1.4rem; box-shadow: var(--shadow); }
+.card h3 { margin: 0 0 .4rem; font-size: 1.15rem; color: var(--c-ink); }
+.card p { margin: 0; font-size: 1rem; color: var(--c-ink-soft); }
+
+/* Objetivos de aprendizagem numerados */
+.objectives { counter-reset: obj; display: grid; gap: .8rem; }
+.objectives .obj { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start;
+  background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--radius);
+  padding: 1.1rem 1.25rem; }
+.objectives .obj::before { counter-increment: obj; content: counter(obj, decimal-leading-zero);
+  font-family: var(--font-mono); font-size: 1.1rem; color: var(--c-primary);
+  font-weight: 600; line-height: 1.4; }
+.objectives .obj p { margin: 0; }
+
+/* ---------- 8. CAIXAS DE ENSINO (os componentes-chave) -------------- */
+/* Estrutura comum */
+.box { border-radius: var(--radius); padding: 1.3rem 1.5rem; margin: 1.6rem 0;
+  border: 1px solid var(--c-line); background: var(--c-surface); }
+.box__tag { display: inline-flex; align-items: center; gap: .5rem;
+  font-family: var(--font-mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase;
+  font-weight: 600; margin-bottom: .6rem; }
+.box__tag .ic { width: 18px; height: 18px; flex: none; }
+.box p:last-child, .box ul:last-child { margin-bottom: 0; }
+
+/* Mecanismo científico (teal) */
+.box--mech { border-color: #BFE2E8; background: var(--c-primary-wash); }
+.box--mech .box__tag { color: var(--c-primary-ink); }
+.box--mech .box__tag .ic { stroke: var(--c-primary-ink); }
+
+/* Tradução clínica (âmbar) */
+.box--clinical { border-color: #F1D5AE; background: var(--c-clinical-wash); }
+.box--clinical .box__tag { color: var(--c-clinical); }
+.box--clinical .box__tag .ic { stroke: var(--c-clinical); }
+
+/* Equívoco / alerta (rosa) — "Myth vs Fact" */
+.box--myth { border-color: #F3C2CC; background: var(--c-warn-wash); }
+.box--myth .box__tag { color: var(--c-warn); }
+.box--myth .box__tag .ic { stroke: var(--c-warn); }
+.box--myth .mf { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 640px) { .box--myth .mf { grid-template-columns: 1fr; } }
+.box--myth .mf > div { background: var(--c-surface); border-radius: var(--radius-sm); padding: .9rem 1rem; }
+.box--myth .mf .m-title { font-weight: 700; font-size: .85rem; text-transform: uppercase;
+  letter-spacing: .06em; margin-bottom: .35rem; }
+.box--myth .mf .myth .m-title { color: var(--c-warn); }
+.box--myth .mf .fact .m-title { color: var(--c-ok); }
+
+/* Nota-âncora "Why this matters clinically" (destaque forte) */
+.matters { border-left: 5px solid var(--c-clinical); background:
+  linear-gradient(180deg, var(--c-clinical-wash), var(--c-surface));
+  padding: 1.2rem 1.4rem; border-radius: 0 var(--radius) var(--radius) 0; margin: 1.8rem 0; }
+.matters .box__tag { color: var(--c-clinical); }
+
+/* ---------- 9. PAINEL ESCURO DE MECANISMO (para animações) ---------- */
+.panel { background: linear-gradient(160deg, var(--c-dark), var(--c-dark-2));
+  color: var(--c-dark-ink); border-radius: var(--radius); padding: 1.6rem;
+  margin: 1.8rem 0; box-shadow: var(--shadow-lg); border: 1px solid var(--c-dark-line); }
+.panel h3 { color: #fff; margin-top: 0; }
+.panel p { color: var(--c-dark-muted); }
+.panel .eyebrow { color: #57C6D8; }
+.panel .eyebrow::before {
+  background:
+    radial-gradient(circle at 5px 5px, #57C6D8 3.2px, transparent 3.6px),
+    radial-gradient(circle at 21px 5px, #57C6D8 3.2px, transparent 3.6px);
+  border-top-color: #57C6D8; }
+.panel .caption { color: var(--c-dark-muted); }
+
+/* ---------- 10. FIGURAS + LEGENDAS ---------------------------------- */
+.figure { margin: 1.8rem 0; }
+.figure img { border: 1px solid var(--c-line); border-radius: var(--radius);
+  background: #fff; box-shadow: var(--shadow); }
+.figure figcaption, .caption { font-family: var(--font-body); font-size: .95rem;
+  color: var(--c-muted); margin-top: .7rem; }
+.figure figcaption b, .caption b { color: var(--c-ink-soft); }
+.fig-tag { font-family: var(--font-mono); font-size: .72rem; color: var(--c-primary);
+  letter-spacing: .08em; }
+
+/* ---------- 11. TABELAS DE COMPARAÇÃO ------------------------------- */
+.ctable { width: 100%; border-collapse: separate; border-spacing: 0; margin: 1.6rem 0;
+  font-size: 1rem; background: var(--c-surface); border: 1px solid var(--c-line);
+  border-radius: var(--radius); overflow: hidden; }
+.ctable th, .ctable td { padding: .85rem 1rem; text-align: left; vertical-align: top;
+  border-bottom: 1px solid var(--c-line); }
+.ctable thead th { background: var(--c-dark); color: #fff; font-family: var(--font-display);
+  font-weight: 600; font-size: .95rem; }
+.ctable tbody tr:last-child td { border-bottom: 0; }
+.ctable tbody tr:nth-child(even) td { background: #F7FAFB; }
+.ctable td:first-child { font-weight: 600; color: var(--c-ink); }
+
+/* ---------- 12. FLIP CARDS (termo → definição) --------------------- */
+.flips { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin: 1.4rem 0; }
+.flip { background: transparent; perspective: 1000px; height: 150px; cursor: pointer; border: 0; padding: 0; font: inherit; }
+.flip__inner { position: relative; width: 100%; height: 100%; transition: transform .55s;
+  transform-style: preserve-3d; }
+.flip.is-flipped .flip__inner { transform: rotateY(180deg); }
+.flip__face { position: absolute; inset: 0; backface-visibility: hidden;
+  border-radius: var(--radius); padding: 1rem; display: flex; flex-direction: column;
+  justify-content: center; text-align: center; border: 1px solid var(--c-line); }
+.flip__front { background: var(--c-surface); }
+.flip__front .term { font-family: var(--font-display); font-size: 1.15rem; color: var(--c-primary-ink); }
+.flip__front .hint { font-size: .74rem; color: var(--c-muted); margin-top: .4rem; font-family: var(--font-mono); }
+.flip__back { background: var(--c-primary-ink); color: #fff; transform: rotateY(180deg);
+  font-size: .95rem; line-height: 1.45; }
+
+/* ---------- 13. CHECKPOINT / QUIZ ---------------------------------- */
+.quiz { background: var(--c-surface); border: 1px solid var(--c-line-strong);
+  border-radius: var(--radius); padding: 1.6rem; margin: 1.8rem 0; box-shadow: var(--shadow); }
+.quiz__q { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin: 0 0 1rem; }
+.quiz__opts { display: grid; gap: .7rem; }
+.quiz__opt { display: flex; gap: .8rem; align-items: flex-start; text-align: left; cursor: pointer;
+  background: var(--c-paper); border: 1.5px solid var(--c-line); border-radius: var(--radius-sm);
+  padding: .85rem 1rem; font: inherit; font-size: 1rem; color: var(--c-ink); transition: all .15s; width: 100%; }
+.quiz__opt:hover { border-color: var(--c-primary); background: var(--c-primary-wash); }
+.quiz__opt .key { font-family: var(--font-mono); font-weight: 600; color: var(--c-primary-ink); flex: none; }
+.quiz__opt.correct { border-color: var(--c-ok); background: var(--c-ok-wash); }
+.quiz__opt.correct .key { color: var(--c-ok); }
+.quiz__opt.wrong { border-color: var(--c-warn); background: var(--c-warn-wash); }
+.quiz__opt.wrong .key { color: var(--c-warn); }
+.quiz__opt[disabled] { cursor: default; }
+.quiz__fb { margin-top: 1rem; padding: .9rem 1.1rem; border-radius: var(--radius-sm);
+  font-size: .98rem; display: none; }
+.quiz__fb.show { display: block; }
+.quiz__fb.ok { background: var(--c-ok-wash); color: #14532D; border: 1px solid #A7D8B6; }
+.quiz__fb.no { background: var(--c-warn-wash); color: #7A122A; border: 1px solid #F0B8C3; }
+
+/* ---------- 14. BOTÕES / CONTROLES --------------------------------- */
+.btn { font: inherit; font-family: var(--font-display); font-weight: 600; font-size: .95rem;
+  cursor: pointer; border-radius: 999px; padding: .6rem 1.2rem; border: 1.5px solid var(--c-primary);
+  background: var(--c-primary); color: #fff; transition: all .15s; }
+.btn:hover { background: var(--c-primary-ink); border-color: var(--c-primary-ink); }
+.btn--ghost { background: transparent; color: var(--c-primary-ink); }
+.btn--ghost:hover { background: var(--c-primary-wash); color: var(--c-primary-ink); }
+.btn--onDark { border-color: #2C5468; background: #12354A; color: #EAF4F8; }
+.btn--onDark:hover { background: #17425C; border-color: #3A6D86; }
+
+/* Slider de controle (para plastificação, crosslink, etc.) */
+.control { display: flex; flex-direction: column; gap: .4rem; margin: 1rem 0; }
+.control label { font-family: var(--font-mono); font-size: .82rem; color: var(--c-dark-muted);
+  display: flex; justify-content: space-between; }
+.control input[type=range] { width: 100%; accent-color: #14A0B8; height: 6px; }
+.readouts { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap: .7rem; margin-top: 1rem; }
+.readout { background: #0E2536; border: 1px solid var(--c-dark-line); border-radius: var(--radius-sm);
+  padding: .7rem .8rem; }
+.readout .k { font-family: var(--font-mono); font-size: .72rem; color: var(--c-dark-muted); text-transform: uppercase; letter-spacing: .06em; }
+.readout .v { font-family: var(--font-display); font-size: 1.15rem; color: #fff; margin-top: .15rem; }
+.readout .v.up   { color: #6EE7A8; }
+.readout .v.down { color: #F9A8B8; }
+
+/* Stepper (etapas clicáveis: iniciação/propagação/terminação) */
+.stepper { display: flex; gap: .5rem; flex-wrap: wrap; margin: 1rem 0; }
+.stepper button { font: inherit; font-family: var(--font-mono); font-size: .85rem; cursor: pointer;
+  border: 1.5px solid var(--c-dark-line); background: #0E2536; color: var(--c-dark-muted);
+  border-radius: 999px; padding: .4rem 1rem; transition: all .15s; }
+.stepper button.is-active { background: var(--c-primary); border-color: var(--c-primary); color: #fff; }
+
+/* Botão reveal (click-to-reveal / deep dive) */
+.reveal { margin: 1.4rem 0; border: 1px solid var(--c-line); border-radius: var(--radius); overflow: hidden; }
+.reveal > summary { cursor: pointer; list-style: none; padding: 1rem 1.3rem; background: var(--c-surface);
+  font-family: var(--font-display); font-weight: 600; color: var(--c-primary-ink);
+  display: flex; align-items: center; gap: .7rem; }
+.reveal > summary::-webkit-details-marker { display: none; }
+.reveal > summary::before { content: "+"; font-family: var(--font-mono); font-size: 1.3rem; color: var(--c-primary);
+  width: 1.2rem; text-align: center; }
+.reveal[open] > summary::before { content: "–"; }
+.reveal[open] > summary { border-bottom: 1px solid var(--c-line); }
+.reveal__body { padding: 1.2rem 1.3rem; background: var(--c-paper); }
+.reveal__body > *:last-child { margin-bottom: 0; }
+
+/* ---------- 15. TAKE-HOME / RESUMO --------------------------------- */
+.takehome { background: var(--c-dark); color: var(--c-dark-ink); border-radius: var(--radius);
+  padding: clamp(1.6rem, 4vw, 2.6rem); box-shadow: var(--shadow-lg); }
+.takehome h2 { color: #fff; }
+.takehome ol { counter-reset: th; list-style: none; padding: 0; margin: 1.2rem 0 0; display: grid; gap: .9rem; }
+.takehome ol li { counter-increment: th; display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start; }
+.takehome ol li::before { content: counter(th); font-family: var(--font-mono); font-weight: 600;
+  color: var(--c-dark); background: #57C6D8; width: 30px; height: 30px; border-radius: 50%;
+  display: grid; place-items: center; font-size: .95rem; }
+.takehome ol li b { color: #fff; }
+
+/* ---------- 16. RODAPÉ --------------------------------------------- */
+.foot { border-top: 1px solid var(--c-line); padding: 2.5rem 0; color: var(--c-muted);
+  font-size: .9rem; }
+.foot__nav { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+.foot__nav a { font-family: var(--font-display); font-weight: 600; text-decoration: none; }
+
+/* ---------- 18. UTILITÁRIOS ---------------------------------------- */
+.mono { font-family: var(--font-mono); }
+.chem { font-family: var(--font-mono); background: #F1F5F8; padding: .1rem .35rem; border-radius: 4px;
+  font-size: .92em; }
+.sub { font-size: .72em; vertical-align: -0.25em; }  /* subscrito químico */
+.center { text-align: center; }
+.reveal-on-scroll { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.reveal-on-scroll.in { opacity: 1; transform: none; }
+
+/* ---------- 18b. CONTROLES DE APRESENTAÇÃO (present mode) ---------- */
+/* Injetados por JS em toda aula. Avançar seção-a-seção como slides. */
+.present-controls { position: fixed; bottom: 18px; right: 18px; z-index: 60;
+  display: flex; gap: .35rem; align-items: center;
+  background: rgba(11,27,43,.92); backdrop-filter: blur(6px);
+  padding: .38rem .45rem; border-radius: 999px; box-shadow: var(--shadow-lg);
+  border: 1px solid var(--c-dark-line); }
+.pc-btn { font: inherit; font-family: var(--font-mono); cursor: pointer; border: 0;
+  background: #17425C; color: #EAF4F8; width: 40px; height: 40px; border-radius: 50%;
+  font-size: 1.3rem; line-height: 1; display: grid; place-items: center; transition: background .15s; }
+.pc-btn:hover { background: #1E5877; }
+.pc-count { font-family: var(--font-mono); font-size: .82rem; color: #9FCBD6;
+  padding: 0 .35rem; min-width: 58px; text-align: center; }
+@media (max-width: 700px) { .present-controls { display: none; } }
+
+/* ---------- 19. RESPONSIVO / PROJEÇÃO ------------------------------ */
+@media (min-width: 1400px) { :root { --fs-base: 1.24rem; } } /* projeção */
+@media (min-width: 1700px) { :root { --fs-base: 1.34rem; } } /* projeção grande / auditório */
+@media (max-width: 560px)  { :root { --fs-base: 1.05rem; } }
+
+/* ---------- 20. ACESSIBILIDADE: movimento reduzido ----------------- */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .001ms !important; animation-iteration-count: 1 !important;
+      transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}
+
+/* ---------- 21. IMPRESSÃO (handout) -------------------------------- */
+@media print {
+  .topbar, .secnav, .stepper, .control, .present-controls { display: none !important; }
+  .panel, .takehome { background: #fff !important; color: #000 !important; border: 1px solid #000; }
+  .reveal[open] .reveal__body, .reveal__body { display: block !important; }
+  body { font-size: 11pt; }
+}
