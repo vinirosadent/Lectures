@@ -13,40 +13,40 @@
 html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f-body);color:var(--ink)}
 .deck{height:100vh;width:100vw;overflow:hidden;position:relative}
 .track{display:flex;height:100%;transition:transform .45s cubic-bezier(.4,0,.2,1)}
-.slide{min-width:100vw;height:100vh;padding:4.5vh 5vw 7.5vh;background:var(--paper);display:flex;flex-direction:column;position:relative}
+.slide{min-width:100vw;height:100vh;padding:4vh 4.5vw 6.5vh;background:var(--paper);display:flex;flex-direction:column;position:relative;overflow:hidden}
 .s-eyebrow{font-family:var(--f-mono);font-size:1rem;letter-spacing:.13em;text-transform:uppercase;color:var(--primary-ink);margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem}
 .s-eyebrow::before{content:"";width:30px;height:10px;background:radial-gradient(circle at 5px 5px,var(--primary) 3.2px,transparent 3.6px),radial-gradient(circle at 25px 5px,var(--primary) 3.2px,transparent 3.6px);border-top:2px solid var(--primary)}
-.s-title{font-family:var(--f-disp);font-weight:600;line-height:1.06;color:var(--ink);font-size:clamp(2.3rem,4.3vw,3.6rem);letter-spacing:-.01em;margin-bottom:1.4vh}
-.s-sub{font-size:clamp(1.3rem,1.9vw,1.65rem);color:var(--ink-soft);margin-bottom:1.8vh;max-width:70ch;line-height:1.5}
-.s-body{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:2.8vw;min-height:0;align-items:center}
+.s-title{font-family:var(--f-disp);font-weight:600;line-height:1.05;color:var(--ink);font-size:clamp(1.9rem,3.4vw,2.9rem);letter-spacing:-.01em;margin-bottom:1.2vh}
+.s-sub{font-size:clamp(1.05rem,1.5vw,1.35rem);color:var(--ink-soft);margin-bottom:1.4vh;max-width:74ch;line-height:1.45}
+.s-body{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:2.5vw;min-height:0;align-items:center;overflow:hidden}
 .s-body.one-col{grid-template-columns:1fr}
-.s-body.text-heavy{grid-template-columns:1.25fr .75fr}
-.s-body.fig-heavy{grid-template-columns:.8fr 1.2fr}
-.col-text{overflow:auto;padding-right:.4rem;max-height:100%}
+.s-body.text-heavy{grid-template-columns:1.2fr .8fr}
+.s-body.fig-heavy{grid-template-columns:.85fr 1.15fr}
+.col-text{overflow:hidden;padding-right:.3rem;max-height:100%;display:flex;flex-direction:column;justify-content:center}
 .col-visual{height:100%;display:flex;flex-direction:column;justify-content:center;gap:1rem;min-height:0}
-.blist{list-style:none;display:flex;flex-direction:column;gap:1.3vh}
-.blist>li{position:relative;padding-left:1.8rem;font-size:clamp(1.25rem,1.8vw,1.6rem);line-height:1.48;color:var(--ink-soft)}
+.blist{list-style:none;display:flex;flex-direction:column;gap:1.05vh}
+.blist>li{position:relative;padding-left:1.7rem;font-size:clamp(1.02rem,1.45vw,1.32rem);line-height:1.4;color:var(--ink-soft)}
 .blist>li::before{content:"";position:absolute;left:0;top:.5em;width:11px;height:11px;border-radius:50%;border:2px solid var(--primary);background:var(--primary-wash)}
 .blist>li b{color:var(--ink)}
 .blist .lead-term{font-family:var(--f-disp);font-weight:600;color:var(--primary-ink)}
 .blist.cols{columns:2;column-gap:3rem;display:block}
 .blist.cols>li{break-inside:avoid;margin-bottom:1.3vh}
-.defbox{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--primary);border-radius:0 14px 14px 0;padding:1.3rem 1.5rem;margin-bottom:1.5vh;box-shadow:0 6px 22px rgba(15,27,42,.05)}
-.defbox .term{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.45rem,2.2vw,1.85rem);color:var(--primary-ink);margin-bottom:.35rem}
-.defbox .def{font-size:clamp(1.25rem,1.8vw,1.55rem);color:var(--ink-soft);line-height:1.48}
-.steps{display:flex;flex-direction:column;gap:1.4vh;counter-reset:st}
+.defbox{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--primary);border-radius:0 12px 12px 0;padding:1rem 1.25rem;margin-bottom:1.1vh;box-shadow:0 6px 22px rgba(15,27,42,.05)}
+.defbox .term{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.2rem,1.7vw,1.5rem);color:var(--primary-ink);margin-bottom:.3rem}
+.defbox .def{font-size:clamp(1.02rem,1.45vw,1.28rem);color:var(--ink-soft);line-height:1.4}
+.steps{display:flex;flex-direction:column;gap:1.05vh;counter-reset:st}
 .step{display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:start}
 .step::before{counter-increment:st;content:counter(st);font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:1.05rem;flex:none}
-.step h4{font-family:var(--f-disp);font-size:clamp(1.3rem,1.9vw,1.65rem);color:var(--ink);margin-bottom:.2rem}
-.step p{font-size:clamp(1.2rem,1.6vw,1.42rem);line-height:1.42;color:var(--ink-soft)}
-.key{margin-top:1.8vh;border-left:5px solid var(--clinical);background:var(--clinical-wash);padding:1.1rem 1.35rem;border-radius:0 12px 12px 0;font-size:clamp(1.25rem,1.8vw,1.55rem);color:var(--ink);line-height:1.48}
+.step h4{font-family:var(--f-disp);font-size:clamp(1.1rem,1.55vw,1.38rem);color:var(--ink);margin-bottom:.15rem}
+.step p{font-size:clamp(1rem,1.4vw,1.24rem);line-height:1.38;color:var(--ink-soft)}
+.key{margin-top:1.4vh;border-left:5px solid var(--clinical);background:var(--clinical-wash);padding:.9rem 1.15rem;border-radius:0 12px 12px 0;font-size:clamp(1.02rem,1.45vw,1.28rem);color:var(--ink);line-height:1.4}
 .key b{color:var(--clinical)}
 .key .k-tag{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--clinical);display:block;margin-bottom:.35rem}
-.mech{background:var(--primary-wash);border:1px solid #BFE2E8;border-radius:12px;padding:1.1rem 1.35rem;font-size:clamp(1.22rem,1.75vw,1.5rem);color:var(--ink-soft);line-height:1.46}
+.mech{background:var(--primary-wash);border:1px solid #BFE2E8;border-radius:12px;padding:.9rem 1.15rem;font-size:clamp(1.02rem,1.45vw,1.26rem);color:var(--ink-soft);line-height:1.4}
 .mech .k-tag{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--primary-ink);display:block;margin-bottom:.35rem}
 .mech b{color:var(--ink)}
-.figbox{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1rem;box-shadow:0 12px 40px rgba(15,27,42,.10);display:flex;flex-direction:column;gap:.6rem;max-height:100%;align-items:center;justify-content:center}
-.figbox img{width:100%;height:auto;max-height:72vh;object-fit:contain;display:block;border-radius:8px}
+.figbox{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:.9rem;box-shadow:0 12px 40px rgba(15,27,42,.10);display:flex;flex-direction:column;gap:.5rem;max-height:100%;align-items:center;justify-content:center;overflow:hidden}
+.figbox img{width:100%;height:auto;max-height:76vh;object-fit:contain;display:block;border-radius:8px}
 .figbox.dual{gap:1rem}
 .figcap{font-size:1.05rem;color:var(--muted);line-height:1.4;text-align:center}
 .figcap b{color:var(--ink-soft)}
@@ -58,10 +58,10 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-content:center}
 .vs.three{grid-template-columns:1fr 1fr 1fr}
 .vs .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.5rem;box-shadow:0 8px 28px rgba(15,27,42,.07)}
-.vs .card h3{font-family:var(--f-disp);font-size:clamp(1.4rem,2.1vw,1.78rem);margin-bottom:1rem}
+.vs .card h3{font-family:var(--f-disp);font-size:clamp(1.2rem,1.7vw,1.5rem);margin-bottom:.7rem}
 .vs .card.a h3{color:var(--primary-ink)} .vs .card.b h3{color:var(--warn)}
 .vs .card ul{list-style:none;display:flex;flex-direction:column;gap:.95vh}
-.vs .card li{position:relative;padding-left:1.4rem;font-size:clamp(1.2rem,1.6vw,1.42rem);line-height:1.42;color:var(--ink-soft)}
+.vs .card li{position:relative;padding-left:1.4rem;font-size:clamp(1rem,1.4vw,1.24rem);line-height:1.38;color:var(--ink-soft)}
 .vs .card li::before{content:"";position:absolute;left:0;top:.5em;width:9px;height:9px;border-radius:50%}
 .vs .card.a li::before{background:var(--primary)} .vs .card.b li::before{background:var(--warn)}
 .vs .card li b{color:var(--ink)}
@@ -70,9 +70,9 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 .objlist li::before{content:counter(ob);font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:1rem}
 .objlist li b{color:var(--ink)}
 .objgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;flex:1;min-height:0}
-.objcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.5rem;box-shadow:0 8px 24px rgba(15,27,42,.06);display:flex;flex-direction:column;gap:.7rem}
+.objcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.25rem;box-shadow:0 8px 24px rgba(15,27,42,.06);display:flex;flex-direction:column;gap:.55rem}
 .objnum{font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:1.05rem;flex:none}
-.objtxt{font-size:clamp(1.2rem,1.65vw,1.42rem);line-height:1.42;color:var(--ink-soft)}
+.objtxt{font-size:clamp(.98rem,1.4vw,1.2rem);line-height:1.36;color:var(--ink-soft)}
 .objtxt b{color:var(--ink)}
 .flowstrip{background:var(--primary-wash);border:1px solid #BFE2E8;border-radius:14px;padding:1rem 1.4rem;display:flex;align-items:center;justify-content:center}
 .flowstrip svg{width:100%;max-width:900px;height:auto;display:block}
@@ -94,7 +94,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 .control{margin:1.4vh 0}
 .control label{font-family:var(--f-mono);font-size:1.1rem;color:var(--dark-muted);display:flex;justify-content:space-between;margin-bottom:.4rem}
 .control input[type=range]{width:100%;accent-color:#14A0B8;height:7px}
-.igloss{color:var(--dark-muted);font-size:clamp(1.25rem,1.75vw,1.5rem);line-height:1.46;margin-top:1.3vh}
+.igloss{color:var(--dark-muted);font-size:clamp(1.02rem,1.45vw,1.26rem);line-height:1.42;margin-top:1.1vh}
 .igloss b{color:#fff}
 .calc{background:rgba(255,255,255,.05);border:1px solid var(--dark-line);border-radius:16px;padding:1.6rem 1.8rem}
 .calc .out{font-family:var(--f-mono);margin-top:1.2rem;display:flex;flex-direction:column;gap:.7rem}
@@ -107,6 +107,21 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 .deckbar .count{font-size:.85rem;color:#9FCBD6}
 .navbtn{border:0;background:#17425C;color:#EAF4F8;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:grid;place-items:center}
 .navbtn:hover{background:#1E5877}
+.count{cursor:pointer;user-select:none}
+.count:hover{color:#fff;text-decoration:underline}
+.overview{position:fixed;inset:0;z-index:40;background:rgba(8,18,28,.97);display:none;flex-direction:column;padding:3vh 3vw}
+.overview.open{display:flex}
+.overview h3{font-family:var(--f-disp);color:#fff;font-size:1.6rem;margin-bottom:.4rem}
+.overview .ov-hint{font-family:var(--f-mono);color:var(--dark-muted);font-size:.9rem;margin-bottom:2vh}
+.ov-grid{flex:1;overflow-y:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.9rem;align-content:start}
+.ov-item{background:#10273B;border:1px solid #1E3A52;border-radius:10px;padding:.8rem .9rem;cursor:pointer;display:flex;gap:.7rem;align-items:flex-start;transition:background .15s,border-color .15s;text-align:left}
+.ov-item:hover{background:#17425C;border-color:#57C6D8}
+.ov-item .ov-n{font-family:var(--f-mono);font-size:.8rem;color:#57C6D8;flex:none;min-width:1.6rem}
+.ov-item .ov-t{font-size:.92rem;color:#E8F1F6;line-height:1.3}
+.ov-item.is-part{background:#0A5C6D;border-color:#0C7489}
+.ov-item.is-part .ov-t{font-weight:600}
+.ov-close{position:absolute;top:2vh;right:2vw;background:#17425C;color:#fff;border:0;border-radius:8px;padding:.5rem .9rem;cursor:pointer;font-family:var(--f-mono);font-size:.9rem}
+.ov-close:hover{background:#1E5877}
 .progress{position:fixed;top:0;left:0;height:4px;background:#14A0B8;z-index:21;transition:width .3s;width:0}
 @media (max-width:900px){.s-body,.s-body.text-heavy,.s-body.fig-heavy{grid-template-columns:1fr;gap:1.2rem}.objlist,.blist.cols{grid-template-columns:1fr;columns:1}}
 </style></head><body>
@@ -151,18 +166,27 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <div class="defbox"><div class="term">Polymer</div><div class="def">A long-chain organic molecule made of many repeating units linked together.</div></div>
 <div class="defbox"><div class="term">Oligomer</div><div class="def">A short polymer — up to ~10 mers (e.g. siloxane oligomers in impression silicones).</div></div>
 </div>
-<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">One bead vs the whole necklace</div><div class="ph-f">monomer-to-polymer-schematic.png</div><div class="ph-d">Single monomer with its reactive group, then n of them joined into a chain — labels monomer / mer / polymer.</div></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/monomer-to-polymer-schematic.png" alt=""><p class="figcap"><b>FIG.</b> One monomer → many repeating units linked into a chain.</p></div></div>
 </div></section>
 <section class="slide">
 <p class="s-eyebrow">Core vocabulary</p>
-<h2 class="s-title">The polymerization reaction</h2>
+<h2 class="s-title">The polymerization reaction · homopolymers</h2>
 <div class="s-body fig-heavy">
 <div class="col-text">
 <div class="defbox"><div class="term">Polymerization</div><div class="def">The reaction by which monomer units become chemically linked into a high-molecular-weight molecule.</div></div>
-<div class="defbox"><div class="term">Homopolymer</div><div class="def">Built from <b>one</b> type of monomer only (e.g., polyethylene, PMMA).</div></div>
-<div class="defbox"><div class="term">Copolymer</div><div class="def">Built from <b>more than one</b> type of monomer — lets chemists "tailor-make" properties (e.g., Bis-GMA + TEGDMA).</div></div>
+<div class="defbox"><div class="term">Homopolymer</div><div class="def">Built from <b>one</b> type of monomer only — for example polyethylene or PMMA. It can be arranged as a single straight chain (linear) or with side branches.</div></div>
 </div>
-<div class="col-visual"><div class="figbox dual"><img src="assets/homopolymer-linear-branched.png" alt=""><img src="assets/copolymer-random-block-graft.png" alt=""><p class="figcap">Homopolymer · Copolymer</p></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/homopolymer-linear-branched.png" alt=""><p class="figcap"><b>FIG.</b> A homopolymer — one monomer, arranged linear or branched.</p></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Core vocabulary</p>
+<h2 class="s-title">The polymerization reaction · copolymers</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Copolymer</div><div class="def">Built from <b>more than one</b> type of monomer — this is how chemists "tailor-make" properties (e.g., Bis-GMA + TEGDMA in composites).</div></div>
+<ul class="blist"><li>The two monomers can be arranged <b>randomly</b>, in <b>blocks</b>, or as a <b>graft</b> (side chains of one on a backbone of another).</li><li>Changing the ratio and arrangement lets you tune stiffness, viscosity and handling — we return to Bis-GMA + TEGDMA in Part 5.</li></ul>
+</div>
+<div class="col-visual"><div class="figbox"><img src="assets/copolymer-random-block-graft.png" alt=""><p class="figcap"><b>FIG.</b> Random, block and graft copolymers — same components, different arrangement.</p></div></div>
 </div></section>
 <section class="slide">
 <p class="s-eyebrow">Origin</p>
@@ -174,7 +198,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <ul class="blist"><li>Dental examples: <b>acrylic resins</b>, elastic impression materials, and the <b>vinyl polymers</b> derived from ethylene (C₂H₄).</li></ul>
 <div class="key"><span class="k-tag">Bridge</span> <b>Alginate</b> is a modified <b>natural</b> polymer (from seaweed); <b>PMMA</b> and composites are fully <b>synthetic</b>. Both obey the same chain rules we build today.</div>
 </div>
-<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">Where each family comes from</div><div class="ph-f">natural-vs-synthetic-origins.png</div><div class="ph-d">Split panel: left shows seaweed/algae and a protein-chain icon labelled natural sources; right shows a lab flask/reactor with an ethylene monomer labelled synthetic sources; both arrows converge into a generic polymer chain in the centre.</div></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/natural-vs-synthetic-origins.png" alt=""><p class="figcap"><b>FIG.</b> Natural sources (seaweed, proteins) vs synthetic (lab) — both give polymer chains.</p></div></div>
 </div></section>
 <section class="slide slide--interactive">
 <p class="s-eyebrow">Interactive · from monomer to weight</p>
@@ -219,7 +243,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <div class="col-text"><ul class="blist"><li>Polymers of <b>large molecules are stronger</b> and more resistant to thermal and mechanical stress than those of small ones.</li><li>Longer chains form more <b>entanglements</b> — physically harder to pull apart or distort.</li><li>So <b>strength and rigidity</b> both rise with chain length.</li></ul>
 <div class="mech" style="margin-top:1.2vh"><span class="k-tag">Mental model</span> Short chains slide like loose spaghetti; long, entangled chains grip one another.</div>
 </div>
-<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">Short vs long chains — entanglement</div><div class="ph-f">chain-entanglement.png</div><div class="ph-d">Left: few short chains, easily pulled apart. Right: long chains knotted/entangled, resisting separation. Arrow showing applied force.</div></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/chain-entanglement.png" alt=""><p class="figcap"><b>FIG.</b> Short chains slide apart; long chains entangle and resist.</p></div></div>
 </div></section>
 <section class="slide">
 <p class="s-eyebrow">Structure → property</p>
@@ -227,7 +251,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <div class="s-body">
 <div class="col-text"><ul class="blist"><li>Chain growth is <b>random</b> — some chains grow faster, some stop early. Not all chains are the same length.</li><li>Each chain has its own MW and DP, so a polymer's MW is reported as an <b>average</b>.</li><li>The <b>distribution</b> (fraction of low-, medium-, high-MW chains) affects properties as much as the average.</li><li>Two polymers with the <b>same average MW</b> can behave differently — one of long chains, one of many short ones.</li></ul>
 </div>
-<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">A spread of chain lengths</div><div class="ph-f">molecular-weight-distribution.png</div><div class="ph-d">Bell-shaped curve: amount of polymer (y) vs molecular weight (x), marking low / average / high MW regions; two curves with same mean but different width.</div></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/molecular-weight-distribution.png" alt=""><p class="figcap"><b>FIG.</b> A spread of chain lengths; same average MW can hide different distributions.</p></div></div>
 </div></section>
 <section class="slide slide--divider"><div class="s-eyebrow">Part 3 of 6</div><div class="num">03</div><h2>How the chains are arranged</h2><div class="d-list"><span>Linear · branched · cross-linked</span><span>· Thermoplastic vs thermosetting</span></div></section>
 <section class="slide">
@@ -308,12 +332,9 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <section class="slide">
 <p class="s-eyebrow">Free-radical addition</p>
 <h2 class="s-title">The reaction in three stages</h2>
-<div class="s-body fig-heavy">
-<div class="col-text">
-<p class="s-sub" style="margin-bottom:1vh">Composites and PMMA cure by <b>free-radical addition polymerization</b> of methacrylate monomers — a chain reaction that runs in three stages. A free radical is a molecule with an <b>unpaired electron</b>, which makes it highly reactive and eager to react with a nearby double bond.</p>
-<div class="mech"><span class="k-tag">Watch the radical</span> The reactive site is <b>handed along</b> the growing chain from one monomer to the next — never destroyed until termination.</div>
-</div>
-<div class="col-visual"><div class="figbox"><img src="assets/free-radical-overview.png" alt=""><p class="figcap"><b>FIG.</b> Initiation → chain start → propagation → termination.</p></div></div>
+<p class="s-sub">Composites and PMMA cure by <b>free-radical addition</b> of methacrylate monomers — a chain reaction in three stages. A free radical is a molecule with an <b>unpaired electron</b>, so it reacts eagerly with a nearby double bond. We now take each stage on its own.</p>
+<div class="s-body one-col" style="align-items:center;justify-content:center">
+<div class="figbox" style="max-width:78vw;margin:0 auto"><img src="assets/free-radical-overview.png" alt=""><p class="figcap"><b>FIG.</b> Overview — initiation → chain start → propagation → termination. The next three slides expand each stage.</p></div>
 </div></section>
 <section class="slide">
 <p class="s-eyebrow">Stage 1 · initiation</p>
@@ -321,7 +342,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <div class="s-body">
 <div class="col-text"><ul class="blist"><li>An <b>initiator</b> must be <b>activated</b> — by heat, light, or a chemical redox reaction — before it can release free radicals.</li><li>Classic chemical initiator: <b>benzoyl peroxide</b>, which splits (homolytic cleavage) into two radicals.</li><li>In light-cured resins: <b>camphorquinone</b> absorbs blue light (~468 nm) and, with an <b>amine co-initiator</b>, generates radicals.</li><li>A radical (R•) meets a C=C double bond, pairs with one electron and <b>leaves the other unpaired</b> — so the monomer itself becomes the new radical, ready to grow.</li></ul>
 </div>
-<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">How the first radical forms</div><div class="ph-f">initiation-schematic.png</div><div class="ph-d">Initiator activated by light/heat splits into two red radicals; one radical attacks a C=C double bond of a monomer, opening it and creating an active monomer radical. Label the unpaired electron.</div></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/initiation-schematic.png" alt=""><p class="figcap"><b>FIG.</b> Initiator activated → radicals → attack a monomer double bond.</p></div></div>
 </div></section>
 <section class="slide">
 <p class="s-eyebrow">Stage 2 · propagation</p>
@@ -378,7 +399,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <div class="s-body">
 <div class="col-text"><ul class="blist"><li>As monomers convert to a polymer, they pack closer and <b>volume is lost</b> — polymerization shrinkage.</li><li>It is inherent to turning loosely spaced monomers into a tightly bonded network.</li><li>The contraction itself is tolerable; the problem is the <b>stress</b> it generates once the material can no longer flow.</li><li>This drives stress at the <b>tooth–restoration interface</b> — developed fully in Part 6, and the key to our failing composite.</li></ul>
 </div>
-<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">Monomers pack closer on curing</div><div class="ph-f">shrinkage-concept.png</div><div class="ph-d">Left: spaced monomer droplets (loose). Right: same units bonded into a denser network occupying less volume; a dashed outline showing the volume lost.</div></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/shrinkage-concept.png" alt=""><p class="figcap"><b>FIG.</b> Monomers pack closer on curing — the volume lost is the shrinkage.</p></div></div>
 </div></section>
 <section class="slide">
 <p class="s-eyebrow">Consequence 3 · residual monomer</p>
@@ -392,7 +413,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <div class="step"><div><h4>Biocompatibility</h4><p>Mobile monomer leaches into saliva — cytotoxic to pulp, a cause of allergy.</p></div></div>
 </div>
 </div>
-<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">Where residual monomer comes from</div><div class="ph-f">residual-monomer-generation.png</div><div class="ph-d">A curing composite network with most double bonds reacted (dark) and a few unreacted monomers trapped in pockets (red), some escaping toward saliva. Show degree of conversion < 100%.</div></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/residual-monomer-generation.png" alt=""><p class="figcap"><b>FIG.</b> Some double bonds stay trapped and unreacted, then leach into saliva.</p></div></div>
 </div></section>
 <section class="slide">
 <p class="s-eyebrow">Surface effect · oxygen</p>
@@ -410,7 +431,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <div class="col-text"><ul class="blist"><li>Even a <b>small degree</b> of cross-linking limits how far chains move under stress.</li><li>It <b>increases</b> strength, hardness, rigidity and solvent resistance.</li><li>It <b>decreases</b> water sorption — a tighter mesh blocks fluid diffusion, reducing swelling and hydrolytic degradation.</li><li>But <b>excessive</b> cross-linking makes the material <b>brittle</b> — there is an optimum, not "more is always better".</li></ul>
 <div class="mech" style="margin-top:1.2vh"><span class="k-tag">Dental example</span> <b>Bis-GMA</b> is a cross-linking dimethacrylate — it gives composites stiffness and solvent resistance.</div>
 </div>
-<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">A tight mesh keeps water out</div><div class="ph-f">crosslink-water-barrier.png</div><div class="ph-d">Side-by-side: loosely packed linear chains with water molecules diffusing into the gaps (swelling) vs a densely cross-linked network blocking water; arrows for water penetration, a durability/strength icon on the cross-linked side.</div></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/crosslink-water-barrier.png" alt=""><p class="figcap"><b>FIG.</b> A dense cross-linked mesh blocks water; a loose network swells.</p></div></div>
 </div></section>
 <section class="slide">
 <p class="s-eyebrow">Modifier · copolymers</p>
@@ -475,14 +496,14 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <h2 class="s-title">Where plasticizers are used — and why they fail</h2>
 <div class="s-body">
 <div class="col-text"><ul class="blist"><li><span class="lead-term">Resilient denture liners.</span> Plasticizers (e.g. <b>dibutyl phthalate</b>) turn rigid PMMA into a soft cushion that spreads occlusal load over compromised mucosa.</li><li><span class="lead-term">Tissue conditioners.</span> Highly plasticized systems flow under pressure to record inflamed tissue while cushioning it.</li><li><span class="lead-term">Clinical degradation.</span> External plasticizers are not bonded, so they <b>leach into saliva</b> — the liner turns hard, brittle and rough and needs replacement.</li></ul></div>
-<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">How a soft liner works — and hardens</div><div class="ph-f">plasticizer-resilient-liner.png</div><div class="ph-d">A denture base with a soft liner cushioning the mucosa (plasticizer molecules between PMMA chains, absorbing occlusal load). Second panel: plasticizer leaching out into saliva over time → chains pack tight → liner becomes hard and rough.</div></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/plasticizer-resilient-liner.png" alt=""><p class="figcap"><b>FIG.</b> Plasticizer cushions the liner; as it leaches out, the liner hardens.</p></div></div>
 </div></section>
 <section class="slide">
 <p class="s-eyebrow">Durability · sorption &amp; solubility</p>
 <h2 class="s-title">How oral fluids get into a polymer</h2>
 <div class="s-body">
 <div class="col-text"><ul class="blist"><li><span class="lead-term">Free volume.</span> Loosely packed, poorly cross-linked chains leave gaps that <b>water diffuses into</b>.</li><li><span class="lead-term">Chemical polarity.</span> Hydrophilic groups (–OH in Bis-GMA, ether links in TEGDMA) <b>hydrogen-bond</b> with water, pulling fluid in.</li><li><span class="lead-term">Sorption.</span> Absorbed water forces chains apart, swelling the material and disrupting secondary bonds — <b>hydrolytic degradation</b>.</li><li><span class="lead-term">Solubility &amp; leaching.</span> Unbound monomer, initiator and additives dissolve out into the mouth, weakening the material.</li></ul></div>
-<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">Water in, components out</div><div class="ph-f">sorption-solubility.png</div><div class="ph-d">Polymer network immersed in saliva: SORPTION — water molecules diffusing inward into free volume, chains swelling apart; SOLUBILITY — residual monomer/additives leaching outward. Two labelled arrows in opposite directions.</div></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/sorption-solubility.png" alt=""><p class="figcap"><b>FIG.</b> Water diffuses IN (sorption); soluble components leach OUT (solubility).</p></div></div>
 </div></section>
 <section class="slide">
 <p class="s-eyebrow">Design lever</p>
@@ -492,7 +513,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <p class="s-sub" style="margin-bottom:1vh">Four levers, all met today — and the last one bridges to the composites lecture.</p>
 <ul class="blist"><li><span class="lead-term">Increase MW / DP.</span> Longer chains, more entanglement.</li><li><span class="lead-term">Cross-link.</span> A covalent network resists deformation and solvents.</li><li><span class="lead-term">Copolymerize.</span> Blend monomers to tune the balance of properties.</li><li><span class="lead-term">Add inorganic fillers.</span> Reinforce the matrix → a <b>composite</b>.</li></ul>
 </div>
-<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">Four ways to strengthen a polymer</div><div class="ph-f">strengthening-strategies.png</div><div class="ph-d">Four labelled quadrants/icons: (1) longer chains/entanglement, (2) cross-linking network, (3) copolymer blend of two monomers, (4) resin matrix packed with filler particles (composite). Clean icon style.</div></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/strengthening-strategies.png" alt=""><p class="figcap"><b>FIG.</b> Four levers: raise MW, cross-link, copolymerize, add filler.</p></div></div>
 </div></section>
 <section class="slide slide--divider"><div class="s-eyebrow">Part 6 of 6</div><div class="num">06</div><h2>Shrinkage, stress &amp; clinical failure</h2><div class="d-list"><span>Molecular driver</span><span>· Gel point · C-Factor</span><span>· Clinical consequences</span></div></section>
 <section class="slide">
@@ -506,7 +527,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 </div></section>
 <section class="slide">
 <p class="s-eyebrow">Shrinkage · 2 · why dental resins</p>
-<h2 class="s-title">Why it is unavoidable in composites</h2>
+<h2 class="s-title">Why do dental polymers shrink?</h2>
 <div class="s-body fig-heavy">
 <div class="col-text"><ul class="blist"><li>Direct composites and acrylics polymerize by <b>addition</b>, forming permanent cross-linked networks — so they always shrink as they set.</li><li><b>Bis-GMA</b> is viscous and rigid; <b>TEGDMA</b> is a small, low-viscosity diluent added to improve handling and filler loading.</li><li>But TEGDMA is small, so it has a <b>high concentration of double bonds per unit volume</b> — more bonds converted means <b>more shrinkage</b>.</li><li>So more TEGDMA improves handling but <b>increases</b> total polymerization shrinkage — a genuine trade-off.</li></ul></div>
 <div class="col-visual"><div class="figbox"><img src="assets/shrinkage-2-why-dental.png" alt=""><p class="figcap"><b>FIG.</b> Small, double-bond-rich monomers pack closer after curing → greater contraction.</p></div></div>
@@ -551,7 +572,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <div class="mech" style="margin-bottom:1.2vh"><span class="k-tag">Definition</span> <b>C-Factor = bonded surfaces ÷ unbonded (free) surfaces.</b> The more bonded walls relative to free surfaces, the less the composite can flow to relieve stress.</div>
 <ul class="blist"><li><span class="lead-term">High C-Factor — Class I.</span> 5 bonded walls : 1 free surface → <b>C = 5</b>. Almost no free surface to flow to, so intense stress concentrates at the interface.</li><li><span class="lead-term">Low C-Factor — Class V.</span> 1 bonded wall : 5 free surfaces → <b>C = 0.2</b>. The composite flows freely, minimizing interface stress.</li><li><span class="lead-term">Your lever.</span> You cannot change the cavity, but <b>incremental layering</b> lowers the <b>effective</b> C-Factor of each increment.</li></ul>
 </div>
-<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">High vs low C-Factor cavities</div><div class="ph-f">c-factor-high-low.png</div><div class="ph-d">Two tooth cross-sections: Class I box (5 bonded walls, 1 free surface, C=5, red high-stress arrows at interface) vs Class V notch (1 bonded, 5 free, C=0.2, green low-stress, composite free to flow). Label bonded vs free surfaces.</div></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/c-factor-high-low.png" alt=""><p class="figcap"><b>FIG.</b> Class I (5 bonded : 1 free, C = 5) vs Class V (1 bonded : 5 free, C = 0.2).</p></div></div>
 </div></section>
 <section class="slide">
 <p class="s-eyebrow">Recap</p>
@@ -568,7 +589,8 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 </div></section>
 </div></div>
 <div class="deckbar"><button class="navbtn" id="prev">&lsaquo;</button><button class="navbtn" id="next">&rsaquo;</button>
-<span class="part" id="partLabel"></span><span class="count" id="count"></span></div>
+<span class="part" id="partLabel"></span><button class="navbtn" id="menuBtn" title="Menu (O)">☰</button><span class="count" id="count"></span></div>
+<div class="overview" id="overview"><button class="ov-close" id="ovClose">✕ close (Esc)</button><h3>Jump to a slide</h3><p class="ov-hint">Click any slide · press O to toggle · Esc to close</p><div class="ov-grid" id="ovGrid"></div></div>
 <script>
 var track=document.getElementById("track");
 var slides=[].slice.call(document.querySelectorAll(".slide"));var i=0;
@@ -582,7 +604,32 @@ document.addEventListener("keydown",function(e){if(e.target.tagName==="INPUT")re
 if(e.key==="ArrowRight"||e.key==="PageDown"||e.key===" "){e.preventDefault();show(i+1)}
 else if(e.key==="ArrowLeft"||e.key==="PageUp"){e.preventDefault();show(i-1)}
 else if(e.key==="Home"){show(0)}else if(e.key==="End"){show(slides.length-1)}
-else if(e.key==="f"||e.key==="F"){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}});
+else if(e.key==="f"||e.key==="F"){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}
+else if(e.key==="o"||e.key==="O"){toggleOverview();}
+else if(e.key==="Escape"){closeOverview();}});
+/* Overview / jump menu */
+var ov=document.getElementById("overview"),ovGrid=document.getElementById("ovGrid");
+function buildOverview(){
+  ovGrid.innerHTML="";
+  slides.forEach(function(sl,idx){
+    var isPart=sl.classList.contains("slide--divider");
+    var isTitle=sl.classList.contains("slide--title");
+    var h=sl.querySelector("h1, h2 .s-title, h2");
+    var label=h?h.textContent.trim():("Slide "+(idx+1));
+    if(isPart){var num=sl.querySelector(".num"),htxt=sl.querySelector("h2");label=(num?num.textContent+" · ":"")+(htxt?htxt.textContent.trim():label);}
+    var item=document.createElement("button");
+    item.className="ov-item"+(isPart?" is-part":"");
+    item.innerHTML='<span class="ov-n">'+(idx+1)+'</span><span class="ov-t">'+label+'</span>';
+    item.onclick=function(){show(idx);closeOverview();};
+    ovGrid.appendChild(item);
+  });
+}
+function openOverview(){buildOverview();ov.classList.add("open");}
+function closeOverview(){ov.classList.remove("open");}
+function toggleOverview(){ov.classList.contains("open")?closeOverview():openOverview();}
+document.getElementById("menuBtn").onclick=toggleOverview;
+document.getElementById("count").onclick=toggleOverview;
+document.getElementById("ovClose").onclick=closeOverview;
 /* Beaker + scale + viscosity (3 monomer types) — v2, bigger & more polished */
 (function(){
 var sA=document.getElementById("sliderA"),sB=document.getElementById("sliderB"),sC=document.getElementById("sliderC");
