@@ -27,45 +27,51 @@ programa. Antes de gerar qualquer HTML de uma aula nova, **proponha primeiro a e
 Só depois de ele aprovar/ajustar isso, construa o HTML. Ele decide as escolhas de conteúdo/pedagogia;
 você decide e executa a parte técnica.
 
-## Onde estão os materiais-fonte (Google Drive local) — ESTRUTURA FIXA
+## Onde estão os materiais-fonte (Google Drive local) — ZONAS NUMERADAS
 
-O Google Drive do Vinicius tem duas pastas **irmãs** (mesmo nível), e elas **não se misturam nunca**:
+O Google Drive do Vinicius, dentro de `G:\My Drive\NUS\Lectures\`, está organizado em três zonas
+numeradas que **nunca se misturam**:
 
 ```
 G:\My Drive\NUS\Lectures\
-    New lectures\                     ← SÓ MATERIAIS-FONTE. Nunca escreva/crie nada aqui.
-        <Nome do Tópico>\
-            Assets\                   ← figuras PNG prontas
-            Texts\                    ← docx/pdf com o conteúdo bruto
-    HTML code\                        ← ESTE REPOSITÓRIO. Onde você trabalha e faz commit/push.
+    0. Course plan\         ← planejamento do curso (reforma curricular, proposta). Não é conteúdo de aula.
+    1. Source\              ← SÓ MATERIAIS-FONTE. Nunca escreva/crie/mova nada aqui. (era "New lectures")
+        NN. <Tópico>\       ← ex.: "03. Polymers and polymerization"
+            Assets\         ← figuras PNG prontas (fonte)
+            Texts\          ← docx/pdf/roteiro com o conteúdo bruto
+    2. Repo\                ← ESTE REPOSITÓRIO. Onde você trabalha e faz commit/push. (era "HTML code")
         index.html
-        assets/  lectures/  tools/
+        assets/  lectures/  tools/  _ops/
         CLAUDE.md  README.md  ...
+    (+ dezenas de .ppt/.pdf históricos soltos na raiz de Lectures\ = arquivo morto, NÃO TOQUE)
 ```
 
-Regra crítica: **`New lectures\` é somente leitura para você.** Você tem acesso direto pelo sistema
-de arquivos e deve **ler** os PDFs/DOCX/PNG de lá — mas **nunca crie, mova ou edite arquivos dentro
-dela**. Todo código, toda figura copiada e renomeada, todo commit — tudo isso acontece exclusivamente
-dentro de `HTML code\` (esta pasta, o repositório git). Se em algum momento os caminhos não baterem com
-isso, **pare e confirme com o Vinicius antes de escrever em qualquer lugar** — não assuma uma estrutura
-diferente, mesmo que pareça mais conveniente.
+**CONVENÇÃO DE NOMES:** o separador dos números é **ponto e espaço** (`0. Course plan`, `1. Source`,
+`03. Polymers and polymerization`). **Nunca** use o middle-dot `·` — é difícil de digitar e achar.
+Qualquer pasta que você criar ou renomear usa `.`.
+
+Regra crítica: **`1. Source\` é somente leitura para você.** Leia os PDFs/DOCX/PNG de lá, mas **nunca
+crie, mova ou edite arquivos dentro dela**. Todo código, toda figura copiada/renomeada e todo commit
+acontecem exclusivamente dentro de `2. Repo\` (esta pasta, o repositório git). Se os caminhos não baterem
+com isso, **pare e confirme com o Vinicius antes de escrever em qualquer lugar**.
+
+Prompts que você recebe e handovers de cada chat ficam versionados em `_ops\prompts\` e `_ops\handovers\`
+dentro do repositório.
 
 Ao montar uma aula:
-- Leia os textos-fonte (docx/pdf) em `New lectures\<Tópico>\Texts\` para entender o conteúdo real.
-- **Não copie as figuras cegamente.** Analise cada uma e o conteúdo da aula e **recomende ao Vinicius**
-  quais figuras a aula precisa e, para cada uma: usar a existente, recriar/melhorar, ou criar nova.
-  Para as que valem recriar/criar, entregue a ele um **prompt/descrição pronto** (proporção, o que mostrar,
-  rótulos, estilo) — ele gera a imagem em outra ferramenta e coloca em `Assets\`. Só então você copia.
-- Ao copiar uma figura já boa de `New lectures\<Tópico>\Assets\` para
-  `HTML code\lectures\NN-slug\assets\`, **renomeie para kebab-case descritivo**
-  (ex.: `Polymerization shrinkage 1.png` → `shrinkage-1-molecular-mechanism.png`).
-  Nunca deixe os nomes originais do Drive no repositório, e nunca escreva nada de volta em `New lectures\`.
-- Prefira **animações/interações em SVG/JS** (feitas por você no HTML) quando ensinarem melhor que uma imagem.
-- Se uma figura não tiver legenda clara ou o conteúdo parecer incompleto, marque `[VERIFY]` na legenda
-  e avise o Vinicius — não invente o que a figura mostra.
-- **Trabalhe iterativo:** ele adiciona material aos poucos e vocês constroem juntos. Não espere um pacote
-  fechado; se ele trouxer mais material depois, continue de onde parou. Às vezes ele quer que você siga só
-  o material da pasta, às vezes traz ideias próprias — cheque no início, não assuma.
+- Leia os textos-fonte (docx/pdf) em `1. Source\NN. <Tópico>\Texts\` para entender o conteúdo real.
+- **Não copie as figuras cegamente.** Analise cada uma e recomende ao Vinicius quais a aula precisa e,
+  para cada uma: usar a existente, recriar/melhorar, ou criar nova. Para as que valem recriar/criar,
+  entregue um **prompt/descrição pronto** (proporção, o que mostrar, rótulos, estilo) — ele gera a imagem
+  em outra ferramenta e coloca em `Assets\`. Só então você copia.
+- Ao copiar uma figura boa de `1. Source\NN. <Tópico>\Assets\` para `lectures\NN-slug\assets\`,
+  **renomeie para kebab-case descritivo** (ex.: `Polymerization shrinkage 1.png` →
+  `shrinkage-1-molecular-mechanism.png`). Nunca deixe os nomes originais do Drive no repositório, e nunca
+  escreva de volta em `1. Source\`.
+- Prefira **animações/interações em SVG/JS** quando ensinarem melhor que uma imagem.
+- Figura sem legenda clara ou conteúdo incompleto → marque `[VERIFY]` na legenda e avise — não invente.
+- **Trabalhe iterativo:** ele adiciona material aos poucos. Cheque no início se deve seguir só o material
+  da pasta ou se ele traz ideias próprias; não assuma.
 
 ## Formato e design system (não reinvente por aula)
 
@@ -107,7 +113,10 @@ autenticação, avise-o para conferir se está logado no GitHub pela extensão d
 
 Ver lista completa em `PROJECT_RULES.md`. Resumo: [D-01] 6 objetivos-guarda-chuva na tela ·
 [D-02] Clinical Clean · [D-03] scaffold+aula juntos (feito) · [D-04] professor dirige como slide ·
-[D-05] formato enxuto, sem modo professor.
+[D-05] formato enxuto, sem modo professor ·
+[D-06] estrutura em zonas numeradas com "." (0. Course plan / 1. Source read-only / 2. Repo git);
+nomes nunca com "·" · [D-07] Aula 03 publicada · [D-08] workflow: Claude lê o Drive, monta o HTML,
+entrega 1 prompt pro Claude Code que faz figuras+git.
 
 ## Perguntas em aberto (avise se forem relevantes à tarefa atual)
 
