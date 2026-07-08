@@ -50,6 +50,14 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 .figbox.dual{gap:1rem}
 .figcap{font-size:1.05rem;color:var(--muted);line-height:1.4;text-align:center}
 .figcap b{color:var(--ink-soft)}
+.slide--focusfig{align-items:center;text-align:center}
+.slide--focusfig .ff-head{width:100%;max-width:72ch;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+.slide--focusfig .s-eyebrow{justify-content:center}
+.slide--focusfig .s-title{margin-bottom:1vh}
+.slide--focusfig .s-sub{max-width:74ch;margin:0 auto;text-align:center}
+.slide--focusfig .s-body{width:100%;flex:1;padding:1vh 2vw 0.5vh;align-items:center;justify-content:center;justify-items:center}
+.slide--focusfig .figbox{margin:0 auto;padding:1.3rem;max-width:26vw;max-height:100%}
+.slide--focusfig .figbox img{width:auto;max-width:100%;height:auto;max-height:48vh}
 .ph{border:2.5px dashed var(--primary);border-radius:16px;background:repeating-linear-gradient(135deg,#EAF6F8,#EAF6F8 14px,#E1F0F3 14px,#E1F0F3 28px);padding:2rem 1.5rem;text-align:center;display:flex;flex-direction:column;gap:.6rem;align-items:center;justify-content:center;min-height:44vh}
 .ph .ph-badge{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--primary);padding:.3rem .8rem;border-radius:999px}
 .ph .ph-t{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.25rem,1.85vw,1.55rem);color:var(--primary-ink)}
@@ -329,12 +337,14 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 </div>
 <div class="key"><span class="k-tag">Clinical anchor</span> A <b>condensation silicone</b> impression must be poured <b>immediately</b> — its ethanol by-product keeps evaporating, and the impression keeps shrinking. <b>PVS (addition)</b> releases nothing, so it stays accurate and can be poured <b>days later</b>.</div>
 </div></section>
-<section class="slide">
+<section class="slide slide--focusfig">
+<div class="ff-head">
 <p class="s-eyebrow">Free-radical addition</p>
 <h2 class="s-title">The reaction in three stages</h2>
 <p class="s-sub">Composites and PMMA cure by <b>free-radical addition</b> of methacrylate monomers — a chain reaction in three stages. A free radical is a molecule with an <b>unpaired electron</b>, so it reacts eagerly with a nearby double bond. We now take each stage on its own.</p>
-<div class="s-body one-col" style="align-items:center;justify-content:center">
-<div class="figbox" style="max-width:78vw;margin:0 auto"><img src="assets/free-radical-overview.png" alt=""><p class="figcap"><b>FIG.</b> Overview — initiation → chain start → propagation → termination. The next three slides expand each stage.</p></div>
+</div>
+<div class="s-body one-col">
+<div class="figbox"><img src="assets/free-radical-overview.png" alt=""><p class="figcap"><b>FIG.</b> Overview — initiation → chain start → propagation → termination. The next three slides expand each stage.</p></div>
 </div></section>
 <section class="slide">
 <p class="s-eyebrow">Stage 1 · initiation</p>
