@@ -19,7 +19,9 @@ How polymers form · What controls the properties · Shrinkage, stress & clinica
 - **Figuras**: **17 copiadas** do Drive para `assets/` (kebab-case); **12 referenciadas** no deck e
   **5 extras** disponíveis (ver §2). Todas as 12 referências foram conferidas no disco.
 - **Validado**: `node --check` no script inline (OK), `<section>` 45/45 e `<div>` 323/323 balanceados.
-- **Publicado**: ligada no hub raiz (badge **Open**) e no **GitHub Pages** (branch `main`, raiz `/`).
+- **Publicado**: ligada no hub raiz (badge **Open**); **GitHub Pages** já ativo (repo público, branch
+  `main`, raiz `/`) — deck novo confirmado no ar (HTTP 200) em
+  `https://vinirosadent.github.io/Lectures/lectures/03-polymerisation-and-polymers/`.
 
 > As seções §1 e §3 abaixo descrevem o desenho pedagógico original (por IDs `#vocabulary` etc.); o deck
 > final reorganizou o mesmo conteúdo em slides numerados, mas a **cobertura de objetivos permanece a mesma**.

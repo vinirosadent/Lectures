@@ -14,8 +14,9 @@
   copolímeros, plastificação, sorção — e a âncora clínica de contração/estresse/C-factor com sliders.
 - **Validação**: `node --check` no script inline (**OK**, v24), tags balanceadas (45/45 `<section>`,
   323/323 `<div>`), e as 12 imagens referenciadas conferidas uma a uma no disco.
-- **Publicação**: Aula 03 ligada no hub (`index.html` raiz, badge **Open**) e **GitHub Pages** ativado por
-  linha de comando (branch `main`, raiz `/`).
+- **Publicação**: Aula 03 ligada no hub (`index.html` raiz, badge **Open**). **GitHub Pages** já estava
+  ativo (repo público, branch `main`, raiz `/`); após o push, o deck novo foi confirmado **no ar** (HTTP 200)
+  em `https://vinirosadent.github.io/Lectures/lectures/03-polymerisation-and-polymers/`.
 
 ## Chat 1 (continuação) — formato enxuto + navegação por slides
 - **[D-04/D-05]** Uso real esclarecido: o professor **dirige** o HTML projetando em sala (não é self-learning).
