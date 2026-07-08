@@ -5,6 +5,27 @@
 
 ---
 
+## 0. Estado final (2026-07-08) — ✅ aula concluída
+
+O `index.html` desta aula é agora o **deck final em slides** entregue pelo Vinicius:
+**45 slides em 6 partes** — *Orientation & goals · The building blocks · How the chains are arranged ·
+How polymers form · What controls the properties · Shrinkage, stress & clinical failure*.
+
+- **Autocontido**: CSS e JS **inline** no próprio arquivo (não usa `assets/css/lecture.css` nem
+  `assets/js/lecture.js`); só carrega as fontes Google (Space Grotesk / Inter / IBM Plex Mono).
+  Navegação de slides própria embutida no deck.
+- **Interações**: 5 sliders (`type="range"`), 5 blocos SVG, 2 botões — animações de contração/estresse,
+  reticulação, plastificação, sorção etc. já dentro do HTML.
+- **Figuras**: **17 copiadas** do Drive para `assets/` (kebab-case); **12 referenciadas** no deck e
+  **5 extras** disponíveis (ver §2). Todas as 12 referências foram conferidas no disco.
+- **Validado**: `node --check` no script inline (OK), `<section>` 45/45 e `<div>` 323/323 balanceados.
+- **Publicado**: ligada no hub raiz (badge **Open**) e no **GitHub Pages** (branch `main`, raiz `/`).
+
+> As seções §1 e §3 abaixo descrevem o desenho pedagógico original (por IDs `#vocabulary` etc.); o deck
+> final reorganizou o mesmo conteúdo em slides numerados, mas a **cobertura de objetivos permanece a mesma**.
+
+---
+
 ## 1. Objetivos — os 6 "guarda-chuva" na tela vs. competências granulares
 
 Decisão **[D-01]**: mostramos ao aluno **6 objetivos** (legíveis, memoráveis) em vez de uma lista longa.
@@ -45,8 +66,15 @@ Todas vêm da sua pasta **Assets**. O script `tools/copy-figures-03.ps1` renomei
 | FIG 03.13 | shrinkage-3-stress-development.png | Polymerization shrinkage 3.png | ok (pré/pós-gel) |
 | FIG 03.14 | shrinkage-4-clinical-consequences.png | Polymerization shrinkage 4.png | ok (microleakage etc.) |
 
-**Extras copiados** (não usados ainda, disponíveis): `molecular-weight-ethylene-example.png`,
-`copolymer-methacrylate-example.png`, `copolymer-mma-ema-formula.png`.
+**Uso no deck final (2026-07-08):** as **12** figuras efetivamente exibidas são
+`homopolymer-linear-branched`, `copolymer-random-block-graft`, `molecular-weight-ethylene-example`,
+`crosslinking`, `addition-polymerization`, `condensation-polymerization`, `free-radical-overview`,
+`free-radical-chemistry`, `plasticization`, `shrinkage-1-molecular-mechanism`, `shrinkage-2-why-dental`
+e `shrinkage-3-stress-development`.
+
+**Extras copiados** (disponíveis no `assets/`, **não referenciados** no deck final): `terpolymer-mma-ema-pma.png`,
+`molecular-weight-concept.png`, `shrinkage-4-clinical-consequences.png`, `copolymer-methacrylate-example.png`,
+`copolymer-mma-ema-formula.png` — total de **17** figuras na pasta.
 
 > **3 figuras `[VERIFY]`**: Addition, Condensation e Crosslinking não retornaram texto pelo conector,
 > então legendei pelo conceito padrão. Ao abrir a aula, dê uma olhada nelas e me diga se ajusto alguma legenda.

@@ -10,9 +10,9 @@ Cada aula é uma página que roda no navegador, com figuras + animações própr
 
 | | |
 |---|---|
-| **Chat atual** | 1 (scaffold + Aula 03) |
+| **Chat atual** | 2 (Aula 03 finalizada) |
 | **Identidade visual** | Clinical Clean (**[D-02]**) — teal=ciência, âmbar=clínica, rosa=equívoco, painel escuro=mecanismo |
-| **Aulas prontas** | **03 · Polymers & Polymerization** |
+| **Aulas prontas** | **03 · Polymers & Polymerization** — deck final em slides (45 slides · 6 partes), 17 figuras integradas |
 | **Próxima sugerida** | 02 · Mechanical properties |
 | **Repositório** | https://github.com/vinirosadent/Lectures |
 | **Publicação** | GitHub Pages → `https://vinirosadent.github.io/Lectures/` |
@@ -20,7 +20,7 @@ Cada aula é uma página que roda no navegador, com figuras + animações própr
 ### Progresso (20 aulas · 39 h)
 - [ ] 01 Introduction & framework
 - [ ] 02 Mechanical properties
-- [x] **03 Polymers & polymerization** ✅
+- [x] **03 Polymers & polymerization** ✅ — deck final em slides, figuras integradas, revisão de conteúdo
 - [ ] 04 Colour & optics · 05 Biocompatibility · 06 Bioactivity · 07 3D printing
 - [ ] 08–14 Impressions · Gypsum · Cements · Composites · Adhesives · Ceramics · CAD/CAM
 - [ ] 15–20 Acrylics · CoCr · Endo · NiTi/aligners · Implants · Degradation

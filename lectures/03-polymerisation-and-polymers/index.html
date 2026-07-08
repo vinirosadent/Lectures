@@ -1,815 +1,833 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>03 · Polymers &amp; Polymerization — Dental Materials</title>
-<meta name="description" content="Interactive lecture on polymers and polymerization for undergraduate dental students.">
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymers &amp; Polymerization · Dental Materials · Lecture 03</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<!-- Design system compartilhado: dois níveis acima -->
-<link rel="stylesheet" href="../../assets/css/lecture.css">
-</head>
-<body>
-
-<!-- ================= BARRA SUPERIOR + PROGRESSO ==================== -->
-<div class="topbar">
-  <div class="topbar__row">
-    <a class="topbar__home" href="../../index.html">← Course home</a>
-    <span class="topbar__title">03 · Polymers &amp; Polymerization</span>
-    <span class="topbar__home mono">Phase 1 · 2 h</span>
-  </div>
-  <div class="progress"><div class="progress__bar"></div></div>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FBFCFD;--surface:#fff;--ink:#0F1B2A;--ink-soft:#31465C;--muted:#5E7285;--line:#E3E9EF;
+--primary:#0C7489;--primary-ink:#0A5C6D;--primary-wash:#E7F4F6;--navy:#12315B;
+--clinical:#B45309;--clinical-wash:#FDF3E7;--warn:#BE123C;--warn-wash:#FDECEF;--ok:#15803D;
+--dark:#0B1B2B;--dark-2:#10273B;--dark-ink:#E8F1F6;--dark-muted:#8FA9BC;--dark-line:#1E3A52;
+--f-disp:"Space Grotesk",system-ui,sans-serif;--f-body:"Inter",system-ui,sans-serif;--f-mono:"IBM Plex Mono",monospace;}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f-body);color:var(--ink)}
+.deck{height:100vh;width:100vw;overflow:hidden;position:relative}
+.track{display:flex;height:100%;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.slide{min-width:100vw;height:100vh;padding:4.5vh 5vw 7.5vh;background:var(--paper);display:flex;flex-direction:column;position:relative}
+.s-eyebrow{font-family:var(--f-mono);font-size:1rem;letter-spacing:.13em;text-transform:uppercase;color:var(--primary-ink);margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem}
+.s-eyebrow::before{content:"";width:30px;height:10px;background:radial-gradient(circle at 5px 5px,var(--primary) 3.2px,transparent 3.6px),radial-gradient(circle at 25px 5px,var(--primary) 3.2px,transparent 3.6px);border-top:2px solid var(--primary)}
+.s-title{font-family:var(--f-disp);font-weight:600;line-height:1.06;color:var(--ink);font-size:clamp(2.3rem,4.3vw,3.6rem);letter-spacing:-.01em;margin-bottom:1.4vh}
+.s-sub{font-size:clamp(1.3rem,1.9vw,1.65rem);color:var(--ink-soft);margin-bottom:1.8vh;max-width:70ch;line-height:1.5}
+.s-body{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:2.8vw;min-height:0;align-items:center}
+.s-body.one-col{grid-template-columns:1fr}
+.s-body.text-heavy{grid-template-columns:1.25fr .75fr}
+.s-body.fig-heavy{grid-template-columns:.8fr 1.2fr}
+.col-text{overflow:auto;padding-right:.4rem;max-height:100%}
+.col-visual{height:100%;display:flex;flex-direction:column;justify-content:center;gap:1rem;min-height:0}
+.blist{list-style:none;display:flex;flex-direction:column;gap:1.3vh}
+.blist>li{position:relative;padding-left:1.8rem;font-size:clamp(1.25rem,1.8vw,1.6rem);line-height:1.48;color:var(--ink-soft)}
+.blist>li::before{content:"";position:absolute;left:0;top:.5em;width:11px;height:11px;border-radius:50%;border:2px solid var(--primary);background:var(--primary-wash)}
+.blist>li b{color:var(--ink)}
+.blist .lead-term{font-family:var(--f-disp);font-weight:600;color:var(--primary-ink)}
+.blist.cols{columns:2;column-gap:3rem;display:block}
+.blist.cols>li{break-inside:avoid;margin-bottom:1.3vh}
+.defbox{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--primary);border-radius:0 14px 14px 0;padding:1.3rem 1.5rem;margin-bottom:1.5vh;box-shadow:0 6px 22px rgba(15,27,42,.05)}
+.defbox .term{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.45rem,2.2vw,1.85rem);color:var(--primary-ink);margin-bottom:.35rem}
+.defbox .def{font-size:clamp(1.25rem,1.8vw,1.55rem);color:var(--ink-soft);line-height:1.48}
+.steps{display:flex;flex-direction:column;gap:1.4vh;counter-reset:st}
+.step{display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:start}
+.step::before{counter-increment:st;content:counter(st);font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:1.05rem;flex:none}
+.step h4{font-family:var(--f-disp);font-size:clamp(1.3rem,1.9vw,1.65rem);color:var(--ink);margin-bottom:.2rem}
+.step p{font-size:clamp(1.2rem,1.6vw,1.42rem);line-height:1.42;color:var(--ink-soft)}
+.key{margin-top:1.8vh;border-left:5px solid var(--clinical);background:var(--clinical-wash);padding:1.1rem 1.35rem;border-radius:0 12px 12px 0;font-size:clamp(1.25rem,1.8vw,1.55rem);color:var(--ink);line-height:1.48}
+.key b{color:var(--clinical)}
+.key .k-tag{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--clinical);display:block;margin-bottom:.35rem}
+.mech{background:var(--primary-wash);border:1px solid #BFE2E8;border-radius:12px;padding:1.1rem 1.35rem;font-size:clamp(1.22rem,1.75vw,1.5rem);color:var(--ink-soft);line-height:1.46}
+.mech .k-tag{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--primary-ink);display:block;margin-bottom:.35rem}
+.mech b{color:var(--ink)}
+.figbox{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1rem;box-shadow:0 12px 40px rgba(15,27,42,.10);display:flex;flex-direction:column;gap:.6rem;max-height:100%;align-items:center;justify-content:center}
+.figbox img{width:100%;height:auto;max-height:72vh;object-fit:contain;display:block;border-radius:8px}
+.figbox.dual{gap:1rem}
+.figcap{font-size:1.05rem;color:var(--muted);line-height:1.4;text-align:center}
+.figcap b{color:var(--ink-soft)}
+.ph{border:2.5px dashed var(--primary);border-radius:16px;background:repeating-linear-gradient(135deg,#EAF6F8,#EAF6F8 14px,#E1F0F3 14px,#E1F0F3 28px);padding:2rem 1.5rem;text-align:center;display:flex;flex-direction:column;gap:.6rem;align-items:center;justify-content:center;min-height:44vh}
+.ph .ph-badge{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--primary);padding:.3rem .8rem;border-radius:999px}
+.ph .ph-t{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.25rem,1.85vw,1.55rem);color:var(--primary-ink)}
+.ph .ph-f{font-family:var(--f-mono);font-size:1rem;color:var(--muted)}
+.ph .ph-d{font-size:1.1rem;color:var(--ink-soft);max-width:36ch;line-height:1.4}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-content:center}
+.vs.three{grid-template-columns:1fr 1fr 1fr}
+.vs .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.5rem;box-shadow:0 8px 28px rgba(15,27,42,.07)}
+.vs .card h3{font-family:var(--f-disp);font-size:clamp(1.4rem,2.1vw,1.78rem);margin-bottom:1rem}
+.vs .card.a h3{color:var(--primary-ink)} .vs .card.b h3{color:var(--warn)}
+.vs .card ul{list-style:none;display:flex;flex-direction:column;gap:.95vh}
+.vs .card li{position:relative;padding-left:1.4rem;font-size:clamp(1.2rem,1.6vw,1.42rem);line-height:1.42;color:var(--ink-soft)}
+.vs .card li::before{content:"";position:absolute;left:0;top:.5em;width:9px;height:9px;border-radius:50%}
+.vs .card.a li::before{background:var(--primary)} .vs .card.b li::before{background:var(--warn)}
+.vs .card li b{color:var(--ink)}
+.objlist{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1.4vh 2.5rem;counter-reset:ob}
+.objlist li{counter-increment:ob;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;font-size:clamp(1.25rem,1.75vw,1.5rem);line-height:1.42;color:var(--ink-soft)}
+.objlist li::before{content:counter(ob);font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:1rem}
+.objlist li b{color:var(--ink)}
+.objgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;flex:1;min-height:0}
+.objcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.5rem;box-shadow:0 8px 24px rgba(15,27,42,.06);display:flex;flex-direction:column;gap:.7rem}
+.objnum{font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:1.05rem;flex:none}
+.objtxt{font-size:clamp(1.2rem,1.65vw,1.42rem);line-height:1.42;color:var(--ink-soft)}
+.objtxt b{color:var(--ink)}
+.flowstrip{background:var(--primary-wash);border:1px solid #BFE2E8;border-radius:14px;padding:1rem 1.4rem;display:flex;align-items:center;justify-content:center}
+.flowstrip svg{width:100%;max-width:900px;height:auto;display:block}
+.instrument{background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--dark-line);border-radius:22px;padding:1.6rem 1.6rem 1.4rem;box-shadow:0 20px 50px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.06)}
+.viscowrap{margin-top:1.4rem}
+.viscolabel{font-family:var(--f-mono);font-size:1.05rem;color:var(--dark-muted);display:flex;justify-content:space-between;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.07em}
+.viscolabel span:last-child{color:#fff;font-weight:600;letter-spacing:.03em}
+.viscobar{width:100%;height:22px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--dark-line);overflow:hidden;box-shadow:inset 0 2px 6px rgba(0,0,0,.35)}
+.viscofill{height:100%;width:0%;background:linear-gradient(90deg,#57C6D8,#8FD1A8,#F2B84B,#D64545);transition:width .3s;box-shadow:0 0 12px rgba(87,198,216,.5)}
+.slide--title,.slide--divider,.slide--interactive{background:linear-gradient(155deg,var(--dark),var(--dark-2));color:var(--dark-ink);justify-content:center}
+.slide--title .s-eyebrow,.slide--divider .s-eyebrow,.slide--interactive .s-eyebrow{color:#57C6D8}
+.slide--title .s-eyebrow::before,.slide--divider .s-eyebrow::before,.slide--interactive .s-eyebrow::before{background:radial-gradient(circle at 5px 5px,#57C6D8 3.2px,transparent 3.6px),radial-gradient(circle at 25px 5px,#57C6D8 3.2px,transparent 3.6px);border-top-color:#57C6D8}
+.slide--title h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(2.9rem,6.5vw,5.2rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:1.4rem}
+.slide--title .frame{font-size:clamp(1.35rem,2.3vw,1.85rem);color:var(--dark-muted);max-width:42ch;line-height:1.42}
+.slide--divider .num{font-family:var(--f-disp);font-weight:700;font-size:clamp(4.5rem,12vw,9rem);color:var(--dark-line);line-height:1}
+.slide--divider h2{font-family:var(--f-disp);font-weight:600;font-size:clamp(2.4rem,5vw,4rem);color:#fff;margin-top:-1vh}
+.slide--divider .d-list{margin-top:2.2vh;color:var(--dark-muted);font-size:clamp(1.2rem,1.8vw,1.5rem);display:flex;flex-wrap:wrap;gap:.5rem 1.6rem}
+.slide--interactive .s-title{color:#fff}
+.control{margin:1.4vh 0}
+.control label{font-family:var(--f-mono);font-size:1.1rem;color:var(--dark-muted);display:flex;justify-content:space-between;margin-bottom:.4rem}
+.control input[type=range]{width:100%;accent-color:#14A0B8;height:7px}
+.igloss{color:var(--dark-muted);font-size:clamp(1.25rem,1.75vw,1.5rem);line-height:1.46;margin-top:1.3vh}
+.igloss b{color:#fff}
+.calc{background:rgba(255,255,255,.05);border:1px solid var(--dark-line);border-radius:16px;padding:1.6rem 1.8rem}
+.calc .out{font-family:var(--f-mono);margin-top:1.2rem;display:flex;flex-direction:column;gap:.7rem}
+.calc .out .row{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed var(--dark-line);padding-bottom:.5rem}
+.calc .out .lbl{color:var(--dark-muted);font-size:1rem}
+.calc .out .big{color:#57C6D8;font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:600}
+.calc .formula{font-family:var(--f-mono);color:#fff;font-size:clamp(1.05rem,1.5vw,1.3rem);margin-top:1rem;text-align:center;background:rgba(20,160,184,.12);border-radius:10px;padding:.7rem}
+.deckbar{position:fixed;bottom:0;left:0;right:0;height:5vh;min-height:38px;background:rgba(11,27,43,.94);color:#fff;display:flex;align-items:center;gap:1rem;padding:0 1.2rem;z-index:20;font-family:var(--f-mono)}
+.deckbar .part{font-size:.8rem;color:var(--dark-muted);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.deckbar .count{font-size:.85rem;color:#9FCBD6}
+.navbtn{border:0;background:#17425C;color:#EAF4F8;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:grid;place-items:center}
+.navbtn:hover{background:#1E5877}
+.progress{position:fixed;top:0;left:0;height:4px;background:#14A0B8;z-index:21;transition:width .3s;width:0}
+@media (max-width:900px){.s-body,.s-body.text-heavy,.s-body.fig-heavy{grid-template-columns:1fr;gap:1.2rem}.objlist,.blist.cols{grid-template-columns:1fr;columns:1}}
+</style></head><body>
+<div class="progress" id="prog"></div>
+<div class="deck"><div class="track" id="track">
+<section class="slide slide--title"><p class="s-eyebrow">Phase 1 · Fundamentals · Lecture 03</p><h1>Polymers &amp;<br>Polymerization</h1><p class="frame">From one repeating unit to the materials that fill teeth, base dentures, and record impressions — and why they shrink, soften, and age.</p></section>
+<section class="slide slide--divider"><div class="s-eyebrow">Part 1 of 6</div><div class="num">01</div><h2>Orientation &amp; goals</h2><div class="d-list"><span>What you should be able to do</span><span>· The reasoning thread of the course</span></div></section>
+<section class="slide">
+<p class="s-eyebrow">Learning objectives</p>
+<h2 class="s-title">By the end of this lecture you can…</h2>
+<p class="s-sub">Everything hangs on one reasoning thread — we move from the chain, to what it does, to how it behaves in the mouth.</p>
+<div class="s-body one-col" style="display:flex;flex-direction:column;gap:1.8vh">
+<div class="objgrid">
+<div class="objcard"><span class="objnum">1</span><div class="objtxt">Use the core <b>vocabulary</b> — polymer, monomer, mer, oligomer, degree of polymerization.</div></div>
+<div class="objcard"><span class="objnum">2</span><div class="objtxt">Distinguish <b>addition</b> from <b>condensation</b> and predict their by-products.</div></div>
+<div class="objcard"><span class="objnum">3</span><div class="objtxt">Explain how <b>architecture</b> (linear, branched, cross-linked) and thermal class set behaviour.</div></div>
+<div class="objcard"><span class="objnum">4</span><div class="objtxt">Describe the <b>three stages</b> of free-radical polymerization and its consequences.</div></div>
+<div class="objcard"><span class="objnum">5</span><div class="objtxt">Relate <b>molecular weight, cross-linking, plasticizers</b> to strength and degradation.</div></div>
+<div class="objcard"><span class="objnum">6</span><div class="objtxt">Explain <b>polymerization shrinkage stress</b> and why restorations fail at the margin.</div></div>
 </div>
-
-<!-- ================= NAVEGAÇÃO POR SEÇÃO (pontos à direita) ======== -->
-<nav class="secnav" aria-label="Section navigation">
-  <a href="#objectives"><span>Objectives</span></a>
-  <a href="#bigpicture"><span>Big picture</span></a>
-  <a href="#vocabulary"><span>Vocabulary</span></a>
-  <a href="#mechanisms"><span>Addition vs condensation</span></a>
-  <a href="#freeradical"><span>Free-radical stages</span></a>
-  <a href="#architecture"><span>Architecture &amp; heat</span></a>
-  <a href="#properties"><span>MW · cross-link · plasticizer</span></a>
-  <a href="#shrinkage"><span>Shrinkage &amp; stress</span></a>
-  <a href="#misconceptions"><span>Misconceptions</span></a>
-  <a href="#checkpoint"><span>Checkpoint</span></a>
-  <a href="#summary"><span>Take-home</span></a>
-</nav>
-
-<!-- ================= HERO ========================================= -->
-<header class="hero" id="hero">
-  <div class="l-wide">
-    <p class="eyebrow hero__eyebrow">Phase 1 · Fundamentals · Lecture 03</p>
-    <h1>Polymers &amp; Polymerization</h1>
-    <p class="statement">A long chain, built from repeating units — <b>how it forms decides how it fails.</b></p>
-    <div class="hero__hook">
-      A composite filling looks perfect on day one. Weeks later: a stained margin, sensitivity.
-      Nothing was "done wrong" — the answer is in the <b>polymerization reaction</b> itself.
-    </div>
-  </div>
-</header>
-
-<!-- ================= OBJECTIVES =================================== -->
-<section class="section section--slide" id="objectives">
-  <div class="l-wide reveal-on-scroll">
-    <p class="eyebrow">By the end of this lecture</p>
-    <div class="objectives">
-      <div class="obj"><p>Use the <b>vocabulary</b> of polymers to describe a real dental material.</p></div>
-      <div class="obj"><p>Tell <b>addition</b> from <b>condensation</b> by-product.</p></div>
-      <div class="obj"><p>Relate <b>architecture</b> and <b>thermoplastic vs thermoset</b> to chain mobility.</p></div>
-      <div class="obj"><p>Describe the three stages of <b>free-radical polymerization</b>.</p></div>
-      <div class="obj"><p>Predict property shifts from <b>MW, cross-linking, plasticization</b>.</p></div>
-      <div class="obj"><p>Explain <b>polymerization shrinkage stress</b> and its clinical consequences.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= BIG PICTURE ================================== -->
-<section class="section section--slide" id="bigpicture">
-  <div class="l-wide reveal-on-scroll">
-    <p class="eyebrow">Why this matters</p>
-    <p class="statement">Half of what's in the mouth is <b>held together by polymers.</b></p>
-    <div class="grid grid-2">
-      <div class="card"><h3>Denture bases</h3><p>PMMA — strength, warpage, residual monomer.</p></div>
-      <div class="card"><h3>Composites</h3><p>Cross-linked networks — shrinkage decides the margin.</p></div>
-      <div class="card"><h3>Cements</h3><p>Polyacrylic acid — polycarboxylate &amp; glass-ionomer.</p></div>
-      <div class="card"><h3>Impressions</h3><p>Alginate, silicones, polyether — the reaction controls stability.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= VOCABULARY + CHAIN BUILDER =================== -->
-<section class="section" id="vocabulary">
-  <div class="l-wide reveal-on-scroll">
-    <p class="eyebrow">Core science · 1</p>
-    <p class="statement">A polymer is a chain of <b>repeating mers.</b></p>
-
-    <div class="flips" aria-label="Key terms — click to flip">
-      <button class="flip" tabindex="0"><div class="flip__inner">
-        <div class="flip__face flip__front"><span class="term">Monomer / mer</span><span class="hint">click to flip</span></div>
-        <div class="flip__face flip__back">The smallest repeating unit. "Mono" = one, "mer" = part.</div></div></button>
-      <button class="flip" tabindex="0"><div class="flip__inner">
-        <div class="flip__face flip__front"><span class="term">Oligomer</span><span class="hint">click to flip</span></div>
-        <div class="flip__face flip__back">A short chain — only a few (≈10) mers. E.g. Bis-GMA.</div></div></button>
-      <button class="flip" tabindex="0"><div class="flip__inner">
-        <div class="flip__face flip__front"><span class="term">Homopolymer</span><span class="hint">click to flip</span></div>
-        <div class="flip__face flip__back">Built from a single monomer type. E.g. pure PMMA.</div></div></button>
-      <button class="flip" tabindex="0"><div class="flip__inner">
-        <div class="flip__face flip__front"><span class="term">Copolymer</span><span class="hint">click to flip</span></div>
-        <div class="flip__face flip__back">Two+ different monomers in one chain. Three types = terpolymer.</div></div></button>
-      <button class="flip" tabindex="0"><div class="flip__inner">
-        <div class="flip__face flip__front"><span class="term">Molecular weight</span><span class="hint">click to flip</span></div>
-        <div class="flip__face flip__back">MW of one mer × number of mers (n). Reported as an average.</div></div></button>
-      <button class="flip" tabindex="0"><div class="flip__inner">
-        <div class="flip__face flip__front"><span class="term">Degree of polymerization</span><span class="hint">click to flip</span></div>
-        <div class="flip__face flip__back">The total number of mers in the chain.</div></div></button>
-    </div>
-  </div>
-
-  <!-- ANIMAÇÃO A: montador de cadeia -->
-  <div class="l-wide">
-    <div class="panel">
-      <p class="eyebrow">Interactive · build a polymer</p>
-      <svg id="chainSvg" viewBox="0 0 900 170" style="width:100%;height:auto;margin:.5rem 0" aria-label="Growing polymer chain animation"></svg>
-      <div class="readouts">
-        <div class="readout"><div class="k">Mers linked (n)</div><div class="v" id="chainN">0</div></div>
-        <div class="readout"><div class="k">Degree of polym.</div><div class="v" id="chainDP">0</div></div>
-        <div class="readout"><div class="k">Molecular weight</div><div class="v" id="chainMW">0 g/mol</div></div>
-        <div class="readout"><div class="k">Physical state</div><div class="v" id="chainState">—</div></div>
-      </div>
-      <div style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap">
-        <button class="btn" id="chainAdd">+ Add monomer</button>
-        <button class="btn btn--onDark" id="chainAdd10">+ Add 10</button>
-        <button class="btn btn--ghost" id="chainReset" style="color:#9FCBD6;border-color:#2C5468">Reset</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= MECHANISMS: ADDITION vs CONDENSATION ========= -->
-<section class="section" id="mechanisms">
-  <div class="l-wide reveal-on-scroll">
-    <p class="eyebrow">Core science · 2</p>
-    <p class="statement">Watch for the <b>by-product.</b> That's the whole story.</p>
-  </div>
-
-  <!-- ANIMAÇÃO B: adição vs condensação -->
-  <div class="l-wide">
-    <div class="panel">
-      <p class="eyebrow">Interactive · watch the by-product</p>
-      <div class="grid grid-2" style="margin-top:1rem">
-        <div>
-          <p style="color:#6EE7A8;font-family:var(--font-mono);font-size:.85rem">ADDITION</p>
-          <svg id="addSvg" viewBox="0 0 420 150" style="width:100%;height:auto" aria-label="Addition polymerization"></svg>
-          <p class="caption">No by-product.</p>
-        </div>
-        <div>
-          <p style="color:#F9A8B8;font-family:var(--font-mono);font-size:.85rem">CONDENSATION</p>
-          <svg id="condSvg" viewBox="0 0 420 150" style="width:100%;height:auto" aria-label="Condensation polymerization"></svg>
-          <p class="caption">Ejects a small molecule at every link.</p>
-        </div>
-      </div>
-      <div style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap">
-        <button class="btn" id="rxnStep">React one step →</button>
-        <button class="btn btn--ghost" id="rxnReset" style="color:#9FCBD6;border-color:#2C5468">Reset</button>
-        <span id="rxnCount" class="mono" style="align-self:center;color:var(--c-dark-muted)">by-product molecules released: 0</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="l-wide grid grid-2">
-    <figure class="figure">
-      <img src="assets/addition-polymerization.png" alt="Addition polymerization diagram">
-      <figcaption><span class="fig-tag">FIG 03.1</span> · Addition — no by-product. <b>[VERIFY]</b></figcaption>
-    </figure>
-    <figure class="figure">
-      <img src="assets/condensation-polymerization.png" alt="Condensation polymerization diagram">
-      <figcaption><span class="fig-tag">FIG 03.2</span> · Condensation — releases a small molecule. <b>[VERIFY]</b></figcaption>
-    </figure>
-  </div>
-
-  <div class="l-read">
-    <!-- ÂNCORA CLÍNICA DE OURO -->
-    <div class="box box--clinical">
-      <div class="box__tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3v18M5 21h14M8 7l4-4 4 4"/></svg> The impression that shrank overnight</div>
-      <p>Condensation silicone, poured 24 h late → <b>distorted, undersized cast.</b> Ethanol by-product kept evaporating.
-      <b>PVS (addition)</b> releases none — dimensionally stable, can be poured later. Same "silicone", opposite behaviour.</p>
-    </div>
-
-    <table class="ctable">
-      <thead><tr><th></th><th>Addition</th><th>Condensation</th></tr></thead>
-      <tbody>
-        <tr><td>By-product</td><td>None</td><td>H<span class="sub">2</span>O / alcohol at every link</td></tr>
-        <tr><td>Dimensional stability</td><td>High</td><td>Poorer — by-product evaporates over time</td></tr>
-        <tr><td>Dental examples</td><td>PMMA, composites, PVS</td><td>Polysulfides, polyether, cond. silicone</td></tr>
-      </tbody>
-    </table>
-
-    <details class="reveal">
-      <summary>Full explanation — kinetics, and the PVS caveat</summary>
-      <div class="reveal__body">
-        <p><b>Addition (chain-growth):</b> fast; monomers add only to an active chain end; high MW forms early;
-        no by-product — 100% of mass ends up in the polymer.</p>
-        <p><b>Condensation (step-growth):</b> slow, stepwise; any two functional groups can react; high MW only
-        near completion; a small molecule is ejected at every linkage.</p>
-        <p>Addition silicones are near-perfect, but some release a little hydrogen gas from residual Si–H groups
-        just after setting — hence the "wait before pouring" instruction on some products.</p>
-      </div>
-    </details>
-  </div>
-</section>
-
-<!-- ================= FREE-RADICAL STAGES ========================= -->
-<section class="section" id="freeradical">
-  <div class="l-wide reveal-on-scroll">
-    <p class="eyebrow">Core science · 3</p>
-    <p class="statement">Composites cure by <b>free-radical addition</b> — three stages.</p>
-  </div>
-
-  <div class="l-wide">
-    <div class="panel">
-      <p class="eyebrow">Interactive · step through the cure</p>
-      <div class="stepper" data-stepper="fr">
-        <button data-step="1">1 · Initiation</button>
-        <button data-step="2">2 · Propagation</button>
-        <button data-step="3">3 · Termination</button>
-      </div>
-      <svg id="frSvg" viewBox="0 0 900 220" style="width:100%;height:auto" aria-label="Free-radical polymerization stages"></svg>
-      <div data-step-panel="fr" data-step="1"><p class="caption">Energy splits an <b>initiator</b> into radicals (camphorquinone + amine, light-cured). A radical attacks a C=C bond.</p></div>
-      <div data-step-panel="fr" data-step="2"><p class="caption">The active end grabs the next monomer; the radical hops to the new end. Repeats in <b>milliseconds</b>.</p></div>
-      <div data-step-panel="fr" data-step="3"><p class="caption">Two radicals combine, or one steals a hydrogen — growth stops. Or the network traps the radical as it stiffens.</p></div>
-    </div>
-  </div>
-
-  <div class="l-wide grid grid-2">
-    <figure class="figure">
-      <img src="assets/free-radical-overview.png" alt="Free-radical polymerization overview">
-      <figcaption><span class="fig-tag">FIG 03.3</span> · The three stages, overview.</figcaption>
-    </figure>
-    <figure class="figure">
-      <img src="assets/free-radical-chemistry.png" alt="Free-radical polymerization chemistry with structures">
-      <figcaption><span class="fig-tag">FIG 03.4</span> · Same stages, at the chemical-structure level.</figcaption>
-    </figure>
-  </div>
-
-  <div class="l-read">
-    <details class="reveal">
-      <summary>Full explanation — initiators, inhibitors, oxygen layer</summary>
-      <div class="reveal__body">
-        <p><b>Initiators</b> generate the first radicals (benzoyl peroxide, heat-cure; camphorquinone + amine, light-cure).
-        <b>Inhibitors</b> (hydroquinone, BHT) scavenge early radicals so the resin doesn't set on the shelf.</p>
-        <p>Atmospheric <b>oxygen</b> is itself an inhibitor — it reacts with surface radicals faster than monomer can,
-        leaving a sticky, under-cured <b>oxygen-inhibited layer</b>. Useful between increments; must be polished off the final surface.</p>
-      </div>
-    </details>
-  </div>
-</section>
-
-<!-- ================= ARCHITECTURE + THERMO ======================= -->
-<section class="section" id="architecture">
-  <div class="l-wide reveal-on-scroll">
-    <p class="eyebrow">Core science · 4</p>
-    <p class="statement">Same chemistry, different <b>arrangement</b> — very different material.</p>
-  </div>
-
-  <div class="l-wide grid grid-3">
-    <figure class="figure">
-      <img src="assets/homopolymer-linear-branched.png" alt="Linear and branched homopolymer">
-      <figcaption><span class="fig-tag">FIG 03.5</span> · Linear vs branched.</figcaption>
-    </figure>
-    <figure class="figure">
-      <img src="assets/copolymer-random-block-graft.png" alt="Random, block and graft copolymers">
-      <figcaption><span class="fig-tag">FIG 03.6</span> · Random, block, graft.</figcaption>
-    </figure>
-    <figure class="figure">
-      <img src="assets/terpolymer-mma-ema-pma.png" alt="Methyl/ethyl/propyl methacrylate terpolymer">
-      <figcaption><span class="fig-tag">FIG 03.7</span> · A real dental terpolymer — MMA/EMA/PMA.</figcaption>
-    </figure>
-  </div>
-
-  <div class="l-wide" style="margin-top:2.2rem">
-    <p class="statement" style="text-align:center;margin-inline:auto">Heat is the test: <b>thermoplastic</b> flows, <b>thermoset</b> won't.</p>
-  </div>
-
-  <!-- ANIMAÇÃO D: termoplástico vs termofixo sob calor -->
-  <div class="l-wide">
-    <div class="panel">
-      <p class="eyebrow">Interactive · turn up the heat</p>
-      <div class="control">
-        <label>Temperature <span id="heatVal" class="mono">low</span></label>
-        <input type="range" id="heatSlider" min="0" max="100" value="0">
-      </div>
-      <div class="grid grid-2" style="margin-top:.5rem">
-        <div>
-          <p style="color:#6EE7A8;font-family:var(--font-mono);font-size:.85rem">THERMOPLASTIC</p>
-          <svg id="tpSvg" viewBox="0 0 420 150" style="width:100%;height:auto" aria-label="Thermoplastic under heat"></svg>
-          <p class="caption" id="tpCap">Secondary bonds hold linear chains together.</p>
-        </div>
-        <div>
-          <p style="color:#F9A8B8;font-family:var(--font-mono);font-size:.85rem">THERMOSET</p>
-          <svg id="tsSvg" viewBox="0 0 420 150" style="width:100%;height:auto" aria-label="Thermoset under heat"></svg>
-          <p class="caption" id="tsCap">Covalent cross-links lock the network in place.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="l-read">
-    <table class="ctable">
-      <thead><tr><th></th><th>Thermoplastic</th><th>Thermoset</th></tr></thead>
-      <tbody>
-        <tr><td>Bonds between chains</td><td>Weak secondary</td><td>Covalent cross-links</td></tr>
-        <tr><td>On heating</td><td>Softens, reshapeable</td><td>Can't melt — degrades</td></tr>
-        <tr><td>Dental example</td><td>Non-cross-linked PMMA</td><td>Cross-linked dimethacrylate</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- ================= PROPERTIES: MW / CROSSLINK / PLASTICIZER ===== -->
-<section class="section" id="properties">
-  <div class="l-wide reveal-on-scroll">
-    <p class="eyebrow">Core science · 5</p>
-    <p class="statement">Three levers move every property you'll judge clinically.</p>
-    <figure class="figure" style="max-width:640px;margin-inline:auto">
-      <img src="assets/molecular-weight-concept.png" alt="Molecular weight equals monomer MW times number of units">
-      <figcaption><span class="fig-tag">FIG 03.8</span> · MW = (MW of one mer) × n. Longer chains → higher MW.</figcaption>
-    </figure>
-  </div>
-
-  <!-- ANIMAÇÃO E: slider de reticulação -->
-  <div class="l-wide">
-    <div class="panel">
-      <p class="eyebrow">Interactive · cross-link density</p>
-      <div class="grid grid-2" style="align-items:center">
-        <svg id="clSvg" viewBox="0 0 420 200" style="width:100%;height:auto" aria-label="Cross-linked network density"></svg>
-        <div>
-          <div class="control">
-            <label>Cross-link density <span id="clVal" class="mono">low</span></label>
-            <input type="range" id="clSlider" min="0" max="100" value="15">
-          </div>
-          <div class="readouts">
-            <div class="readout"><div class="k">Strength / hardness</div><div class="v up" id="clStrength">↑</div></div>
-            <div class="readout"><div class="k">Rigidity</div><div class="v up" id="clRigid">↑</div></div>
-            <div class="readout"><div class="k">Solvent resistance</div><div class="v up" id="clSolvent">↑</div></div>
-            <div class="readout"><div class="k">Water sorption</div><div class="v down" id="clSorption">↓</div></div>
-            <div class="readout"><div class="k">T<sub>g</sub></div><div class="v up" id="clTg">↑</div></div>
-            <div class="readout"><div class="k">Brittleness</div><div class="v" id="clBrittle">—</div></div>
-          </div>
-        </div>
-      </div>
-      <p class="caption" style="margin-top:1rem" id="clNote">Cross-links tie chains together — mostly good, until it isn't.</p>
-    </div>
-  </div>
-
-  <div class="l-wide grid grid-2" style="align-items:start">
-    <figure class="figure">
-      <img src="assets/crosslinking.png" alt="Cross-linking between polymer chains">
-      <figcaption><span class="fig-tag">FIG 03.9</span> · Cross-links — covalent bridges. <b>[VERIFY]</b></figcaption>
-    </figure>
-    <figure class="figure">
-      <img src="assets/plasticization.png" alt="Plasticization mechanism and side effects">
-      <figcaption><span class="fig-tag">FIG 03.10</span> · Plasticizer wedges between chains.</figcaption>
-    </figure>
-  </div>
-
-  <!-- ANIMAÇÃO F: slider de plastificação -->
-  <div class="l-wide">
-    <div class="panel">
-      <p class="eyebrow">Interactive · plasticization</p>
-      <div class="grid grid-2" style="align-items:center">
-        <svg id="plSvg" viewBox="0 0 420 200" style="width:100%;height:auto" aria-label="Plasticizer inserting between chains"></svg>
-        <div>
-          <div class="control">
-            <label>Plasticizer content <span id="plVal" class="mono">none</span></label>
-            <input type="range" id="plSlider" min="0" max="100" value="0">
-          </div>
-          <div class="readouts">
-            <div class="readout"><div class="k">Chain mobility</div><div class="v up" id="plMob">↑</div></div>
-            <div class="readout"><div class="k">Free volume</div><div class="v up" id="plFree">↑</div></div>
-            <div class="readout"><div class="k">T<sub>g</sub></div><div class="v down" id="plTg">↓</div></div>
-            <div class="readout"><div class="k">Flexibility</div><div class="v up" id="plFlex">↑</div></div>
-            <div class="readout"><div class="k">Strength / hardness</div><div class="v down" id="plStr">↓</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="l-read">
-    <details class="reveal">
-      <summary>Full explanation — T<sub>g</sub>, and why the trade-offs happen</summary>
-      <div class="reveal__body">
-        <p>The <b>glass transition temperature (T<span class="sub">g</span>)</b> is where chains gain enough mobility to shift
-        from glassy to rubbery. Cross-linking pushes T<span class="sub">g</span> <b>up</b>; plasticizers pull it <b>down</b>.
-        A denture base needs T<span class="sub">g</span> safely above mouth and hot-drink temperatures.</p>
-        <p>Plasticizer side effects: lower strength, creep, more solvent uptake, and leaching over time.
-        Over-cross-linking side effect: brittleness, even as solvent resistance and rigidity improve.</p>
-      </div>
-    </details>
-  </div>
-</section>
-
-<!-- ================= SHRINKAGE & STRESS ========================== -->
-<section class="section" id="shrinkage">
-  <div class="l-wide reveal-on-scroll">
-    <p class="eyebrow">The payoff</p>
-    <p class="statement statement--clinical">Shrinkage isn't the problem. <b>Post-gel stress</b> is.</p>
-    <figure class="figure" style="max-width:640px;margin-inline:auto">
-      <img src="assets/shrinkage-1-molecular-mechanism.png" alt="Molecular mechanism of polymerization shrinkage">
-      <figcaption><span class="fig-tag">FIG 03.11</span> · ~3.4 Å (van der Waals) collapses to ~1.5 Å (covalent bond).</figcaption>
-    </figure>
-  </div>
-
-  <!-- ANIMAÇÃO G: pré-gel / pós-gel / estresse -->
-  <div class="l-wide">
-    <div class="panel">
-      <p class="eyebrow">Interactive · the gel point decides everything</p>
-      <div class="control">
-        <label>Extent of reaction <span id="gelVal" class="mono">start</span></label>
-        <input type="range" id="gelSlider" min="0" max="100" value="0">
-      </div>
-      <svg id="gelSvg" viewBox="0 0 900 260" style="width:100%;height:auto" aria-label="Pre-gel flow versus post-gel stress in a bonded restoration"></svg>
-      <p class="caption" id="gelCap" style="margin-top:.8rem">Before the gel point, the composite still flows and adapts.</p>
-    </div>
-  </div>
-
-  <div class="l-wide grid grid-3">
-    <figure class="figure">
-      <img src="assets/shrinkage-2-why-dental.png" alt="Why shrinkage is common in dental polymers">
-      <figcaption><span class="fig-tag">FIG 03.12</span> · Bis-GMA / TEGDMA.</figcaption>
-    </figure>
-    <figure class="figure">
-      <img src="assets/shrinkage-3-stress-development.png" alt="Shrinkage stress development through gel point">
-      <figcaption><span class="fig-tag">FIG 03.13</span> · Pre-gel flow vs post-gel stress.</figcaption>
-    </figure>
-    <figure class="figure">
-      <img src="assets/shrinkage-4-clinical-consequences.png" alt="Clinical consequences of shrinkage stress">
-      <figcaption><span class="fig-tag">FIG 03.14</span> · Microleakage, caries, cuspal deflection.</figcaption>
-    </figure>
-  </div>
-
-  <div class="l-read">
-    <div class="matters">
-      <div class="box__tag">◆ Back to the hero</div>
-      <p>Stress beats the bond → <b>marginal gap → microleakage → staining, secondary caries, sensitivity.</b>
-      Managed with increments, C-factor, and cure rate — clinicians control <em>when</em> the stress develops, not the chemistry.</p>
-    </div>
-    <details class="reveal">
-      <summary>Full explanation — the Bis-GMA / TEGDMA trade-off</summary>
-      <div class="reveal__body">
-        <p>Bis-GMA is big, viscous, shrinks little — but too stiff to handle alone. TEGDMA dilutes it for handling and
-        filler loading, but small monomers pack more double bonds per unit volume: more TEGDMA, more shrinkage.
-        Handling and shrinkage pull in opposite directions in every composite formulation.</p>
-      </div>
-    </details>
-  </div>
-</section>
-
-<!-- ================= MISCONCEPTIONS =============================== -->
-<section class="section" id="misconceptions">
-  <div class="l-wide reveal-on-scroll">
-    <p class="eyebrow">Check your model</p>
-    <p class="statement">Three things students usually get backwards.</p>
-
-    <div class="box box--myth">
-      <div class="mf">
-        <div class="myth"><div class="m-title">Myth</div>"Shrinkage is the problem."</div>
-        <div class="fact"><div class="m-title">Fact</div><b>Post-gel stress</b> is. Pre-gel shrinkage is relieved by flow.</div>
-      </div>
-    </div>
-    <div class="box box--myth">
-      <div class="mf">
-        <div class="myth"><div class="m-title">Myth</div>"Residual monomer = didn't cure properly."</div>
-        <div class="fact"><div class="m-title">Fact</div>Degree of conversion ≠ degree of polymerization.</div>
-      </div>
-    </div>
-    <div class="box box--myth">
-      <div class="mf">
-        <div class="myth"><div class="m-title">Myth</div>"More cross-linking is always better."</div>
-        <div class="fact"><div class="m-title">Fact</div>Excess cross-linking → <b>brittle.</b></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CHECKPOINT (quiz) =========================== -->
-<section class="section" id="checkpoint">
-  <div class="l-wide reveal-on-scroll">
-    <p class="eyebrow">Checkpoint</p>
-
-    <div class="quiz"
-      data-fb-ok="Exactly. Only post-gel contraction, bonded to rigid walls, becomes damaging stress."
-      data-fb-no="Re-read the shrinkage section: the gap forms from post-gel shrinkage stress exceeding the bond.">
-      <p class="quiz__q">A large composite develops a marginal gap and sensitivity. Most responsible?</p>
-      <div class="quiz__opts">
-        <button class="quiz__opt"><span class="key">A</span><span>Exothermic heat during cure</span></button>
-        <button class="quiz__opt" data-correct><span class="key">B</span><span>Post-gel shrinkage stress exceeding the bond</span></button>
-        <button class="quiz__opt"><span class="key">C</span><span>Residual initiator leaching</span></button>
-        <button class="quiz__opt"><span class="key">D</span><span>Water sorption swelling</span></button>
-      </div>
-      <div class="quiz__fb"></div>
-    </div>
-
-    <div class="quiz"
-      data-fb-ok="Right. Condensation releases alcohol that slowly evaporates. PVS (addition) releases none."
-      data-fb-no="Think by-product: condensation ejects alcohol at each link; PVS is addition, no by-product.">
-      <p class="quiz__q">Silicone impression poured 24 h late gives a distorted, undersized cast. Why?</p>
-      <div class="quiz__opts">
-        <button class="quiz__opt" data-correct><span class="key">A</span><span>Condensation silicone — alcohol by-product evaporating</span></button>
-        <button class="quiz__opt"><span class="key">B</span><span>PVS — too much filler</span></button>
-        <button class="quiz__opt"><span class="key">C</span><span>Any silicone — none can be poured late</span></button>
-        <button class="quiz__opt"><span class="key">D</span><span>Polyether — absorbed water</span></button>
-      </div>
-      <div class="quiz__fb"></div>
-    </div>
-
-    <div class="quiz"
-      data-fb-ok="Correct. Restricted chain movement raises rigidity and solvent resistance, but also brittleness."
-      data-fb-no="Recall the cross-link slider: restricting chain movement raises rigidity, but also brittleness.">
-      <p class="quiz__q">More cross-linking improves solvent resistance but has one clear downside. Which?</p>
-      <div class="quiz__opts">
-        <button class="quiz__opt"><span class="key">A</span><span>Lower T<sub>g</sub></span></button>
-        <button class="quiz__opt"><span class="key">B</span><span>Higher water sorption</span></button>
-        <button class="quiz__opt" data-correct><span class="key">C</span><span>Increased brittleness</span></button>
-        <button class="quiz__opt"><span class="key">D</span><span>Loss of rigidity</span></button>
-      </div>
-      <div class="quiz__fb"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= TAKE-HOME =================================== -->
-<section class="section section--slide" id="summary">
-  <div class="l-wide reveal-on-scroll">
-    <div class="takehome">
-      <p class="eyebrow">Take-home</p>
-      <ol>
-        <li><b>MW = MW of one mer × n.</b> Longer chains, higher MW.</li>
-        <li><b>Addition</b>: no by-product. <b>Condensation</b>: ejects one — the root of poor stability.</li>
-        <li>Free-radical cure: <b>initiation → propagation → termination.</b></li>
-        <li><b>Thermoset</b> = covalent network, not just "harder".</li>
-        <li><b>Cross-linking</b> ↑ strength &amp; T<sub>g</sub>, risks brittleness. <b>Plasticizer</b> does the opposite.</li>
-        <li>The clinical killer is <b>post-gel shrinkage stress</b> — manage it, don't fight the chemistry.</li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<footer class="foot l-wide">
-  <div class="foot__nav">
-    <a href="../../index.html">← Course home</a>
-    <a href="#hero">Back to top ↑</a>
-  </div>
-  <p>Lecture 03 · Polymers &amp; Polymerization · Dental Materials Science.</p>
-</footer>
-
-<!-- JS compartilhado (progresso, nav, flips, quiz, stepper, apresentação por teclado) -->
-<script src="../../assets/js/lecture.js"></script>
-
-<!-- ================= JS ESPECÍFICO DA AULA (as 7 animações) ======= -->
+<div class="flowstrip">
+<svg viewBox="0 0 820 100" role="img" aria-label="structure to property to performance">
+<defs><marker id="arrowh" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0C7489"/></marker></defs>
+<rect x="10" y="20" width="240" height="60" rx="12" fill="#fff" stroke="#0C7489" stroke-width="2"/>
+<text x="130" y="57" text-anchor="middle" font-family="Space Grotesk" font-weight="600" font-size="24" fill="#0A5C6D">Structure</text>
+<path d="M255 50 L320 50" stroke="#0C7489" stroke-width="3" marker-end="url(#arrowh)"/>
+<rect x="320" y="20" width="240" height="60" rx="12" fill="#fff" stroke="#0C7489" stroke-width="2"/>
+<text x="440" y="57" text-anchor="middle" font-family="Space Grotesk" font-weight="600" font-size="24" fill="#0A5C6D">Property</text>
+<path d="M565 50 L630 50" stroke="#0C7489" stroke-width="3" marker-end="url(#arrowh)"/>
+<rect x="630" y="20" width="240" height="60" rx="12" fill="#fff" stroke="#B45309" stroke-width="2"/>
+<text x="750" y="57" text-anchor="middle" font-family="Space Grotesk" font-weight="600" font-size="24" fill="#B45309">Performance</text>
+</svg>
+</div>
+</div></section>
+<section class="slide slide--divider"><div class="s-eyebrow">Part 2 of 6</div><div class="num">02</div><h2>The building blocks</h2><div class="d-list"><span>Polymer · monomer · mer</span><span>· Homo/copolymer</span><span>· Molecular weight · distribution</span></div></section>
+<section class="slide">
+<p class="s-eyebrow">Core vocabulary</p>
+<h2 class="s-title">Polymer, monomer, mer</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Monomer (mer)</div><div class="def">The smallest repeating unit. <i>Mono</i> = single; <i>mer</i> from Greek <i>meros</i> = part.</div></div>
+<div class="defbox"><div class="term">Polymer</div><div class="def">A long-chain organic molecule made of many repeating units linked together.</div></div>
+<div class="defbox"><div class="term">Oligomer</div><div class="def">A short polymer — up to ~10 mers (e.g. siloxane oligomers in impression silicones).</div></div>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">One bead vs the whole necklace</div><div class="ph-f">monomer-to-polymer-schematic.png</div><div class="ph-d">Single monomer with its reactive group, then n of them joined into a chain — labels monomer / mer / polymer.</div></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Core vocabulary</p>
+<h2 class="s-title">The polymerization reaction</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Polymerization</div><div class="def">The reaction by which monomer units become chemically linked into a high-molecular-weight molecule.</div></div>
+<div class="defbox"><div class="term">Homopolymer</div><div class="def">Built from <b>one</b> type of monomer only (e.g., polyethylene, PMMA).</div></div>
+<div class="defbox"><div class="term">Copolymer</div><div class="def">Built from <b>more than one</b> type of monomer — lets chemists "tailor-make" properties (e.g., Bis-GMA + TEGDMA).</div></div>
+</div>
+<div class="col-visual"><div class="figbox dual"><img src="assets/homopolymer-linear-branched.png" alt=""><img src="assets/copolymer-random-block-graft.png" alt=""><p class="figcap">Homopolymer · Copolymer</p></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Origin</p>
+<h2 class="s-title">Natural vs synthetic polymers</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Natural polymers</div><div class="def">The basic constituents of living matter — <b>proteins</b>, <b>polysaccharides</b> (starch), <b>polynucleic acids</b> (DNA).</div></div>
+<div class="defbox"><div class="term">Synthetic polymers</div><div class="def">Made in the laboratory by chemical reactions — the ones we use clinically.</div></div>
+<ul class="blist"><li>Dental examples: <b>acrylic resins</b>, elastic impression materials, and the <b>vinyl polymers</b> derived from ethylene (C₂H₄).</li></ul>
+<div class="key"><span class="k-tag">Bridge</span> <b>Alginate</b> is a modified <b>natural</b> polymer (from seaweed); <b>PMMA</b> and composites are fully <b>synthetic</b>. Both obey the same chain rules we build today.</div>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">Where each family comes from</div><div class="ph-f">natural-vs-synthetic-origins.png</div><div class="ph-d">Split panel: left shows seaweed/algae and a protein-chain icon labelled natural sources; right shows a lab flask/reactor with an ethylene monomer labelled synthetic sources; both arrows converge into a generic polymer chain in the centre.</div></div></div>
+</div></section>
+<section class="slide slide--interactive">
+<p class="s-eyebrow">Interactive · from monomer to weight</p>
+<h2 class="s-title">Fill the beaker, watch it get heavier — and thicker</h2>
+<div class="s-body">
+<div class="col-text">
+<p class="igloss" style="margin-top:0">Each monomer type has its own molecular weight. Add units of Monomer A, B and C into the beaker — the scale below totals the weight, and the heavier the mixture, the more viscous it becomes.</p>
+<div class="control"><label><span style="color:#57C6D8">● Monomer A</span> — 10 g/mol per unit <span id="aVal" class="mono">0</span></label><input type="range" id="sliderA" min="0" max="10" step="1" value="0"></div>
+<div class="control"><label><span style="color:#F2B84B">● Monomer B</span> — 50 g/mol per unit <span id="bVal" class="mono">0</span></label><input type="range" id="sliderB" min="0" max="10" step="1" value="0"></div>
+<div class="control"><label><span style="color:#F9A8B8">● Monomer C</span> — 100 g/mol per unit <span id="cVal" class="mono">0</span></label><input type="range" id="sliderC" min="0" max="10" step="1" value="0"></div>
+<p class="igloss" id="beakerNote" style="font-size:1.1rem">Empty beaker — add some monomers.</p>
+</div>
+<div class="col-visual">
+<div class="instrument">
+<svg id="beakerSvg" viewBox="0 0 400 480" style="width:100%;max-width:380px;margin:0 auto;display:block" aria-label="beaker of monomers on a digital scale"></svg>
+<div class="viscowrap">
+<div class="viscolabel"><span>Viscosity</span><span id="viscoWord" class="mono">—</span></div>
+<div class="viscobar"><div class="viscofill" id="viscoFill"></div></div>
+</div>
+</div>
+</div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Worked example · degree of polymerization</p>
+<h2 class="s-title">Degree of polymerization — a worked example</h2>
+<p class="s-sub">Let's calculate both quantities for a real monomer, one step at a time.</p>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="steps">
+<div class="step"><div><h4>Start with the monomer</h4><p>Ethylene, CH₂=CH₂, has a molecular weight of <b>28 g/mol</b>.</p></div></div>
+<div class="step"><div><h4>Choose a chain length</h4><p>Suppose <b>n = 5</b> monomer units join together into one chain.</p></div></div>
+<div class="step"><div><h4>Multiply</h4><p>MW<sub>polymer</sub> = 28 × 5 = <b>140 g/mol</b>. The degree of polymerization, <b>DP</b>, is simply the number of units: <b>DP = n = 5</b>.</p></div></div>
+</div>
+<div class="mech" style="margin-top:1.3vh"><span class="k-tag">The two formulas are the same idea</span> <b>MW<sub>polymer</sub> = MW<sub>mer</sub> × n</b> and <b>DP = MW<sub>polymer</sub> ÷ MW<sub>mer</sub></b> — DP just tells you how many mers are in the chain. A bigger DP means a longer chain (Part 2).</div>
+</div>
+<div class="col-visual"><div class="figbox"><img src="assets/molecular-weight-ethylene-example.png" alt=""><p class="figcap"><b>FIG.</b> CH₂=CH₂ (28 g/mol), n = 5 → 140 g/mol.</p></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Structure → property</p>
+<h2 class="s-title">Why longer chains mean stronger material</h2>
+<div class="s-body">
+<div class="col-text"><ul class="blist"><li>Polymers of <b>large molecules are stronger</b> and more resistant to thermal and mechanical stress than those of small ones.</li><li>Longer chains form more <b>entanglements</b> — physically harder to pull apart or distort.</li><li>So <b>strength and rigidity</b> both rise with chain length.</li></ul>
+<div class="mech" style="margin-top:1.2vh"><span class="k-tag">Mental model</span> Short chains slide like loose spaghetti; long, entangled chains grip one another.</div>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">Short vs long chains — entanglement</div><div class="ph-f">chain-entanglement.png</div><div class="ph-d">Left: few short chains, easily pulled apart. Right: long chains knotted/entangled, resisting separation. Arrow showing applied force.</div></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Structure → property</p>
+<h2 class="s-title">Molecular-weight distribution</h2>
+<div class="s-body">
+<div class="col-text"><ul class="blist"><li>Chain growth is <b>random</b> — some chains grow faster, some stop early. Not all chains are the same length.</li><li>Each chain has its own MW and DP, so a polymer's MW is reported as an <b>average</b>.</li><li>The <b>distribution</b> (fraction of low-, medium-, high-MW chains) affects properties as much as the average.</li><li>Two polymers with the <b>same average MW</b> can behave differently — one of long chains, one of many short ones.</li></ul>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">A spread of chain lengths</div><div class="ph-f">molecular-weight-distribution.png</div><div class="ph-d">Bell-shaped curve: amount of polymer (y) vs molecular weight (x), marking low / average / high MW regions; two curves with same mean but different width.</div></div></div>
+</div></section>
+<section class="slide slide--divider"><div class="s-eyebrow">Part 3 of 6</div><div class="num">03</div><h2>How the chains are arranged</h2><div class="d-list"><span>Linear · branched · cross-linked</span><span>· Thermoplastic vs thermosetting</span></div></section>
+<section class="slide">
+<p class="s-eyebrow">Architecture</p>
+<h2 class="s-title">Linear and branched chains</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Linear</div><div class="def">Repeating units connected one after another in a single, unbranched sequence — like one long strand of spaghetti.</div></div>
+<div class="defbox"><div class="term">Branched</div><div class="def">A main chain with one or more side branches coming off it — like a strand of spaghetti with extra pieces tied on partway along.</div></div>
+<ul class="blist"><li>Both are still held to their <b>neighbouring chains only by weak secondary bonds</b> (van der Waals, hydrogen bonding) — there is no covalent bridge between separate chains yet.</li><li><span class="lead-term">Why the distinction matters:</span> branching disrupts how tightly chains can pack together, which changes density and how easily neighbouring chains entangle — directly affecting the strength and stiffness we just discussed.</li><li>Because those inter-chain bonds are weak, linear and branched polymers can still <b>slide past each other, soften with heat, and dissolve in solvents</b> — this is exactly what makes a polymer <b>thermoplastic</b> (next slides).</li></ul>
+</div>
+<div class="col-visual"><div class="figbox"><img src="assets/homopolymer-linear-branched.png" alt=""><p class="figcap"><b>FIG.</b> Linear vs branched homopolymer — same monomer, different connectivity.</p></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Architecture</p>
+<h2 class="s-title">Cross-linked networks</h2>
+<div class="s-body fig-heavy">
+<div class="col-text"><ul class="blist"><li>Adjacent chains joined at points by <b>covalent (primary) bonds</b> — the cross-links.</li><li>This turns separate chains into a <b>single 3-D network</b>.</li><li>Built with <b>multi-functional monomers</b> (dimethacrylates like Bis-GMA) carrying ≥2 reactive double bonds.</li><li>The network cannot flow or dissolve — the basis of composite and denture-tooth durability.</li></ul></div>
+<div class="col-visual"><div class="figbox"><img src="assets/crosslinking.png" alt=""><p class="figcap"><b>FIG.</b> Cross-linked network: monomer units (light), chains (grey), covalent cross-links (dark).</p></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Thermal behaviour</p>
+<h2 class="s-title">Thermoplastic polymers</h2>
+<div class="s-body text-heavy">
+<div class="col-text"><ul class="blist"><li>Can be <b>shaped by heat</b> and keep shape on cooling — soften when heated, harden when cooled, <b>reversibly</b>.</li><li>Chains held <b>only by weak secondary bonds</b> (van der Waals, hydrogen bonding) that break with heat.</li><li>Relatively soft; <b>sensitive to temperature</b>; <b>dissolve in organic solvents</b>.</li><li>Example: <b>non-cross-linked PMMA</b>.</li></ul></div>
+<div class="col-visual"><div class="mech"><span class="k-tag">Clinical link</span> Thermoplastic behaviour lets a clear aligner be thermoformed — and is also why it creeps and distorts in hot water.</div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Thermal behaviour</p>
+<h2 class="s-title">Thermosetting polymers</h2>
+<div class="s-body text-heavy">
+<div class="col-text"><ul class="blist"><li>Take a <b>permanent shape set by a chemical reaction</b> — a cross-linked 3-D network of covalent bonds.</li><li><b>Cannot be re-melted or reformed</b>; excess heat degrades/chars rather than melts them.</li><li>Cross-links restrict movement, so the material holds shape under load and heat.</li><li>Example: <b>cured composite resin</b> and cross-linked denture teeth.</li></ul></div>
+<div class="col-visual"><div class="mech"><span class="k-tag">One line</span> Thermoplastic = secondary bonds, reversible. Thermoset = covalent network, permanent. Bond type dictates clinical behaviour.</div></div>
+</div></section>
+<section class="slide slide--divider"><div class="s-eyebrow">Part 4 of 6</div><div class="num">04</div><h2>How polymers form</h2><div class="d-list"><span>What polymerization is</span><span>· Addition vs condensation</span><span>· Free-radical stages · consequences</span></div></section>
+<section class="slide">
+<p class="s-eyebrow">Setting the scene</p>
+<h2 class="s-title">What is polymerization — and which kind matters here?</h2>
+<div class="s-body text-heavy">
+<div class="col-text"><ul class="blist"><li><span class="lead-term">The idea.</span> Polymerization is simply <b>joining many small monomers into one large chain</b>. Everything after this is <i>how</i> that joining happens.</li><li><span class="lead-term">Two great families.</span> <b>Addition</b> (chain-growth) and <b>condensation</b> (step-growth) — they differ in speed, in whether a by-product is released, and in dimensional stability.</li><li><span class="lead-term">Our focus.</span> Most direct dental materials — composites, PMMA — cure by <b>free-radical addition</b>. That is what we detail next, because it explains setting, shrinkage and residual monomer.</li></ul></div>
+<div class="col-visual"><div class="mech"><span class="k-tag">Roadmap</span> First we compare the two families side by side. Then we look closely at <b>free-radical addition</b> — the specific reaction that cures composites and PMMA — one stage at a time: initiation, propagation, termination.</div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Family 1 · addition (chain-growth)</p>
+<h2 class="s-title">Addition polymerization</h2>
+<div class="s-body fig-heavy">
+<div class="col-text"><ul class="blist"><li>Unsaturated monomers with <b>C=C double bonds</b> link together, repeating the same structure — <b>without forming any by-product</b>.</li><li><span class="lead-term">Fast</span> reaction; monomers add only onto <b>active chain ends</b>, so high molecular weight forms almost immediately.</li><li>No small molecule is released during the reaction — unlike condensation. That does <b>not</b> mean every monomer molecule reacts: some are always left behind (Part 4, later).</li><li>Examples: poly(ethylene), poly(acrylic acid), <b>PMMA</b>, composite resins, addition silicone (PVS).</li></ul></div>
+<div class="col-visual"><div class="figbox"><img src="assets/addition-polymerization.png" alt=""><p class="figcap"><b>FIG.</b> Monomer + monomer → chain. No by-product formed.</p></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Family 2 · condensation (step-growth)</p>
+<h2 class="s-title">Condensation polymerization</h2>
+<div class="s-body fig-heavy">
+<div class="col-text"><ul class="blist"><li>Functional groups react and form a covalent bond while <b>splitting off a small by-product</b> — water or alcohol — at <b>every</b> linkage.</li><li><b>Step-wise and slow</b>: any two reactive molecules can join — two monomers, a monomer and an oligomer, or two oligomers — so monomer disappears early into many small oligomers, and high molecular weight only appears near the very end.</li><li>High MW is reached only <b>near the very end</b> of the reaction.</li><li>Because the by-product keeps evaporating, <b>dimensional stability over time is poor</b>.</li><li>Dental examples: <b>polysulfides</b>, <b>polyethers</b>, and <b>condensation silicones</b>.</li></ul></div>
+<div class="col-visual"><div class="figbox"><img src="assets/condensation-polymerization.png" alt=""><p class="figcap"><b>FIG.</b> HO–R–OH + HOOC–R′–COOH → polymer + water (the by-product).</p></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Family 1 vs family 2</p>
+<h2 class="s-title">Addition vs condensation, side by side</h2>
+<p class="s-sub">One question separates them clinically: <b>is a small molecule released at every link?</b></p>
+<div class="s-body one-col" style="display:flex;flex-direction:column;gap:1.6vh;justify-content:center">
+<div class="vs">
+<div class="card a"><h3>Addition (chain-growth)</h3><ul>
+<li><b>By-product:</b> none — no small molecule is released.</li>
+<li><b>Speed:</b> rapid; long chains form early.</li>
+<li><b>Monomer left over:</b> falls gradually as curing proceeds.</li>
+<li><b>Stays accurate over time:</b> yes — only shrinks during curing.</li>
+</ul></div>
+<div class="card b"><h3>Condensation (step-growth)</h3><ul>
+<li><b>By-product:</b> a small molecule (water, ethanol) at every link.</li>
+<li><b>Speed:</b> slow, stepwise; long chains only at the end.</li>
+<li><b>Monomer left over:</b> used up early into short oligomers.</li>
+<li><b>Stays accurate over time:</b> no — keeps shrinking as by-product evaporates.</li>
+</ul></div>
+</div>
+<div class="key"><span class="k-tag">Clinical anchor</span> A <b>condensation silicone</b> impression must be poured <b>immediately</b> — its ethanol by-product keeps evaporating, and the impression keeps shrinking. <b>PVS (addition)</b> releases nothing, so it stays accurate and can be poured <b>days later</b>.</div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Free-radical addition</p>
+<h2 class="s-title">The reaction in three stages</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<p class="s-sub" style="margin-bottom:1vh">Composites and PMMA cure by <b>free-radical addition polymerization</b> of methacrylate monomers — a chain reaction that runs in three stages. A free radical is a molecule with an <b>unpaired electron</b>, which makes it highly reactive and eager to react with a nearby double bond.</p>
+<div class="mech"><span class="k-tag">Watch the radical</span> The reactive site is <b>handed along</b> the growing chain from one monomer to the next — never destroyed until termination.</div>
+</div>
+<div class="col-visual"><div class="figbox"><img src="assets/free-radical-overview.png" alt=""><p class="figcap"><b>FIG.</b> Initiation → chain start → propagation → termination.</p></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Stage 1 · initiation</p>
+<h2 class="s-title">Making the first radical</h2>
+<div class="s-body">
+<div class="col-text"><ul class="blist"><li>An <b>initiator</b> must be <b>activated</b> — by heat, light, or a chemical redox reaction — before it can release free radicals.</li><li>Classic chemical initiator: <b>benzoyl peroxide</b>, which splits (homolytic cleavage) into two radicals.</li><li>In light-cured resins: <b>camphorquinone</b> absorbs blue light (~468 nm) and, with an <b>amine co-initiator</b>, generates radicals.</li><li>A radical (R•) meets a C=C double bond, pairs with one electron and <b>leaves the other unpaired</b> — so the monomer itself becomes the new radical, ready to grow.</li></ul>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">How the first radical forms</div><div class="ph-f">initiation-schematic.png</div><div class="ph-d">Initiator activated by light/heat splits into two red radicals; one radical attacks a C=C double bond of a monomer, opening it and creating an active monomer radical. Label the unpaired electron.</div></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Stage 2 · propagation</p>
+<h2 class="s-title">The chain grows — fast</h2>
+<div class="s-body">
+<div class="col-text"><ul class="blist"><li>The active monomer radical attacks the double bond of the <b>next</b> monomer, opening it and adding it to the chain.</li><li>The radical site <b>shifts to the new chain end</b>, and the process repeats — again and again, within <b>milliseconds</b>.</li><li>As chains lengthen, the mix <b>thickens (viscosity rises)</b> and begins to stiffen.</li><li>The reaction is strongly <b>exothermic</b> and continues until nearly all monomer is consumed.</li></ul>
+<div class="mech" style="margin-top:1.2vh"><span class="k-tag">Sequence</span> R–M• + M → R–MM• + M → R–MMM• … the radical always sits at the growing tip.</div>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">The radical hops down the chain</div><div class="ph-f">propagation-schematic.png</div><div class="ph-d">A growing chain adding monomers one by one; the red radical dot moves to each new end; small arrows show double bonds opening; a thermometer/heat symbol for the exotherm.</div></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Stage 3 · termination</p>
+<h2 class="s-title">How growth stops</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="steps">
+<div class="step"><div><h4>Combination (direct coupling)</h4><p>Two radical chain ends collide and join into one longer chain.</p></div></div>
+<div class="step"><div><h4>Disproportionation</h4><p>A radical abstracts a <b>hydrogen atom</b> from another growing chain; both become inactive.</p></div></div>
+<div class="step"><div><h4>Trapping</h4><p>Remaining double bonds get <b>locked in the vitrifying network</b> and can no longer meet — the origin of residual monomer.</p></div></div>
+</div>
+</div>
+<div class="col-visual"><div class="figbox"><img src="assets/free-radical-chemistry.png" alt=""><p class="figcap"><b>FIG.</b> Detailed chemistry — benzoyl peroxide initiation, propagation, termination by combination.</p></div></div>
+</div></section>
+<section class="slide slide--interactive">
+<p class="s-eyebrow">Measuring the reaction · degree of conversion</p>
+<h2 class="s-title">Degree of conversion: how much really reacted?</h2>
+<div class="s-body">
+<div class="col-visual">
+<div class="instrument">
+<svg id="dcSvg" viewBox="0 0 480 280" style="width:100%;max-width:440px;margin:0 auto;display:block" aria-label="curing lamp converting double bonds"></svg>
+<div class="viscowrap">
+<div class="viscolabel"><span>Degree of conversion</span><span id="dcWord" class="mono">0%</span></div>
+<div class="viscobar"><div class="viscofill" id="dcFill"></div></div>
+</div>
+</div>
+</div>
+<div class="col-text">
+<div class="defbox"><div class="term">Degree of conversion (DC)</div><div class="def">The percentage of C=C double bonds that have actually reacted (become C–C single bonds) by the end of cure. Measured by FTIR, comparing the double-bond signal before and after curing.</div></div>
+<div class="control"><label>Light exposure time <span id="dcTimeVal" class="mono">0 s</span></label><input type="range" id="dcSlider" min="0" max="40" step="1" value="0"></div>
+<p class="igloss" id="dcCap" style="margin-top:.8rem">No light yet — every double bond (red) is still unreacted.</p>
+<p class="igloss" style="font-size:1.05rem;color:#8FA9BC">Notice it climbs fast, then flattens — it never reaches 100%. Some double bonds get <b>trapped in the rigid network</b> before they can find a partner (Termination, previous slide).</p>
+</div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Consequence 1 · heat</p>
+<h2 class="s-title">Polymerization gives off heat</h2>
+<div class="s-body text-heavy">
+<div class="col-text"><ul class="blist"><li>Forming covalent bonds <b>releases energy</b>, so the reaction is exothermic.</li><li>In bulk (e.g. curing a large PMMA denture), this <b>exotherm</b> can be significant and must be managed.</li><li>If the temperature runs too high, monomer can boil and leave <b>porosity</b> in the set material.</li><li>It is an inherent consequence of chain growth — not a defect to be "fixed", but a process to be controlled.</li></ul></div>
+<div class="col-visual"><div class="mech"><span class="k-tag">Clinical note</span> Heat-cured denture processing uses a slow, staged temperature cycle precisely to control this exotherm and avoid porosity.</div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Consequence 2 · shrinkage</p>
+<h2 class="s-title">The material contracts as it sets</h2>
+<div class="s-body">
+<div class="col-text"><ul class="blist"><li>As monomers convert to a polymer, they pack closer and <b>volume is lost</b> — polymerization shrinkage.</li><li>It is inherent to turning loosely spaced monomers into a tightly bonded network.</li><li>The contraction itself is tolerable; the problem is the <b>stress</b> it generates once the material can no longer flow.</li><li>This drives stress at the <b>tooth–restoration interface</b> — developed fully in Part 6, and the key to our failing composite.</li></ul>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">Monomers pack closer on curing</div><div class="ph-f">shrinkage-concept.png</div><div class="ph-d">Left: spaced monomer droplets (loose). Right: same units bonded into a denser network occupying less volume; a dashed outline showing the volume lost.</div></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Consequence 3 · residual monomer</p>
+<h2 class="s-title">Not every monomer reacts</h2>
+<div class="s-body">
+<div class="col-text">
+<p class="s-sub" style="margin-bottom:1vh">As the resin <b>vitrifies</b>, the last double bonds can no longer meet — this is exactly why <b>degree of conversion</b> never reaches 100%, leaving unreacted <b>residual monomer</b> trapped in the matrix. Three consequences:</p>
+<div class="steps">
+<div class="step"><div><h4>Mechanical degradation</h4><p>Disrupts the network, lowering hardness and flexural strength.</p></div></div>
+<div class="step"><div><h4>Plasticization</h4><p>Free monomer increases free volume, softening the matrix and making it more prone to deform.</p></div></div>
+<div class="step"><div><h4>Biocompatibility</h4><p>Mobile monomer leaches into saliva — cytotoxic to pulp, a cause of allergy.</p></div></div>
+</div>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">Where residual monomer comes from</div><div class="ph-f">residual-monomer-generation.png</div><div class="ph-d">A curing composite network with most double bonds reacted (dark) and a few unreacted monomers trapped in pockets (red), some escaping toward saliva. Show degree of conversion < 100%.</div></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Surface effect · oxygen</p>
+<h2 class="s-title">The oxygen-inhibited layer</h2>
+<div class="s-body">
+<div class="col-text"><ul class="blist"><li>Atmospheric <b>oxygen diffuses into the surface</b> of setting resin and reacts with propagating radicals <b>faster than monomer does</b>.</li><li>This forms stable, unreactive <b>peroxyl radicals</b> that cannot continue the chain.</li><li>Result: a thin, tacky, poorly polymerized, mechanically weak <b>surface layer</b>.</li><li><b>Useful between increments</b> (it helps them bond); on the <b>final surface</b> it must be polished away to prevent wear and marginal breakdown.</li></ul>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">Why the top layer stays sticky</div><div class="ph-f">oxygen-inhibition-chemistry.png</div><div class="ph-d">Cross-section of curing resin: bulk fully polymerized; thin top layer where O₂ molecules react with carbon radicals to form peroxyl radicals (chain-stopping), leaving an unpolymerized sticky film. Label O₂ in, peroxyl radical, tacky layer.</div></div></div>
+</div></section>
+<section class="slide slide--divider"><div class="s-eyebrow">Part 5 of 6</div><div class="num">05</div><h2>What controls the properties</h2><div class="d-list"><span>Cross-linking · copolymers</span><span>· Plasticizers · sorption</span><span>· Strengthening</span></div></section>
+<section class="slide">
+<p class="s-eyebrow">Modifier · cross-linking</p>
+<h2 class="s-title">What cross-linking does to properties</h2>
+<div class="s-body">
+<div class="col-text"><ul class="blist"><li>Even a <b>small degree</b> of cross-linking limits how far chains move under stress.</li><li>It <b>increases</b> strength, hardness, rigidity and solvent resistance.</li><li>It <b>decreases</b> water sorption — a tighter mesh blocks fluid diffusion, reducing swelling and hydrolytic degradation.</li><li>But <b>excessive</b> cross-linking makes the material <b>brittle</b> — there is an optimum, not "more is always better".</li></ul>
+<div class="mech" style="margin-top:1.2vh"><span class="k-tag">Dental example</span> <b>Bis-GMA</b> is a cross-linking dimethacrylate — it gives composites stiffness and solvent resistance.</div>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">A tight mesh keeps water out</div><div class="ph-f">crosslink-water-barrier.png</div><div class="ph-d">Side-by-side: loosely packed linear chains with water molecules diffusing into the gaps (swelling) vs a densely cross-linked network blocking water; arrows for water penetration, a durability/strength icon on the cross-linked side.</div></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Modifier · copolymers</p>
+<h2 class="s-title">Copolymers: tailor-making properties</h2>
+<div class="s-body fig-heavy">
+<div class="col-text"><ul class="blist"><li>Copolymers contain <b>two or more different monomer units</b>, letting chemists "tailor-make" predicted properties.</li><li>Three arrangements: <b>random</b>, <b>block</b>, and <b>graft</b> — see the figure on the previous slides.</li><li><span class="lead-term">Bis-GMA.</span> A large, rigid dimethacrylate built on a <b>bisphenol-A core</b> (two bulky ring systems). That bulk makes it stiff and viscous, and gives cured composite <b>low shrinkage</b> and high strength — but it is too thick to use alone.</li><li><span class="lead-term">TEGDMA.</span> A small dimethacrylate with a short, flexible chain between its two reactive ends. Blending it in as a copolymer <b>dilutes the viscosity</b> and improves handling and filler loading.</li><li><span class="lead-term">The trade-off.</span> TEGDMA is smaller, so it packs more reactive double bonds per unit volume — the copolymer handles better but <b>shrinks more</b> (we return to this in Part 6).</li></ul></div>
+<div class="col-visual"><div class="figbox"><svg viewBox="0 0 480 250" role="img" aria-label="Bis-GMA vs TEGDMA simplified structure">
+<line x1="240" y1="15" x2="240" y2="235" stroke="#E3E9EF" stroke-width="2"/>
+<text x="120" y="26" text-anchor="middle" font-family="Space Grotesk" font-weight="600" font-size="17" fill="#0A5C6D">Bis-GMA</text>
+<polygon points="70,55 90,66 90,88 70,99 50,88 50,66" fill="#fff" stroke="#12315B" stroke-width="2.2"/>
+<polygon points="170,55 190,66 190,88 170,99 150,88 150,66" fill="#fff" stroke="#12315B" stroke-width="2.2"/>
+<line x1="90" y1="77" x2="110" y2="77" stroke="#12315B" stroke-width="2.2"/>
+<circle cx="120" cy="77" r="9" fill="#0E2536" stroke="#12315B" stroke-width="1.5"/>
+<line x1="130" y1="77" x2="150" y2="77" stroke="#12315B" stroke-width="2.2"/>
+<line x1="115" y1="68" x2="105" y2="52" stroke="#12315B" stroke-width="1.6"/>
+<line x1="125" y1="68" x2="135" y2="52" stroke="#12315B" stroke-width="1.6"/>
+<line x1="60" y1="99" x2="60" y2="130" stroke="#12315B" stroke-width="2"/>
+<line x1="180" y1="99" x2="180" y2="130" stroke="#12315B" stroke-width="2"/>
+<line x1="60" y1="130" x2="60" y2="160" stroke="#12315B" stroke-width="2"/>
+<line x1="180" y1="130" x2="180" y2="160" stroke="#12315B" stroke-width="2"/>
+<circle cx="60" cy="172" r="7" fill="#0E2536"/>
+<circle cx="180" cy="172" r="7" fill="#0E2536"/>
+<line x1="60" y1="172" x2="45" y2="188" stroke="#D64545" stroke-width="2.4"/>
+<line x1="63" y1="175" x2="48" y2="191" stroke="#D64545" stroke-width="2.4"/>
+<line x1="180" y1="172" x2="195" y2="188" stroke="#D64545" stroke-width="2.4"/>
+<line x1="177" y1="175" x2="192" y2="191" stroke="#D64545" stroke-width="2.4"/>
+<text x="120" y="215" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#5E7285">reactive methacrylate ends</text>
+<text x="120" y="232" text-anchor="middle" font-family="Inter" font-size="11.5" fill="#33465C">bulky aromatic core → stiff, viscous, low shrinkage</text>
+<text x="360" y="26" text-anchor="middle" font-family="Space Grotesk" font-weight="600" font-size="17" fill="#0A5C6D">TEGDMA</text>
+<path d="M295 90 L315 105 L335 90 L355 105 L375 90 L395 105" fill="none" stroke="#12315B" stroke-width="2.2"/>
+<circle cx="295" cy="90" r="5.5" fill="#0E2536"/><circle cx="315" cy="105" r="5.5" fill="#0E2536"/>
+<circle cx="335" cy="90" r="5.5" fill="#0E2536"/><circle cx="355" cy="105" r="5.5" fill="#0E2536"/>
+<circle cx="375" cy="90" r="5.5" fill="#0E2536"/><circle cx="395" cy="105" r="5.5" fill="#0E2536"/>
+<line x1="295" y1="90" x2="280" y2="75" stroke="#12315B" stroke-width="2"/>
+<line x1="395" y1="105" x2="410" y2="120" stroke="#12315B" stroke-width="2"/>
+<circle cx="275" cy="68" r="7" fill="#0E2536"/>
+<circle cx="415" cy="127" r="7" fill="#0E2536"/>
+<line x1="275" y1="68" x2="260" y2="52" stroke="#D64545" stroke-width="2.4"/>
+<line x1="278" y1="71" x2="263" y2="55" stroke="#D64545" stroke-width="2.4"/>
+<line x1="415" y1="127" x2="430" y2="143" stroke="#D64545" stroke-width="2.4"/>
+<line x1="412" y1="130" x2="427" y2="146" stroke="#D64545" stroke-width="2.4"/>
+<text x="360" y="180" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#5E7285">short, flexible –(CH₂CH₂O)– chain</text>
+<text x="360" y="232" text-anchor="middle" font-family="Inter" font-size="11.5" fill="#33465C">small, mobile → low viscosity, more shrinkage</text>
+</svg><p class="figcap"><b>Simplified schematic</b> — not to exact chemical scale, drawn to show why one is rigid and the other is flexible.</p></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Modifier · plasticizers</p>
+<h2 class="s-title">Plasticizers: making a polymer flexible</h2>
+<div class="s-body fig-heavy">
+<div class="col-text"><ul class="blist"><li>Small molecules that insert <b>between the chains</b>, pushing them apart and weakening the secondary forces that hold them.</li><li>This raises <b>free volume</b> and <b>chain mobility</b>, so chains slide past each other more easily.</li><li><b>Main effect:</b> greater flexibility, as chains can now slide more easily past one another.</li><li><b>Side effects:</b> lower hardness and strength, more creep, higher solvent uptake, and leaching over time.</li></ul></div>
+<div class="col-visual"><div class="figbox"><img src="assets/plasticization.png" alt=""><p class="figcap"><b>FIG.</b> Before → mechanism → effects of plasticization.</p></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Modifier · plasticizers</p>
+<h2 class="s-title">External vs internal — and rigid vs flexible</h2>
+<div class="s-body text-heavy">
+<div class="col-text"><ul class="blist"><li><span class="lead-term">External plasticizer.</span> A separate small molecule that penetrates <b>between</b> the chains; not bonded, so it can <b>leach out</b> over time.</li><li><span class="lead-term">Internal plasticizer.</span> Introduced by <b>copolymerization</b> with a suitable co-monomer — part of the main chain, so it cannot leach.</li><li>Both reduce strength and hardness, and make the material easier to bend.</li><li><span class="lead-term">Rigid vs flexible</span> is simply how freely the chains can move at mouth temperature: a <b>rigid</b> polymer keeps its shape stiffly; a <b>flexible</b> one bends and stretches readily.</li></ul></div>
+<div class="col-visual"><div class="mech"><span class="k-tag">Key distinction</span> Rigid vs flexible depends on how easily the chains slide past each other at mouth temperature — exactly what a plasticizer controls.</div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Plasticizers in the clinic</p>
+<h2 class="s-title">Where plasticizers are used — and why they fail</h2>
+<div class="s-body">
+<div class="col-text"><ul class="blist"><li><span class="lead-term">Resilient denture liners.</span> Plasticizers (e.g. <b>dibutyl phthalate</b>) turn rigid PMMA into a soft cushion that spreads occlusal load over compromised mucosa.</li><li><span class="lead-term">Tissue conditioners.</span> Highly plasticized systems flow under pressure to record inflamed tissue while cushioning it.</li><li><span class="lead-term">Clinical degradation.</span> External plasticizers are not bonded, so they <b>leach into saliva</b> — the liner turns hard, brittle and rough and needs replacement.</li></ul></div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">How a soft liner works — and hardens</div><div class="ph-f">plasticizer-resilient-liner.png</div><div class="ph-d">A denture base with a soft liner cushioning the mucosa (plasticizer molecules between PMMA chains, absorbing occlusal load). Second panel: plasticizer leaching out into saliva over time → chains pack tight → liner becomes hard and rough.</div></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Durability · sorption &amp; solubility</p>
+<h2 class="s-title">How oral fluids get into a polymer</h2>
+<div class="s-body">
+<div class="col-text"><ul class="blist"><li><span class="lead-term">Free volume.</span> Loosely packed, poorly cross-linked chains leave gaps that <b>water diffuses into</b>.</li><li><span class="lead-term">Chemical polarity.</span> Hydrophilic groups (–OH in Bis-GMA, ether links in TEGDMA) <b>hydrogen-bond</b> with water, pulling fluid in.</li><li><span class="lead-term">Sorption.</span> Absorbed water forces chains apart, swelling the material and disrupting secondary bonds — <b>hydrolytic degradation</b>.</li><li><span class="lead-term">Solubility &amp; leaching.</span> Unbound monomer, initiator and additives dissolve out into the mouth, weakening the material.</li></ul></div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">Water in, components out</div><div class="ph-f">sorption-solubility.png</div><div class="ph-d">Polymer network immersed in saliva: SORPTION — water molecules diffusing inward into free volume, chains swelling apart; SOLUBILITY — residual monomer/additives leaching outward. Two labelled arrows in opposite directions.</div></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Design lever</p>
+<h2 class="s-title">How to make a polymer stronger</h2>
+<div class="s-body">
+<div class="col-text">
+<p class="s-sub" style="margin-bottom:1vh">Four levers, all met today — and the last one bridges to the composites lecture.</p>
+<ul class="blist"><li><span class="lead-term">Increase MW / DP.</span> Longer chains, more entanglement.</li><li><span class="lead-term">Cross-link.</span> A covalent network resists deformation and solvents.</li><li><span class="lead-term">Copolymerize.</span> Blend monomers to tune the balance of properties.</li><li><span class="lead-term">Add inorganic fillers.</span> Reinforce the matrix → a <b>composite</b>.</li></ul>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">Four ways to strengthen a polymer</div><div class="ph-f">strengthening-strategies.png</div><div class="ph-d">Four labelled quadrants/icons: (1) longer chains/entanglement, (2) cross-linking network, (3) copolymer blend of two monomers, (4) resin matrix packed with filler particles (composite). Clean icon style.</div></div></div>
+</div></section>
+<section class="slide slide--divider"><div class="s-eyebrow">Part 6 of 6</div><div class="num">06</div><h2>Shrinkage, stress &amp; clinical failure</h2><div class="d-list"><span>Molecular driver</span><span>· Gel point · C-Factor</span><span>· Clinical consequences</span></div></section>
+<section class="slide">
+<p class="s-eyebrow">Shrinkage · 1 · molecular mechanism</p>
+<h2 class="s-title">Where the volume goes</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<p class="s-sub" style="margin-bottom:.8vh">This is the first time you meet shrinkage at the molecular level — take it slowly.</p>
+<ul class="blist"><li>Before curing, monomers sit apart, held by loose <b>van der Waals</b> forces at ~<b>3.40 Å</b>.</li><li>During addition, those are replaced by short, tight <b>covalent C–C bonds</b> at ~<b>1.54 Å</b> — a <b>−1.86 Å</b> pull at <b>every</b> reaction site.</li><li>Monomers also lose <b>translational freedom</b>, letting the network pack tighter.</li><li>Net result: <b>volumetric contraction</b>, typically <b>1.5–6%</b> for restorative composites.</li></ul></div>
+<div class="col-visual"><div class="figbox"><img src="assets/shrinkage-1-molecular-mechanism.png" alt=""><p class="figcap"><b>FIG.</b> van der Waals spacing (3.40 Å) → covalent bond (1.54 Å): −1.86 Å per site.</p></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Shrinkage · 2 · why dental resins</p>
+<h2 class="s-title">Why it is unavoidable in composites</h2>
+<div class="s-body fig-heavy">
+<div class="col-text"><ul class="blist"><li>Direct composites and acrylics polymerize by <b>addition</b>, forming permanent cross-linked networks — so they always shrink as they set.</li><li><b>Bis-GMA</b> is viscous and rigid; <b>TEGDMA</b> is a small, low-viscosity diluent added to improve handling and filler loading.</li><li>But TEGDMA is small, so it has a <b>high concentration of double bonds per unit volume</b> — more bonds converted means <b>more shrinkage</b>.</li><li>So more TEGDMA improves handling but <b>increases</b> total polymerization shrinkage — a genuine trade-off.</li></ul></div>
+<div class="col-visual"><div class="figbox"><img src="assets/shrinkage-2-why-dental.png" alt=""><p class="figcap"><b>FIG.</b> Small, double-bond-rich monomers pack closer after curing → greater contraction.</p></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Shrinkage · 3 · shrinkage → stress</p>
+<h2 class="s-title">The gel point changes everything</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="steps">
+<div class="step"><div><h4>Pre-gel</h4><p>The resin is still fluid; contraction is relieved by <b>plastic flow</b> from free surfaces — <b>no stress builds up</b>.</p></div></div>
+<div class="step"><div><h4>Gel point</h4><p>A continuous 3-D network suddenly spans the material; it turns from viscous liquid to viscoelastic solid.</p></div></div>
+<div class="step"><div><h4>Post-gel</h4><p>The rigid, bonded material can no longer flow, so further contraction is <b>converted directly into residual stress</b>.</p></div></div>
+</div>
+</div>
+<div class="col-visual"><div class="figbox"><img src="assets/shrinkage-3-stress-development.png" alt=""><p class="figcap"><b>FIG.</b> Stress stays near zero before the gel point, then climbs steeply after it.</p></div></div>
+</div></section>
+<section class="slide slide--interactive">
+<p class="s-eyebrow">Interactive · the gel point</p>
+<h2 class="s-title">Drag the reaction forward — watch stress appear</h2>
+<div class="s-body">
+<div class="col-visual">
+<div class="instrument">
+<svg id="gelSvg" viewBox="0 0 480 300" style="width:100%;max-width:440px;margin:0 auto;display:block" aria-label="pre-gel vs post-gel stress between bonded cavity walls"></svg>
+<div class="viscowrap">
+<div class="viscolabel"><span>Interfacial stress</span><span id="stressWord" class="mono">—</span></div>
+<div class="viscobar"><div class="viscofill" id="stressFill"></div></div>
+</div>
+</div>
+</div>
+<div class="col-text">
+<p class="igloss" style="margin-top:0">The composite is bonded to two rigid cavity walls, just like inside a real tooth. Drag the slider to run the reaction forward and watch what happens once the material can no longer flow.</p>
+<div class="control"><label>Extent of reaction <span id="gelVal" class="mono">0%</span></label><input type="range" id="gelSlider" min="0" max="100" value="0"></div>
+<p class="igloss" id="gelCap">Still a viscous liquid — the composite <b>flows</b> to compensate for shrinkage, so no stress reaches the bonded walls.</p>
+<p class="igloss" style="font-size:1.05rem;color:#8FA9BC">Around <b>45% conversion</b>, a continuous network suddenly spans the cavity — the <b>gel point</b>. Past it, the same shrinkage has nowhere to go: it converts directly into stress pulling on the bonded walls. This is exactly why timing (soft-start curing) and technique (incremental layering, next slides) matter.</p>
+</div></div></section>
+<section class="slide">
+<p class="s-eyebrow">Configuration factor</p>
+<h2 class="s-title">C-Factor: how cavity shape sets the stress</h2>
+<div class="s-body">
+<div class="col-text">
+<div class="mech" style="margin-bottom:1.2vh"><span class="k-tag">Definition</span> <b>C-Factor = bonded surfaces ÷ unbonded (free) surfaces.</b> The more bonded walls relative to free surfaces, the less the composite can flow to relieve stress.</div>
+<ul class="blist"><li><span class="lead-term">High C-Factor — Class I.</span> 5 bonded walls : 1 free surface → <b>C = 5</b>. Almost no free surface to flow to, so intense stress concentrates at the interface.</li><li><span class="lead-term">Low C-Factor — Class V.</span> 1 bonded wall : 5 free surfaces → <b>C = 0.2</b>. The composite flows freely, minimizing interface stress.</li><li><span class="lead-term">Your lever.</span> You cannot change the cavity, but <b>incremental layering</b> lowers the <b>effective</b> C-Factor of each increment.</li></ul>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure to add</span><div class="ph-t">High vs low C-Factor cavities</div><div class="ph-f">c-factor-high-low.png</div><div class="ph-d">Two tooth cross-sections: Class I box (5 bonded walls, 1 free surface, C=5, red high-stress arrows at interface) vs Class V notch (1 bonded, 5 free, C=0.2, green low-stress, composite free to flow). Label bonded vs free surfaces.</div></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Recap</p>
+<h2 class="s-title">What you can now do — and where we built it</h2>
+<div class="s-body one-col" style="display:flex;flex-direction:column;gap:1.6vh">
+<div class="objgrid">
+<div class="objcard"><span class="objnum">1</span><div class="objtxt">Use the core <b>vocabulary</b> — polymer, monomer, mer, oligomer, degree of polymerization.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">→ Part 2 — definitions, the beaker interactive, the ethylene worked example.</span></div></div>
+<div class="objcard"><span class="objnum">2</span><div class="objtxt">Distinguish <b>addition</b> from <b>condensation</b> and predict their by-products.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">→ Part 4 — the two families compared, with the impression-silicone example.</span></div></div>
+<div class="objcard"><span class="objnum">3</span><div class="objtxt">Explain how <b>architecture</b> and thermal class set behaviour.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">→ Part 3 — linear, branched, cross-linked chains; thermoplastic vs thermosetting.</span></div></div>
+<div class="objcard"><span class="objnum">4</span><div class="objtxt">Describe the <b>three stages</b> of free-radical polymerization and its consequences.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">→ Part 4 — initiation, propagation, termination, degree of conversion, and what curing leaves behind.</span></div></div>
+<div class="objcard"><span class="objnum">5</span><div class="objtxt">Relate <b>molecular weight, cross-linking, plasticizers</b> to strength and degradation.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">→ Part 5 — cross-linking, copolymers, plasticizers, sorption and solubility.</span></div></div>
+<div class="objcard"><span class="objnum">6</span><div class="objtxt">Explain <b>polymerization shrinkage stress</b> and why restorations fail at the margin.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">→ Part 6 — the gel point, C-Factor, and the clinical consequences at the interface.</span></div></div>
+</div>
+</div></section>
+</div></div>
+<div class="deckbar"><button class="navbtn" id="prev">&lsaquo;</button><button class="navbtn" id="next">&rsaquo;</button>
+<span class="part" id="partLabel"></span><span class="count" id="count"></span></div>
 <script>
-/* Paleta usada dentro dos SVGs (painel escuro) */
-var TEAL="#57C6D8", GREEN="#6EE7A8", PINK="#F9A8B8", INK="#E8F1F6", MUT="#8FA9BC", LINE="#2C5468";
-
-/* ---------- Helper: cria elemento SVG ---------------------------- */
-function svgEl(tag, attrs){ var e=document.createElementNS("http://www.w3.org/2000/svg",tag);
-  for(var k in attrs) e.setAttribute(k, attrs[k]); return e; }
-
-/* =============== ANIMAÇÃO A · CHAIN BUILDER ====================== */
+var track=document.getElementById("track");
+var slides=[].slice.call(document.querySelectorAll(".slide"));var i=0;
+function show(n){i=Math.max(0,Math.min(slides.length-1,n));track.style.transform="translateX("+(-i*100)+"vw)";
+document.getElementById("count").textContent=(i+1)+" / "+slides.length;
+var eb=slides[i].querySelector(".s-eyebrow, h2");document.getElementById("partLabel").textContent=eb?eb.textContent.trim():"";
+document.getElementById("prog").style.width=((i+1)/slides.length*100)+"%";}
+document.getElementById("next").onclick=function(){show(i+1)};
+document.getElementById("prev").onclick=function(){show(i-1)};
+document.addEventListener("keydown",function(e){if(e.target.tagName==="INPUT")return;
+if(e.key==="ArrowRight"||e.key==="PageDown"||e.key===" "){e.preventDefault();show(i+1)}
+else if(e.key==="ArrowLeft"||e.key==="PageUp"){e.preventDefault();show(i-1)}
+else if(e.key==="Home"){show(0)}else if(e.key==="End"){show(slides.length-1)}
+else if(e.key==="f"||e.key==="F"){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}});
+/* Beaker + scale + viscosity (3 monomer types) — v2, bigger & more polished */
 (function(){
-  var svg=document.getElementById("chainSvg"); if(!svg) return;
-  var n=0, MERMW=100, xStart=40, gap=54, y=90, r=20;
-  var nEl=document.getElementById("chainN"), dpEl=document.getElementById("chainDP"),
-      mwEl=document.getElementById("chainMW"), stEl=document.getElementById("chainState");
-  function render(){
-    svg.innerHTML="";
-    for(var i=0;i<n;i++){
-      var x=xStart+i*gap;
-      if(i>0){ svg.appendChild(svgEl("line",{x1:x-gap+r,y1:y,x2:x-r,y2:y,stroke:TEAL,"stroke-width":4})); }
-      var c=svgEl("circle",{cx:x,cy:y,r:r,fill:"#0E2536",stroke:TEAL,"stroke-width":3});
-      svg.appendChild(c);
-      var t=svgEl("text",{x:x,y:y+5,"text-anchor":"middle",fill:INK,"font-size":13,"font-family":"IBM Plex Mono"});
-      t.textContent="mer"; svg.appendChild(t);
-    }
-    if(n>12){ svg.setAttribute("viewBox","0 0 "+(xStart+n*gap)+" 170"); }
-    else svg.setAttribute("viewBox","0 0 900 170");
-    nEl.textContent=n; dpEl.textContent=n; mwEl.textContent=(n*MERMW).toLocaleString()+" g/mol";
-    var s = n===0?"—" : n<20?"liquid / low MW" : n<60?"soft solid" : "rigid solid / high MW";
-    stEl.textContent=s;
-    stEl.className="v"+(n>=60?" up":"");
-  }
-  document.getElementById("chainAdd").onclick=function(){ n++; render(); };
-  document.getElementById("chainAdd10").onclick=function(){ n+=10; render(); };
-  document.getElementById("chainReset").onclick=function(){ n=0; render(); };
-  render();
-})();
+var sA=document.getElementById("sliderA"),sB=document.getElementById("sliderB"),sC=document.getElementById("sliderC");
+if(!sA)return;
+var svg=document.getElementById("beakerSvg");
+var NS="http://www.w3.org/2000/svg";
+var W_A=10,W_B=50,W_C=100,MAXW=10*W_A+10*W_B+10*W_C;
+var COLORS={A:"#57C6D8",B:"#F2B84B",C:"#F9A8B8"};
+var BEAK={x:110,y:60,w:180,h:240,left:112,right:288,top:64,bottom:296,ih:232};
+function el(t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);return e;}
 
-/* =============== ANIMAÇÃO B · ADIÇÃO vs CONDENSAÇÃO ============== */
-(function(){
-  var addSvg=document.getElementById("addSvg"), condSvg=document.getElementById("condSvg");
-  if(!addSvg) return;
-  var links=0, byproduct=0, MAX=5;
-  var countEl=document.getElementById("rxnCount");
-  function chain(svg, units, color, ejected){
-    svg.innerHTML="";
-    var x0=30, gap=70, y=80, r=22;
-    for(var i=0;i<units;i++){
-      var x=x0+i*gap;
-      if(i>0) svg.appendChild(svgEl("line",{x1:x-gap+r,y1:y,x2:x-r,y2:y,stroke:color,"stroke-width":4}));
-      svg.appendChild(svgEl("circle",{cx:x,cy:y,r:r,fill:"#0E2536",stroke:color,"stroke-width":3}));
-    }
-    for(var j=0;j<ejected;j++){
-      var bx=60+j*70, by=30;
-      svg.appendChild(svgEl("circle",{cx:bx,cy:by,r:8,fill:PINK,opacity:.9}));
-      var t=svgEl("text",{x:bx,y:by+3,"text-anchor":"middle",fill:"#0B1B2B","font-size":8,"font-family":"IBM Plex Mono","font-weight":600});
-      t.textContent="H₂O"; svg.appendChild(t);
-    }
-  }
-  function render(){
-    var units=links+1;
-    chain(addSvg, units, GREEN, 0);
-    chain(condSvg, units, PINK, byproduct);
-    countEl.textContent="by-product molecules released: "+byproduct;
-  }
-  document.getElementById("rxnStep").onclick=function(){
-    if(links>=MAX) return; links++; byproduct++; render();
-  };
-  document.getElementById("rxnReset").onclick=function(){ links=0; byproduct=0; render(); };
-  render();
-})();
+function staticParts(){
+  // soft shadow under the whole assembly
+  svg.appendChild(el("ellipse",{cx:200,cy:462,rx:150,ry:11,fill:"#000000",opacity:.28}));
 
-/* =============== ANIMAÇÃO C · FREE-RADICAL STEPPER ============== */
-(function(){
-  var svg=document.getElementById("frSvg"); if(!svg) return;
-  function dot(x,y){ return svgEl("circle",{cx:x,cy:y,r:6,fill:PINK}); }
-  function mer(x,y,color){ return svgEl("circle",{cx:x,cy:y,r:18,fill:"#0E2536",stroke:color||TEAL,"stroke-width":3}); }
-  function label(x,y,txt,color){ var t=svgEl("text",{x:x,y:y,"text-anchor":"middle",fill:color||MUT,
-      "font-size":13,"font-family":"IBM Plex Mono"}); t.textContent=txt; return t; }
-  function scene(step){
-    svg.innerHTML=""; var y=110;
-    if(step==="1"){
-      svg.appendChild(label(150,40,"initiator splits → radicals",TEAL));
-      svg.appendChild(svgEl("line",{x1:90,y1:y,x2:150,y2:y,stroke:MUT,"stroke-width":3,"stroke-dasharray":"5 5"}));
-      svg.appendChild(dot(90,y)); svg.appendChild(dot(150,y));
-      svg.appendChild(label(120,y+40,"R•        •R",PINK));
-      svg.appendChild(mer(430,y)); svg.appendChild(mer(478,y));
-      svg.appendChild(svgEl("line",{x1:430,y1:y-6,x2:478,y2:y-6,stroke:PINK,"stroke-width":3}));
-      svg.appendChild(svgEl("line",{x1:430,y1:y+6,x2:478,y2:y+6,stroke:PINK,"stroke-width":3}));
-      svg.appendChild(label(454,y+45,"C=C double bond",PINK));
-      svg.appendChild(svgEl("path",{d:"M300 "+y+" L400 "+y,stroke:GREEN,"stroke-width":3}));
-      svg.appendChild(label(350,y-15,"attacks →",GREEN));
-      svg.appendChild(dot(300,y));
-    } else if(step==="2"){
-      svg.appendChild(label(450,40,"chain grows; radical hops to the end",GREEN));
-      var x0=120, gap=90;
-      for(var i=0;i<5;i++){ var x=x0+i*gap;
-        if(i>0) svg.appendChild(svgEl("line",{x1:x-gap+18,y1:y,x2:x-18,y2:y,stroke:TEAL,"stroke-width":4}));
-        svg.appendChild(mer(x,y)); }
-      svg.appendChild(dot(x0+4*gap+22,y-14));
-      svg.appendChild(label(x0+4*gap+40,y-30,"•",PINK));
-      svg.appendChild(label(x0+2*gap,y+45,"+ monomer → + monomer → …",MUT));
-    } else {
-      svg.appendChild(label(450,40,"two radical chains combine → growth stops",PINK));
-      var g=70, yy=110;
-      for(var a=0;a<3;a++){ var xa=140+a*g;
-        if(a>0) svg.appendChild(svgEl("line",{x1:xa-g+18,y1:yy,x2:xa-18,y2:yy,stroke:TEAL,"stroke-width":4}));
-        svg.appendChild(mer(xa,yy)); }
-      for(var b=0;b<3;b++){ var xb=560+b*g;
-        if(b>0) svg.appendChild(svgEl("line",{x1:xb-g+18,y1:yy,x2:xb-18,y2:yy,stroke:TEAL,"stroke-width":4}));
-        svg.appendChild(mer(xb,yy)); }
-      svg.appendChild(svgEl("line",{x1:140+2*g+18,y1:yy,x2:560-18,y2:yy,stroke:GREEN,"stroke-width":4}));
-      svg.appendChild(label(450,yy+45,"new C–C bond (no radical left)",GREEN));
-    }
-  }
-  scene("1");
-  var stepperEl=document.querySelector('.stepper[data-stepper="fr"]');
-  if(stepperEl) stepperEl.addEventListener("step", function(e){ scene(e.detail.step); });
-})();
+  // defs: gradients + clip path
+  var defs=el("defs",{});
+  var glassGrad=el("linearGradient",{id:"glassGrad",x1:"0",y1:"0",x2:"0",y2:"1"});
+  glassGrad.appendChild(el("stop",{offset:"0","stop-color":"#ffffff","stop-opacity":"0.22"}));
+  glassGrad.appendChild(el("stop",{offset:"1","stop-color":"#ffffff","stop-opacity":"0.02"}));
+  defs.appendChild(glassGrad);
+  var liquidGrad=el("linearGradient",{id:"liquidGrad",x1:"0",y1:"0",x2:"0",y2:"1"});
+  liquidGrad.appendChild(el("stop",{id:"liqStopTop",offset:"0","stop-color":"#57C6D8","stop-opacity":"0.5"}));
+  liquidGrad.appendChild(el("stop",{id:"liqStopBot",offset:"1","stop-color":"#57C6D8","stop-opacity":"0.92"}));
+  defs.appendChild(liquidGrad);
+  var metalGrad=el("linearGradient",{id:"metalGrad",x1:"0",y1:"0",x2:"0",y2:"1"});
+  metalGrad.appendChild(el("stop",{offset:"0","stop-color":"#54697F"}));
+  metalGrad.appendChild(el("stop",{offset:"1","stop-color":"#233245"}));
+  defs.appendChild(metalGrad);
+  var clip=el("clipPath",{id:"beakerClip"});
+  clip.appendChild(el("rect",{x:BEAK.left,y:BEAK.top,width:BEAK.right-BEAK.left,height:BEAK.bottom-BEAK.top,rx:6}));
+  defs.appendChild(clip);
+  svg.appendChild(defs);
 
-/* =============== ANIMAÇÃO D · TERMOPLÁSTICO vs TERMOFIXO ======== */
-(function(){
-  var tp=document.getElementById("tpSvg"), ts=document.getElementById("tsSvg"),
-      slider=document.getElementById("heatSlider");
-  if(!tp||!slider) return;
-  function chainsThermo(svg, t){
-    svg.innerHTML="";
-    for(var i=0;i<3;i++){
-      var y=45+i*30 + t*i*14;
-      var xshift = t*60*(i%2?1:-1);
-      var d="M"+(40+xshift)+" "+y+" ";
-      for(var k=0;k<7;k++){ d+="q 15 "+(k%2?-14:14)+" 30 0 "; }
-      svg.appendChild(svgEl("path",{d:d,fill:"none",stroke:GREEN,"stroke-width":4,"stroke-linecap":"round",opacity:1-t*0.15}));
-    }
-  }
-  function networkThermo(svg, t){
-    svg.innerHTML="";
-    var pts=[[70,50],[190,45],[310,55],[110,105],[230,110],[350,100]];
-    var jitter=t*4;
-    function jx(x){ return x + (Math.random()*2-1)*jitter; }
-    function jy(y){ return y + (Math.random()*2-1)*jitter; }
-    var bonds=[[0,1],[1,2],[0,3],[1,4],[2,5],[3,4],[4,5],[1,3],[2,4]];
-    var P=pts.map(function(p){return [jx(p[0]),jy(p[1])];});
-    bonds.forEach(function(b){ svg.appendChild(svgEl("line",{x1:P[b[0]][0],y1:P[b[0]][1],
-      x2:P[b[1]][0],y2:P[b[1]][1],stroke:PINK,"stroke-width":3})); });
-    P.forEach(function(p){ svg.appendChild(svgEl("circle",{cx:p[0],cy:p[1],r:9,fill:"#0E2536",stroke:PINK,"stroke-width":3})); });
-    if(t>0.85){ var tx=svgEl("text",{x:210,y:140,"text-anchor":"middle",fill:PINK,"font-size":13,
-      "font-family":"IBM Plex Mono"}); tx.textContent="degrades before it can flow"; svg.appendChild(tx); }
-  }
-  function labelHeat(v){ return v<25?"low":v<55?"warm":v<85?"hot":"very hot"; }
-  window.Lecture.bindSlider("heatSlider", function(t, val){
-    document.getElementById("heatVal").textContent=labelHeat(val);
-    chainsThermo(tp,t); networkThermo(ts,t);
-    document.getElementById("tpCap").innerHTML = t>0.5
-      ? "Secondary bonds break → chains slide → <b>softens & can be reshaped</b>."
-      : "Secondary bonds hold linear chains together.";
-    document.getElementById("tsCap").innerHTML = t>0.5
-      ? "Covalent cross-links won't release → <b>cannot melt; degrades if overheated</b>."
-      : "Covalent cross-links lock the network in place.";
+  // beaker body + rim + spout
+  svg.appendChild(el("rect",{x:BEAK.x,y:BEAK.y,width:BEAK.w,height:BEAK.h,rx:10,fill:"#0E2536",stroke:"#3E5872","stroke-width":2.5}));
+  svg.appendChild(el("path",{d:"M290 60 L304 46 L293 71 Z",fill:"#3E5872"}));
+  svg.appendChild(el("rect",{x:106,y:55,width:188,height:9,rx:4.5,fill:"#4E6980"}));
+
+  // graduation ticks (25/50/75%)
+  [{y:BEAK.bottom-0.25*BEAK.ih,l:"25%"},{y:BEAK.bottom-0.5*BEAK.ih,l:"50%"},{y:BEAK.bottom-0.75*BEAK.ih,l:"75%"}].forEach(function(tk){
+    svg.appendChild(el("line",{x1:100,y1:tk.y,x2:BEAK.x,y2:tk.y,stroke:"#4E6980","stroke-width":1.5}));
+    var lbl=el("text",{x:96,y:tk.y+4,"text-anchor":"end","font-family":"IBM Plex Mono","font-size":10,fill:"#5E7B93"});
+    lbl.textContent=tk.l;svg.appendChild(lbl);
   });
-})();
 
-/* =============== ANIMAÇÃO E · CROSS-LINK SLIDER ================= */
-(function(){
-  var svg=document.getElementById("clSvg"), slider=document.getElementById("clSlider");
-  if(!svg||!slider) return;
-  var rows=[50,100,150], xs=[60,140,220,300,360];
-  function draw(t){
-    svg.innerHTML="";
-    rows.forEach(function(y){ svg.appendChild(svgEl("line",{x1:40,y1:y,x2:390,y2:y,stroke:TEAL,"stroke-width":4})); });
-    var possible=[];
-    xs.forEach(function(x){ possible.push([x,rows[0],x,rows[1]]); possible.push([x,rows[1],x,rows[2]]); });
-    var count=Math.round(t*possible.length);
-    for(var i=0;i<count;i++){ var p=possible[i];
-      svg.appendChild(svgEl("line",{x1:p[0],y1:p[1],x2:p[2],y2:p[3],stroke:PINK,"stroke-width":3})); }
+  // dynamic liquid group (recreated on every draw)
+  svg.appendChild(el("g",{id:"liquidLayer"}));
+
+  // glass shine overlay (drawn AFTER liquid so it sits on top of the glass)
+  svg.appendChild(el("rect",{x:122,y:70,width:16,height:214,rx:8,fill:"url(#glassGrad)"}));
+
+  // platform / pedestal / base (metallic)
+  svg.appendChild(el("rect",{x:88,y:306,width:224,height:15,rx:7,fill:"url(#metalGrad)",stroke:"#1B2A3A","stroke-width":1}));
+  svg.appendChild(el("path",{d:"M200 321 L163 381 L237 381 Z",fill:"url(#metalGrad)",stroke:"#1B2A3A","stroke-width":1}));
+  svg.appendChild(el("rect",{x:78,y:381,width:244,height:76,rx:18,fill:"#10273B",stroke:"#3E5872","stroke-width":2.5}));
+  var brand=el("text",{x:200,y:399,"text-anchor":"middle","font-family":"IBM Plex Mono","font-size":10,fill:"#5E7B93","letter-spacing":"3"});
+  brand.textContent="DIGITAL SCALE";svg.appendChild(brand);
+
+  // LCD bezel + readout + unit + LED
+  svg.appendChild(el("rect",{x:108,y:407,width:184,height:44,rx:9,fill:"#062032",stroke:"#1B4A5C","stroke-width":1.5}));
+  var num=el("text",{id:"scaleReadout",x:190,y:436,"text-anchor":"middle","font-family":"IBM Plex Mono","font-size":24,"font-weight":600,fill:"#57C6D8"});
+  num.textContent="0";svg.appendChild(num);
+  var unit=el("text",{x:190,y:449,"text-anchor":"middle","font-family":"IBM Plex Mono","font-size":9,fill:"#5E7B93"});
+  unit.textContent="g/mol";svg.appendChild(unit);
+  svg.appendChild(el("circle",{id:"scaleLed",cx:274,cy:429,r:6,fill:"#57C6D8"}));
+}
+
+function draw(){
+  var a=+sA.value,b=+sB.value,c=+sC.value;
+  document.getElementById("aVal").textContent=a;
+  document.getElementById("bVal").textContent=b;
+  document.getElementById("cVal").textContent=c;
+  var total=a*W_A+b*W_B+c*W_C,count=a+b+c;
+  var pct=Math.min(1,total/MAXW);
+  var viscoColor=pct<.25?"#57C6D8":pct<.5?"#8FD1A8":pct<.75?"#F2B84B":"#D64545";
+
+  // update liquid gradient colour
+  document.getElementById("liqStopTop").setAttribute("stop-color",viscoColor);
+  document.getElementById("liqStopBot").setAttribute("stop-color",viscoColor);
+  document.getElementById("scaleLed").setAttribute("fill",viscoColor);
+
+  // rebuild the liquid + molecules layer
+  var old=document.getElementById("liquidLayer");
+  var layer=el("g",{id:"liquidLayer","clip-path":"url(#beakerClip)"});
+  old.replaceWith(layer);
+
+  var washH=Math.min(BEAK.ih,(count/30)*BEAK.ih);
+  var topY=BEAK.bottom-washH;
+  if(washH>2){
+    var wave=el("path",{d:"M"+BEAK.left+" "+topY+" Q "+((BEAK.left+BEAK.right)/2-45)+" "+(topY-7)+" "+((BEAK.left+BEAK.right)/2)+" "+topY+
+      " T "+BEAK.right+" "+topY+" L "+BEAK.right+" "+BEAK.bottom+" L "+BEAK.left+" "+BEAK.bottom+" Z",fill:"url(#liquidGrad)"});
+    layer.appendChild(wave);
   }
-  window.Lecture.bindSlider("clSlider", function(t){
-    draw(t);
-    var lvl=t<.33?"low":t<.7?"medium":"high";
-    document.getElementById("clVal").textContent=lvl;
-    var br=document.getElementById("clBrittle");
-    if(t>.75){ br.textContent="↑ brittle"; br.className="v up"; br.style.color="#F9A8B8"; }
-    else { br.textContent="—"; br.className="v"; br.style.color=""; }
-    document.getElementById("clNote").innerHTML = t>.75
-      ? "<b>Over-cross-linked:</b> great solvent resistance and rigidity, but now <b>brittle.</b>"
-      : "Cross-links tie chains together — mostly good, until it isn't.";
+  var order=[];
+  for(var i=0;i<a;i++)order.push({color:COLORS.A,r:6});
+  for(i=0;i<b;i++)order.push({color:COLORS.B,r:8});
+  for(i=0;i<c;i++)order.push({color:COLORS.C,r:10});
+  var cols=7,innerW=BEAK.right-BEAK.left,dx=innerW/cols;
+  order.forEach(function(o,idx){
+    var col=idx%cols,row=Math.floor(idx/cols);
+    var cx=BEAK.left+dx*col+dx/2,cy=Math.max(BEAK.top+14,BEAK.bottom-10-row*26);
+    var satx=cx+o.r*0.85,saty=cy-o.r*0.85;
+    layer.appendChild(el("line",{x1:cx,y1:cy,x2:satx,y2:saty,stroke:"#0B1B2B","stroke-width":1.1}));
+    layer.appendChild(el("circle",{cx:satx,cy:saty,r:o.r*0.42,fill:o.color,opacity:.85,stroke:"#0B1B2B","stroke-width":1}));
+    layer.appendChild(el("circle",{cx:cx,cy:cy,r:o.r,fill:o.color,stroke:"#0B1B2B","stroke-width":1.3}));
   });
-})();
 
-/* =============== ANIMAÇÃO F · PLASTICIZER SLIDER =============== */
+  document.getElementById("scaleReadout").textContent=total.toLocaleString("en-US");
+  var fill=document.getElementById("viscoFill");fill.style.width=(pct*100)+"%";
+  var word=pct<.25?"watery":pct<.5?"runny":pct<.75?"syrupy":"thick";
+  document.getElementById("viscoWord").textContent=word;
+  var note=document.getElementById("beakerNote");
+  if(count===0){note.innerHTML="Empty beaker — add some monomers.";}
+  else{note.innerHTML=a+"×A (10) + "+b+"×B (50) + "+c+"×C (100) = <b>"+total.toLocaleString("en-US")+" g/mol</b> → mixture is <b>"+word+"</b>.";}
+}
+staticParts();
+[sA,sB,sC].forEach(function(s){s.addEventListener("input",draw);});
+draw();
+})();
+/* Gel point — elaborated: bonded walls + stress bar */
 (function(){
-  var svg=document.getElementById("plSvg"), slider=document.getElementById("plSlider");
-  if(!svg||!slider) return;
-  function draw(t){
-    svg.innerHTML="";
-    var baseGap=22, gap=baseGap + t*26;
-    for(var i=0;i<4;i++){
-      var y=45+i*gap;
-      var d="M30 "+y+" ";
-      for(var k=0;k<8;k++){ d+="q 12 "+(k%2?-10:10)+" 24 0 "; }
-      svg.appendChild(svgEl("path",{d:d,fill:"none",stroke:TEAL,"stroke-width":4,"stroke-linecap":"round"}));
-    }
-    var nP=Math.round(t*14);
-    for(var j=0;j<nP;j++){
-      var x=50+ (j*57)%330, yy=45+ (Math.floor(j/6)+0.5)*gap;
-      svg.appendChild(svgEl("circle",{cx:x,cy:yy,r:6,fill:GREEN,opacity:.9}));
+var svg=document.getElementById("gelSvg"),sl=document.getElementById("gelSlider");if(!svg||!sl)return;
+var NS="http://www.w3.org/2000/svg",GEL=45;
+function el(t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);return e;}
+function staticParts(){
+  svg.appendChild(el("ellipse",{cx:240,cy:272,rx:170,ry:10,fill:"#000",opacity:.25}));
+  svg.appendChild(el("rect",{x:55,y:30,width:28,height:220,rx:4,fill:"#3E5872",stroke:"#1B2A3A","stroke-width":1.5}));
+  svg.appendChild(el("rect",{x:397,y:30,width:28,height:220,rx:4,fill:"#3E5872",stroke:"#1B2A3A","stroke-width":1.5}));
+  var lw=el("text",{x:69,y:22,"text-anchor":"middle","font-family":"IBM Plex Mono","font-size":9,fill:"#8FA9BC"});lw.textContent="BONDED WALL";svg.appendChild(lw);
+  var rw=el("text",{x:411,y:22,"text-anchor":"middle","font-family":"IBM Plex Mono","font-size":9,fill:"#8FA9BC"});rw.textContent="BONDED WALL";svg.appendChild(rw);
+  svg.appendChild(el("line",{x1:83,y1:262,x2:397,y2:262,stroke:"#3E5872","stroke-width":2}));
+  var gelX=83+(397-83)*(GEL/100);
+  svg.appendChild(el("line",{x1:gelX,y1:255,x2:gelX,y2:269,stroke:"#F2B84B","stroke-width":2}));
+  var gl=el("text",{x:gelX,y:283,"text-anchor":"middle","font-family":"IBM Plex Mono","font-size":9,fill:"#F2B84B"});gl.textContent="gel point";svg.appendChild(gl);
+  svg.appendChild(el("g",{id:"gelDyn"}));
+}
+function draw(p){
+  var old=document.getElementById("gelDyn");
+  var g=el("g",{id:"gelDyn"});old.replaceWith(g);
+  var pre=p<GEL;
+  var col=pre?"#6EE7A8":(p>82?"#D64545":(p>GEL?"#F2B84B":"#57C6D8"));
+  var topY=pre?(30+(p/GEL)*20):50;
+  g.appendChild(el("rect",{x:83,y:topY,width:314,height:250-topY,fill:col,opacity:.26,stroke:col,"stroke-width":2.5}));
+  var markX=83+(397-83)*(p/100);
+  g.appendChild(el("circle",{cx:markX,cy:262,r:5,fill:"#57C6D8",stroke:"#0B1B2B","stroke-width":1.5}));
+  var midY=topY+(250-topY)/2;
+  if(pre){
+    [topY+28,topY+62,topY+96].forEach(function(y){
+      if(y<244)g.appendChild(el("path",{d:"M105 "+y+" Q 240 "+(y-8)+" 375 "+y,fill:"none",stroke:"#6EE7A8","stroke-width":2,"stroke-dasharray":"5 5"}));
+    });
+    var t=el("text",{x:240,y:midY,"text-anchor":"middle","font-family":"IBM Plex Mono","font-size":13,fill:"#6EE7A8"});
+    t.textContent="flows freely — no stress";g.appendChild(t);
+  }else{
+    var pull=(p-GEL)/(100-GEL);
+    [90,140,190].forEach(function(y){
+      g.appendChild(el("line",{x1:83,y1:y,x2:83-14*pull,y2:y,stroke:"#F9A8B8","stroke-width":3}));
+      g.appendChild(el("line",{x1:397,y1:y,x2:397+14*pull,y2:y,stroke:"#F9A8B8","stroke-width":3}));
+    });
+    var t2=el("text",{x:240,y:midY,"text-anchor":"middle","font-family":"IBM Plex Mono","font-size":13,fill:col});
+    t2.textContent=p>82?"bond failing → gap":"bonded — stress rising";g.appendChild(t2);
+    if(p>82){
+      g.appendChild(el("rect",{x:80,y:topY,width:6,height:250-topY,fill:"#D64545"}));
+      g.appendChild(el("rect",{x:394,y:topY,width:6,height:250-topY,fill:"#D64545"}));
     }
   }
-  window.Lecture.bindSlider("plSlider", function(t){
-    draw(t);
-    document.getElementById("plVal").textContent = t<.05?"none":t<.4?"low":t<.75?"medium":"high";
-  });
+}
+staticParts();
+sl.addEventListener("input",function(){
+  var v=+sl.value;draw(v);
+  document.getElementById("gelVal").textContent=v+"%";
+  var cap=document.getElementById("gelCap");
+  var stressPct=v<GEL?0:((v-GEL)/(100-GEL))*100;
+  var sf=document.getElementById("stressFill");if(sf)sf.style.width=stressPct+"%";
+  var sw=document.getElementById("stressWord");
+  var word=v<GEL?"none":stressPct<40?"rising":stressPct<80?"high":"bond failing";
+  if(sw)sw.textContent=word;
+  if(v<GEL){cap.innerHTML="Still a viscous liquid — the composite <b>flows</b> to compensate for shrinkage, so no stress reaches the bonded walls.";}
+  else if(v<82){cap.innerHTML="Past the gel point, the same shrinkage has nowhere to go — it converts directly into <b>stress at the bonded walls</b>.";}
+  else{cap.innerHTML="Stress has exceeded the bond strength → a <b>marginal gap</b> opens at the interface.";}
+});
+draw(0);
 })();
 
-/* =============== ANIMAÇÃO G · PRÉ-GEL / PÓS-GEL / ESTRESSE ===== */
+/* Degree of conversion — curing lamp flips double bonds from unreacted (red) to reacted (navy) */
 (function(){
-  var svg=document.getElementById("gelSvg"), slider=document.getElementById("gelSlider");
-  if(!svg||!slider) return;
-  var GEL=45;
-  function draw(pct){
-    svg.innerHTML="";
-    svg.appendChild(svgEl("path",{d:"M250 40 L250 200 Q250 230 300 230 L600 230 Q650 230 650 200 L650 40",
-      fill:"none",stroke:MUT,"stroke-width":6}));
-    svg.appendChild(svgEl("text",{x:180,y:130,fill:MUT,"font-size":14,"font-family":"IBM Plex Mono"})).textContent="tooth";
-    var preGel = pct < GEL;
-    var restColor = preGel ? GREEN : (pct>75?PINK:TEAL);
-    var shrink = preGel ? 0 : (pct-GEL)/ (100-GEL) * 14;
-    svg.appendChild(svgEl("rect",{x:270+shrink,y:60,width:360-shrink*2,height:150,rx:8,
-      fill:"#0E2536",stroke:restColor,"stroke-width":4}));
-    svg.appendChild(svgEl("rect",{x:250,y:250,width:400,height:6,rx:3,fill:"#0E2536"}));
-    svg.appendChild(svgEl("rect",{x:250,y:250,width:400*pct/100,height:6,rx:3,fill:restColor}));
-    var gx=250+400*GEL/100;
-    svg.appendChild(svgEl("line",{x1:gx,y1:244,x2:gx,y2:262,stroke:INK,"stroke-width":2}));
-    svg.appendChild(svgEl("text",{x:gx,y:238,"text-anchor":"middle",fill:INK,"font-size":11,"font-family":"IBM Plex Mono"})).textContent="gel point";
-
-    if(preGel){
-      [110,140,170].forEach(function(y){
-        svg.appendChild(svgEl("path",{d:"M300 "+y+" q 130 20 260 0",fill:"none",stroke:GREEN,"stroke-width":2,"stroke-dasharray":"4 4"}));
-      });
-      svg.appendChild(svgEl("text",{x:450,y:100,"text-anchor":"middle",fill:GREEN,"font-size":14,"font-family":"IBM Plex Mono"})).textContent="flows · shrinkage relieved";
-    } else {
-      var pull = (pct-GEL)/(100-GEL);
-      [90,135,180].forEach(function(y){
-        svg.appendChild(svgEl("line",{x1:270,y1:y,x2:270-18*pull,y2:y,stroke:PINK,"stroke-width":3}));
-        svg.appendChild(svgEl("line",{x1:630,y1:y,x2:630+18*pull,y2:y,stroke:PINK,"stroke-width":3}));
-      });
-      svg.appendChild(svgEl("text",{x:450,y:100,"text-anchor":"middle",fill:PINK,"font-size":14,"font-family":"IBM Plex Mono"})).textContent="bonded → contraction becomes stress";
-      if(pct>82){
-        svg.appendChild(svgEl("rect",{x:262,y:60,width:8,height:150,fill:PINK,opacity:.85}));
-        svg.appendChild(svgEl("text",{x:150,y:170,fill:PINK,"font-size":13,"font-family":"IBM Plex Mono"})).textContent="gap → microleakage";
-      }
+var svg=document.getElementById("dcSvg"),sl=document.getElementById("dcSlider");if(!svg||!sl)return;
+var NS="http://www.w3.org/2000/svg";
+var DCMAX=68,K=0.13,TOTAL=30,COLS=6;
+function el(t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);return e;}
+function staticParts(){
+  svg.appendChild(el("ellipse",{cx:240,cy:262,rx:170,ry:9,fill:"#000",opacity:.22}));
+  // curing lamp
+  svg.appendChild(el("rect",{x:20,y:30,width:34,height:70,rx:8,fill:"#3E5872",stroke:"#1B2A3A","stroke-width":1.5}));
+  svg.appendChild(el("path",{d:"M20 100 L37 130 L54 100 Z",fill:"#3E5872",stroke:"#1B2A3A","stroke-width":1.5}));
+  svg.appendChild(el("circle",{id:"lampBulb",cx:37,cy:65,r:14,fill:"#123",stroke:"#57C6D8","stroke-width":2}));
+  svg.appendChild(el("g",{id:"lampRays"}));
+  // sample panel (grid of double-bond icons)
+  svg.appendChild(el("rect",{x:100,y:40,width:360,height:180,rx:12,fill:"#0E2536",stroke:"#3E5872","stroke-width":2}));
+  svg.appendChild(el("g",{id:"dcGrid"}));
+  var lbl=el("text",{x:280,y:238,"text-anchor":"middle","font-family":"IBM Plex Mono","font-size":10,fill:"#5E7B93"});
+  lbl.textContent="each icon = a C=C double bond in the resin";svg.appendChild(lbl);
+}
+function draw(t){
+  var dc=DCMAX*(1-Math.exp(-K*t));
+  var reacted=Math.round(dc/100*TOTAL);
+  // lamp rays only if t>0
+  var rays=document.getElementById("lampRays");rays.innerHTML="";
+  if(t>0){
+    [50,65,80].forEach(function(y){
+      rays.appendChild(el("line",{x1:54,y1:y,x2:95,y2:y-10+((y-50)/15*10),stroke:"#57C6D8","stroke-width":2,opacity:.7}));
+    });
+  }
+  document.getElementById("lampBulb").setAttribute("fill",t>0?"#57C6D8":"#123");
+  var grid=document.getElementById("dcGrid");grid.innerHTML="";
+  var dx=340/COLS,startX=120,startY=70;
+  for(var i=0;i<TOTAL;i++){
+    var col=i%COLS,row=Math.floor(i/COLS);
+    var cx=startX+dx*col+dx/2,cy=startY+row*32;
+    var isReacted=i<reacted;
+    grid.appendChild(el("circle",{cx:cx-9,cy:cy,r:6,fill:"#1B2A3A",stroke:isReacted?"#57C6D8":"#D64545","stroke-width":1.5}));
+    grid.appendChild(el("circle",{cx:cx+9,cy:cy,r:6,fill:"#1B2A3A",stroke:isReacted?"#57C6D8":"#D64545","stroke-width":1.5}));
+    if(isReacted){
+      grid.appendChild(el("line",{x1:cx-4,y1:cy,x2:cx+4,y2:cy,stroke:"#57C6D8","stroke-width":2}));
+    }else{
+      grid.appendChild(el("line",{x1:cx-4,y1:cy-2,x2:cx+4,y2:cy-2,stroke:"#D64545","stroke-width":1.8}));
+      grid.appendChild(el("line",{x1:cx-4,y1:cy+2,x2:cx+4,y2:cy+2,stroke:"#D64545","stroke-width":1.8}));
     }
   }
-  window.Lecture.bindSlider("gelSlider", function(t, val){
-    draw(val);
-    var cap=document.getElementById("gelCap"), lab=document.getElementById("gelVal");
-    if(val<GEL){ lab.textContent="pre-gel"; cap.innerHTML="Before the gel point, the composite still <b>flows and adapts</b>."; }
-    else if(val<82){ lab.textContent="post-gel"; cap.innerHTML="Past the gel point, contraction converts into <b>shrinkage stress.</b>"; }
-    else { lab.textContent="bond failing"; cap.innerHTML="Stress exceeded the bond → <b>marginal gap</b> → microleakage, staining, sensitivity."; }
-  });
+  return dc;
+}
+sl.addEventListener("input",function(){
+  var t=+sl.value;
+  var dc=draw(t);
+  document.getElementById("dcTimeVal").textContent=t+" s";
+  document.getElementById("dcWord").textContent=Math.round(dc)+"%";
+  var fill=document.getElementById("dcFill");if(fill)fill.style.width=(dc/100*100)+"%";
+  var cap=document.getElementById("dcCap");
+  if(t===0){cap.innerHTML="No light yet — every double bond (red) is still unreacted.";}
+  else if(dc<40){cap.innerHTML="Conversion rising fast — most double bonds still unreacted.";}
+  else if(dc<60){cap.innerHTML="More than half the double bonds have reacted (navy) — mechanical properties are building up.";}
+  else{cap.innerHTML="Approaching the plateau — extra light barely moves the needle; some double bonds stay trapped no matter how long you cure.";}
+});
+staticParts();draw(0);
 })();
-</script>
-</body>
-</html>
+
+show(0);
+</script></body></html>
