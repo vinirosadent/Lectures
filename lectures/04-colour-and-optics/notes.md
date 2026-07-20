@@ -1,8 +1,10 @@
 # Aula 04 — Colour & Optics · notas do professor
 
 > Arquivo de **estado/contexto**. Não é exibido ao aluno.
-> Estado: **deck estruturado construído (2026-07-20)** — padrão da Aula 03, nível graduação 2º ano.
-> Aguardando: geração das 19 ilustrações e revisão do Vinicius.
+> Estado: **deck estruturado + 21 figuras integradas (2026-07-20)** — padrão da Aula 03, nível graduação 2º ano.
+> Figuras geradas pelo Vinicius (ChatGPT) copiadas de `1. Source/04. Color in dentistry/Assets/` (nomes
+> `01_…`–`21_…`) para `assets/` em kebab-case; os 21 placeholders `.ph` viraram `<figure>` reais.
+> Publicado no hub; falta o `git push` (rodar da máquina do Vinicius). Próximo opcional: handout.
 
 ---
 
