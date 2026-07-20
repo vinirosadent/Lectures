@@ -1,5 +1,26 @@
 # CHANGELOG
 
+## Chat 3 — Aula 04 Colour & Optics finalizada (2026-07-20)
+- **Deck em slides (padrão da Aula 03)**: `lectures/04-colour-and-optics/index.html`, autocontido (CSS+JS
+  inline, motor de navegação clonado da 03). **42 slides · 6 partes**: What colour really is · The three
+  attributes (hue/value/chroma) · How light interacts (quatro destinos + índice de refração) · Optical
+  properties (translucidez/opacidade/fluorescência/opalescência) · Measuring colour (Munsell/CIELAB/ΔE) ·
+  What sets the final colour. Nível graduação 2º ano: cada conceito com definição + significado + exemplos.
+- **6 animações interativas (SVG/JS)** que ensinam o mecanismo: espectro visível · sliders hue/value/chroma ·
+  **Δn → deflexão nas interfaces → orçamento de luz → aparência** · opalescência (dois observadores, azul
+  refletido × laranja transmitido) · **ΔE ao vivo** com fórmula substituída e régua de 3 zonas iguais ·
+  espessura × fundo (card P&B, translúcido × opaco).
+- **Reforço de literatura**: limiares ΔE (Paravina 2015: perceptibilidade 1.2 / aceitabilidade 2.7),
+  índices de refração (esmalte 1.63 · dentina 1.54 · Bis-GMA 1.54 · sílica 1.53), fluorescência ~440–450 nm
+  (dentina ≈3× esmalte).
+- **Sem perguntas nos slides [D-09]**; recap final = mapa dos learning outcomes ("onde você aprendeu").
+- **21 figuras esquemáticas**: ainda **a gerar** — placeholders `.ph` no deck mostram nome + descrição;
+  prompts prontos para o ChatGPT em `lectures/04-colour-and-optics/image-prompts.md`.
+- **Validação**: `node --check` no script inline (**OK**), tags balanceadas (42/42 `<section>`), teste
+  headless de runtime das animações (**OK**).
+- **Publicação**: Aula 04 ligada no hub (badge **Open**). No ar em
+  `https://vinirosadent.github.io/Lectures/lectures/04-colour-and-optics/`.
+
 ## Chat 2 — Aula 03 finalizada (2026-07-08)
 - **Deck final em slides**: substituí o `index.html` da Aula 03 pela versão final entregue pelo Vinicius —
   **45 slides** organizados em **6 partes** (Orientation & goals · The building blocks · How the chains are

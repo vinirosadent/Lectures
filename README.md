@@ -10,9 +10,9 @@ Cada aula é uma página que roda no navegador, com figuras + animações própr
 
 | | |
 |---|---|
-| **Chat atual** | 2 (Aula 03 finalizada) |
+| **Chat atual** | 3 (Aula 04 finalizada) |
 | **Identidade visual** | Clinical Clean (**[D-02]**) — teal=ciência, âmbar=clínica, rosa=equívoco, painel escuro=mecanismo |
-| **Aulas prontas** | **03 · Polymers & Polymerization** — deck final em slides (45 slides · 6 partes), 17 figuras integradas |
+| **Aulas prontas** | **03 · Polymers & Polymerization** (45 slides, 17 figuras) · **04 · Colour & Optics** — deck em slides (42 slides · 6 partes, 6 animações; 21 figuras esquemáticas a gerar) |
 | **Próxima sugerida** | 02 · Mechanical properties |
 | **Repositório** | https://github.com/vinirosadent/Lectures |
 | **Publicação** | GitHub Pages → `https://vinirosadent.github.io/Lectures/` |
@@ -21,7 +21,8 @@ Cada aula é uma página que roda no navegador, com figuras + animações própr
 - [ ] 01 Introduction & framework
 - [ ] 02 Mechanical properties
 - [x] **03 Polymers & polymerization** ✅ — deck final em slides, figuras integradas, revisão de conteúdo
-- [ ] 04 Colour & optics · 05 Biocompatibility · 06 Bioactivity · 07 3D printing
+- [x] **04 Colour & optics** ✅ — deck em slides (42 slides · 6 partes · 6 animações interativas); figuras esquemáticas a gerar (ver `lectures/04-colour-and-optics/image-prompts.md`)
+- [ ] 05 Biocompatibility · 06 Bioactivity · 07 3D printing
 - [ ] 08–14 Impressions · Gypsum · Cements · Composites · Adhesives · Ceramics · CAD/CAM
 - [ ] 15–20 Acrylics · CoCr · Endo · NiTi/aligners · Implants · Degradation
 

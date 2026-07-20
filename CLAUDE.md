@@ -116,7 +116,11 @@ Ver lista completa em `PROJECT_RULES.md`. Resumo: [D-01] 6 objetivos-guarda-chuv
 [D-05] formato enxuto, sem modo professor ·
 [D-06] estrutura em zonas numeradas com "." (0. Course plan / 1. Source read-only / 2. Repo git);
 nomes nunca com "·" · [D-07] Aula 03 publicada · [D-08] workflow: Claude lê o Drive, monta o HTML,
-entrega 1 prompt pro Claude Code que faz figuras+git.
+entrega 1 prompt pro Claude Code que faz figuras+git ·
+[D-09] **NUNCA colocar perguntas/quizzes/"test yourself" nos slides das aulas** (preferência do Vinicius);
+os slides ensinam, não avaliam. Recap final = mapa dos learning outcomes ("onde você aprendeu"), sem perguntas ·
+[D-10] Animações têm de **ensinar um mecanismo** (mostrar o fenômeno), não ser só um dial com um número —
+sempre pensar no learning outcome antes de construir.
 
 ## Perguntas em aberto (avise se forem relevantes à tarefa atual)
 

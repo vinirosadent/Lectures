@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colour &amp; Optics · Dental Materials · Lecture 04</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FBFCFD;--surface:#fff;--ink:#0F1B2A;--ink-soft:#31465C;--muted:#5E7285;--line:#E3E9EF;
+--primary:#0C7489;--primary-ink:#0A5C6D;--primary-wash:#E7F4F6;--navy:#12315B;
+--clinical:#B45309;--clinical-wash:#FDF3E7;--warn:#BE123C;--warn-wash:#FDECEF;--ok:#15803D;
+--dark:#0B1B2B;--dark-2:#10273B;--dark-ink:#E8F1F6;--dark-muted:#8FA9BC;--dark-line:#1E3A52;
+--f-disp:"Space Grotesk",system-ui,sans-serif;--f-body:"Inter",system-ui,sans-serif;--f-mono:"IBM Plex Mono",monospace;}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f-body);color:var(--ink)}
+.deck{height:100vh;width:100vw;overflow:hidden;position:relative}
+.track{display:flex;height:100%;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.slide{min-width:100vw;height:100vh;padding:4vh 4.5vw 6.5vh;background:var(--paper);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.s-eyebrow{font-family:var(--f-mono);font-size:1rem;letter-spacing:.13em;text-transform:uppercase;color:var(--primary-ink);margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem}
+.s-eyebrow::before{content:"";width:30px;height:10px;background:radial-gradient(circle at 5px 5px,var(--primary) 3.2px,transparent 3.6px),radial-gradient(circle at 25px 5px,var(--primary) 3.2px,transparent 3.6px);border-top:2px solid var(--primary)}
+.s-title{font-family:var(--f-disp);font-weight:600;line-height:1.05;color:var(--ink);font-size:clamp(1.9rem,3.4vw,2.9rem);letter-spacing:-.01em;margin-bottom:1.2vh}
+.s-sub{font-size:clamp(1.05rem,1.5vw,1.35rem);color:var(--ink-soft);margin-bottom:1.4vh;max-width:74ch;line-height:1.45}
+.s-body{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:2.5vw;min-height:0;align-items:center;overflow:hidden}
+.s-body.one-col{grid-template-columns:1fr}
+.s-body.text-heavy{grid-template-columns:1.2fr .8fr}
+.s-body.fig-heavy{grid-template-columns:.85fr 1.15fr}
+.col-text{overflow:hidden;padding-right:.3rem;max-height:100%;display:flex;flex-direction:column;justify-content:center}
+.col-visual{height:100%;display:flex;flex-direction:column;justify-content:center;gap:1rem;min-height:0}
+.blist{list-style:none;display:flex;flex-direction:column;gap:1.05vh}
+.blist>li{position:relative;padding-left:1.7rem;font-size:clamp(1.02rem,1.45vw,1.32rem);line-height:1.4;color:var(--ink-soft)}
+.blist>li::before{content:"";position:absolute;left:0;top:.5em;width:11px;height:11px;border-radius:50%;border:2px solid var(--primary);background:var(--primary-wash)}
+.blist>li b{color:var(--ink)}
+.blist .lead-term{font-family:var(--f-disp);font-weight:600;color:var(--primary-ink)}
+.blist.cols{columns:2;column-gap:3rem;display:block}
+.blist.cols>li{break-inside:avoid;margin-bottom:1.3vh}
+.defbox{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--primary);border-radius:0 12px 12px 0;padding:1rem 1.25rem;margin-bottom:1.1vh;box-shadow:0 6px 22px rgba(15,27,42,.05)}
+.defbox .term{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.2rem,1.7vw,1.5rem);color:var(--primary-ink);margin-bottom:.3rem}
+.defbox .def{font-size:clamp(1.02rem,1.45vw,1.28rem);color:var(--ink-soft);line-height:1.4}
+.steps{display:flex;flex-direction:column;gap:1.05vh;counter-reset:st}
+.step{display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:start}
+.step::before{counter-increment:st;content:counter(st);font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:1.05rem;flex:none}
+.step h4{font-family:var(--f-disp);font-size:clamp(1.1rem,1.55vw,1.38rem);color:var(--ink);margin-bottom:.15rem}
+.step p{font-size:clamp(1rem,1.4vw,1.24rem);line-height:1.38;color:var(--ink-soft)}
+.key{margin-top:1.4vh;border-left:5px solid var(--clinical);background:var(--clinical-wash);padding:.9rem 1.15rem;border-radius:0 12px 12px 0;font-size:clamp(1.02rem,1.45vw,1.28rem);color:var(--ink);line-height:1.4}
+.key b{color:var(--clinical)}
+.key .k-tag{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--clinical);display:block;margin-bottom:.35rem}
+.mech{background:var(--primary-wash);border:1px solid #BFE2E8;border-radius:12px;padding:.9rem 1.15rem;font-size:clamp(1.02rem,1.45vw,1.26rem);color:var(--ink-soft);line-height:1.4}
+.mech .k-tag{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--primary-ink);display:block;margin-bottom:.35rem}
+.mech b{color:var(--ink)}
+.figbox{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:.9rem;box-shadow:0 12px 40px rgba(15,27,42,.10);display:flex;flex-direction:column;gap:.5rem;max-height:100%;align-items:center;justify-content:center;overflow:hidden}
+.figbox img{width:100%;height:auto;max-height:76vh;object-fit:contain;display:block;border-radius:8px}
+.figbox.dual{gap:1rem}
+.figcap{font-size:1.05rem;color:var(--muted);line-height:1.4;text-align:center}
+.figcap b{color:var(--ink-soft)}
+.slide--focusfig{align-items:center;text-align:center}
+.slide--focusfig .ff-head{width:100%;max-width:72ch;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+.slide--focusfig .s-eyebrow{justify-content:center}
+.slide--focusfig .s-title{margin-bottom:1vh}
+.slide--focusfig .s-sub{max-width:74ch;margin:0 auto;text-align:center}
+.slide--focusfig .s-body{width:100%;flex:1;padding:1vh 2vw 0.5vh;align-items:center;justify-content:center;justify-items:center}
+.slide--focusfig .figbox{margin:0 auto;padding:1.3rem;max-width:26vw;max-height:100%}
+.slide--focusfig .figbox img{width:auto;max-width:100%;height:auto;max-height:48vh}
+.ph{border:2.5px dashed var(--primary);border-radius:16px;background:repeating-linear-gradient(135deg,#EAF6F8,#EAF6F8 14px,#E1F0F3 14px,#E1F0F3 28px);padding:2rem 1.5rem;text-align:center;display:flex;flex-direction:column;gap:.6rem;align-items:center;justify-content:center;min-height:44vh}
+.ph .ph-badge{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--primary);padding:.3rem .8rem;border-radius:999px}
+.ph .ph-t{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.25rem,1.85vw,1.55rem);color:var(--primary-ink)}
+.ph .ph-f{font-family:var(--f-mono);font-size:1rem;color:var(--muted)}
+.ph .ph-d{font-size:1.1rem;color:var(--ink-soft);max-width:36ch;line-height:1.4}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-content:center}
+.vs.three{grid-template-columns:1fr 1fr 1fr}
+.vs .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.5rem;box-shadow:0 8px 28px rgba(15,27,42,.07)}
+.vs .card h3{font-family:var(--f-disp);font-size:clamp(1.2rem,1.7vw,1.5rem);margin-bottom:.7rem}
+.vs .card.a h3{color:var(--primary-ink)} .vs .card.b h3{color:var(--warn)}
+.vs .card ul{list-style:none;display:flex;flex-direction:column;gap:.95vh}
+.vs .card li{position:relative;padding-left:1.4rem;font-size:clamp(1rem,1.4vw,1.24rem);line-height:1.38;color:var(--ink-soft)}
+.vs .card li::before{content:"";position:absolute;left:0;top:.5em;width:9px;height:9px;border-radius:50%}
+.vs .card.a li::before{background:var(--primary)} .vs .card.b li::before{background:var(--warn)}
+.vs .card li b{color:var(--ink)}
+.objlist{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1.4vh 2.5rem;counter-reset:ob}
+.objlist li{counter-increment:ob;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;font-size:clamp(1.25rem,1.75vw,1.5rem);line-height:1.42;color:var(--ink-soft)}
+.objlist li::before{content:counter(ob);font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:1rem}
+.objlist li b{color:var(--ink)}
+.objgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;flex:1;min-height:0}
+.objcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.25rem;box-shadow:0 8px 24px rgba(15,27,42,.06);display:flex;flex-direction:column;gap:.55rem}
+.objnum{font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:1.05rem;flex:none}
+.objtxt{font-size:clamp(.98rem,1.4vw,1.2rem);line-height:1.36;color:var(--ink-soft)}
+.objtxt b{color:var(--ink)}
+.flowstrip{background:var(--primary-wash);border:1px solid #BFE2E8;border-radius:14px;padding:1rem 1.4rem;display:flex;align-items:center;justify-content:center}
+.flowstrip svg{width:100%;max-width:900px;height:auto;display:block}
+.instrument{background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--dark-line);border-radius:22px;padding:1.6rem 1.6rem 1.4rem;box-shadow:0 20px 50px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.06)}
+.viscowrap{margin-top:1.4rem}
+.viscolabel{font-family:var(--f-mono);font-size:1.05rem;color:var(--dark-muted);display:flex;justify-content:space-between;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.07em}
+.viscolabel span:last-child{color:#fff;font-weight:600;letter-spacing:.03em}
+.viscobar{width:100%;height:22px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--dark-line);overflow:hidden;box-shadow:inset 0 2px 6px rgba(0,0,0,.35)}
+.viscofill{height:100%;width:0%;background:linear-gradient(90deg,#57C6D8,#8FD1A8,#F2B84B,#D64545);transition:width .3s;box-shadow:0 0 12px rgba(87,198,216,.5)}
+.slide--title,.slide--divider,.slide--interactive{background:linear-gradient(155deg,var(--dark),var(--dark-2));color:var(--dark-ink);justify-content:center}
+.slide--title .s-eyebrow,.slide--divider .s-eyebrow,.slide--interactive .s-eyebrow{color:#57C6D8}
+.slide--title .s-eyebrow::before,.slide--divider .s-eyebrow::before,.slide--interactive .s-eyebrow::before{background:radial-gradient(circle at 5px 5px,#57C6D8 3.2px,transparent 3.6px),radial-gradient(circle at 25px 5px,#57C6D8 3.2px,transparent 3.6px);border-top-color:#57C6D8}
+.slide--title h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(2.9rem,6.5vw,5.2rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:1.4rem}
+.slide--title .frame{font-size:clamp(1.35rem,2.3vw,1.85rem);color:var(--dark-muted);max-width:42ch;line-height:1.42}
+.slide--divider .num{font-family:var(--f-disp);font-weight:700;font-size:clamp(4.5rem,12vw,9rem);color:var(--dark-line);line-height:1}
+.slide--divider h2{font-family:var(--f-disp);font-weight:600;font-size:clamp(2.4rem,5vw,4rem);color:#fff;margin-top:-1vh}
+.slide--divider .d-list{margin-top:2.2vh;color:var(--dark-muted);font-size:clamp(1.2rem,1.8vw,1.5rem);display:flex;flex-wrap:wrap;gap:.5rem 1.6rem}
+.slide--interactive .s-title{color:#fff}
+.control{margin:1.4vh 0}
+.control label{font-family:var(--f-mono);font-size:1.1rem;color:var(--dark-muted);display:flex;justify-content:space-between;margin-bottom:.4rem}
+.control input[type=range]{width:100%;accent-color:#14A0B8;height:7px}
+.igloss{color:var(--dark-muted);font-size:clamp(1.02rem,1.45vw,1.26rem);line-height:1.42;margin-top:1.1vh}
+.igloss b{color:#fff}
+.calc{background:rgba(255,255,255,.05);border:1px solid var(--dark-line);border-radius:16px;padding:1.6rem 1.8rem}
+.calc .out{font-family:var(--f-mono);margin-top:1.2rem;display:flex;flex-direction:column;gap:.7rem}
+.calc .out .row{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed var(--dark-line);padding-bottom:.5rem}
+.calc .out .lbl{color:var(--dark-muted);font-size:1rem}
+.calc .out .big{color:#57C6D8;font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:600}
+.calc .formula{font-family:var(--f-mono);color:#fff;font-size:clamp(1.05rem,1.5vw,1.3rem);margin-top:1rem;text-align:center;background:rgba(20,160,184,.12);border-radius:10px;padding:.7rem}
+.deckbar{position:fixed;bottom:0;left:0;right:0;height:5vh;min-height:38px;background:rgba(11,27,43,.94);color:#fff;display:flex;align-items:center;gap:1rem;padding:0 1.2rem;z-index:20;font-family:var(--f-mono)}
+.deckbar .part{font-size:.8rem;color:var(--dark-muted);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.deckbar .count{font-size:.85rem;color:#9FCBD6}
+.navbtn{border:0;background:#17425C;color:#EAF4F8;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:grid;place-items:center}
+.navbtn:hover{background:#1E5877}
+.count{cursor:pointer;user-select:none}
+.count:hover{color:#fff;text-decoration:underline}
+.overview{position:fixed;inset:0;z-index:40;background:rgba(8,18,28,.97);display:none;flex-direction:column;padding:3vh 3vw}
+.overview.open{display:flex}
+.overview h3{font-family:var(--f-disp);color:#fff;font-size:1.6rem;margin-bottom:.4rem}
+.overview .ov-hint{font-family:var(--f-mono);color:var(--dark-muted);font-size:.9rem;margin-bottom:2vh}
+.ov-grid{flex:1;overflow-y:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.9rem;align-content:start}
+.ov-item{background:#10273B;border:1px solid #1E3A52;border-radius:10px;padding:.8rem .9rem;cursor:pointer;display:flex;gap:.7rem;align-items:flex-start;transition:background .15s,border-color .15s;text-align:left}
+.ov-item:hover{background:#17425C;border-color:#57C6D8}
+.ov-item .ov-n{font-family:var(--f-mono);font-size:.8rem;color:#57C6D8;flex:none;min-width:1.6rem}
+.ov-item .ov-t{font-size:.92rem;color:#E8F1F6;line-height:1.3}
+.ov-item.is-part{background:#0A5C6D;border-color:#0C7489}
+.ov-item.is-part .ov-t{font-weight:600}
+.ov-close{position:absolute;top:2vh;right:2vw;background:#17425C;color:#fff;border:0;border-radius:8px;padding:.5rem .9rem;cursor:pointer;font-family:var(--f-mono);font-size:.9rem}
+.ov-close:hover{background:#1E5877}
+.progress{position:fixed;top:0;left:0;height:4px;background:#14A0B8;z-index:21;transition:width .3s;width:0}
+@media (max-width:900px){.s-body,.s-body.text-heavy,.s-body.fig-heavy{grid-template-columns:1fr;gap:1.2rem}.objlist,.blist.cols{grid-template-columns:1fr;columns:1}}
+/* ===== Aula 04 · ajustes de distribuição vertical + figuras flexíveis ===== */
+.s-body{align-items:stretch}
+.s-body>.col-text{justify-content:space-evenly;gap:1.1vh}
+.s-body>.col-visual{justify-content:center}
+/* slides interativos: agrupar controles no centro, não espalhar */
+.slide--interactive .s-body>.col-text{justify-content:center;gap:1.3vh}
+.slide--interactive .s-body{align-items:center}
+.col-visual .ph{min-height:60vh;height:100%;width:100%}
+.col-visual .figbox{max-height:100%}
+/* figura larga: ocupa a linha inteira, aspecto paisagem */
+.s-body.one-col{gap:1.6vh;justify-items:stretch}
+.ph--wide{min-height:32vh;width:100%}
+.ph--tall{min-height:66vh}
+/* slides com pouco texto: espalhar objgrid/tabela para preencher a altura */
+.s-body.one-col{align-content:center}
+.s-body.one-col>.objgrid{align-content:space-evenly;height:100%}
+/* ===== Slides interativos reconstruídos (20 RI · 27 opalescência · 33 ΔE) =====
+   Layout escopado: usa a altura disponível, começa logo abaixo do título,
+   deixa espaço para a deckbar, SVGs grandes e rótulos legíveis. */
+.slide--interactive.interactive-ri .s-body,
+.slide--interactive.interactive-opalescence .s-body,
+.slide--interactive.interactive-de .s-body{
+  align-items:stretch; align-content:start; min-height:0; overflow:hidden;
+  gap:clamp(14px,2vw,32px); padding-bottom:1vh;
+}
+.ix-grid{display:grid;min-height:0;width:100%;gap:clamp(14px,2vw,32px)}
+.ix-ri .ix-grid{grid-template-columns:minmax(0,40fr) minmax(0,60fr)}
+.ix-op .ix-grid{grid-template-columns:minmax(0,1fr)}
+.ix-de .ix-grid{grid-template-columns:minmax(0,46fr) minmax(0,54fr)}
+.ix-col{min-width:0;min-height:0;display:flex;flex-direction:column;gap:clamp(8px,1.4vh,16px);justify-content:flex-start}
+.ix-svg{width:100%;height:auto;display:block;min-height:0}
+.ix-ri #riSvg{max-height:56vh}
+.ix-op #opSvg{max-height:54vh}
+.ix-de #deSwatch{max-height:20vh}
+.ix-de #deRuler{max-height:20vh}
+.ix-lead{font-size:clamp(1rem,1.35vw,1.28rem);color:var(--dark-muted);line-height:1.42;margin:0}
+.ix-lead b{color:#fff}
+.ix-readpanel{background:rgba(255,255,255,.05);border:1px solid var(--dark-line);border-radius:14px;padding:clamp(.6rem,1.3vh,1rem) 1.1rem}
+.ix-nrow{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:clamp(.95rem,1.2vw,1.18rem);color:var(--dark-muted);padding:.18rem 0}
+.ix-nrow b{color:#fff}.ix-nrow .hi{color:#57C6D8}
+.ix-ends{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:clamp(.78rem,1vw,.95rem);color:var(--muted);margin-top:.2rem}
+.ix-causal{font-family:var(--f-mono);font-size:clamp(.84rem,1.05vw,1.05rem);color:#cfe0ea;background:rgba(87,198,216,.10);border:1px solid var(--dark-line);border-radius:10px;padding:.6rem .85rem;line-height:1.5;text-align:center}
+.ix-states{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.ix-state{border:1px solid var(--dark-line);border-radius:12px;padding:.7rem .85rem;background:rgba(255,255,255,.03);transition:all .2s;opacity:.4}
+.ix-state.on{opacity:1}
+.ix-state.matched.on{border-color:#6EE7A8;background:rgba(110,231,168,.12)}
+.ix-state.mismatched.on{border-color:#F2B84B;background:rgba(242,184,75,.12)}
+.ix-state .t{font-family:var(--f-disp);font-weight:600;color:#fff;font-size:clamp(1rem,1.25vw,1.2rem);margin-bottom:.18rem}
+.ix-state .d{font-size:clamp(.86rem,1.05vw,1rem);color:var(--dark-muted);line-height:1.35}
+.ix-bars{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.2rem}
+.ix-bar-lab{font-family:var(--f-mono);font-size:clamp(.86rem,1.05vw,1.02rem);color:var(--dark-muted);display:flex;justify-content:space-between;margin-bottom:.32rem}
+.ix-bar-lab b{color:#fff}
+.ix-bartrack{height:16px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--dark-line);overflow:hidden}
+.ix-barfill{height:100%;width:0;transition:width .18s}
+.ix-barfill.fwd{background:#6EE7A8}.ix-barfill.sca{background:#F2B84B}
+.ix-budget-note{font-family:var(--f-mono);font-size:.82rem;color:var(--muted);margin-top:.25rem;grid-column:1/-1;text-align:center}
+.ix-seg{display:inline-flex;background:rgba(255,255,255,.06);border:1px solid var(--dark-line);border-radius:999px;padding:.28rem;gap:.28rem}
+.ix-seg button{font:inherit;font-family:var(--f-disp);font-weight:600;font-size:clamp(.95rem,1.2vw,1.15rem);cursor:pointer;border:0;background:transparent;color:var(--dark-muted);border-radius:999px;padding:.5rem 1.3rem}
+.ix-seg button.on{background:var(--primary);color:#fff}
+.ix-presets{display:flex;gap:.5rem;flex-wrap:wrap}
+.ix-presets button{font:inherit;font-family:var(--f-mono);font-size:clamp(.8rem,1vw,.98rem);cursor:pointer;border:1px solid var(--dark-line);background:#12354A;color:#EAF4F8;border-radius:999px;padding:.42rem .95rem}
+.ix-presets button:hover{background:#17425C}
+.ix-formula{font-family:var(--f-mono);background:rgba(20,160,184,.12);border:1px solid var(--dark-line);border-radius:12px;padding:clamp(.6rem,1.3vh,1rem) 1rem;color:#fff;font-size:clamp(1rem,1.5vw,1.4rem);line-height:1.7;text-align:center}
+.ix-formula .res{color:#57C6D8;font-size:clamp(1.5rem,2.4vw,2.2rem);font-weight:600}
+.ix-verdict{border-radius:12px;padding:clamp(.6rem,1.3vh,1rem) 1rem;text-align:center;font-family:var(--f-disp);font-weight:600;font-size:clamp(1.1rem,1.5vw,1.45rem);border:1px solid var(--dark-line);color:#EAF4F8}
+@media (max-height:800px){
+  .slide--interactive.interactive-ri .s-body,
+  .slide--interactive.interactive-opalescence .s-body,
+  .slide--interactive.interactive-de .s-body{gap:12px}
+  .ix-lead{font-size:1rem;line-height:1.32}
+  .ix-readpanel{padding:.5rem .8rem}
+  .ix-ri #riSvg{max-height:50vh}.ix-op #opSvg{max-height:48vh}
+  .ix-formula{line-height:1.5}
+}
+</style></head><body>
+<div class="progress" id="prog"></div>
+<div class="deck"><div class="track" id="track">
+<!-- ===================== TITLE ===================== -->
+<section class="slide slide--title"><p class="s-eyebrow">Phase 1 · Fundamentals · Lecture 04</p><h1>Colour &amp;<br>Optics</h1><p class="frame">Why a tooth looks the way it does — and why matching it with a material is a problem of physics, not paint. From wavelengths and microstructure to hue, translucency, and the numbers we use to measure a match.</p></section>
+
+<!-- ===================== PART 1 ===================== -->
+<section class="slide slide--divider"><div class="s-eyebrow">Part 1 of 6</div><div class="num">01</div><h2>What colour really is</h2><div class="d-list"><span>Light · object · observer</span><span>· The visible spectrum</span><span>· How the eye reads colour</span></div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Learning objectives</p>
+<h2 class="s-title">By the end of this lecture you can…</h2>
+<p class="s-sub">One reasoning thread runs through the whole hour: microstructure decides what a material does to light, that fixes how it looks, and that governs whether a restoration matches and stays matched.</p>
+<div class="s-body one-col" style="display:flex;flex-direction:column;gap:1.8vh">
+<div class="objgrid">
+<div class="objcard"><span class="objnum">1</span><div class="objtxt">Describe the basic attributes of colour — <b>hue, value and chroma</b>.</div></div>
+<div class="objcard"><span class="objnum">2</span><div class="objtxt">Explain how <b>reflection, absorption, scattering and transmission</b> determine colour and appearance.</div></div>
+<div class="objcard"><span class="objnum">3</span><div class="objtxt">Differentiate <b>translucency, opacity, fluorescence and opalescence</b> in dental materials.</div></div>
+<div class="objcard"><span class="objnum">4</span><div class="objtxt">Describe the <b>Munsell</b> and <b>CIELAB</b> systems and how we measure colour (ΔE).</div></div>
+<div class="objcard"><span class="objnum">5</span><div class="objtxt">Explain how <b>composition, thickness, background, surface and ageing</b> change final colour and stability.</div></div>
+<div class="objcard" style="background:var(--dark);color:#fff"><span class="objnum" style="background:#57C6D8;color:#06222b">★</span><div class="objtxt" style="color:#cfe6ee">The thread: <b style="color:#fff">structure → property → performance</b>.</div></div>
+</div>
+<div class="flowstrip">
+<svg viewBox="0 0 820 100" role="img" aria-label="structure to property to performance">
+<defs><marker id="arrowh" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0C7489"/></marker></defs>
+<rect x="10" y="20" width="240" height="60" rx="12" fill="#fff" stroke="#0C7489" stroke-width="2"/><text x="130" y="57" text-anchor="middle" font-family="Space Grotesk" font-weight="600" font-size="22" fill="#0A5C6D">Microstructure</text>
+<path d="M255 50 L320 50" stroke="#0C7489" stroke-width="3" marker-end="url(#arrowh)"/>
+<rect x="320" y="20" width="240" height="60" rx="12" fill="#fff" stroke="#0C7489" stroke-width="2"/><text x="440" y="57" text-anchor="middle" font-family="Space Grotesk" font-weight="600" font-size="22" fill="#0A5C6D">Optical property</text>
+<path d="M565 50 L630 50" stroke="#0C7489" stroke-width="3" marker-end="url(#arrowh)"/>
+<rect x="630" y="20" width="240" height="60" rx="12" fill="#fff" stroke="#B45309" stroke-width="2"/><text x="750" y="57" text-anchor="middle" font-family="Space Grotesk" font-weight="600" font-size="22" fill="#B45309">Appearance</text>
+</svg>
+</div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">The core idea</p>
+<h2 class="s-title">Colour is not "in" the object</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<p class="s-sub" style="margin-top:0">Colour is a <b>psychophysical sensation</b>: a physical stimulus (light) is modified by an object, captured by the eye, and interpreted by the brain. It needs three things at once.</p>
+<div class="defbox"><div class="term">1 · Illuminant (light)</div><div class="def">Electromagnetic radiant energy the eye can detect, ≈ <b>380–780 nm</b>. No light → no colour.</div></div>
+<div class="defbox"><div class="term">2 · Object</div><div class="def">Its composition and microstructure <b>selectively</b> absorb some wavelengths and reflect/transmit others. This is the part <b>we engineer</b>.</div></div>
+<div class="defbox"><div class="term">3 · Observer</div><div class="def">Retinal cones turn the returning light into nerve signals; the brain interprets them as a colour.</div></div>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">Light · object · observer</span><span class="ph-f">assets/light-object-observer.png</span><span class="ph-d">Triangle: lamp emits light → tooth modifies it → eye/brain interpret. Change any one and colour changes.</span></div></div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">The stimulus</p>
+<h2 class="s-title">The visible spectrum — white light is a mixture</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Visible spectrum</div><div class="def">The band of wavelengths the eye detects (~380–780 nm). Short = violet/blue; long = orange/red.</div></div>
+<ul class="blist">
+<li><b>White light</b> is all visible wavelengths together (e.g. midday daylight).</li>
+<li>What an object <b>reflects/transmits</b> back to the eye is its perceived colour: reflect all → white, absorb all → black, reflect only ~700 nm → red.</li>
+<li>A <b>prism</b> (or the hydroxyapatite crystals of enamel) can bend each wavelength differently and split white light into its components — the basis of opalescence in Part 4.</li>
+</ul>
+<div class="mech"><span class="k-tag">Aditive primaries — RGB</span> The eye has three cone types, so any colour of <b>light</b> can be made from <b>Red + Green + Blue</b>. R+G+B at full = white; this is why screens are RGB. (Mixing <b>pigments</b> is subtractive — a different rule.)</div>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">Visible spectrum 380–780 nm</span><span class="ph-f">assets/visible-spectrum.png</span><span class="ph-d">Horizontal spectrum bar with wavelength scale; call-outs for violet/blue/green/yellow/orange/red.</span></div></div>
+</div></section>
+
+<section class="slide slide--interactive">
+<p class="s-eyebrow">Interactive · the spectrum</p>
+<h2 class="s-title">One object, many wavelengths</h2>
+<div class="s-body">
+<div class="col-text">
+<p class="igloss" style="margin-top:0">Drag to isolate a single wavelength of the visible spectrum and see the colour sensation it produces. White light contains <b>all</b> of these at once; an object's colour is the subset it sends back to your eye.</p>
+<div class="control"><label>Wavelength <span id="wlOut" class="mono">480 nm</span></label><input type="range" id="wl" min="380" max="780" step="1" value="480"></div>
+<p class="igloss" id="wlNote" style="font-size:1.1rem">≈ 480 nm is perceived as blue.</p>
+</div>
+<div class="col-visual"><div class="instrument"><svg id="wlSvg" viewBox="0 0 460 300" style="width:100%;max-width:440px;margin:0 auto;display:block" aria-label="visible spectrum with movable marker"></svg></div></div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Light intro · the observer</p>
+<h2 class="s-title">How the eye turns wavelengths into colour</h2>
+<p class="s-sub">We keep this brief — for a materials course the observer is fixed context. But knowing <i>why</i> value matters most starts here.</p>
+<div class="s-body text-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Cones (colour) &amp; rods (grey)</div><div class="def">~6–7 million <b>cones</b> (bright light, colour, packed in the fovea) and ~120 million <b>rods</b> (dim light, no colour).</div></div>
+<ul class="blist">
+<li><b>Trichromatic theory:</b> three cone types — <b>S</b> (~430–446 nm, blue), <b>M</b> (~531–555 nm, green), <b>L</b> (~558–599 nm, red). Any colour is the <b>balance</b> of their signals.</li>
+<li><b>Opponent-process theory:</b> those signals are re-coded into pairs — red–green, blue–yellow, and a separate <b>black–white (lightness)</b> channel. That is why we never see "reddish-green".</li>
+<li>The dedicated lightness channel is why the eye resolves <b>value</b> (lightness) far more finely than hue or chroma — remember this in Part 2.</li>
+</ul>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">S/M/L cone response</span><span class="ph-f">assets/cone-response-curves.png</span><span class="ph-d">Three overlapping sensitivity curves (S~440, M~540, L~570 nm) across the visible spectrum.</span></div></div>
+</div></section>
+
+<!-- ===================== PART 2 ===================== -->
+<section class="slide slide--divider"><div class="s-eyebrow">Part 2 of 6</div><div class="num">02</div><h2>The three attributes of colour</h2><div class="d-list"><span>Hue</span><span>· Value</span><span>· Chroma</span></div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Describing any colour</p>
+<h2 class="s-title">Three numbers pin down a colour</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<p class="s-sub" style="margin-top:0">The Munsell system (1905) showed that <b>any</b> colour is fixed by three independent attributes. Learn these words precisely — the rest of the lecture uses them.</p>
+<div class="defbox"><div class="term">Hue</div><div class="def">The colour <b>family</b> (red, yellow, blue) — set by the dominant wavelength.</div></div>
+<div class="defbox"><div class="term">Value</div><div class="def">The <b>lightness</b> (black→white), independent of hue.</div></div>
+<div class="defbox"><div class="term">Chroma</div><div class="def">The <b>saturation</b> — how strong or pure the hue is.</div></div>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">Hue · value · chroma at a glance</span><span class="ph-f">assets/hvc-overview.png</span><span class="ph-d">One diagram: hue wheel, a vertical value scale, and a chroma (saturation) gradient — labelled.</span></div></div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Attribute 1 · hue</p>
+<h2 class="s-title">Hue — the colour family</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Hue</div><div class="def">What everyday language calls "the colour": red, orange, yellow, green, blue. Physically it is the <b>dominant wavelength</b> reflected by the object.</div></div>
+<ul class="blist">
+<li><b>What it means for teeth:</b> natural teeth sit in a narrow band — the <b>yellow to yellow-red</b> hues. You will never match a tooth with a "blue" or "green" hue.</li>
+<li><b>Example — Vita Classical guide:</b> the letter is the hue → <b>A</b> = reddish-brown, <b>B</b> = reddish-yellow, <b>C</b> = greyish, <b>D</b> = reddish-grey. The number after it is chroma.</li>
+<li>Get hue wrong and the tooth reads the wrong "family" — but hue is usually the <b>easiest</b> of the three to match, because teeth vary little in hue.</li>
+</ul>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">Tooth hues (A/B/C/D)</span><span class="ph-f">assets/hue-shade-families.png</span><span class="ph-d">The Vita A–D hue families as swatches, with the natural-tooth yellow/yellow-red zone highlighted on a hue wheel.</span></div></div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Attribute 2 · value</p>
+<h2 class="s-title">Value — lightness, and the one that matters most</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Value</div><div class="def">The relative <b>lightness or darkness</b> of a colour on a grey scale from <b>0 (black)</b> to <b>10 (white)</b>, independent of hue.</div></div>
+<ul class="blist">
+<li><b>Why it dominates:</b> the eye's dedicated black–white channel resolves lightness far more finely than hue or chroma. A value mismatch is the <b>first</b> thing that looks wrong.</li>
+<li><b>What low value looks like:</b> a tooth with low value absorbs more light and appears <b>dark, grey, "non-vital"</b>.</li>
+<li><b>Clinical technique:</b> <i>squint</i> when judging value — it suppresses colour vision and isolates lightness.</li>
+<li><b>Rule of thumb:</b> when unsure, pick the <b>higher value</b> (lighter) — a technician can lower value with stain, but cannot easily raise it. Vita 3D-Master even asks you to match <b>value first</b>.</li>
+</ul>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">Value scale 0–10</span><span class="ph-f">assets/value-scale.png</span><span class="ph-d">Vertical grey scale 0(black)→10(white); a tooth placed on it; a low-value "greyish non-vital" tooth beside a high-value one.</span></div></div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Attribute 3 · chroma</p>
+<h2 class="s-title">Chroma — saturation, and its link to value</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Chroma</div><div class="def">The <b>intensity / purity</b> of a hue — how far the colour departs from a neutral grey of the same value. Think of adding dye to water: the hue stays, the strength climbs.</div></div>
+<ul class="blist">
+<li><b>What drives it in teeth:</b> chroma is set mainly by the <b>dentine</b> (the coloured core), while enamel is nearly colourless.</li>
+<li><b>Cervical vs incisal:</b> chroma is highest at the neck (thin enamel, dentine shows) and lowest at the translucent incisal edge.</li>
+<li><b>The key coupling — value and chroma move inversely:</b> raising chroma packs in more colourant, which absorbs more light, so the tooth also reads <b>darker</b> (lower value).</li>
+</ul>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">Chroma steps + inverse value</span><span class="ph-f">assets/chroma-scale.png</span><span class="ph-d">A row of the same hue at rising chroma (A1→A4), with an arrow showing value dropping as chroma rises.</span></div></div>
+</div></section>
+
+<section class="slide slide--interactive">
+<p class="s-eyebrow">Interactive · build a shade</p>
+<h2 class="s-title">Move hue, value and chroma independently</h2>
+<div class="s-body">
+<div class="col-text">
+<p class="igloss" style="margin-top:0"><b style="color:#57C6D8">Hue</b> = the colour family (yellow→red for teeth). &nbsp;<b style="color:#F2B84B">Value</b> = lightness, dark↔light — the eye's most sensitive axis. &nbsp;<b style="color:#F9A8B8">Chroma</b> = saturation, how strong the hue is.</p>
+<p class="igloss" style="margin-top:0">Adjust each on the tooth swatch. Watch the coupling: as you raise <b>chroma</b>, the <b>apparent value</b> drops and the tooth looks darker — exactly what happens clinically.</p>
+<div class="control"><label>Hue (yellow ↔ red) <span id="hueOut" class="mono">45</span></label><input type="range" id="hue" min="20" max="70" value="45"></div>
+<div class="control"><label>Value (lightness) <span id="valOut" class="mono">78</span></label><input type="range" id="val" min="45" max="92" value="78"></div>
+<div class="control"><label>Chroma (saturation) <span id="chrOut" class="mono">40</span></label><input type="range" id="chr" min="5" max="75" value="40"></div>
+<p class="igloss" id="hvcNote" style="font-size:1.1rem">Reads as vital.</p>
+</div>
+<div class="col-visual"><div class="instrument"><svg id="hvcSvg" viewBox="0 0 300 320" style="width:100%;max-width:300px;margin:0 auto;display:block" aria-label="tooth swatch responding to hue value chroma"></svg>
+<div class="viscowrap"><div class="viscolabel"><span>Apparent value</span><span id="valWord" class="mono">—</span></div><div class="viscobar"><div class="viscofill" id="valFill"></div></div></div>
+</div></div>
+</div></section>
+
+<!-- ===================== PART 3 ===================== -->
+<section class="slide slide--divider"><div class="s-eyebrow">Part 3 of 6</div><div class="num">03</div><h2>How light interacts with matter</h2><div class="d-list"><span>Reflect · absorb · scatter · transmit</span><span>· Refractive index</span><span>· Translucency</span></div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Structure → property (the core)</p>
+<h2 class="s-title">Light meeting a material can only do four things</h2>
+<p class="s-sub">Every optical property in this lecture is just a <b>mix of these four fates</b>. The proportion of each is set by the material's microstructure — this is the hinge from structure to property.</p>
+<div class="s-body one-col">
+<div class="ph ph--wide"><span class="ph-badge">Figure</span><span class="ph-t">The four fates of light</span><span class="ph-f">assets/four-fates-of-light.png</span><span class="ph-d">One incident white ray hitting a material block, splitting into labelled reflection, absorption, scattering and transmission — wide landscape layout.</span></div>
+<div class="objgrid" style="grid-template-columns:repeat(4,1fr)">
+<div class="objcard"><span class="objnum" style="background:#0C7489">R</span><div class="objtxt"><b>Reflection</b> — bounces off the surface (gloss).</div></div>
+<div class="objcard"><span class="objnum" style="background:#BE123C">A</span><div class="objtxt"><b>Absorption</b> — taken up inside → creates hue.</div></div>
+<div class="objcard"><span class="objnum" style="background:#B45309">S</span><div class="objtxt"><b>Scattering</b> — redirected inside → cloudy/opaque.</div></div>
+<div class="objcard"><span class="objnum" style="background:#15803D">T</span><div class="objtxt"><b>Transmission</b> — passes through → translucency.</div></div>
+</div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Fate 1 &amp; 2 · the surface story</p>
+<h2 class="s-title">Reflection &amp; absorption — gloss and hue</h2>
+<p class="s-sub">What happens <i>at</i> the surface and <i>to</i> specific wavelengths — these two fates give a material its shine and its colour family.</p>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Reflection — specular vs diffuse</div><div class="def"><b>Specular</b> = a sharp highlight off a smooth, polished surface → high <b>gloss</b> (think glazed ceramic). <b>Diffuse</b> = a soft glow off a rough surface, which also <b>raises apparent value</b> by bouncing light back.</div></div>
+<div class="defbox"><div class="term">Absorption = the origin of hue</div><div class="def">Pigments/chromophores swallow specific wavelengths; the <b>leftover reflected</b> wavelengths are the hue you see. Absorb all → black; absorb none → white; absorb blue → the object looks yellow.</div></div>
+<div class="key"><span class="k-tag">Example · why polish matters</span> A well-polished composite reflects specularly and looks vital and glossy; leave it rough and it scatters at the surface, <b>dulls the gloss</b> and shifts apparent value — a handling issue, not just aesthetics.</div>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">Specular vs diffuse + selective absorption</span><span class="ph-f">assets/reflection-specular-diffuse.png</span><span class="ph-d">Top: smooth surface → one sharp reflected ray (gloss) vs rough → many scattered rays (matte). Bottom: white light hitting a yellow object, blue wavelengths absorbed, yellow reflected.</span></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">Fate 3 &amp; 4 · the body story</p>
+<h2 class="s-title">Scattering &amp; transmission — inside the material</h2>
+<p class="s-sub">What happens to light <i>after</i> it enters — these two fates decide whether a material is opaque or translucent.</p>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Scattering</div><div class="def">Light is redirected in many directions at <b>internal interfaces</b> (particles, crystals, pores). Lots of scattering → light bounces back before it can pass through → the material looks <b>cloudy / opaque and lighter</b>.</div></div>
+<div class="defbox"><div class="term">Transmission</div><div class="def">Light travels <b>through</b> to the other side with little scattering → the material is <b>translucent</b> and shows depth (and lets the background influence its colour).</div></div>
+<div class="key"><span class="k-tag">Example · enamel vs dentine</span> Enamel scatters little → <b>translucent</b>; dentine scatters strongly (tubules, protein) → more <b>opaque</b>. A ceramist stacks a translucent "enamel" layer over an opaque "dentine" layer to copy this.</div>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">Scattering vs transmission</span><span class="ph-f">assets/scattering-transmission.png</span><span class="ph-d">Two blocks: one with many particles scattering light back (opaque, cloudy); one clear block letting light pass straight through (translucent), with a background shape visible through it.</span></div></div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">The master variable · what it is</p>
+<h2 class="s-title">What is refractive index?</h2>
+<p class="s-sub">Before we use it, let's be clear what "refractive index" actually means — it is the single most useful number for predicting how a material handles light.</p>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Refractive index (RI, n)</div><div class="def">How much a material <b>slows and bends</b> light: <b>n = c / v</b> (speed of light in vacuum ÷ speed in the material). Vacuum = 1.00; water = 1.33; glass ≈ 1.5. Higher n → light travels slower and bends more.</div></div>
+<ul class="blist">
+<li><b>Everyday analogy:</b> a straw looks "broken" in a glass of water because light bends as it crosses from water (1.33) to air (1.00) — different n, different path.</li>
+<li><b>The key rule:</b> light is bent and partly <b>scattered at every interface where n changes</b>. No change in n → light sails straight through, unseen.</li>
+</ul>
+<div class="key"><span class="k-tag">Why this matters</span> A material is made of many tiny internal interfaces (particles, crystals, pores). Whether light <b>passes</b> or <b>scatters</b> at each one depends entirely on how well the RIs match.</div>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">Light bending &amp; the straw illusion</span><span class="ph-f">assets/refractive-index-bending.png</span><span class="ph-d">Left: a ray bending as it crosses air→water→glass with n values labelled. Right: the classic "bent straw" in a glass of water.</span></div></div>
+</div></section>
+<section class="slide">
+<p class="s-eyebrow">The master variable · in dentistry</p>
+<h2 class="s-title">RI match → translucent · RI mismatch → opaque</h2>
+<p class="s-sub">Now apply it. The same rule explains enamel, dentine, composites, ceramics and even caries — all through one number.</p>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<ul class="blist">
+<li><b>Matched RIs</b> across internal interfaces → light passes straight → <b>translucent</b>.</li>
+<li><b>Mismatched RIs</b> (or pores) → strong scattering → <b>opaque / white</b>.</li>
+<li><b>Composite, done on purpose:</b> Bis-GMA matrix <b>≈ 1.54</b> is matched to silica/glass filler <b>≈ 1.53</b> → light passes → the composite looks translucent like enamel. Drift them apart and it turns chalky.</li>
+<li><b>Zirconia:</b> tiny crystals with mismatched optics scatter strongly → naturally <b>opaque</b> (great strength, but needs engineering to make it translucent).</li>
+<li><b>Enamel</b> also scatters short (blue) wavelengths more strongly (~1/λ³) — the seed of opalescence in Part 4.</li>
+</ul>
+<div class="mech"><span class="k-tag">The numbers to remember</span> Enamel <b>n ≈ 1.63</b> · dentine <b>≈ 1.54</b> · water 1.33 · air 1.00. A caries lesion swaps mineral for water/air → huge RI mismatch → the white-spot lesion (next slide).</div>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">RI match vs mismatch</span><span class="ph-f">assets/refractive-index-match.png</span><span class="ph-d">Two panels: matched n (ray passes → translucent) vs mismatched n / porosity (ray scatters in all directions → opaque/white).</span></div></div>
+</div></section>
+
+<section class="slide slide--interactive interactive-ri ix-ri">
+<p class="s-eyebrow">Interactive · refractive-index mismatch</p>
+<h2 class="s-title">Refractive-index difference sets scattering — and translucency</h2>
+<div class="s-body ix-grid">
+  <div class="ix-col">
+    <p class="ix-lead">Change only the <b>cause</b> — the refractive-index difference <b>Δn</b> between the matrix and its particles. The rays, the light budget and the sample respond.</p>
+    <div class="ix-readpanel">
+      <div class="control" style="margin:.1rem 0 .5rem"><label>Refractive-index difference, Δn <span id="riDn" class="mono hi">0.03</span></label><input type="range" id="riSlider" min="0" max="100" value="20"></div>
+      <div class="ix-nrow"><span>Matrix n</span><b>1.54</b></div>
+      <div class="ix-nrow"><span>Particle n</span><b id="riPart">1.57</b></div>
+      <div class="ix-nrow"><span>Δn</span><b id="riDn2" class="hi">0.03</b></div>
+    </div>
+    <div class="ix-causal">Δn ↑ → interface deflection ↑ → scattering ↑ → transmission ↓ → opacity ↑</div>
+    <div class="ix-states">
+      <div class="ix-state matched" id="riStateMatched"><div class="t">RI matched</div><div class="d">Light crosses interfaces almost straight → <b>translucent</b>.</div></div>
+      <div class="ix-state mismatched" id="riStateMismatched"><div class="t">RI mismatched</div><div class="d">Light is redirected at interfaces → <b>opaque / white</b>.</div></div>
+    </div>
+  </div>
+  <div class="ix-col">
+    <svg id="riSvg" class="ix-svg" viewBox="0 0 900 470" aria-label="Deterministic rays crossing a material with particles: at low Delta n they pass straight, at high Delta n they deflect at interfaces and some backscatter; a sample over a checker background becomes opaque"></svg>
+    <div class="ix-bars">
+      <div><div class="ix-bar-lab"><span>Forward transmission</span><b id="riFwd">—</b></div><div class="ix-bartrack"><div class="ix-barfill fwd" id="riFwdFill"></div></div></div>
+      <div><div class="ix-bar-lab"><span>Scattered / returned</span><b id="riSca">—</b></div><div class="ix-bartrack"><div class="ix-barfill sca" id="riScaFill"></div></div></div>
+      <div class="ix-budget-note">conceptual relative light budget — not an exact calculation</div>
+    </div>
+  </div>
+</div></section>
+
+
+<section class="slide">
+<p class="s-eyebrow">Structure → property · worked case</p>
+<h2 class="s-title">Case: the white-spot lesion</h2>
+<div class="s-body text-heavy">
+<div class="col-text">
+<div class="steps">
+<div class="step"><div><h4>Sound enamel</h4><p>Densely packed hydroxyapatite; internal RIs are uniform → little scattering → enamel looks translucent.</p></div></div>
+<div class="step"><div><h4>Early caries</h4><p>Acid dissolves mineral, opening microscopic <b>pores</b> filled with water or air (n ≈ 1.33 or ≈ 1.0).</p></div></div>
+<div class="step"><div><h4>RI discontinuity</h4><p>Now light hits many n-mismatched interfaces → <b>scattering jumps</b> → the area turns chalky <b>white and opaque</b>: a white-spot lesion.</p></div></div>
+</div>
+<div class="key"><span class="k-tag">Same principle, reversed</span> Rehydrate or remineralise and the pores fill/close, the RI mismatch drops, and the lesion becomes <b>less visible</b> — the exact same optics that make an air-dried lesion stand out.</div>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">White-spot lesion optics</span><span class="ph-f">assets/white-spot-lesion.png</span><span class="ph-d">Sound enamel (light passes) vs porous enamel with air/water pores scattering light back (white patch).</span></div></div>
+</div></section>
+
+<!-- ===================== PART 4 ===================== -->
+<section class="slide slide--divider"><div class="s-eyebrow">Part 4 of 6</div><div class="num">04</div><h2>Optical properties of teeth &amp; materials</h2><div class="d-list"><span>Translucency · opacity</span><span>· Fluorescence</span><span>· Opalescence</span></div></section>
+
+<section class="slide">
+<p class="s-eyebrow">From the four fates</p>
+<h2 class="s-title">Four appearance properties, one origin</h2>
+<p class="s-sub">Each of the four properties we meet next is just <b>the four fates made visible</b> — and each is something a material must reproduce to look like a tooth.</p>
+<div class="s-body one-col">
+<div class="objgrid" style="grid-template-columns:repeat(2,1fr);gap:1.3rem;height:100%;align-content:center">
+<div class="objcard"><span class="objnum" style="background:#15803D">T</span><div class="objtxt"><b>Translucency</b> — light passes/diffuses through the body <span class="mono" style="color:#15803D">(transmission ≫ scatter)</span>. <i>Enamel, incisal edge, glass ceramics.</i></div></div>
+<div class="objcard"><span class="objnum" style="background:#B45309">O</span><div class="objtxt"><b>Opacity</b> — light is scattered/absorbed and the background is hidden <span class="mono" style="color:#B45309">(scatter + absorption)</span>. <i>Dentine, opaquers, zirconia.</i></div></div>
+<div class="objcard"><span class="objnum" style="background:#0C7489">F</span><div class="objtxt"><b>Fluorescence</b> — absorbs UV and re-emits visible blue ~440–450 nm <span class="mono" style="color:#0A5C6D">(absorb → re-emit)</span>. <i>Dentine ≈ 3× enamel.</i></div></div>
+<div class="objcard"><span class="objnum" style="background:#7C3AED;font-size:.9rem">◐</span><div class="objtxt"><b>Opalescence</b> — bluish in reflected light, orange in transmitted light <span class="mono" style="color:#6D28D9">(wavelength-selective scatter)</span>. <i>Enamel incisal halo.</i></div></div>
+</div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Property · translucency &amp; opacity</p>
+<h2 class="s-title">Translucency vs opacity — a gradient, not a switch</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Translucency</div><div class="def">The fraction of light that passes/diffuses through — between fully transparent and fully opaque. Measured as a <b>Translucency Parameter (TP)</b> or contrast ratio.</div></div>
+<div class="defbox"><div class="term">Opacity</div><div class="def">The opposite end — light is scattered/absorbed so the background cannot show through.</div></div>
+<ul class="blist">
+<li><b>Materials ladder:</b> feldspathic/glass ceramics &amp; enamel shades are <b>translucent</b>; dentine shades, opaquers and <b>zirconia</b> are more <b>opaque</b>.</li>
+<li><b>Trade-off:</b> more translucency gives lifelike depth but <b>lowers value</b> (less light reflected back) and lets the background through; more opacity masks the background but can look flat and "dead".</li>
+</ul>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">Translucency ↔ opacity gradient</span><span class="ph-f">assets/translucency-opacity.png</span><span class="ph-d">A strip from transparent → translucent → opaque over a checker background, showing how much background shows through.</span></div></div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Property · fluorescence</p>
+<h2 class="s-title">Fluorescence — teeth glow blue under UV</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Fluorescence</div><div class="def">Absorbing <b>invisible UV</b> and re-emitting it as <b>visible light</b> — in teeth, a soft <b>blue</b> at ≈ <b>440–450 nm</b>.</div></div>
+<ul class="blist">
+<li><b>Where:</b> both tissues fluoresce, but <b>dentine ≈ 3×</b> the enamel, because it is tied to dentine's <b>organic</b> content.</li>
+<li><b>What it does optically:</b> adds returned light → <b>raises value</b>, masks discolouration, keeps the tooth looking "alive" under daylight/UV-rich light.</li>
+<li><b>Materials consequence:</b> a <b>non-fluorescent</b> restoration stays dark while the tooth glows — a <b>metameric failure</b> that shows up in nightclub UV or photographs. So ceramics/composites are dosed with fluorescent agents on purpose.</li>
+</ul>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">Fluorescence under UV</span><span class="ph-f">assets/fluorescence-uv.png</span><span class="ph-d">Tooth under UV emitting blue (dentine brighter than enamel); a non-fluorescent restoration staying dark.</span></div></div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Property · opalescence</p>
+<h2 class="s-title">Opalescence — two colours from one enamel</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Opalescence</div><div class="def">A material that looks <b>one colour in reflected light and another in transmitted light</b>, like an opal. Enamel's hydroxyapatite crystals act as tiny prisms.</div></div>
+<ul class="blist">
+<li><b>Reflected light → bluish:</b> short (blue) wavelengths scatter most (~1/λ³) and bounce back — the enamel takes a cool blue-white cast, seen as the <b>incisal halo</b>.</li>
+<li><b>Transmitted light → orange:</b> long (orange/red) wavelengths pass through to the dentine and reflect back warm — <b>counter-opalescence</b> near the mamelons.</li>
+<li><b>Materials consequence:</b> ceramists add opalescent glasses so restorations gain the same <b>optical depth and vitality</b>; without it, incisal edges look flat and grey.</li>
+</ul>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">Optical anatomy + incisal halo</span><span class="ph-f">assets/tooth-optical-anatomy.png</span><span class="ph-d">Incisor cross-section: translucent opalescent enamel over opaque fluorescent dentine; blue incisal halo, orange counter-opalescence.</span></div></div>
+</div></section>
+
+<section class="slide slide--interactive interactive-opalescence ix-op">
+<p class="s-eyebrow">Interactive · opalescence</p>
+<h2 class="s-title">Same enamel, two colours — by light path</h2>
+<div class="s-body ix-grid">
+  <div class="ix-col" style="gap:clamp(10px,1.6vh,20px)">
+    <p class="ix-lead" style="text-align:center">Same white light, same enamel. Short (blue) wavelengths <b>scatter back</b>; long (orange-red) wavelengths <b>pass through</b>. Choose which observer you are — both light paths stay visible.</p>
+    <div style="display:flex;justify-content:center">
+      <div class="ix-seg" id="opSeg">
+        <button data-view="reflected" class="on">Reflected view</button>
+        <button data-view="transmitted">Transmitted view</button>
+      </div>
+    </div>
+    <svg id="opSvg" class="ix-svg" viewBox="0 0 940 420" aria-label="White light hits an enamel slab; blue short-wavelength rays scatter back to the incident-side observer, orange long-wavelength rays transmit through to the far-side observer"></svg>
+    <p class="ix-lead" id="opInterp" style="text-align:center;color:#fff"><b>Short wavelengths scatter back → bluish reflected appearance.</b></p>
+    <p class="ix-causal">Same light + same enamel; a different light path reaches the observer.</p>
+  </div>
+</div></section>
+
+
+<!-- ===================== PART 5 ===================== -->
+<section class="slide slide--divider"><div class="s-eyebrow">Part 5 of 6</div><div class="num">05</div><h2>Measuring &amp; communicating colour</h2><div class="d-list"><span>Munsell</span><span>· CIELAB &amp; ΔE</span><span>· Instruments</span></div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Why bother</p>
+<h2 class="s-title">Perception is subjective — so we measure</h2>
+<div class="s-body text-heavy">
+<div class="col-text">
+<p class="s-sub" style="margin-top:0">The same tooth can be judged differently by two clinicians — or by the same clinician twice. To specify, compare and reproduce colour reliably, we need <b>numbers</b>.</p>
+<ul class="blist">
+<li>Visual matching is swayed by <b>lighting, background, eye fatigue, age and experience</b>.</li>
+<li>A colour <b>order system</b> assigns coordinates so colour can be recorded, sent to a lab, and checked objectively.</li>
+<li>Two systems dominate dentistry: <b>Munsell</b> (visual, chip-based) and <b>CIELAB</b> (instrumental, numeric).</li>
+</ul>
+<div class="key"><span class="k-tag">Materials angle</span> Every manufacturer claim of "excellent colour stability" or "perfect match" is ultimately a <b>ΔE number</b> under stated conditions. Knowing the scale lets you read the claim critically.</div>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">Sources of visual error</span><span class="ph-f">assets/shade-matching-conditions.png</span><span class="ph-d">Icons: lighting/CRI, background colour, eye fatigue, surrounding colours — the variables that bias a visual match.</span></div></div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">System 1 · Munsell</p>
+<h2 class="s-title">The Munsell system — colour by chips</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Munsell (1905)</div><div class="def">Orders colour in three visually-equal steps: <b>Hue · Value · Chroma</b>, written as <b>H V/C</b> (e.g. 5YR 7/4). Built from physical colour chips.</div></div>
+<ul class="blist">
+<li><b>Pros:</b> intuitive, worldwide, matches how we perceive colour; the basis of visual guides like the <b>Vita Classical</b>.</li>
+<li><b>Cons:</b> relies on the eye → observer bias, lighting and fatigue; limited by real pigment chips.</li>
+</ul>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">Munsell colour solid</span><span class="ph-f">assets/munsell-solid.png</span><span class="ph-d">Value on the vertical axis, hue around the circumference, chroma along the radius.</span></div></div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">System 2 · CIELAB</p>
+<h2 class="s-title">CIELAB — colour as three coordinates</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">CIE L*a*b* (1976)</div><div class="def">A <b>uniform</b> instrumental space where distance ≈ perceived difference. <b>L*</b> = lightness (0–100), <b>a*</b> = green(−)/red(+), <b>b*</b> = blue(−)/yellow(+).</div></div>
+<ul class="blist">
+<li><b>Why it replaced CIE 1931 (XYZ):</b> the older space was not perceptually uniform — equal numeric steps did not look equally different.</li>
+<li><b>A tooth</b> typically sits around <b>L*≈76–80, a*≈1–3, b*≈16–20</b> (light, slightly red, quite yellow).</li>
+<li><b>Its superpower:</b> any two colours differ by a single number — <b>ΔE</b>.</li>
+</ul>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">CIELAB axes</span><span class="ph-f">assets/cielab-axes.png</span><span class="ph-d">L* vertical (0→100), a* green–red, b* blue–yellow, with a sample tooth point plotted.</span></div></div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">The number that matters</p>
+<h2 class="s-title">ΔE — how different is "different"?</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">ΔE (colour difference)</div><div class="def">The distance between two colours in CIELAB: <b>ΔE<sub>ab</sub> = √(ΔL*² + Δa*² + Δb*²)</b>. Newer <b>ΔE<sub>00</sub></b> (CIEDE2000) corrects it to match vision even better.</div></div>
+<ul class="blist">
+<li><b>Perceptibility threshold ≈ ΔE<sub>ab</sub> 1.2</b> (ΔE<sub>00</sub> 0.8): below this, 50% of observers see <b>no</b> difference.</li>
+<li><b>Acceptability threshold ≈ ΔE<sub>ab</sub> 2.7</b> (ΔE<sub>00</sub> 1.8): below this, most people <b>accept</b> the match even if they can see it.</li>
+</ul>
+<div class="mech"><span class="k-tag">Reading a claim</span> "Colour change after ageing ΔE = 1.9" means: <b>visible</b>, but still within the <b>acceptable</b> band (Paravina 2015 thresholds). Numbers turn marketing into evidence.</div>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">ΔE threshold ruler</span><span class="ph-f">assets/delta-e-thresholds.png</span><span class="ph-d">Two swatches diverging left→right with markers at ΔE 1.2 (perceptibility) and 2.7 (acceptability).</span></div></div>
+</div></section>
+
+<section class="slide slide--interactive interactive-de ix-de">
+<p class="s-eyebrow">Interactive · ΔE</p>
+<h2 class="s-title">How three coordinate shifts combine into one ΔE</h2>
+<div class="s-body ix-grid">
+  <div class="ix-col">
+    <p class="ix-lead">Each slider moves the restoration along one CIELAB axis. <b>Direction</b> sets which way the colour shifts; <b>magnitude</b> sets how far.</p>
+    <div class="ix-readpanel">
+      <div class="control" style="margin:.1rem 0"><label>ΔL* <span id="dLOut" class="mono hi">+0.0</span></label><input type="range" id="dL" min="-5" max="5" value="0" step="0.5"><div class="ix-ends"><span>darker (−)</span><span>lighter (+)</span></div></div>
+      <div class="control" style="margin:.5rem 0 .1rem"><label>Δa* <span id="dAOut" class="mono hi">+0.0</span></label><input type="range" id="dA" min="-4" max="4" value="0" step="0.5"><div class="ix-ends"><span>greener (−)</span><span>redder (+)</span></div></div>
+      <div class="control" style="margin:.5rem 0 .1rem"><label>Δb* <span id="dBOut" class="mono hi">+0.0</span></label><input type="range" id="dB" min="-4" max="4" value="0" step="0.5"><div class="ix-ends"><span>bluer (−)</span><span>yellower (+)</span></div></div>
+    </div>
+    <div class="ix-presets" id="dePresets">
+      <button data-preset="reset">Reset</button>
+      <button data-preset="value">Value shift</button>
+      <button data-preset="combined">Combined small shifts</button>
+    </div>
+    <div class="ix-nrow"><span>Reference</span><b>L* 78 · a* 2 · b* 18</b></div>
+    <div class="ix-nrow"><span>Restoration</span><b id="deCoord" class="hi">L* 78.0 · a* 2.0 · b* 18.0</b></div>
+  </div>
+  <div class="ix-col">
+    <svg id="deSwatch" class="ix-svg" viewBox="0 0 700 150" aria-label="Reference tooth and restoration swatches side by side"></svg>
+    <div class="ix-formula">ΔE<sub>ab</sub> = √(ΔL*² + Δa*² + Δb*²)<br><span id="deSub">= √(0.0² + 0.0² + 0.0²)</span> = <span class="res" id="deRes">0.0</span></div>
+    <svg id="deRuler" class="ix-svg" viewBox="0 0 800 130" aria-label="Single threshold ruler with perceptibility and acceptability zones and a moving pointer"></svg>
+    <div class="ix-verdict" id="deVerdict">Identical</div>
+  </div>
+</div></section>
+
+
+<section class="slide">
+<p class="s-eyebrow">Light intro · instruments</p>
+<h2 class="s-title">How the numbers are captured</h2>
+<div class="s-body">
+<div class="vs">
+<div class="card a"><h3>Colorimeter</h3><ul>
+<li>3–4 <b>filtered sensors</b> read light in R/G/B bands — mimics the eye (tristimulus).</li>
+<li><b>Fast, cheap, portable</b>; great for quick checks.</li>
+<li>Sees no full spectrum → can be <b>fooled by metamerism</b>.</li>
+</ul></div>
+<div class="card b"><h3>Spectrophotometer</h3><ul>
+<li>Measures reflected energy across the <b>whole spectrum</b> in 1–25 nm steps.</li>
+<li>Gives the full <b>reflectance curve</b> → most accurate, <b>metamerism-aware</b>.</li>
+<li>Slower and costlier — the research/QC reference.</li>
+</ul></div>
+</div>
+<div class="key" style="margin-top:1.6vh"><span class="k-tag">Metamerism</span> Two colours that <b>match under one light and differ under another</b>. A colorimeter cannot warn you; a spectrophotometer can, because it sees the whole curve. This is why shade-matching light quality (≈5500 K, CRI &gt; 90) matters.</div>
+</div></section>
+
+<!-- ===================== PART 6 ===================== -->
+<section class="slide slide--divider"><div class="s-eyebrow">Part 6 of 6</div><div class="num">06</div><h2>What sets the final colour</h2><div class="d-list"><span>Thickness · background</span><span>· Surface</span><span>· Ageing &amp; stability</span></div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Property → performance</p>
+<h2 class="s-title">The shade tab is a label — the final colour is contextual</h2>
+<div class="s-body one-col">
+<div class="objgrid" style="grid-template-columns:repeat(2,1fr)">
+<div class="objcard"><span class="objnum">1</span><div class="objtxt"><b>Composition</b> — filler type/size and RI set the baseline translucency and opacity.</div></div>
+<div class="objcard"><span class="objnum">2</span><div class="objtxt"><b>Thickness</b> — a thin translucent layer lets the background through; a thick one masks it.</div></div>
+<div class="objcard"><span class="objnum">3</span><div class="objtxt"><b>Background / substrate</b> — a dark stump, metal post or discoloured dentine drags the final colour down.</div></div>
+<div class="objcard"><span class="objnum">4</span><div class="objtxt"><b>Surface &amp; gloss</b> — polish raises specular reflection and apparent value; roughness dulls both.</div></div>
+<div class="objcard"><span class="objnum">5</span><div class="objtxt"><b>Ageing</b> — sorption, staining and matrix breakdown shift colour over time.</div></div>
+<div class="objcard" style="background:var(--clinical-wash);border-color:#F1D5AE"><span class="objnum" style="background:var(--clinical)">→</span><div class="objtxt">Same tab, different result — colour is a <b>performance</b> outcome.</div></div>
+</div>
+</div></section>
+
+<section class="slide slide--interactive">
+<p class="s-eyebrow">Interactive · thickness × background</p>
+<h2 class="s-title">A translucent material borrows colour from behind it</h2>
+<div class="s-body">
+<div class="col-text">
+<p class="igloss" style="margin-top:0"><b>Goal:</b> see a material "borrow" colour from behind it. Both samples sit over the same <b>black-and-white card</b> (the classic translucency test). Left is a <b style="color:#7ab8ea">translucent</b> material, right is an <b>opaque</b> one. Change thickness and compare the two in real time.</p>
+<div class="control"><label>Restoration thickness <span id="thkOut" class="mono">0.4 mm</span></label><input type="range" id="thk" min="0" max="100" value="30"></div>
+<p class="igloss" id="thkNote" style="font-size:1.1rem">Thin &amp; translucent: the black/white background shows through — the sample looks darker over black, lighter over white. The opaque sample hides it.</p>
+</div>
+<div class="col-visual"><div class="instrument"><svg id="bgSvg" viewBox="0 0 460 210" style="width:100%;max-width:460px;margin:0 auto;display:block" aria-label="two samples over a black and white card: the translucent one borrows the background colour, the opaque one hides it"></svg></div></div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Performance · stability</p>
+<h2 class="s-title">Colour stability — matching is not forever</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Colour stability</div><div class="def">How well a material keeps its colour over time, reported as a <b>rising ΔE</b> against baseline after ageing.</div></div>
+<ul class="blist">
+<li><b>Extrinsic staining:</b> coffee, tea, red wine, chlorhexidine adsorb onto/into the surface — worse on rough or matte surfaces.</li>
+<li><b>Intrinsic change:</b> <b>water sorption</b> and degradation of the resin matrix (and amine photo-initiators yellowing) raise chroma and drop value.</li>
+<li><b>Design lever:</b> higher filler load, better polish and hydrolytically stable matrices → lower ΔE over years.</li>
+</ul>
+</div>
+<div class="col-visual"><div class="ph"><span class="ph-badge">Figure</span><span class="ph-t">Colour change over time</span><span class="ph-f">assets/colour-ageing.png</span><span class="ph-d">Timeline of a swatch yellowing with coffee/tea/wear icons and a rising ΔE curve vs baseline.</span></div></div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Common misconception</p>
+<h2 class="s-title">Myth vs fact</h2>
+<div class="s-body">
+<div class="vs">
+<div class="card b"><h3>Myth</h3><ul>
+<li>"If the shade tab matches, the restoration will match."</li>
+<li>"Colour is a fixed property of the material."</li>
+<li>"More translucent always looks better."</li>
+</ul></div>
+<div class="card a"><h3>Fact</h3><ul>
+<li>The tab fixes H/V/C of a <b>standard chip</b>; the real colour depends on thickness, substrate, surface, illuminant and ageing.</li>
+<li>Colour is an <b>emergent</b> property of microstructure interacting with light and context.</li>
+<li>Translucency <b>lowers value</b> and reveals the background — a trade-off, not a virtue.</li>
+</ul></div>
+</div>
+</div></section>
+
+<section class="slide slide--divider"><div class="s-eyebrow">Wrap-up</div><div class="num">✓</div><h2>Take-home &amp; recap</h2><div class="d-list"><span>Six ideas to keep</span><span>· Where you learned each outcome</span></div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Take-home messages</p>
+<h2 class="s-title">The six things to remember</h2>
+<div class="s-body one-col">
+<ul class="blist cols">
+<li><b>Colour is a three-body event</b> — light × object × observer; we engineer the object, and metamerism is what happens when the light changes.</li>
+<li><b>Three numbers</b> describe any colour — hue, value, chroma — and the eye judges <b>value</b> most sharply (value ↔ chroma inverse).</li>
+<li><b>Four fates of light</b> — reflect, absorb, scatter, transmit — set by <b>refractive-index mismatch</b>, generate every appearance property.</li>
+<li><b>Translucency, opacity, fluorescence, opalescence</b> are those fates made visible; materials add fluorescence/opalescence on purpose.</li>
+<li><b>We measure colour</b> with Munsell (visual) and CIELAB (ΔE); perceptibility ≈ 1.2, acceptability ≈ 2.7 (ΔE<sub>ab</sub>).</li>
+<li><b>Final colour is contextual</b> — thickness, background, surface and ageing move it, so "shade match" is a claim to interrogate.</li>
+</ul>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Recap · where you learned it</p>
+<h2 class="s-title">What you can now explain — and where</h2>
+<div class="s-body one-col">
+<ul class="blist" style="gap:1.2vh">
+<li><b>Hue, value &amp; chroma</b> — the three attributes, and why the eye judges <b>value</b> first. <span class="mono" style="color:#0A5C6D">→ Part 2</span></li>
+<li><b>Reflection, absorption, scattering &amp; transmission</b> — the four fates, set by <b>refractive index</b>. <span class="mono" style="color:#0A5C6D">→ Part 3</span></li>
+<li><b>Translucency, opacity, fluorescence &amp; opalescence</b> — the fates made visible in real materials. <span class="mono" style="color:#0A5C6D">→ Part 4</span></li>
+<li><b>Munsell &amp; CIELAB</b> — measuring colour and reading a match as a <b>ΔE</b> number. <span class="mono" style="color:#0A5C6D">→ Part 5</span></li>
+<li><b>Composition, thickness, background, surface &amp; ageing</b> — what moves the final colour and its stability. <span class="mono" style="color:#0A5C6D">→ Part 6</span></li>
+</ul>
+<div class="key"><span class="k-tag">Next lecture</span> We carry this optics thread into real materials: how composites, ceramics and zirconia are engineered to hit — and hold — a shade.</div>
+</div></section>
+</div></div>
+<div class="deckbar"><button class="navbtn" id="prev">&lsaquo;</button><button class="navbtn" id="next">&rsaquo;</button>
+<span class="part" id="partLabel"></span><button class="navbtn" id="menuBtn" title="Menu (O)">☰</button><span class="count" id="count"></span></div>
+<div class="overview" id="overview"><button class="ov-close" id="ovClose">✕ close (Esc)</button><h3>Jump to a slide</h3><p class="ov-hint">Click any slide · press O to toggle · Esc to close</p><div class="ov-grid" id="ovGrid"></div></div>
+<script>
+var track=document.getElementById("track");
+var slides=[].slice.call(document.querySelectorAll(".slide"));var i=0;
+function show(n){i=Math.max(0,Math.min(slides.length-1,n));track.style.transform="translateX("+(-i*100)+"vw)";
+document.getElementById("count").textContent=(i+1)+" / "+slides.length;
+var eb=slides[i].querySelector(".s-eyebrow, h2");document.getElementById("partLabel").textContent=eb?eb.textContent.trim():"";
+document.getElementById("prog").style.width=((i+1)/slides.length*100)+"%";}
+document.getElementById("next").onclick=function(){show(i+1)};
+document.getElementById("prev").onclick=function(){show(i-1)};
+document.addEventListener("keydown",function(e){if(e.target.tagName==="INPUT")return;
+if(e.key==="ArrowRight"||e.key==="PageDown"||e.key===" "){e.preventDefault();show(i+1)}
+else if(e.key==="ArrowLeft"||e.key==="PageUp"){e.preventDefault();show(i-1)}
+else if(e.key==="Home"){show(0)}else if(e.key==="End"){show(slides.length-1)}
+else if(e.key==="f"||e.key==="F"){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}
+else if(e.key==="o"||e.key==="O"){toggleOverview();}
+else if(e.key==="Escape"){closeOverview();}});
+/* Overview / jump menu */
+var ov=document.getElementById("overview"),ovGrid=document.getElementById("ovGrid");
+function buildOverview(){
+  ovGrid.innerHTML="";
+  slides.forEach(function(sl,idx){
+    var isPart=sl.classList.contains("slide--divider");
+    var isTitle=sl.classList.contains("slide--title");
+    var h=sl.querySelector("h1, h2 .s-title, h2");
+    var label=h?h.textContent.trim():("Slide "+(idx+1));
+    if(isPart){var num=sl.querySelector(".num"),htxt=sl.querySelector("h2");label=(num?num.textContent+" · ":"")+(htxt?htxt.textContent.trim():label);}
+    var item=document.createElement("button");
+    item.className="ov-item"+(isPart?" is-part":"");
+    item.innerHTML='<span class="ov-n">'+(idx+1)+'</span><span class="ov-t">'+label+'</span>';
+    item.onclick=function(){show(idx);closeOverview();};
+    ovGrid.appendChild(item);
+  });
+}
+function openOverview(){buildOverview();ov.classList.add("open");}
+function closeOverview(){ov.classList.remove("open");}
+function toggleOverview(){ov.classList.contains("open")?closeOverview():openOverview();}
+document.getElementById("menuBtn").onclick=toggleOverview;
+document.getElementById("count").onclick=toggleOverview;
+document.getElementById("ovClose").onclick=closeOverview;
+/* ===== animações da aula ===== */
+/* =====================================================================
+   ANIMAÇÕES DA AULA 04 · Colour & Optics
+   Vanilla JS, autocontido (padrão do deck da aula 03). Cada bloco é uma
+   IIFE que constrói o SVG e liga os sliders. Comentários em português.
+   ===================================================================== */
+var NS04 = "http://www.w3.org/2000/svg";
+function el04(t, a) { var e = document.createElementNS(NS04, t); for (var k in a) e.setAttribute(k, a[k]); return e; }
+function clamp04(x, lo, hi) { return Math.max(lo, Math.min(hi, x)); }
+
+/* CIELAB (D65) -> sRGB, para swatches honestos ---------------------- */
+function lab2rgb04(Lc, a, b) {
+  var y = (Lc + 16) / 116, x = a / 500 + y, z = y - b / 200;
+  function f(t) { var t3 = t * t * t; return t3 > 0.008856 ? t3 : (t - 16 / 116) / 7.787; }
+  x = 95.047 * f(x); y = 100.0 * f(y); z = 108.883 * f(z);
+  x /= 100; y /= 100; z /= 100;
+  var r = x * 3.2406 + y * -1.5372 + z * -0.4986;
+  var g = x * -0.9689 + y * 1.8758 + z * 0.0415;
+  var bb = x * 0.0557 + y * -0.2040 + z * 1.0570;
+  function g2(c) { c = c > 0.0031308 ? 1.055 * Math.pow(c, 1 / 2.4) - 0.055 : 12.92 * c; return Math.round(clamp04(c, 0, 1) * 255); }
+  return "rgb(" + g2(r) + "," + g2(g) + "," + g2(bb) + ")";
+}
+
+/* ===== 1. Espectro visível ===== */
+(function () {
+  var svg = document.getElementById("wlSvg"), sl = document.getElementById("wl");
+  if (!svg || !sl) return;
+  function wl2color(w) {
+    var R = 0, G = 0, B = 0;
+    if (w < 440) { R = -(w - 440) / (440 - 380); B = 1; }
+    else if (w < 490) { G = (w - 440) / (490 - 440); B = 1; }
+    else if (w < 510) { G = 1; B = -(w - 510) / (510 - 490); }
+    else if (w < 580) { R = (w - 510) / (580 - 510); G = 1; }
+    else if (w < 645) { R = 1; G = -(w - 645) / (645 - 580); }
+    else { R = 1; }
+    var f = w < 420 ? 0.3 + 0.7 * (w - 380) / 40 : (w > 700 ? 0.3 + 0.7 * (780 - w) / 80 : 1);
+    function q(c) { return Math.round(255 * Math.pow(clamp04(c * f, 0, 1), 0.8)); }
+    return "rgb(" + q(R) + "," + q(G) + "," + q(B) + ")";
+  }
+  function name(w){ if(w<450)return"violet";if(w<490)return"blue";if(w<560)return"green";if(w<590)return"yellow";if(w<630)return"orange";return"red"; }
+  // gradiente estático
+  var defs = el04("defs", {});
+  var grad = el04("linearGradient", { id: "spec04", x1: "0", x2: "1", y1: "0", y2: "0" });
+  [["0","#7a00b8"],["0.13","#3b23e0"],["0.30","#0aa5ff"],["0.46","#22c55e"],["0.62","#eab308"],["0.80","#f97316"],["1","#dc2626"]].forEach(function(s){ grad.appendChild(el04("stop",{offset:s[0],"stop-color":s[1]})); });
+  defs.appendChild(grad); svg.appendChild(defs);
+  svg.appendChild(el04("rect", { x: 30, y: 40, width: 400, height: 46, rx: 8, fill: "url(#spec04)" }));
+  svg.appendChild(el04("text", { x: 30, y: 108, fill: "#8FA9BC", "font-family": "IBM Plex Mono", "font-size": 12 })).textContent = "380 nm";
+  var t2 = el04("text", { x: 430, y: 108, fill: "#8FA9BC", "font-family": "IBM Plex Mono", "font-size": 12, "text-anchor": "end" }); t2.textContent = "780 nm"; svg.appendChild(t2);
+  var mark = el04("line", { id: "m04", x1: 130, y1: 32, x2: 130, y2: 94, stroke: "#fff", "stroke-width": 3 }); svg.appendChild(mark);
+  var sw = el04("circle", { id: "sw04", cx: 230, cy: 180, r: 46, fill: "#0aa5ff", stroke: "#1E3A52", "stroke-width": 2 }); svg.appendChild(sw);
+  var lbl = el04("text", { id: "lbl04", x: 230, y: 250, fill: "#E8F1F6", "font-family": "IBM Plex Mono", "font-size": 14, "text-anchor": "middle" }); lbl.textContent = "480 nm"; svg.appendChild(lbl);
+  function update() {
+    var v = +sl.value, t = (v - 380) / 400, col = wl2color(v);
+    sw.setAttribute("fill", col);
+    var xx = 30 + t * 400; mark.setAttribute("x1", xx); mark.setAttribute("x2", xx);
+    lbl.textContent = v + " nm · " + name(v);
+    document.getElementById("wlOut").textContent = v + " nm";
+    document.getElementById("wlNote").innerHTML = "≈ " + v + " nm is perceived as <b>" + name(v) + "</b>.";
+  }
+  sl.addEventListener("input", update); update();
+})();
+
+/* ===== 2. Hue / Value / Chroma ===== */
+(function () {
+  var svg = document.getElementById("hvcSvg");
+  if (!svg) return;
+  var tooth = el04("path", { id: "tsw", d: "M150 20 C90 20 55 60 55 130 C55 230 90 305 120 305 C140 305 140 250 150 250 C160 250 160 305 180 305 C210 305 245 230 245 130 C245 60 210 20 150 20 Z", fill: "#e2c78a", stroke: "#0B1B2B", "stroke-width": 2.5 });
+  svg.appendChild(tooth);
+  function update() {
+    var hue = +document.getElementById("hue").value, val = +document.getElementById("val").value, chr = +document.getElementById("chr").value;
+    var a = (6 + (-1 - 6) * (hue - 20) / 50) + chr * 0.05;
+    var b = chr * 0.55;
+    var valEff = clamp04(val - chr * 0.28, 30, 95);
+    tooth.setAttribute("fill", lab2rgb04(valEff, a, b));
+    document.getElementById("hueOut").textContent = hue;
+    document.getElementById("valOut").textContent = val;
+    document.getElementById("chrOut").textContent = chr;
+    var fill = document.getElementById("valFill"); if (fill) fill.style.width = clamp04((valEff - 30) / 65 * 100, 0, 100) + "%";
+    var reads = valEff > 70 ? "vital" : (valEff > 55 ? "acceptable" : "greyish / non-vital");
+    document.getElementById("valWord").textContent = Math.round(valEff);
+    document.getElementById("hvcNote").innerHTML = "Reads as <b>" + reads + "</b>. Raising chroma pushes apparent value <b>down</b>.";
+  }
+  ["hue", "val", "chr"].forEach(function (id) { var e = document.getElementById(id); if (e) e.addEventListener("input", update); });
+  update();
+})();
+
+/* ===== 20 · RI mismatch → scattering → translucency (mecanismo) =====
+   Lógica de ensino: o aluno muda só a CAUSA (Δn). O efeito físico aparece
+   como DEFLEXÃO dos raios NAS INTERFACES matriz–partícula; a consequência
+   óptica é o orçamento de luz (transmissão ↓ / espalhamento ↑); a aparência
+   final é a amostra sobre o quadriculado ficando opaca. Raios DETERMINÍSTICOS
+   (sem aleatório): cada raio dobra nos encontros por um ângulo ∝ Δn. */
+(function () {
+  var svg = document.getElementById("riSvg"), sl = document.getElementById("riSlider");
+  if (!svg || !sl) return;
+  var bx = 250, bw = 360, by = 60, bh = 340;                 // bloco do material
+  svg.appendChild(el04("rect", { x: bx, y: by, width: bw, height: bh, rx: 8, fill: "#0E2536", stroke: "#3A6D86", "stroke-width": 2 }));
+  var tlab = el04("text", { x: bx + bw / 2, y: by - 16, fill: "#8FA9BC", "font-family": "IBM Plex Mono", "font-size": 18, "text-anchor": "middle" }); tlab.textContent = "material: matrix + particles"; svg.appendChild(tlab);
+  var il = el04("text", { x: 18, y: 44, fill: "#EAF4F8", "font-family": "IBM Plex Mono", "font-size": 18 }); il.textContent = "white light →"; svg.appendChild(il);
+  // painel de aparência: quadriculado + amostra
+  var ax = 660, ay = 118, aw = 212, ah = 212, q = aw / 4;
+  for (var r = 0; r < 4; r++) for (var c = 0; c < 4; c++) svg.appendChild(el04("rect", { x: ax + c * q, y: ay + r * (ah / 4), width: q, height: ah / 4, fill: ((r + c) % 2 ? "#f4f4f4" : "#14181d") }));
+  var sample = el04("rect", { x: ax + 16, y: ay + 16, width: aw - 32, height: ah - 32, rx: 8, fill: "#eef3f5", "fill-opacity": 0.2 }); svg.appendChild(sample);
+  var al = el04("text", { x: ax + aw / 2, y: ay - 16, fill: "#8FA9BC", "font-family": "IBM Plex Mono", "font-size": 17, "text-anchor": "middle" }); al.textContent = "what you'd see"; svg.appendChild(al);
+  var appWord = el04("text", { x: ax + aw / 2, y: ay + ah + 30, fill: "#EAF4F8", "font-family": "Space Grotesk", "font-size": 20, "font-weight": 600, "text-anchor": "middle" }); appWord.textContent = "translucent"; svg.appendChild(appWord);
+  var gRay = el04("g", {}), gPart = el04("g", {}); svg.appendChild(gRay); svg.appendChild(gPart);
+  // 4 raios: y de entrada + sinais de deflexão em 2 encontros (padrão fixo)
+  var rays = [{ y: 120, s1: 1, s2: 1 }, { y: 190, s1: -1, s2: -1 }, { y: 260, s1: 1, s2: -1 }, { y: 330, s1: -1, s2: 1 }];
+  var MAXA = 52 * Math.PI / 180;
+  function dir(a) { return [Math.cos(a), Math.sin(a)]; }
+  function update() {
+    var t = +sl.value / 100, dn = t * 0.16;                  // Δn de 0 a 0.16
+    document.getElementById("riDn").textContent = dn.toFixed(2);
+    document.getElementById("riDn2").textContent = dn.toFixed(2);
+    document.getElementById("riPart").textContent = (1.54 + dn).toFixed(2);
+    gRay.innerHTML = ""; gPart.innerHTML = "";
+    rays.forEach(function (ray) {
+      var v1 = [bx + 120, ray.y];
+      var a1 = MAXA * t * ray.s1, d1 = dir(a1);
+      var v2 = [v1[0] + d1[0] * 140, v1[1] + d1[1] * 140];
+      var a2 = a1 + MAXA * t * ray.s2, d2 = dir(a2);
+      var v3 = [v2[0] + d2[0] * 340, v2[1] + d2[1] * 340];
+      var pts = [[50, ray.y], [bx, ray.y], v1, v2, v3];
+      gRay.appendChild(el04("polyline", { points: pts.map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" "), fill: "none", stroke: "#EAF4F8", "stroke-width": 3.2, "stroke-opacity": 0.92, "stroke-linejoin": "round" }));
+      // partículas exatamente nos encontros (interfaces onde a luz dobra)
+      [v1, v2].forEach(function (p) {
+        gPart.appendChild(el04("circle", { cx: p[0], cy: p[1], r: 17, fill: "#16374F", stroke: "#9AD8EC", "stroke-width": (1 + t * 4).toFixed(2), "stroke-opacity": (0.18 + t * 0.82).toFixed(2) }));
+      });
+    });
+    // orçamento de luz (conceitual, não cálculo exato)
+    var fwd = Math.round(92 - 74 * t), sca = 100 - fwd;
+    document.getElementById("riFwd").textContent = fwd + "%";
+    document.getElementById("riSca").textContent = sca + "%";
+    document.getElementById("riFwdFill").style.width = fwd + "%";
+    document.getElementById("riScaFill").style.width = sca + "%";
+    // aparência final
+    sample.setAttribute("fill-opacity", (0.12 + t * 0.85).toFixed(2));
+    appWord.textContent = t < 0.33 ? "translucent" : (t < 0.7 ? "hazy" : "opaque / white");
+    // estados
+    document.getElementById("riStateMatched").classList.toggle("on", t < 0.5);
+    document.getElementById("riStateMismatched").classList.toggle("on", t >= 0.5);
+  }
+  sl.addEventListener("input", update); update();
+})();
+
+/* ===== 27 · Opalescência — espalhamento seletivo por comprimento de onda =====
+   Lógica de ensino: os DOIS caminhos ópticos ficam sempre visíveis. O controle
+   de dois estados só REALÇA um deles (o outro esmaece), para o aluno COMPARAR:
+   azul curto retro-espalha ao observador do lado da luz; laranja longo transmite
+   ao observador do lado oposto. O esmalte NÃO muda — muda o caminho até o olho. */
+(function () {
+  var svg = document.getElementById("opSvg"); if (!svg) return;
+  var seg = document.getElementById("opSeg"), interp = document.getElementById("opInterp");
+  // fonte de luz (lado incidente)
+  svg.appendChild(el04("circle", { cx: 92, cy: 120, r: 26, fill: "#FDE68A", stroke: "#F2B84B", "stroke-width": 3 }));
+  var lsl = el04("text", { x: 92, y: 78, fill: "#F2B84B", "font-family": "IBM Plex Mono", "font-size": 18, "text-anchor": "middle" }); lsl.textContent = "white light"; svg.appendChild(lsl);
+  // slab de esmalte
+  svg.appendChild(el04("rect", { x: 400, y: 95, width: 150, height: 240, rx: 12, fill: "#bcd6ea", "fill-opacity": 0.45, stroke: "#3A6D86", "stroke-width": 2 }));
+  var en = el04("text", { x: 475, y: 365, fill: "#8FA9BC", "font-family": "IBM Plex Mono", "font-size": 19, "text-anchor": "middle" }); en.textContent = "enamel"; svg.appendChild(en);
+  // feixe incidente
+  svg.appendChild(el04("line", { x1: 118, y1: 128, x2: 400, y2: 210, stroke: "#EAF4F8", "stroke-width": 5 }));
+  // raios azuis (retro) e laranja (transmitidos) — ambos sempre desenhados
+  var gBlue = el04("g", {}), gOra = el04("g", {}); svg.appendChild(gBlue); svg.appendChild(gOra);
+  [[400, 175, 205, 120], [405, 210, 195, 220], [400, 250, 208, 320]].forEach(function (c) { gBlue.appendChild(el04("line", { x1: c[0], y1: c[1], x2: c[2], y2: c[3], stroke: "#5AA9E6", "stroke-width": 5, "stroke-linecap": "round" })); });
+  [[550, 175, 760, 130], [550, 210, 772, 215], [550, 250, 760, 300]].forEach(function (c) { gOra.appendChild(el04("line", { x1: c[0], y1: c[1], x2: c[2], y2: c[3], stroke: "#F0872E", "stroke-width": 5, "stroke-linecap": "round" })); });
+  var blab = el04("text", { x: 210, y: 96, fill: "#7ab8ea", "font-family": "IBM Plex Mono", "font-size": 17, "text-anchor": "middle" }); blab.textContent = "short λ scatter back"; svg.appendChild(blab);
+  var olab = el04("text", { x: 740, y: 100, fill: "#f0a35a", "font-family": "IBM Plex Mono", "font-size": 17, "text-anchor": "middle" }); olab.textContent = "long λ pass through"; svg.appendChild(olab);
+  // olhos (contorno, não swatch)
+  function eye(cx, cy) {
+    var g = el04("g", {});
+    g.appendChild(el04("path", { d: "M" + (cx - 36) + " " + cy + " Q " + cx + " " + (cy - 24) + " " + (cx + 36) + " " + cy + " Q " + cx + " " + (cy + 24) + " " + (cx - 36) + " " + cy + " Z", fill: "none", stroke: "#EAF4F8", "stroke-width": 3 }));
+    g.appendChild(el04("circle", { cx: cx, cy: cy, r: 12, fill: "#0B1B2B", stroke: "#EAF4F8", "stroke-width": 2 }));
+    return g;
+  }
+  var eyeL = eye(150, 235), eyeR = eye(800, 220); svg.appendChild(eyeL); svg.appendChild(eyeR);
+  var obL = el04("text", { x: 150, y: 180, fill: "#8FA9BC", "font-family": "IBM Plex Mono", "font-size": 16, "text-anchor": "middle" }); obL.textContent = "reflected-side observer"; svg.appendChild(obL);
+  var obR = el04("text", { x: 800, y: 165, fill: "#8FA9BC", "font-family": "IBM Plex Mono", "font-size": 16, "text-anchor": "middle" }); obR.textContent = "transmitted-side observer"; svg.appendChild(obR);
+  // swatches de aparência (resultado)
+  var swL = el04("rect", { x: 108, y: 272, width: 84, height: 60, rx: 8, fill: "#bcd8f0", stroke: "#0B1B2B", "stroke-width": 2 }); svg.appendChild(swL);
+  var swLt = el04("text", { x: 150, y: 352, fill: "#7ab8ea", "font-family": "IBM Plex Mono", "font-size": 16, "text-anchor": "middle" }); swLt.textContent = "cool incisal halo"; svg.appendChild(swLt);
+  var swR = el04("rect", { x: 758, y: 258, width: 84, height: 60, rx: 8, fill: "#f0a86a", stroke: "#0B1B2B", "stroke-width": 2 }); svg.appendChild(swR);
+  var swRt = el04("text", { x: 800, y: 338, fill: "#f0a35a", "font-family": "IBM Plex Mono", "font-size": 16, "text-anchor": "middle" }); swRt.textContent = "orange counter-opalescence"; svg.appendChild(swRt);
+  function op(el, o) { el.setAttribute("opacity", o); }
+  function setView(v) {
+    var refl = v === "reflected";
+    op(gBlue, refl ? 1 : 0.22); op(gOra, refl ? 0.22 : 1);
+    op(eyeL, refl ? 1 : 0.32); op(swL, refl ? 1 : 0.32); op(swLt, refl ? 1 : 0.32); op(obL, refl ? 1 : 0.45);
+    op(eyeR, refl ? 0.32 : 1); op(swR, refl ? 0.32 : 1); op(swRt, refl ? 0.32 : 1); op(obR, refl ? 0.45 : 1);
+    interp.innerHTML = refl
+      ? "<b>Short wavelengths scatter back → bluish reflected appearance.</b>"
+      : "<b>Longer wavelengths pass through → warm transmitted appearance.</b>";
+    Array.prototype.forEach.call(seg.querySelectorAll("button"), function (b) { b.classList.toggle("on", b.getAttribute("data-view") === v); });
+  }
+  seg.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) setView(b.getAttribute("data-view")); });
+  seg.addEventListener("keydown", function (e) { e.stopPropagation(); }); // não deixar o teclado navegar slide
+  setView("reflected");
+})();
+
+/* ===== 33 · ΔE — três deslocamentos combinam numa distância =====
+   Lógica de ensino: sliders = direção (sinal) + magnitude por eixo. A fórmula
+   mostra a SUBSTITUIÇÃO ao vivo (por que ± do mesmo tamanho dá o mesmo ΔE, e
+   como pequenos somam). Uma ÚNICA régua com zonas + ponteiro; veredito grande.
+   Régua 0..8 ≥ ΔE máximo alcançável (√(5²+4²+4²)=7,55) → ponteiro nunca estoura. */
+(function () {
+  var sw = document.getElementById("deSwatch"), ru = document.getElementById("deRuler");
+  if (!sw || !ru) return;
+  var REF = { L: 78, a: 2, b: 18 }, RMAX = 8;
+  // Régua de TRÊS SEGMENTOS DE LARGURA IGUAL: cada zona (perceptibilidade,
+  // aceitabilidade, acima) ocupa 1/3 da largura, então os rótulos nunca se
+  // sobrepõem, mesmo com intervalos numéricos desiguais (0–1.2, 1.2–2.7, 2.7–8).
+  // swatches encostados (diferenças pequenas ficam visíveis)
+  sw.appendChild(el04("rect", { id: "deRef", x: 40, y: 12, width: 300, height: 118, fill: lab2rgb04(REF.L, REF.a, REF.b), stroke: "#0B1B2B", "stroke-width": 2 }));
+  sw.appendChild(el04("rect", { id: "deTest", x: 340, y: 12, width: 300, height: 118, fill: lab2rgb04(REF.L, REF.a, REF.b), stroke: "#0B1B2B", "stroke-width": 2 }));
+  var r1 = el04("text", { x: 190, y: 145, fill: "#8FA9BC", "font-family": "IBM Plex Mono", "font-size": 17, "text-anchor": "middle" }); r1.textContent = "reference tooth"; sw.appendChild(r1);
+  var r2 = el04("text", { x: 490, y: 145, fill: "#8FA9BC", "font-family": "IBM Plex Mono", "font-size": 17, "text-anchor": "middle" }); r2.textContent = "restoration"; sw.appendChild(r2);
+  // três segmentos iguais (240 cada); mapeamento ΔE→x por partes
+  var X0 = 40, X1 = 760, Y = 34, seg = (X1 - X0) / 3;
+  function xOf(de) {
+    if (de <= 1.2) return X0 + (de / 1.2) * seg;
+    if (de <= 2.7) return X0 + seg + ((de - 1.2) / 1.5) * seg;
+    return X0 + 2 * seg + clamp04((de - 2.7) / (RMAX - 2.7), 0, 1) * seg;
+  }
+  ru.appendChild(el04("rect", { x: X0, y: Y, width: seg, height: 26, fill: "#15803D" }));
+  ru.appendChild(el04("rect", { x: X0 + seg, y: Y, width: seg, height: 26, fill: "#B45309" }));
+  ru.appendChild(el04("rect", { x: X0 + 2 * seg, y: Y, width: seg, height: 26, fill: "#BE123C" }));
+  // marcas de fronteira com o valor numérico do limiar
+  [[X0 + seg, "1.2"], [X0 + 2 * seg, "2.7"]].forEach(function (m) {
+    ru.appendChild(el04("line", { x1: m[0], y1: Y - 9, x2: m[0], y2: Y + 32, stroke: "#EAF4F8", "stroke-width": 2 }));
+    var tn = el04("text", { x: m[0], y: Y - 14, fill: "#EAF4F8", "font-family": "IBM Plex Mono", "font-size": 15, "text-anchor": "middle" }); tn.textContent = m[1]; ru.appendChild(tn);
+  });
+  ru.appendChild(el04("text", { x: X0, y: Y - 14, fill: "#5E7285", "font-family": "IBM Plex Mono", "font-size": 14, "text-anchor": "middle" })).textContent = "0";
+  ru.appendChild(el04("text", { x: X1, y: Y - 14, fill: "#5E7285", "font-family": "IBM Plex Mono", "font-size": 14, "text-anchor": "end" })).textContent = String(RMAX);
+  // rótulos centrados em cada terço (nunca se sobrepõem)
+  function zlab(cx, l1, l2, col) {
+    var a = el04("text", { x: cx, y: Y + 53, fill: col, "font-family": "IBM Plex Mono", "font-size": 17, "font-weight": 600, "text-anchor": "middle" }); a.textContent = l1; ru.appendChild(a);
+    var b = el04("text", { x: cx, y: Y + 73, fill: "#8FA9BC", "font-family": "IBM Plex Mono", "font-size": 14, "text-anchor": "middle" }); b.textContent = l2; ru.appendChild(b);
+  }
+  zlab(X0 + seg / 2, "0 – 1.2", "below perceptibility", "#6EE7A8");
+  zlab(X0 + seg + seg / 2, "1.2 – 2.7", "perceptible · acceptable", "#F2B84B");
+  zlab(X0 + 2 * seg + seg / 2, "> 2.7", "above acceptability", "#F9A8B8");
+  var ptr = el04("polygon", { points: "0,0 0,0 0,0", fill: "#fff", stroke: "#0B1B2B", "stroke-width": 1 }); ru.appendChild(ptr);
+  var dL = document.getElementById("dL"), dA = document.getElementById("dA"), dB = document.getElementById("dB");
+  function fmt(v) { return (v >= 0 ? "+" : "") + (+v).toFixed(1); }
+  function update() {
+    var l = +dL.value, a = +dA.value, b = +dB.value;
+    document.getElementById("dLOut").textContent = fmt(l);
+    document.getElementById("dAOut").textContent = fmt(a);
+    document.getElementById("dBOut").textContent = fmt(b);
+    document.getElementById("deTest").setAttribute("fill", lab2rgb04(REF.L + l, REF.a + a, REF.b + b));
+    document.getElementById("deCoord").textContent = "L* " + (REF.L + l).toFixed(1) + " · a* " + (REF.a + a).toFixed(1) + " · b* " + (REF.b + b).toFixed(1);
+    var de = Math.sqrt(l * l + a * a + b * b);
+    document.getElementById("deSub").textContent = "= √(" + Math.abs(l).toFixed(1) + "² + " + Math.abs(a).toFixed(1) + "² + " + Math.abs(b).toFixed(1) + "²)";
+    document.getElementById("deRes").textContent = de.toFixed(1);
+    var x = xOf(de);
+    ptr.setAttribute("points", (x - 10) + "," + (Y - 13) + " " + (x + 10) + "," + (Y - 13) + " " + x + "," + (Y - 1));
+    var v = document.getElementById("deVerdict");
+    if (de < 0.05) { v.textContent = "Identical"; v.style.background = "rgba(255,255,255,.06)"; v.style.color = "#EAF4F8"; }
+    else if (de < 1.2) { v.textContent = "Below perceptibility threshold"; v.style.background = "rgba(110,231,168,.16)"; v.style.color = "#6EE7A8"; }
+    else if (de < 2.7) { v.textContent = "Perceptible, clinically acceptable"; v.style.background = "rgba(242,184,75,.16)"; v.style.color = "#F2B84B"; }
+    else { v.textContent = "Above acceptability threshold"; v.style.background = "rgba(249,168,184,.16)"; v.style.color = "#F9A8B8"; }
+  }
+  function preset(p) {
+    if (p === "reset") { dL.value = 0; dA.value = 0; dB.value = 0; }
+    else if (p === "value") { dL.value = -3.5; dA.value = 0; dB.value = 0; }
+    else if (p === "combined") { dL.value = 1.5; dA.value = 1.5; dB.value = 2; }
+    update();
+  }
+  [dL, dA, dB].forEach(function (e) { e.addEventListener("input", update); });
+  var pc = document.getElementById("dePresets");
+  if (pc) { pc.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) preset(b.getAttribute("data-preset")); }); pc.addEventListener("keydown", function (e) { e.stopPropagation(); }); }
+  update();
+})();
+
+/* ===== 6. Espessura × fundo — translúcido vs opaco sobre card P&B ===== */
+(function () {
+  var svg = document.getElementById("bgSvg");
+  if (!svg) return;
+  var MAT = [230, 201, 141], BLACK = [20, 22, 26], WHITE = [244, 244, 244];
+  function blend(a, b, t) { return a.map(function (v, i) { return Math.round(v * t + b[i] * (1 - t)); }); }
+  function rgb(c) { return "rgb(" + c[0] + "," + c[1] + "," + c[2] + ")"; }
+  // um painel: fundo dividido preto|branco + amostra em duas metades
+  function panel(x0, label) {
+    var cx = x0 + 95;
+    svg.appendChild(el04("rect", { x: x0, y: 20, width: 95, height: 140, fill: "#14181d" }));
+    svg.appendChild(el04("rect", { x: x0 + 95, y: 20, width: 95, height: 140, fill: "#f4f4f4" }));
+    var sL = el04("rect", { x: x0 + 20, y: 42, width: 75, height: 96, fill: "#ccc" }); svg.appendChild(sL);
+    var sR = el04("rect", { x: x0 + 95, y: 42, width: 75, height: 96, fill: "#ccc" }); svg.appendChild(sR);
+    svg.appendChild(el04("rect", { x: x0 + 20, y: 42, width: 150, height: 96, fill: "none", stroke: "#EAF4F8", "stroke-width": 1.5, rx: 4 }));
+    var lb = el04("text", { x: cx, y: 180, fill: "#8FA9BC", "font-family": "IBM Plex Mono", "font-size": 12, "text-anchor": "middle" }); lb.textContent = label; svg.appendChild(lb);
+    return { sL: sL, sR: sR };
+  }
+  var A = panel(30, "translucent sample"), B = panel(250, "opaque sample");
+  var thk = document.getElementById("thk");
+  function update() {
+    var t = +thk.value / 100;
+    var opA = clamp04(0.12 + t * 0.72, 0, 1), opB = clamp04(0.70 + t * 0.28, 0, 1);
+    A.sL.setAttribute("fill", rgb(blend(MAT, BLACK, opA)));
+    A.sR.setAttribute("fill", rgb(blend(MAT, WHITE, opA)));
+    B.sL.setAttribute("fill", rgb(blend(MAT, BLACK, opB)));
+    B.sR.setAttribute("fill", rgb(blend(MAT, WHITE, opB)));
+    document.getElementById("thkOut").textContent = (t * 1.4).toFixed(1) + " mm";
+    var infl = t < 0.4 ? "strongly" : (t < 0.75 ? "partly" : "barely");
+    document.getElementById("thkNote").innerHTML = "The <b style=\"color:#7ab8ea\">translucent</b> sample lets the background through <b>" + infl + "</b> — see the seam between its dark half (over black) and light half (over white). The <b>opaque</b> sample keeps its own colour and does <b>not</b> borrow from behind.";
+  }
+  thk.addEventListener("input", update); update();
+})();
+show(0);
+</script></body></html>
