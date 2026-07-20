@@ -179,8 +179,8 @@
     <div class="lec-grid">
       <div class="lec soon" data-status="soon"><div class="lec__top"><span class="num">01</span><span class="badge">Soon</span></div><span class="t">Introduction &amp; the structure–property–performance framework</span><span class="hrs">1 h</span></div>
       <div class="lec soon" data-status="soon"><div class="lec__top"><span class="num">02</span><span class="badge">Soon</span></div><span class="t">Mechanical properties</span><span class="hrs">3 h</span></div>
-      <div class="lec live" data-status="open"><div class="lec__top"><span class="num">03</span><span class="badge">Open</span></div><a class="lec__link" href="lectures/03-polymerisation-and-polymers/index.html"><span class="t">Polymers &amp; polymerization</span></a><div class="lec__foot"><span class="hrs">2 h</span><a class="lec__pdf" href="lectures/03-polymerisation-and-polymers/handout.html" title="Student handout (PDF)">⤓ PDF</a></div></div>
-      <div class="lec live" data-status="open"><div class="lec__top"><span class="num">04</span><span class="badge">Open</span></div><a class="lec__link" href="lectures/04-colour-and-optics/index.html"><span class="t">Colour &amp; optics</span></a><div class="lec__foot"><span class="hrs">1 h</span><a class="lec__pdf" href="lectures/04-colour-and-optics/handout.html" title="Student handout (PDF)">⤓ PDF</a></div></div>
+      <div class="lec live" data-status="open"><div class="lec__top"><span class="num">03</span><span class="badge">Open</span></div><a class="lec__link" href="lectures/03-polymerisation-and-polymers/index.html"><span class="t">Polymers &amp; polymerization</span></a><div class="lec__foot"><span class="hrs">2 h</span><a class="lec__pdf" href="lectures/03-polymerisation-and-polymers/handout.pdf" title="Student handout (PDF)">⤓ PDF</a></div></div>
+      <div class="lec live" data-status="open"><div class="lec__top"><span class="num">04</span><span class="badge">Open</span></div><a class="lec__link" href="lectures/04-colour-and-optics/index.html"><span class="t">Colour &amp; optics</span></a><div class="lec__foot"><span class="hrs">1 h</span><a class="lec__pdf" href="lectures/04-colour-and-optics/handout.pdf" title="Student handout (PDF)">⤓ PDF</a></div></div>
       <div class="lec soon" data-status="soon"><div class="lec__top"><span class="num">05</span><span class="badge">Soon</span></div><span class="t">Biocompatibility</span><span class="hrs">1 h</span></div>
       <div class="lec soon" data-status="soon"><div class="lec__top"><span class="num">06</span><span class="badge">Soon</span></div><span class="t">Bioactivity</span><span class="hrs">1 h</span></div>
       <div class="lec soon" data-status="soon"><div class="lec__top"><span class="num">07</span><span class="badge">Soon</span></div><span class="t">Principles of 3D printing in dentistry</span><span class="hrs">1 h</span></div>
@@ -215,7 +215,7 @@
       <h2 class="modal__title">Student handouts</h2>
       <button type="button" class="modal__x" data-close aria-label="Close">×</button>
     </div>
-    <p class="modal__sub">Open a handout, then use “Save as PDF” to download it.</p>
+    <p class="modal__sub">Paginated handouts — click to open or download the PDF.</p>
     <div id="pdfList" class="pdf-list"></div>
   </div>
 </div>
@@ -310,7 +310,7 @@
       row.rel = 'noopener';
       var n = document.createElement('span'); n.className = 'pdf-item__num'; n.textContent = num;
       var ti = document.createElement('span'); ti.className = 'pdf-item__t'; ti.textContent = t;
-      var go = document.createElement('span'); go.className = 'pdf-item__go'; go.textContent = '⤓ Open';
+      var go = document.createElement('span'); go.className = 'pdf-item__go'; go.textContent = '⤓ PDF';
       row.appendChild(n); row.appendChild(ti); row.appendChild(go);
       list.appendChild(row);
     });
