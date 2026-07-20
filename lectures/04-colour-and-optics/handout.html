@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Handout · Colour &amp; Optics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/handout.css">
+</head>
+<body>
+
+<div class="hbar">
+  <button class="primary" onclick="window.print()">⤓ Save as PDF</button>
+  <a href="index.html">← Lecture</a>
+  <a href="../../index.html">Menu</a>
+</div>
+
+<article class="sheet">
+
+  <header class="h-head">
+    <p class="h-eyebrow">NUS · Dental Materials · Lecture 04</p>
+    <h1 class="h-title">Colour &amp; Optics</h1>
+    <p class="h-sub">Student handout — colour is not a pigment; it is what the material does with light.</p>
+    <p class="h-note">Revision aid, not a full transcript. Organised on the structure → property → performance spine.</p>
+  </header>
+
+  <!-- ================= STRUCTURE ================= -->
+  <h2 class="h-sec"><small>Structure</small>Light &amp; the material’s microstructure</h2>
+  <ul class="h">
+    <li>Colour is a three-part event: <b>light source + object + observer</b>. Change any one and the perceived colour changes.</li>
+    <li>The eye samples the <b>visible spectrum (~380–780 nm)</b> with three cone types (S/M/L) → trichromatic then opponent processing.</li>
+    <li><b>Refractive index (n = c/v)</b> = how much a material slows and bends light. Mismatch in n at an interface → light bends and scatters.</li>
+    <li>Key values: <b>enamel ≈ 1.63</b>, <b>dentine ≈ 1.54</b>, hydroxyapatite ≈ 1.62–1.65, water 1.33, air ≈ 1.0; Bis-GMA 1.54, silica ≈ 1.53, TEGDMA 1.46.</li>
+    <li>In composites, matching <b>filler and matrix n</b> → translucency; air/water-filled pores (n ≈ 1.0, e.g. a white-spot lesion) scatter strongly → opaque white.</li>
+  </ul>
+  <figure class="h-fig">
+    <img src="assets/light-object-observer.png" alt="Light source, object and observer">
+    <figcaption>Colour = source × object × observer.</figcaption>
+  </figure>
+  <figure class="h-fig">
+    <img src="assets/refractive-index-match.png" alt="Refractive index match vs mismatch">
+    <figcaption>Filler–matrix RI match → translucent; mismatch (or pores) → scatter/opaque.</figcaption>
+  </figure>
+
+  <!-- ================= PROPERTY ================= -->
+  <h2 class="h-sec prop"><small>Property</small>What light does &amp; the three attributes</h2>
+
+  <h3 class="h-sub2">The four fates of light</h3>
+  <ul class="h">
+    <li><b>Reflection</b> (specular = glossy surface; diffuse = scattered) and <b>absorption</b> act at the surface.</li>
+    <li><b>Scattering</b> and <b>transmission</b> act in the body of the material — they govern translucency.</li>
+    <li>The mix of these four determines the final appearance.</li>
+  </ul>
+  <figure class="h-fig wide">
+    <img src="assets/four-fates-of-light.png" alt="Reflection, absorption, scattering, transmission">
+    <figcaption>Four fates of light: reflection &amp; absorption (surface), scattering &amp; transmission (body).</figcaption>
+  </figure>
+
+  <h3 class="h-sub2">Hue · Value · Chroma</h3>
+  <ul class="h">
+    <li><b>Hue</b> — the colour family (teeth sit in yellow / yellow-red; Vita families A–D).</li>
+    <li><b>Value</b> — lightness (0–10). <b>Value dominates</b> perceived match: squint to judge it; when unsure “go lighter”.</li>
+    <li><b>Chroma</b> — colour intensity/saturation (highest cervically, lowest incisally); tends to move inversely with value.</li>
+  </ul>
+  <figure class="h-fig">
+    <img src="assets/hvc-overview.png" alt="Hue, value, chroma on a tooth">
+    <figcaption>The three attributes of tooth colour.</figcaption>
+  </figure>
+  <figure class="h-fig">
+    <img src="assets/value-scale.png" alt="Value scale from dark to light">
+    <figcaption>Value (lightness) is the strongest driver of a match.</figcaption>
+  </figure>
+
+  <h3 class="h-sub2">Optical properties of teeth &amp; restoratives</h3>
+  <ul class="h">
+    <li><b>Translucency / opacity</b> (translucency parameter, TP): a gradient — enamel more translucent, dentine more opaque.</li>
+    <li><b>Fluorescence</b>: teeth absorb UV and re-emit visible light (~440–450 nm); dentine ~3× enamel. A non-fluorescent restoration can look dull/grey under UV (a metameric failure).</li>
+    <li><b>Opalescence</b>: enamel scatters short wavelengths → bluish in reflected light, orange in transmitted light (the incisal halo).</li>
+  </ul>
+  <figure class="h-fig">
+    <img src="assets/translucency-opacity.png" alt="Translucency vs opacity">
+    <figcaption>Translucency vs opacity across the tooth.</figcaption>
+  </figure>
+
+  <!-- ================= PERFORMANCE ================= -->
+  <h2 class="h-sec perf"><small>Performance</small>Measuring colour &amp; final appearance</h2>
+
+  <h3 class="h-sub2">Measuring colour objectively</h3>
+  <ul class="h">
+    <li><b>Munsell</b>: orders colour by Hue Value/Chroma (the basis of Vita-style guides).</li>
+    <li><b>CIELAB (L* a* b*)</b>: L* = lightness, a* = green↔red, b* = blue↔yellow — a device-independent 3-D colour space.</li>
+    <li><b>ΔE</b> = distance between two colours in that space. Thresholds (Paravina 2015): <b>perceptibility ΔEab ≈ 1.2</b>, <b>acceptability ΔEab ≈ 2.7</b>.</li>
+    <li><b>Colorimeter vs spectrophotometer</b>: the spectrophotometer measures the full reflectance spectrum → more reliable, and helps detect <b>metamerism</b> (two colours matching under one light but not another).</li>
+  </ul>
+  <figure class="h-fig">
+    <img src="assets/cielab-axes.png" alt="CIELAB L* a* b* axes">
+    <figcaption>CIELAB: L* (lightness), a* (green–red), b* (blue–yellow).</figcaption>
+  </figure>
+  <figure class="h-fig">
+    <img src="assets/delta-e-thresholds.png" alt="Delta-E perceptibility and acceptability thresholds">
+    <figcaption>ΔE thresholds: perceptibility ≈ 1.2, acceptability ≈ 2.7.</figcaption>
+  </figure>
+
+  <h3 class="h-sub2">What sets the final colour (5 factors) &amp; stability</h3>
+  <ul class="h">
+    <li><b>Composition, thickness, background, surface finish, ageing.</b> Thin/translucent layers let the background show through; polish changes surface reflection.</li>
+    <li><b>Shade-match conditions matter</b>: use neutral daylight, match quickly (eye fatigue), remove strong surrounding colours.</li>
+    <li><b>Ageing</b>: staining, surface roughening and matrix changes shift colour over time — a stability, not just an initial-match, problem.</li>
+  </ul>
+  <figure class="h-fig">
+    <img src="assets/colour-ageing.png" alt="Colour change with ageing">
+    <figcaption>Colour is a moving target: ageing and staining shift it over time.</figcaption>
+  </figure>
+
+  <h3 class="h-sub2">Take-home</h3>
+  <ul class="h">
+    <li>Refractive-index matching (structure) controls translucency; the four fates of light (property) build appearance; value + ΔE + the five factors (performance) decide the clinical match and its stability.</li>
+  </ul>
+
+  <p class="h-foot">Dental Materials Science · Lecture 04 handout · structure → property → performance.</p>
+
+</article>
+</body>
+</html>

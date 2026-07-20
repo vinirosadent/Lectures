@@ -1,0 +1,74 @@
+/* =====================================================================
+   Handout do aluno — folha de impressão COMPARTILHADA (todas as aulas).
+   Cada aula tem um handout.html que carrega este arquivo.
+   Filosofia (D-10): bullets destilados na espinha structure→property→
+   performance + só figuras esquemáticas. Sem quiz, sem interação.
+   Fluxo: abrir handout → botão "Save as PDF" (window.print) → PDF A4.
+   ===================================================================== */
+
+:root{
+  --hk:#0f766e;        /* teal  — structure / ciência */
+  --amber:#b45309;     /* âmbar — performance / clínica */
+  --ink:#14201e;
+  --soft:#4b5563;
+  --line:#e5e7eb;
+  --font-d:"Space Grotesk", system-ui, sans-serif;
+  --font-b:"Inter", system-ui, sans-serif;
+}
+*{ box-sizing:border-box; }
+html,body{ margin:0; }
+body{ font-family:var(--font-b); color:var(--ink); background:#eef1f3; line-height:1.5; }
+
+/* --- Barra de ferramentas (só na tela; some ao imprimir) --- */
+.hbar{ position:sticky; top:0; z-index:10; display:flex; gap:.6rem; justify-content:center; align-items:center;
+  padding:.7rem; background:rgba(255,255,255,.92); border-bottom:1px solid var(--line); }
+.hbar a, .hbar button{ font-family:var(--font-d); font-weight:600; font-size:.9rem; border-radius:8px;
+  padding:.55rem 1.05rem; border:1.5px solid var(--line); background:#fff; color:var(--ink); cursor:pointer;
+  text-decoration:none; }
+.hbar .primary{ background:var(--hk); border-color:var(--hk); color:#fff; }
+
+/* --- Folha --- */
+.sheet{ max-width:820px; margin:1.4rem auto; background:#fff; padding:2.4rem 2.6rem; border-radius:6px;
+  box-shadow:0 10px 40px rgba(0,0,0,.10); }
+
+.h-head{ border-bottom:2px solid var(--hk); padding-bottom:.9rem; margin-bottom:1.3rem; }
+.h-eyebrow{ font-family:var(--font-d); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--hk); margin:0 0 .3rem; }
+.h-title{ font-family:var(--font-d); font-size:1.7rem; margin:0 0 .3rem; line-height:1.15; }
+.h-sub{ font-size:.9rem; color:var(--soft); margin:0; }
+.h-note{ font-size:.78rem; color:var(--soft); font-style:italic; margin:.55rem 0 0; }
+
+/* Espinha: cada área é um cabeçalho com faixa colorida */
+h2.h-sec{ font-family:var(--font-d); font-size:1.14rem; margin:1.7rem 0 .5rem; padding:.15rem 0 .15rem .65rem;
+  border-left:4px solid var(--hk); }
+h2.h-sec.prop{ border-color:#0891b2; }
+h2.h-sec.perf{ border-color:var(--amber); }
+h2.h-sec small{ font-family:var(--font-b); font-weight:400; color:var(--soft); font-size:.72rem;
+  letter-spacing:.1em; text-transform:uppercase; display:block; }
+h3.h-sub2{ font-family:var(--font-d); font-size:.98rem; margin:1rem 0 .25rem; color:var(--hk); }
+
+ul.h{ margin:.3rem 0 .8rem; padding-left:1.15rem; }
+ul.h li{ margin:.28rem 0; }
+ul.h ul{ margin:.2rem 0 .3rem; padding-left:1.1rem; }
+b, strong{ color:var(--ink); }
+
+/* Figuras esquemáticas */
+figure.h-fig{ margin:1rem auto; text-align:center; break-inside:avoid; page-break-inside:avoid; }
+figure.h-fig img{ max-width:76%; height:auto; border:1px solid var(--line); border-radius:6px; }
+figure.h-fig figcaption{ font-size:.76rem; color:var(--soft); margin-top:.35rem; }
+figure.h-fig.wide img{ max-width:96%; }
+
+.h-foot{ margin-top:1.8rem; border-top:1px solid var(--line); padding-top:.6rem; font-size:.72rem; color:var(--soft); }
+
+/* ------------------------- IMPRESSÃO ------------------------- */
+@media print{
+  @page{ size:A4; margin:15mm; }
+  body{ background:#fff; font-size:10.3pt; }
+  .hbar{ display:none; }
+  .sheet{ max-width:none; margin:0; padding:0; border-radius:0; box-shadow:none; }
+  h2.h-sec{ break-after:avoid; page-break-after:avoid; }
+  h3.h-sub2{ break-after:avoid; page-break-after:avoid; }
+  figure.h-fig img{ max-width:58%; }
+  figure.h-fig.wide img{ max-width:88%; }
+  a{ color:inherit; text-decoration:none; }
+}

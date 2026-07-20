@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Handout · Polymers &amp; Polymerization</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Folha de impressão compartilhada (relativa à raiz do repo) -->
+<link rel="stylesheet" href="../../assets/css/handout.css">
+</head>
+<body>
+
+<!-- Barra (só na tela) -->
+<div class="hbar">
+  <button class="primary" onclick="window.print()">⤓ Save as PDF</button>
+  <a href="index.html">← Lecture</a>
+  <a href="../../index.html">Menu</a>
+</div>
+
+<article class="sheet">
+
+  <header class="h-head">
+    <p class="h-eyebrow">NUS · Dental Materials · Lecture 03</p>
+    <h1 class="h-title">Polymers &amp; Polymerization</h1>
+    <p class="h-sub">Student handout — from monomer chemistry to clinical shrinkage.</p>
+    <p class="h-note">Revision aid, not a full transcript of the lecture. Organised on the structure → property → performance spine.</p>
+  </header>
+
+  <!-- ================= STRUCTURE ================= -->
+  <h2 class="h-sec"><small>Structure</small>What polymers are made of</h2>
+
+  <h3 class="h-sub2">Vocabulary</h3>
+  <ul class="h">
+    <li><b>Monomer</b> — a small reactive molecule (one “mer” unit). <b>Oligomer</b> — a few units. <b>Polymer</b> — many units covalently linked into long chains.</li>
+    <li><b>Degree of polymerization (n)</b> = number of mer units in the chain.</li>
+    <li><b>Molecular weight</b>: MW = (MW of one mer) × n. Higher MW ⇒ longer chains ⇒ stronger, stiffer, higher softening temperature.</li>
+    <li>By composition: <b>homopolymer</b> (one monomer), <b>copolymer</b> (two), <b>terpolymer</b> (three) — mixing monomers tailors properties.</li>
+  </ul>
+  <figure class="h-fig">
+    <img src="assets/monomer-to-polymer-schematic.png" alt="Monomers linking into a polymer chain">
+    <figcaption>Many monomers link covalently into a long chain — the polymer.</figcaption>
+  </figure>
+
+  <h3 class="h-sub2">Chain architecture</h3>
+  <ul class="h">
+    <li><b>Linear / branched / cross-linked</b>: how chains are connected sets mobility. Linear &amp; branched chains can slide (they melt/soften = <b>thermoplastic</b>); cross-linked chains are locked by covalent bridges into a network (<b>thermoset</b> — degrades before it melts).</li>
+    <li>Thermoset ≠ “just harder”: the difference is a covalent <b>network</b>, not stiffness alone.</li>
+    <li>Copolymer sequence — <b>random / block / graft</b> — changes flexibility, compatibility and clarity.</li>
+  </ul>
+  <figure class="h-fig">
+    <img src="assets/homopolymer-linear-branched.png" alt="Linear vs branched chains">
+    <figcaption>Linear vs branched architecture — both can soften with heat (thermoplastic).</figcaption>
+  </figure>
+  <figure class="h-fig">
+    <img src="assets/copolymer-random-block-graft.png" alt="Random, block and graft copolymers">
+    <figcaption>Copolymer arrangements: random, block, graft.</figcaption>
+  </figure>
+
+  <!-- ================= PROPERTY ================= -->
+  <h2 class="h-sec prop"><small>Property</small>How polymers form &amp; what controls behaviour</h2>
+
+  <h3 class="h-sub2">Addition vs condensation</h3>
+  <ul class="h">
+    <li><b>Discriminator = the by-product.</b> <b>Addition</b> polymerization: monomers add on with <b>no by-product</b> → dimensionally stable. <b>Condensation</b>: each bond ejects a small molecule (e.g. water/alcohol) → shrinkage/instability as by-product escapes.</li>
+    <li>Clinical anchor: <b>addition silicone (PVS)</b> vs <b>condensation silicone</b> — same “silicone”, opposite dimensional stability because of the by-product. PVS is far more accurate over time.</li>
+  </ul>
+  <figure class="h-fig">
+    <img src="assets/addition-polymerization.png" alt="Addition polymerization, no by-product">
+    <figcaption>Addition: monomers join with no by-product → dimensionally stable.</figcaption>
+  </figure>
+  <figure class="h-fig">
+    <img src="assets/condensation-polymerization.png" alt="Condensation polymerization releases a small molecule">
+    <figcaption>Condensation: each linkage releases a small molecule → shrinkage.</figcaption>
+  </figure>
+
+  <h3 class="h-sub2">Free-radical polymerization (addition-type; dental resins)</h3>
+  <ul class="h">
+    <li>Three stages: <b>initiation</b> (initiator forms radicals — e.g. camphorquinone + light, or benzoyl peroxide) → <b>propagation</b> (chain grows, radical stays at the tip) → <b>termination</b> (two radicals meet).</li>
+    <li><b>Oxygen inhibits</b> the surface → the sticky oxygen-inhibited layer. <b>Inhibitors</b> give shelf life; <b>light</b> triggers cure on demand.</li>
+    <li>Never 100%: leftover unreacted monomer = <b>residual monomer</b> (biocompatibility/leachables). Distinguish <b>degree of conversion</b> (fraction of C=C reacted) from <b>degree of polymerization</b> (chain length).</li>
+  </ul>
+  <figure class="h-fig">
+    <img src="assets/free-radical-overview.png" alt="Initiation, propagation, termination">
+    <figcaption>The three stages of free-radical polymerization.</figcaption>
+  </figure>
+
+  <h3 class="h-sub2">Predicting properties</h3>
+  <ul class="h">
+    <li><b>↑ Molecular weight</b> → ↑ strength, stiffness, softening temperature.</li>
+    <li><b>↑ Cross-linking</b> → ↑ stiffness, ↑ solvent/water resistance, ↓ swelling — but <b>too much → brittle</b>.</li>
+    <li><b>Plasticizer</b> → slips between chains, ↑ mobility, ↓ glass-transition temperature (Tg) → softer, more flexible (e.g. soft liners), but can leach out over time.</li>
+  </ul>
+  <figure class="h-fig">
+    <img src="assets/crosslinking.png" alt="Cross-links bridging chains">
+    <figcaption>Cross-links: covalent bridges lock chains into a network.</figcaption>
+  </figure>
+  <figure class="h-fig">
+    <img src="assets/plasticization.png" alt="Plasticizer separating chains">
+    <figcaption>Plasticizer separates chains → more mobility, lower Tg.</figcaption>
+  </figure>
+
+  <!-- ================= PERFORMANCE ================= -->
+  <h2 class="h-sec perf"><small>Performance</small>Shrinkage, stress &amp; clinical failure</h2>
+  <ul class="h">
+    <li><b>Why it shrinks:</b> monomers held apart by weak van der Waals forces (~3.4 Å) are pulled into short covalent bonds (~1.5 Å) as chains form → the mass occupies less volume.</li>
+    <li>Dental resin composites shrink about <b>1.5–6 % by volume</b> (matrix chemistry, e.g. Bis-GMA/TEGDMA, and filler load).</li>
+    <li><b>Pre-gel vs post-gel:</b> before the gel point the material can flow and relieve strain; after gelation it is rigid, so further shrinkage builds <b>stress</b>.</li>
+    <li><b>Shrinkage ≠ stress.</b> The clinical problem is <b>post-gel stress</b>: if it exceeds bond strength → debonding, marginal gap, microleakage, post-op sensitivity, secondary caries.</li>
+    <li><b>C-factor</b> (bonded ÷ unbonded surfaces): higher C-factor cavities (e.g. deep Class I) trap more stress.</li>
+    <li><b>Manage it:</b> incremental layering, adequate cure, and stress-relieving/low-shrink materials.</li>
+  </ul>
+  <figure class="h-fig">
+    <img src="assets/shrinkage-1-molecular-mechanism.png" alt="Bond length change drives shrinkage">
+    <figcaption>Van der Waals spacing (~3.4 Å) → covalent bond (~1.5 Å): the molecular cause of shrinkage.</figcaption>
+  </figure>
+  <figure class="h-fig">
+    <img src="assets/shrinkage-3-stress-development.png" alt="Pre-gel flow vs post-gel stress">
+    <figcaption>Post-gel: the set material can no longer flow, so shrinkage becomes stress at the margin.</figcaption>
+  </figure>
+
+  <h3 class="h-sub2">Take-home</h3>
+  <ul class="h">
+    <li>Structure (chain length, architecture, cross-linking) predicts properties; the by-product tells you if a reaction is stable.</li>
+    <li>Dental resins cure by free-radical addition — never fully; residual monomer and post-gel stress are the recurring clinical themes.</li>
+  </ul>
+
+  <p class="h-foot">Dental Materials Science · Lecture 03 handout · structure → property → performance.</p>
+
+</article>
+</body>
+</html>
