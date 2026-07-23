@@ -1,11 +1,13 @@
-# Aula 05 — Bioactivity · notas do professor
+# Aula 06 — Bioactivity · notas do professor
 
 > Arquivo de **estado/contexto**. Não é exibido ao aluno.
 > Estado: **deck final publicado (2026-07-23)** — formato enxuto (padrão da Aula 03/04): cada seção =
 > 1 frase-âncora (`.statement`) + 1 visual/animação; texto denso em `<details class="reveal">`.
-> `index.html` entregue pronto pelo Vinicius — **não alterar**. 5 figuras já nomeadas e ligadas.
+> `index.html` entregue pronto pelo Vinicius — **não alterar** (só os rótulos do número da aula 05→06).
+> 5 figuras já nomeadas e ligadas.
 > Sem quiz nos slides [D-09]. Sem `<script>` inline: usa `assets/js/lecture.js` (só um `<style id="ba-anim">`
 > local para a animação da bancada, classes `.ba-`).
+> Pasta no repositório: `lectures/06-bioactivity/` (renomeada de `05-bioactivity` via `git mv`, histórico preservado).
 
 ---
 
@@ -30,13 +32,13 @@ silicato de cálcio sobre polpa quase exposta → ponte de dentina).
 | Hero | `#hero` | Bioactivity — abertura + gancho da cavidade profunda | — |
 | 1 | `#objectives` | Learning objectives (os 6) | grade `.objectives` |
 | 2 | `#meaning` | What bioactivity means | **4 flip cards** (bioactive/biocompatible/remineralising/antimicrobial) + deep-dive ISO/SBF |
-| 3 | `#beyond-apatite` | More than apatite | **FIG 05.1** + myth/fact |
+| 3 | `#beyond-apatite` | More than apatite | **FIG 06.1** + myth/fact |
 | 4 | `#how` | How bioactivity arises | **bancada animada** (SVG/JS, stepper 3 passos) + deep-dive química |
-| 5 | `#mechanisms` | Three routes | **FIG 05.2** |
+| 5 | `#mechanisms` | Three routes | **FIG 06.2** |
 | 6 | `#evolution` | A short history | **timeline stepper** (4 passos) |
-| 7 | `#repair-regen` | Repair vs regeneration | **FIG 05.3** |
-| 8 | `#clinical` | Clinical materials | **FIG 05.4** + tabela de 6 materiais |
-| 9 | `#claims` | Evaluating claims | **FIG 05.5** + myth/fact + deep-dive 5 critérios FDI |
+| 7 | `#repair-regen` | Repair vs regeneration | **FIG 06.3** |
+| 8 | `#clinical` | Clinical materials | **FIG 06.4** + tabela de 6 materiais |
+| 9 | `#claims` | Evaluating claims | **FIG 06.5** + myth/fact + deep-dive 5 critérios FDI |
 | 10 | `#summary` | Take-home (mapa de outcomes, sem quiz) | lista `.takehome` com `[obj n]` |
 
 ---
@@ -46,30 +48,31 @@ silicato de cálcio sobre polpa quase exposta → ponte de dentina).
 1. **Definir bioatividade** e separá-la de biocompatibilidade / remineralização / ação antimicrobiana
    → §1 (obj) + §2 `#meaning` (4 flip cards + box "duas definições, uma ideia").
 2. **Bioatividade = leque de respostas biológicas**; apatita é um exemplo clássico, não o conceito todo
-   → §3 `#beyond-apatite` (FIG 05.1, espectro) + §5 `#mechanisms` (três rotas).
+   → §3 `#beyond-apatite` (FIG 06.1, espectro) + §5 `#mechanisms` (três rotas).
 3. **Como um material se torna bioativo** (muda a química local: íons, pH, superfície reativa)
    → §4 `#how` (bancada animada: dissolução → mudança local → resposta).
 4. **Origem no reparo ósseo → ampliação na odontologia** e por que isso convida ao exagero do termo
    → §6 `#evolution` (timeline: 1969–71 Hench → 1990s–2000s → 2010s hype → 2018–22 consenso/FDI).
-5. **Reparo × regeneração** como desfechos → §7 `#repair-regen` (FIG 05.3; dentina terciária × dentina tubular).
-6. **Julgar se a alegação "bioativo" tem evidência** → §9 `#claims` (FIG 05.5 + escada de evidência + 5 critérios
+5. **Reparo × regeneração** como desfechos → §7 `#repair-regen` (FIG 06.3; dentina terciária × dentina tubular).
+6. **Julgar se a alegação "bioativo" tem evidência** → §9 `#claims` (FIG 06.5 + escada de evidência + 5 critérios
    FDI) + §8 `#clinical` (materiais de referência: CaOH, MTA, Biodentine, seladores, GIC, bioglass).
 
 ---
 
-## 3. Mapa de figuras (FIG 05.1–05.5) — todas em `assets/`, kebab-case, já ligadas no HTML
+## 3. Mapa de figuras (FIG 06.1–06.5) — todas em `assets/`, kebab-case, já ligadas no HTML
 
 | Fig | Arquivo | Seção | O que mostra |
 |---|---|---|---|
-| **05.1** | `spectrum-inert-to-bioactive.png` | §3 `#beyond-apatite` | Espectro INERT→BIOACTIVE (ouro/alumina → composito → GIC → bioglass → silicato de cálcio); apatita é marcador, não a definição. |
-| **05.2** | `three-routes-bioactivity.png` | §5 `#mechanisms` | Três rotas: puramente química (GIC/flúor) · mista (CaOH/MTA/Biodentine) · solely biológica (fatores de crescimento). |
-| **05.3** | `repair-vs-regeneration.png` | §7 `#repair-regen` | Reparo (dentina terciária, selada mas desorganizada) × regeneração (dentina tubular original). |
-| **05.4** | `pulp-capping-dentine-bridge.png` | §8 `#clinical` | Cimento de silicato de cálcio sobre polpa: libera Ca²⁺ + pH alto → células odontoblasto-like → ponte de dentina. |
-| **05.5** | `ion-release-not-enough.png` | §9 `#claims` | Liberação de íons **sozinha** (sem apatita/resposta) × liberação **+** resposta tecidual — o efeito, não a liberação, define. |
+| **06.1** | `spectrum-inert-to-bioactive.png` | §3 `#beyond-apatite` | Espectro INERT→BIOACTIVE (ouro/alumina → composito → GIC → bioglass → silicato de cálcio); apatita é marcador, não a definição. |
+| **06.2** | `three-routes-bioactivity.png` | §5 `#mechanisms` | Três rotas: puramente química (GIC/flúor) · mista (CaOH/MTA/Biodentine) · solely biológica (fatores de crescimento). |
+| **06.3** | `repair-vs-regeneration.png` | §7 `#repair-regen` | Reparo (dentina terciária, selada mas desorganizada) × regeneração (dentina tubular original). |
+| **06.4** | `pulp-capping-dentine-bridge.png` | §8 `#clinical` | Cimento de silicato de cálcio sobre polpa: libera Ca²⁺ + pH alto → células odontoblasto-like → ponte de dentina. |
+| **06.5** | `ion-release-not-enough.png` | §9 `#claims` | Liberação de íons **sozinha** (sem apatita/resposta) × liberação **+** resposta tecidual — o efeito, não a liberação, define. |
 
 Figuras-fonte extras em `1. Source/05. Bioactivity/Assets/` **não usadas** no deck (disponíveis se precisar):
 "Dissolution → Local change → Response" (mecanismo) e "The evidence ladder" (SBF) — o mesmo conteúdo já
-aparece como animação/deep-dive no HTML.
+aparece como animação/deep-dive no HTML. (A pasta-fonte no Drive mantém o nome `05. Bioactivity`; só a pasta
+do repositório passou a `06-bioactivity`.)
 
 ---
 
@@ -131,7 +134,9 @@ Deep-dives são opcionais — abrir sob demanda estende cada bloco.
 
 ## 8. Aberto (Q-##)
 
-- **[Q-05.1]** Numeração: o deck é "Lecture 05 · Bioactivity"; o hub tinha 05=Biocompatibility / 06=Bioactivity.
-  Publicado com **05 = Bioactivity (Open)** e **06 = Biocompatibility (Soon)** — swap no hub e no README.
-- **[Q-05.2]** Handout do aluno (`handout.html`/`.pdf`) — não feito nesta aula (a 03/04 têm; a 05 ainda não).
+- **[Q-05.1] — RESOLVIDO (2026-07-23):** numeração definida pelo Vinicius = **manter o syllabus**. Bioactivity
+  é a **Aula 06** (Open); Biocompatibility permanece **05** (Soon). Pasta renomeada `05-bioactivity` →
+  `06-bioactivity` (`git mv`); rótulos do número no deck e as legendas FIG 06.1–06.5 ajustados; hub e README
+  no estado canônico.
+- **[Q-05.2]** Handout do aluno (`handout.html`/`.pdf`) — **aberto**; não feito nesta aula (a 03/04 têm; a 06 ainda não).
 - **[Q-01 global]** Alinhar aos 14 outcomes oficiais quando a lista for colada.

@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## Chat 4 (cont.) — Renumeração: Bioactivity vira Aula 06 (2026-07-23)
+- **Decisão do Vinicius: manter o syllabus** — **05 = Biocompatibility**, **06 = Bioactivity**. Reverte o
+  swap provisório do item anterior (que havia publicado Bioactivity como 05).
+- **`git mv lectures/05-bioactivity lectures/06-bioactivity`** — histórico preservado (renomeação detectada
+  pelo git; PNGs e `notes.md` movidos junto).
+- **Rótulos do número no deck** (só os rótulos; conteúdo inalterado): `<title>`, topbar, hero eyebrow
+  "Lecture 06", rodapé "Lecture 06 — Bioactivity" e legendas **FIG 06.1–06.5**. Os `<img src="assets/…">`
+  não mudaram (mesmos nomes de arquivo).
+- **Hub e README no estado canônico**: 05 · Biocompatibility → **Soon** (sem href); 06 · Bioactivity →
+  **Open** + `href lectures/06-bioactivity/index.html`.
+- **`notes.md`**: FIG 05.x → 06.x, caminho da pasta atualizado, **[Q-05.1] fechado** (Bioactivity = 06);
+  **[Q-05.2]** (handout) segue aberto.
+- **Validação**: 5 `<img>` resolvem na nova pasta; tags balanceadas (10 `<section>`); sem `<script>` inline.
+
 ## Chat 4 — Aula 05 Bioactivity finalizada (2026-07-23)
 - **Aula 05 Bioactivity — 10 seções, 5 figuras, bancada animada, sem quiz.** Deck entregue pronto pelo
   Vinicius em `lectures/05-bioactivity/index.html` (formato enxuto padrão 03: `<section>` + `.statement` +

@@ -12,7 +12,7 @@ Cada aula é uma página que roda no navegador, com figuras + animações própr
 |---|---|
 | **Chat atual** | 4 (Aula 05 finalizada) |
 | **Identidade visual** | Clinical Clean (**[D-02]**) — teal=ciência, âmbar=clínica, rosa=equívoco, painel escuro=mecanismo |
-| **Aulas prontas** | **03 · Polymers & Polymerization** (45 slides, 17 figuras) · **04 · Colour & Optics** — deck em slides (42 slides · 6 partes, 6 animações; 21 figuras esquemáticas a gerar) · **05 · Bioactivity** (10 seções, 5 figuras, bancada animada, sem quiz) |
+| **Aulas prontas** | **03 · Polymers & Polymerization** (45 slides, 17 figuras) · **04 · Colour & Optics** — deck em slides (42 slides · 6 partes, 6 animações; 21 figuras esquemáticas a gerar) · **06 · Bioactivity** (10 seções, 5 figuras, bancada animada, sem quiz) |
 | **Próxima sugerida** | 02 · Mechanical properties |
 | **Repositório** | https://github.com/vinirosadent/Lectures |
 | **Publicação** | GitHub Pages → `https://vinirosadent.github.io/Lectures/` |
@@ -22,8 +22,9 @@ Cada aula é uma página que roda no navegador, com figuras + animações própr
 - [ ] 02 Mechanical properties
 - [x] **03 Polymers & polymerization** ✅ — deck final em slides, figuras integradas, revisão de conteúdo
 - [x] **04 Colour & optics** ✅ — deck em slides (42 slides · 6 partes · 6 animações interativas); figuras esquemáticas a gerar (ver `lectures/04-colour-and-optics/image-prompts.md`)
-- [x] **05 Bioactivity** ✅ — 10 seções, 5 figuras (FIG 05.1–05.5), bancada animada (dissolução→mudança local→resposta) + timeline; sem quiz [D-09]
-- [ ] 06 Biocompatibility · 07 3D printing
+- [ ] 05 Biocompatibility
+- [x] **06 Bioactivity** ✅ — 10 seções, 5 figuras (FIG 06.1–06.5), bancada animada (dissolução→mudança local→resposta) + timeline; sem quiz [D-09]
+- [ ] 07 3D printing
 - [ ] 08–14 Impressions · Gypsum · Cements · Composites · Adhesives · Ceramics · CAD/CAM
 - [ ] 15–20 Acrylics · CoCr · Endo · NiTi/aligners · Implants · Degradation
 
