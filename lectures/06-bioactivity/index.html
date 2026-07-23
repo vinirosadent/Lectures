@@ -1,426 +1,358 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>06 · Bioactivity — Dental Materials</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/css/lecture.css">
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bioactivity · Dental Materials · Lecture 06</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FBFCFD;--surface:#fff;--ink:#0F1B2A;--ink-soft:#31465C;--muted:#5E7285;--line:#E3E9EF;
+--primary:#0C7489;--primary-ink:#0A5C6D;--primary-wash:#E7F4F6;--navy:#12315B;
+--clinical:#B45309;--clinical-wash:#FDF3E7;--warn:#BE123C;--warn-wash:#FDECEF;--ok:#15803D;
+--dark:#0B1B2B;--dark-2:#10273B;--dark-ink:#E8F1F6;--dark-muted:#8FA9BC;--dark-line:#1E3A52;
+--f-disp:"Space Grotesk",system-ui,sans-serif;--f-body:"Inter",system-ui,sans-serif;--f-mono:"IBM Plex Mono",monospace;}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f-body);color:var(--ink)}
+.deck{height:100vh;width:100vw;overflow:hidden;position:relative}
+.track{display:flex;height:100%;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.slide{min-width:100vw;height:100vh;padding:4vh 4.5vw 6.5vh;background:var(--paper);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.s-eyebrow{font-family:var(--f-mono);font-size:1rem;letter-spacing:.13em;text-transform:uppercase;color:var(--primary-ink);margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem}
+.s-eyebrow::before{content:"";width:30px;height:10px;background:radial-gradient(circle at 5px 5px,var(--primary) 3.2px,transparent 3.6px),radial-gradient(circle at 25px 5px,var(--primary) 3.2px,transparent 3.6px);border-top:2px solid var(--primary)}
+.s-title{font-family:var(--f-disp);font-weight:600;line-height:1.05;color:var(--ink);font-size:clamp(1.9rem,3.4vw,2.9rem);letter-spacing:-.01em;margin-bottom:1.2vh}
+.s-sub{font-size:clamp(1.05rem,1.5vw,1.35rem);color:var(--ink-soft);margin-bottom:1.4vh;max-width:74ch;line-height:1.45}
+.s-body{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:2.5vw;min-height:0;align-items:center;overflow:hidden}
+.s-body.one-col{grid-template-columns:1fr}
+.s-body.text-heavy{grid-template-columns:1.2fr .8fr}
+.s-body.fig-heavy{grid-template-columns:.85fr 1.15fr}
+.col-text{overflow:hidden;padding-right:.3rem;max-height:100%;display:flex;flex-direction:column;justify-content:center}
+.col-visual{height:100%;display:flex;flex-direction:column;justify-content:center;gap:1rem;min-height:0}
+.blist{list-style:none;display:flex;flex-direction:column;gap:1.05vh}
+.blist>li{position:relative;padding-left:1.7rem;font-size:clamp(1.02rem,1.45vw,1.32rem);line-height:1.4;color:var(--ink-soft)}
+.blist>li::before{content:"";position:absolute;left:0;top:.5em;width:11px;height:11px;border-radius:50%;border:2px solid var(--primary);background:var(--primary-wash)}
+.blist>li b{color:var(--ink)}
+.blist .lead-term{font-family:var(--f-disp);font-weight:600;color:var(--primary-ink)}
+.blist.cols{columns:2;column-gap:3rem;display:block}
+.blist.cols>li{break-inside:avoid;margin-bottom:1.3vh}
+.defbox{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--primary);border-radius:0 12px 12px 0;padding:1rem 1.25rem;margin-bottom:1.1vh;box-shadow:0 6px 22px rgba(15,27,42,.05)}
+.defbox .term{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.2rem,1.7vw,1.5rem);color:var(--primary-ink);margin-bottom:.3rem}
+.defbox .def{font-size:clamp(1.02rem,1.45vw,1.28rem);color:var(--ink-soft);line-height:1.4}
+.steps{display:flex;flex-direction:column;gap:1.05vh;counter-reset:st}
+.step{display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:start}
+.step::before{counter-increment:st;content:counter(st);font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:1.05rem;flex:none}
+.step h4{font-family:var(--f-disp);font-size:clamp(1.1rem,1.55vw,1.38rem);color:var(--ink);margin-bottom:.15rem}
+.step p{font-size:clamp(1rem,1.4vw,1.24rem);line-height:1.38;color:var(--ink-soft)}
+.key{margin-top:1.4vh;border-left:5px solid var(--clinical);background:var(--clinical-wash);padding:.9rem 1.15rem;border-radius:0 12px 12px 0;font-size:clamp(1.02rem,1.45vw,1.28rem);color:var(--ink);line-height:1.4}
+.key b{color:var(--clinical)}
+.key .k-tag{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--clinical);display:block;margin-bottom:.35rem}
+.mech{background:var(--primary-wash);border:1px solid #BFE2E8;border-radius:12px;padding:.9rem 1.15rem;font-size:clamp(1.02rem,1.45vw,1.26rem);color:var(--ink-soft);line-height:1.4}
+.mech .k-tag{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--primary-ink);display:block;margin-bottom:.35rem}
+.mech b{color:var(--ink)}
+.figbox{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:.9rem;box-shadow:0 12px 40px rgba(15,27,42,.10);display:flex;flex-direction:column;gap:.5rem;max-height:100%;align-items:center;justify-content:center;overflow:hidden}
+.figbox img{width:100%;height:auto;max-height:76vh;object-fit:contain;display:block;border-radius:8px}
+.figbox.dual{gap:1rem}
+.figcap{font-size:1.05rem;color:var(--muted);line-height:1.4;text-align:center}
+.figcap b{color:var(--ink-soft)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-content:center}
+.vs.three{grid-template-columns:1fr 1fr 1fr}
+.vs .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.5rem;box-shadow:0 8px 28px rgba(15,27,42,.07)}
+.vs .card h3{font-family:var(--f-disp);font-size:clamp(1.2rem,1.7vw,1.5rem);margin-bottom:.7rem}
+.vs .card.a h3{color:var(--primary-ink)} .vs .card.b h3{color:var(--warn)}
+.vs .card ul{list-style:none;display:flex;flex-direction:column;gap:.95vh}
+.vs .card li{position:relative;padding-left:1.4rem;font-size:clamp(1rem,1.4vw,1.24rem);line-height:1.38;color:var(--ink-soft)}
+.vs .card li::before{content:"";position:absolute;left:0;top:.5em;width:9px;height:9px;border-radius:50%}
+.vs .card.a li::before{background:var(--primary)} .vs .card.b li::before{background:var(--warn)}
+.vs .card li b{color:var(--ink)}
+.objgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;flex:1;min-height:0}
+.objcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.25rem;box-shadow:0 8px 24px rgba(15,27,42,.06);display:flex;flex-direction:column;gap:.55rem}
+.objnum{font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:1.05rem;flex:none}
+.objtxt{font-size:clamp(.98rem,1.4vw,1.2rem);line-height:1.36;color:var(--ink-soft)}
+.objtxt b{color:var(--ink)}
+.flowstrip{background:var(--primary-wash);border:1px solid #BFE2E8;border-radius:14px;padding:1rem 1.4rem;display:flex;align-items:center;justify-content:center}
+.flowstrip svg{width:100%;max-width:900px;height:auto;display:block}
+.slide--title,.slide--divider,.slide--interactive{background:linear-gradient(155deg,var(--dark),var(--dark-2));color:var(--dark-ink);justify-content:center}
+.slide--title .s-eyebrow,.slide--divider .s-eyebrow,.slide--interactive .s-eyebrow{color:#57C6D8}
+.slide--title .s-eyebrow::before,.slide--divider .s-eyebrow::before,.slide--interactive .s-eyebrow::before{background:radial-gradient(circle at 5px 5px,#57C6D8 3.2px,transparent 3.6px),radial-gradient(circle at 25px 5px,#57C6D8 3.2px,transparent 3.6px);border-top-color:#57C6D8}
+.slide--title h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(2.9rem,6.5vw,5.2rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:1.4rem}
+.slide--title .frame{font-size:clamp(1.35rem,2.3vw,1.85rem);color:var(--dark-muted);max-width:42ch;line-height:1.42}
+.slide--divider .num{font-family:var(--f-disp);font-weight:700;font-size:clamp(4.5rem,12vw,9rem);color:var(--dark-line);line-height:1}
+.slide--divider h2{font-family:var(--f-disp);font-weight:600;font-size:clamp(2.4rem,5vw,4rem);color:#fff;margin-top:-1vh}
+.slide--divider .d-list{margin-top:2.2vh;color:var(--dark-muted);font-size:clamp(1.2rem,1.8vw,1.5rem);display:flex;flex-wrap:wrap;gap:.5rem 1.6rem}
+.slide--interactive .s-title{color:#fff}
+.deckbar{position:fixed;bottom:0;left:0;right:0;height:5vh;min-height:38px;background:rgba(11,27,43,.94);color:#fff;display:flex;align-items:center;gap:1rem;padding:0 1.2rem;z-index:20;font-family:var(--f-mono)}
+.deckbar .part{font-size:.8rem;color:var(--dark-muted);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.deckbar .count{font-size:.85rem;color:#9FCBD6}
+.navbtn{border:0;background:#17425C;color:#EAF4F8;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:grid;place-items:center}
+.navbtn:hover{background:#1E5877}
+.count{cursor:pointer;user-select:none}
+.count:hover{color:#fff;text-decoration:underline}
+.overview{position:fixed;inset:0;z-index:40;background:rgba(8,18,28,.97);display:none;flex-direction:column;padding:3vh 3vw}
+.overview.open{display:flex}
+.overview h3{font-family:var(--f-disp);color:#fff;font-size:1.6rem;margin-bottom:.4rem}
+.overview .ov-hint{font-family:var(--f-mono);color:var(--dark-muted);font-size:.9rem;margin-bottom:2vh}
+.ov-grid{flex:1;overflow-y:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.9rem;align-content:start}
+.ov-item{background:#10273B;border:1px solid #1E3A52;border-radius:10px;padding:.8rem .9rem;cursor:pointer;display:flex;gap:.7rem;align-items:flex-start;transition:background .15s,border-color .15s;text-align:left}
+.ov-item:hover{background:#17425C;border-color:#57C6D8}
+.ov-item .ov-n{font-family:var(--f-mono);font-size:.8rem;color:#57C6D8;flex:none;min-width:1.6rem}
+.ov-item .ov-t{font-size:.92rem;color:#E8F1F6;line-height:1.3}
+.ov-item.is-part{background:#0A5C6D;border-color:#0C7489}
+.ov-item.is-part .ov-t{font-weight:600}
+.ov-close{position:absolute;top:2vh;right:2vw;background:#17425C;color:#fff;border:0;border-radius:8px;padding:.5rem .9rem;cursor:pointer;font-family:var(--f-mono);font-size:.9rem}
+.ov-close:hover{background:#1E5877}
+.progress{position:fixed;top:0;left:0;height:4px;background:#14A0B8;z-index:21;transition:width .3s;width:0}
+@media (max-width:900px){.s-body,.s-body.text-heavy,.s-body.fig-heavy{grid-template-columns:1fr;gap:1.2rem}.blist.cols{columns:1}.objgrid{grid-template-columns:1fr 1fr}}
+</style></head><body>
+<div class="progress" id="prog"></div>
+<div class="deck"><div class="track" id="track">
 
-  <!-- CSS específico desta aula: SÓ a animação da "bancada" (classes prefixadas .ba-).
-       O design system continua todo em assets/css/lecture.css. -->
-  <style id="ba-anim">
-    .ba-svg { width: 100%; height: auto; display: block; }
-    .ba-legend { display: flex; gap: 1.2rem; flex-wrap: wrap; font-family: var(--font-mono);
-      font-size: .8rem; color: var(--c-muted); margin-top: .9rem; }
-    .ba-legend span { display: inline-flex; align-items: center; gap: .45rem; }
-    .ba-key { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
-    .panel .ba-legend { color: var(--c-dark-muted); }
-    @keyframes ba-drift { 0% { transform: translate(0,0); opacity: 0; }
-      15% { opacity: 1; } 100% { transform: translate(var(--dx,34px), var(--dy,-26px)); opacity: 0; } }
-    .ba-ion { animation: ba-drift 2.8s ease-in infinite; }
-    @keyframes ba-grow { 0% { opacity: 0; transform: scale(.35); } 100% { opacity: 1; transform: scale(1); } }
-    .ba-cryst { transform-box: fill-box; transform-origin: center; animation: ba-grow 1.1s ease-out both; }
-    @media (prefers-reduced-motion: reduce) {
-      .ba-ion, .ba-cryst { animation: none !important; opacity: 1 !important; }
-    }
-  </style>
-</head>
-<body>
+<section class="slide slide--title"><p class="s-eyebrow">Phase 1 · Fundamentals · Lecture 06</p><h1>Bioactivity</h1><p class="frame">What it really means for a dental material to be &ldquo;bioactive&rdquo; — broader than forming apatite, and worth more than the label on the box.</p></section>
 
-  <!-- ===== barra fixa + progresso ===== -->
-  <div class="topbar"><div class="topbar__row">
-    <a class="topbar__home" href="../../index.html">← Course home</a>
-    <span class="topbar__title">06 · Bioactivity</span>
-    <span class="topbar__home mono">Phase 1 · 1 h</span>
-  </div><div class="progress"><div class="progress__bar"></div></div></div>
+<section class="slide slide--divider"><div class="s-eyebrow">Part 1 of 6</div><div class="num">01</div><h2>What &ldquo;bioactive&rdquo; means</h2><div class="d-list"><span>The definition</span><span>· vs biocompatible / remineralising / antimicrobial</span><span>· narrow vs broad</span></div></section>
 
-  <!-- ===== índice lateral (um ponto por seção) ===== -->
-  <nav class="secnav">
-    <a href="#objectives"><span>Objectives</span></a>
-    <a href="#meaning"><span>What it means</span></a>
-    <a href="#beyond-apatite"><span>Beyond apatite</span></a>
-    <a href="#how"><span>How it arises</span></a>
-    <a href="#mechanisms"><span>Three routes</span></a>
-    <a href="#evolution"><span>Evolution</span></a>
-    <a href="#repair-regen"><span>Repair vs regeneration</span></a>
-    <a href="#clinical"><span>Clinical materials</span></a>
-    <a href="#claims"><span>Evaluating claims</span></a>
-    <a href="#summary"><span>Summary</span></a>
-  </nav>
+<section class="slide">
+<p class="s-eyebrow">Learning objectives</p>
+<h2 class="s-title">By the end of this lecture you can&hellip;</h2>
+<p class="s-sub">Bioactivity is a concept first — the materials are only examples of it. We reason from what it is, to how it works, to how to judge a claim.</p>
+<div class="s-body one-col" style="display:flex;flex-direction:column;gap:1.8vh">
+<div class="objgrid">
+<div class="objcard"><span class="objnum">1</span><div class="objtxt">Define <b>bioactivity</b> and separate it from biocompatibility, remineralisation and antimicrobial action.</div></div>
+<div class="objcard"><span class="objnum">2</span><div class="objtxt">See bioactivity as a <b>range of intended biological responses</b> — apatite formation is one example, not the whole.</div></div>
+<div class="objcard"><span class="objnum">3</span><div class="objtxt">Explain <b>how a material becomes bioactive</b> — it changes its local environment (ions, pH) to trigger a response.</div></div>
+<div class="objcard"><span class="objnum">4</span><div class="objtxt">Trace how the idea <b>arose in bone repair and broadened in dentistry</b> — and why that invites overuse.</div></div>
+<div class="objcard"><span class="objnum">5</span><div class="objtxt">Distinguish <b>repair from regeneration</b> as outcomes of bioactive materials.</div></div>
+<div class="objcard"><span class="objnum">6</span><div class="objtxt">Judge whether a <b>&ldquo;bioactive&rdquo; claim is supported by evidence</b>, using established materials as reference points.</div></div>
+</div>
+<div class="flowstrip">
+<svg viewBox="0 0 820 100" role="img" aria-label="structure to property to performance">
+<defs><marker id="arrowh" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0C7489"/></marker></defs>
+<rect x="10" y="20" width="240" height="60" rx="12" fill="#fff" stroke="#0C7489" stroke-width="2"/>
+<text x="130" y="57" text-anchor="middle" font-family="Space Grotesk" font-weight="600" font-size="24" fill="#0A5C6D">Structure</text>
+<path d="M255 50 L320 50" stroke="#0C7489" stroke-width="3" marker-end="url(#arrowh)"/>
+<rect x="320" y="20" width="240" height="60" rx="12" fill="#fff" stroke="#0C7489" stroke-width="2"/>
+<text x="440" y="57" text-anchor="middle" font-family="Space Grotesk" font-weight="600" font-size="24" fill="#0A5C6D">Property</text>
+<path d="M565 50 L630 50" stroke="#0C7489" stroke-width="3" marker-end="url(#arrowh)"/>
+<rect x="630" y="20" width="240" height="60" rx="12" fill="#fff" stroke="#B45309" stroke-width="2"/>
+<text x="750" y="57" text-anchor="middle" font-family="Space Grotesk" font-weight="600" font-size="24" fill="#B45309">Performance</text>
+</svg>
+</div>
+</div></section>
 
-  <!-- ===== HERO ===== -->
-  <header class="hero" id="hero">
-    <div class="l-wide">
-      <p class="eyebrow hero__eyebrow">Phase 1 · Fundamentals · Lecture 06</p>
-      <h1>Bioactivity</h1>
-      <p class="hero__frame">What it really means for a dental material to be <b>&ldquo;bioactive&rdquo;</b> &mdash;
-        why the concept is broader than forming apatite, and why the word is worth more than the label on the box.</p>
-      <div class="hero__hook">
-        Under a deep cavity, the pulp lies almost exposed. Place one material and the tooth walls itself off
-        with a new layer of dentine. Place another &mdash; also stamped <b>&ldquo;bioactive&rdquo;</b> &mdash;
-        and nothing happens. Same word on the box; very different biology.
-      </div>
-      <div class="hero__meta">
-        <span>Dental Materials &middot; Year 2</span>
-        <span>structure &rarr; property &rarr; performance</span>
-        <span>Foundational concept</span>
-      </div>
-    </div>
-  </header>
+<section class="slide">
+<p class="s-eyebrow">The concept</p>
+<h2 class="s-title">A material that makes the tissue respond</h2>
+<div class="s-body one-col" style="justify-content:center">
+<div style="max-width:82ch">
+<div class="defbox"><div class="term">Bioactive</div><div class="def">It does not just sit safely in the tooth — it <b>provokes a specific, intended, beneficial biological response</b>.</div></div>
+<ul class="blist"><li>The response might be <b>mineral formation</b>, <b>pulp repair</b>, or <b>controlling microbes</b>.</li><li>Contrast an <b>inert</b> material: it is tolerated, but it does nothing.</li></ul>
+<div class="key"><span class="k-tag">Keep in mind</span> &ldquo;Bioactive&rdquo; describes an <b>effect on tissue</b> — not just a property of the material sitting in the bottle.</div>
+</div>
+</div></section>
 
-  <!-- ===== 1. OBJECTIVES ===== -->
-  <section class="section" id="objectives">
-    <div class="l-wide">
-      <p class="eyebrow">Learning objectives</p>
-      <h2>By the end of this lecture, you should be able to&hellip;</h2>
-      <div class="objectives">
-        <div class="obj"><p>Define <b>bioactivity</b> and separate it from biocompatibility, remineralisation and antimicrobial action.</p></div>
-        <div class="obj"><p>Recognise bioactivity as a <b>range of specific, intended biological responses</b> &mdash; apatite formation is one classic example, not the whole concept.</p></div>
-        <div class="obj"><p>Explain, in simple terms, <b>how a material becomes bioactive</b>: it changes its local environment &mdash; releasing ions, shifting pH, offering a reactive surface &mdash; to trigger a mineral or tissue response.</p></div>
-        <div class="obj"><p>Trace how the concept <b>arose in bone repair and broadened in dentistry</b> &mdash; and why that invites overuse of the term.</p></div>
-        <div class="obj"><p>Distinguish <b>repair from regeneration</b> as outcomes of bioactive materials.</p></div>
-        <div class="obj"><p>Judge whether a <b>&ldquo;bioactive&rdquo; claim is supported by evidence</b>, using established materials as reference points.</p></div>
-      </div>
-    </div>
-  </section>
+<section class="slide">
+<p class="s-eyebrow">Don&rsquo;t confuse the terms</p>
+<h2 class="s-title">Bioactive vs its three neighbours</h2>
+<div class="s-body one-col">
+<div class="vs" style="grid-template-columns:1fr 1fr;gap:1.3rem">
+<div class="card a"><h3>Bioactive</h3><ul><li>Actively drives a <b>specific, wanted</b> tissue response.</li></ul></div>
+<div class="card b"><h3>Biocompatible</h3><ul><li>Does <b>no harm</b> — safe, tolerated. Can be completely inert.</li></ul></div>
+<div class="card a"><h3>Remineralising</h3><ul><li>One <b>outcome</b> of bioactivity — rebuilding lost mineral.</li></ul></div>
+<div class="card a"><h3>Antimicrobial</h3><ul><li>Another possible bioactive <b>effect</b> — controlling bacteria.</li></ul></div>
+</div>
+</div></section>
 
-  <!-- ===== 2. WHAT BIOACTIVITY MEANS ===== -->
-  <section class="section section--slide" id="meaning">
-    <div class="l-wide">
-      <p class="eyebrow">The concept</p>
-      <p class="statement">A bioactive material does not just sit safely in the tooth &mdash; it
-        <b>provokes a specific, intended, beneficial biological response</b>.</p>
-      <p class="substatement">That one idea separates it from three neighbours it is often confused with. Flip each card.</p>
+<section class="slide">
+<p class="s-eyebrow">Two definitions, one idea</p>
+<h2 class="s-title">Narrow vs broad — and why it matters</h2>
+<div class="s-body one-col" style="justify-content:center">
+<div style="max-width:82ch">
+<div class="defbox"><div class="term">Narrow (historical)</div><div class="def">Hench&rsquo;s original meaning — a material that forms an <b>apatite layer</b> on its surface and bonds to living tissue.</div></div>
+<div class="defbox"><div class="term">Broad (modern)</div><div class="def">A material that elicits a <b>specific, predictable, intended</b> biological response — stimulating or directing cells and tissue, or controlling microbes.</div></div>
+<div class="mech"><span class="k-tag">The point</span> The narrow case is just <b>one member</b> of the broad family.</div>
+</div>
+</div></section>
 
-      <div class="flips">
-        <button class="flip" aria-label="Flip: Bioactive">
-          <div class="flip__inner">
-            <div class="flip__face flip__front"><div><span class="term">Bioactive</span><div class="hint">click to define</div></div></div>
-            <div class="flip__face flip__back">Actively drives a specific, wanted tissue response &mdash; e.g. mineral formation, pulp repair, or controlling microbes.</div>
-          </div>
-        </button>
-        <button class="flip" aria-label="Flip: Biocompatible">
-          <div class="flip__inner">
-            <div class="flip__face flip__front"><div><span class="term">Biocompatible</span><div class="hint">click to define</div></div></div>
-            <div class="flip__face flip__back">Does no harm &mdash; safe and tolerated. A material can be perfectly biocompatible and completely inert.</div>
-          </div>
-        </button>
-        <button class="flip" aria-label="Flip: Remineralising">
-          <div class="flip__inner">
-            <div class="flip__face flip__front"><div><span class="term">Remineralising</span><div class="hint">click to define</div></div></div>
-            <div class="flip__face flip__back">One <i>outcome</i> of bioactivity: rebuilding lost mineral in enamel or dentine (e.g. via fluoride, calcium and phosphate).</div>
-          </div>
-        </button>
-        <button class="flip" aria-label="Flip: Antimicrobial">
-          <div class="flip__inner">
-            <div class="flip__face flip__front"><div><span class="term">Antimicrobial</span><div class="hint">click to define</div></div></div>
-            <div class="flip__face flip__back">Another possible bioactive effect: controlling bacteria &mdash; through high pH, ion release or an active filler.</div>
-          </div>
-        </button>
-      </div>
+<section class="slide slide--divider"><div class="s-eyebrow">Part 2 of 6</div><div class="num">02</div><h2>More than apatite</h2><div class="d-list"><span>A spectrum of effects</span><span>· ion release is a signal, not proof</span></div></section>
 
-      <div class="box box--mech">
-        <div class="box__tag">Two definitions, one idea</div>
-        <p><b>Narrow (historical):</b> Hench&rsquo;s original meaning &mdash; a material that forms an apatite layer on its surface and bonds to living tissue.
-        <b>Broad (modern):</b> a material that elicits a <i>specific, predictable, intended</i> biological response &mdash; stimulating or directing cells and tissue, or controlling microbes. The narrow case is just one member of the broad family.</p>
-      </div>
+<section class="slide">
+<p class="s-eyebrow">Broadening the idea</p>
+<h2 class="s-title">Apatite formation is one sign — not the whole</h2>
+<div class="s-body one-col" style="flex-direction:column;gap:1.6vh;justify-content:center">
+<ul class="blist cols"><li>The word was born from bioactive glass forming apatite and <b>bonding to bone</b>.</li><li>In the mouth the useful responses are wider: <b>remineralisation</b>, <b>pulp repair</b>, <b>antibacterial</b> action.</li><li>Bioactivity is a <b>spectrum of effects</b>, not a single test.</li><li>Apatite sits near the bioactive end — a <b>marker</b>, not the definition.</li></ul>
+<div class="figbox"><img src="assets/spectrum-inert-to-bioactive.png" alt="Spectrum from inert to bioactive, gold and alumina to calcium-silicate cement"><p class="figcap"><b>FIG 06.1</b> Bioactivity as a spectrum of reactivity, from inert to strongly bioactive.</p></div>
+</div></section>
 
-      <details class="reveal">
-        <summary>Deep dive &middot; how the standards word it</summary>
-        <div class="reveal__body">
-          <p>ISO standards tie bioactivity mostly to <i>implants</i>: a property that elicits a specific biological response at the material&ndash;tissue interface, forming a bond (ISO 23317 tests apatite-forming ability in simulated body fluid). Biomaterials bodies phrase it more broadly &mdash; materials &ldquo;designed to stimulate and/or direct appropriate cellular and tissue responses, or control interactions with microbiological species.&rdquo; Dentistry sits between the two, which is exactly why the term needs care.</p>
-        </div>
-      </details>
-    </div>
-  </section>
+<section class="slide">
+<p class="s-eyebrow">Myth vs fact</p>
+<h2 class="s-title">Ion release is a signal — not proof</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="mech"><span class="k-tag">Necessary, not sufficient</span> Ion release is almost a prerequisite for bioactivity — but on its own it <b>proves nothing</b>.</div>
+<ul class="blist"><li>Some materials release calcium yet form <b>no apatite</b> and drive <b>no tissue response</b>.</li><li>The <b>effect</b>, not the release, is what earns the word.</li></ul>
+</div>
+<div class="col-visual"><div class="figbox"><img src="assets/ion-release-not-enough.png" alt="Ion release alone versus ion release with an apatite and tissue response"><p class="figcap"><b>FIG 06.2</b> Release alone (&#10007;) vs release + apatite / tissue response (&#10003;).</p></div></div>
+</div></section>
 
-  <!-- ===== 3. MORE THAN APATITE ===== -->
-  <section class="section" id="beyond-apatite">
-    <div class="l-wide">
-      <p class="eyebrow">Broadening the idea</p>
-      <p class="statement">Apatite formation is <b>one</b> classic sign of bioactivity &mdash; not the whole of it.</p>
-      <p class="lead">Historically the word was born from bioactive glass forming apatite and bonding to bone. In the mouth, the useful responses are wider: remineralisation, pulp repair, and antibacterial action all count. Bioactivity is a <b>spectrum of biological effects</b>, not a single test.</p>
+<section class="slide slide--divider"><div class="s-eyebrow">Part 3 of 6</div><div class="num">03</div><h2>How bioactivity arises</h2><div class="d-list"><span>The three-beat pattern</span><span>· the two canonical chemistries</span></div></section>
 
-      <figure class="figure">
-        <img src="assets/spectrum-inert-to-bioactive.png" alt="Spectrum from inert to bioactive, with example materials from gold and alumina to calcium-silicate cement">
-        <figcaption><span class="fig-tag">FIG 06.1</span> &nbsp;Bioactivity as a spectrum of reactivity, from inert to strongly bioactive.</figcaption>
-      </figure>
+<section class="slide">
+<p class="s-eyebrow">Mechanism — in principle</p>
+<h2 class="s-title">The same three-beat pattern, whatever the material</h2>
+<div class="s-body one-col" style="flex-direction:column;gap:1.5vh;justify-content:center">
+<ul class="blist cols"><li><b>Dissolve</b> — water reaches the surface; the material releases ions (calcium, phosphate, hydroxide/fluoride).</li><li><b>Change the local chemistry</b> — pH rises and the fluid becomes supersaturated.</li><li><b>A response follows</b> — an apatite layer precipitates, or cells lay down new mineralised tissue.</li></ul>
+<div class="figbox"><img src="assets/mechanism-three-beats.png" alt="Dissolution, local change, response"><p class="figcap"><b>FIG 06.3</b> Dissolve &rarr; change local chemistry (ions, pH) &rarr; a response follows.</p></div>
+<div class="mech"><span class="k-tag">The point</span> The <b>response</b> — the third beat — is what &ldquo;bioactive&rdquo; actually names.</div>
+</div></section>
 
-      <div class="box box--myth">
-        <div class="box__tag">Myth vs fact</div>
-        <div class="mf">
-          <div class="myth"><div class="m-title">Myth</div>&ldquo;It releases ions, so it&rsquo;s bioactive.&rdquo;</div>
-          <div class="fact"><div class="m-title">Fact</div>Ion release is almost a prerequisite &mdash; but it is <b>not enough</b>. Some materials release calcium yet form no apatite and drive no tissue response. The effect, not the release, is what counts.</div>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="slide">
+<p class="s-eyebrow">Deep dive · optional</p>
+<h2 class="s-title">The two canonical bioactive chemistries</h2>
+<div class="s-body one-col" style="justify-content:center">
+<div style="max-width:82ch">
+<div class="defbox"><div class="term">Bioactive glass</div><div class="def">A low-silica glass built to react: it exchanges ions and raises pH, a silica-rich gel forms, and calcium + phosphate crystallise on it as a <b>hydroxycarbonate apatite</b> layer.</div></div>
+<div class="defbox"><div class="term">Calcium-silicate cements</div><div class="def">MTA and Biodentine set by reacting with water, releasing <b>calcium hydroxide</b> (high pH + calcium) — which drives apatite and, in the tooth, a dentine-repair response.</div></div>
+<div class="mech"><span class="k-tag">Same pattern</span> Different chemistry, but both run the three beats above. The detailed reactions are beyond this lecture.</div>
+</div>
+</div></section>
 
-  <!-- ===== 4. HOW BIOACTIVITY ARISES (dark bench + stepper) ===== -->
-  <section class="section" id="how">
-    <div class="l-wide">
-      <p class="eyebrow">Mechanism &mdash; in principle</p>
-      <p class="statement">A bioactive material <b>changes its local chemistry</b> &mdash; releasing ions and shifting pH &mdash; until the surroundings respond.</p>
+<section class="slide slide--divider"><div class="s-eyebrow">Part 4 of 6</div><div class="num">04</div><h2>How it works — and how the idea grew</h2><div class="d-list"><span>Three routes: chemical / mixed / biological</span><span>· a short history</span></div></section>
 
-      <div class="panel">
-        <p class="eyebrow">Mechanism bench</p>
-        <h3>The same three-beat pattern, whatever the material</h3>
-        <p>Step through the general idea. No formulas &mdash; just what changes at the surface.</p>
+<section class="slide">
+<p class="s-eyebrow">Routes of bioactivity</p>
+<h2 class="s-title">Three routes: chemical, mixed, or biological</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<ul class="blist"><li><b>Purely chemical</b> — ion release / precipitation (glass-ionomer fluoride).</li><li><b>Mixed</b> — a chemical trigger unlocks biology: Ca(OH)&#8322;, MTA, Biodentine &rarr; tertiary dentine.</li><li><b>Solely biological</b> — signalling molecules act on cells (growth factors; mostly experimental).</li></ul>
+<div class="mech"><span class="k-tag">Why it matters</span> The route decides what <b>evidence</b> to demand and how it is regulated.</div>
+</div>
+<div class="col-visual"><div class="figbox"><img src="assets/three-routes-bioactivity.png" alt="Three routes of bioactivity from purely chemical to solely biological"><p class="figcap"><b>FIG 06.4</b> From pure chemistry to pure biology, with established examples.</p></div></div>
+</div></section>
 
-        <div class="stepper" data-stepper="how">
-          <button data-step="1">1 &middot; Dissolution</button>
-          <button data-step="2">2 &middot; Local change</button>
-          <button data-step="3">3 &middot; Response</button>
-        </div>
+<section class="slide">
+<p class="s-eyebrow">A short history</p>
+<h2 class="s-title">From bonding bone to healing pulp</h2>
+<div class="s-body one-col" style="justify-content:center">
+<div class="steps" style="max-width:88ch;margin:0 auto">
+<div class="step"><div><h4>1969&ndash;71 · Origin (bone)</h4><p>Hench&rsquo;s Bioglass (45S5): &ldquo;bioactive&rdquo; = forms apatite and bonds to bone. Narrow, born in orthopaedics.</p></div></div>
+<div class="step"><div><h4>1990s&ndash;2000s · Into the mouth</h4><p>MTA reaches endodontics; bioactive-glass toothpastes arrive (~2004). The meaning broadens to ion release, remineralisation and pulp repair.</p></div></div>
+<div class="step"><div><h4>2010s · The label spreads</h4><p>&ldquo;Bioactive&rdquo; appears everywhere — often on a single ion-release study. Marketing outruns the evidence.</p></div></div>
+<div class="step"><div><h4>2018&ndash;2022 · Consensus</h4><p>The Northern Lights conference and the FDI Policy Statement demand a defined mechanism and proof. Mature meaning: specific, intended, proven.</p></div></div>
+</div>
+</div></section>
 
-        <div data-step-panel="how" data-step="1">
-          <svg class="ba-svg" viewBox="0 0 900 260" role="img" aria-label="Step 1: the material dissolves and releases ions">
-            <rect x="40" y="60" width="150" height="150" rx="10" fill="#12354A" stroke="#2C5468"/>
-            <text x="115" y="235" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" fill="#8FA9BC">material</text>
-            <text x="115" y="145" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="15" fill="#E8F1F6">surface</text>
-            <g>
-              <circle class="ba-ion" style="--dx:60px;--dy:-34px;animation-delay:0s"   cx="200" cy="110" r="9" fill="#6EE7A8"/>
-              <circle class="ba-ion" style="--dx:80px;--dy:10px;animation-delay:.5s"   cx="200" cy="140" r="9" fill="#57C6D8"/>
-              <circle class="ba-ion" style="--dx:70px;--dy:-10px;animation-delay:1s"   cx="200" cy="170" r="9" fill="#6EE7A8"/>
-              <circle class="ba-ion" style="--dx:95px;--dy:-30px;animation-delay:1.6s" cx="200" cy="125" r="9" fill="#F9C74F"/>
-            </g>
-            <text x="560" y="120" font-family="Inter, sans-serif" font-size="16" fill="#E8F1F6">Water reaches the surface; the material</text>
-            <text x="560" y="146" font-family="Inter, sans-serif" font-size="16" fill="#E8F1F6">starts to dissolve and <tspan fill="#6EE7A8">release ions</tspan></text>
-            <text x="560" y="172" font-family="Inter, sans-serif" font-size="16" fill="#8FA9BC">(calcium, phosphate, fluoride, hydroxide&hellip;).</text>
-          </svg>
-          <div class="ba-legend">
-            <span><i class="ba-key" style="background:#6EE7A8"></i>Ca<sup>2+</sup></span>
-            <span><i class="ba-key" style="background:#57C6D8"></i>PO&#8324;<sup>3&minus;</sup></span>
-            <span><i class="ba-key" style="background:#F9C74F"></i>OH<sup>&minus;</sup> / F<sup>&minus;</sup></span>
-          </div>
-        </div>
+<section class="slide slide--divider"><div class="s-eyebrow">Part 5 of 6</div><div class="num">05</div><h2>In the tooth: repair &amp; clinical materials</h2><div class="d-list"><span>Repair vs regeneration</span><span>· the established materials</span></div></section>
 
-        <div data-step-panel="how" data-step="2">
-          <svg class="ba-svg" viewBox="0 0 900 260" role="img" aria-label="Step 2: local pH rises and fluid becomes supersaturated">
-            <rect x="40" y="60" width="150" height="150" rx="10" fill="#12354A" stroke="#2C5468"/>
-            <text x="115" y="145" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="15" fill="#E8F1F6">surface</text>
-            <g opacity="0.9">
-              <circle class="ba-ion" style="--dx:70px;--dy:-20px;animation-delay:0s" cx="200" cy="120" r="8" fill="#6EE7A8"/>
-              <circle class="ba-ion" style="--dx:80px;--dy:14px;animation-delay:.8s" cx="200" cy="155" r="8" fill="#57C6D8"/>
-            </g>
-            <rect x="360" y="80" width="30" height="120" rx="8" fill="#0E2536" stroke="#1E3A52"/>
-            <rect x="360" y="120" width="30" height="80" rx="8" fill="#F9C74F"/>
-            <text x="410" y="96" font-family="IBM Plex Mono, monospace" font-size="13" fill="#F9A8B8">pH high</text>
-            <text x="410" y="205" font-family="IBM Plex Mono, monospace" font-size="13" fill="#8FA9BC">neutral</text>
-            <text x="560" y="120" font-family="Inter, sans-serif" font-size="16" fill="#E8F1F6">The nearby fluid changes: <tspan fill="#F9C74F">local pH rises</tspan></text>
-            <text x="560" y="146" font-family="Inter, sans-serif" font-size="16" fill="#E8F1F6">and it becomes <tspan fill="#57C6D8">supersaturated</tspan> with mineral</text>
-            <text x="560" y="172" font-family="Inter, sans-serif" font-size="16" fill="#8FA9BC">ions &mdash; the conditions a response needs.</text>
-          </svg>
-        </div>
+<section class="slide">
+<p class="s-eyebrow">An important distinction</p>
+<h2 class="s-title">Repair, not regeneration</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<ul class="blist"><li>Bioactive materials mostly <b>repair</b> — they rarely rebuild the original structure.</li><li>Remineralised enamel is often <b>fluor</b>apatite; a dentine bridge is <b>osteodentin-like</b>, not tubular.</li></ul>
+<div class="key"><span class="k-tag">Read the claim</span> Both are genuine, valuable repair. Calling them &ldquo;regeneration&rdquo; <b>overstates</b> what the material did.</div>
+</div>
+<div class="col-visual"><div class="figbox"><img src="assets/repair-vs-regeneration.png" alt="Repair versus regeneration: disorganised tertiary dentine versus original tubular dentine"><p class="figcap"><b>FIG 06.5</b> Repair uses substitute tissue; regeneration rebuilds the original architecture.</p></div></div>
+</div></section>
 
-        <div data-step-panel="how" data-step="3">
-          <svg class="ba-svg" viewBox="0 0 900 260" role="img" aria-label="Step 3: a mineral or tissue response forms">
-            <rect x="40" y="60" width="150" height="150" rx="10" fill="#12354A" stroke="#2C5468"/>
-            <text x="115" y="145" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="15" fill="#E8F1F6">surface</text>
-            <g fill="#EAF4F8" stroke="#57C6D8">
-              <rect class="ba-cryst" style="animation-delay:0s"   x="196" y="96"  width="16" height="30" rx="3"/>
-              <rect class="ba-cryst" style="animation-delay:.25s" x="214" y="120" width="16" height="30" rx="3"/>
-              <rect class="ba-cryst" style="animation-delay:.5s"  x="196" y="150" width="16" height="30" rx="3"/>
-              <rect class="ba-cryst" style="animation-delay:.75s" x="214" y="170" width="16" height="26" rx="3"/>
-            </g>
-            <text x="560" y="112" font-family="Inter, sans-serif" font-size="16" fill="#E8F1F6">A <tspan fill="#EAF4F8" font-weight="600">response</tspan> follows: an apatite layer</text>
-            <text x="560" y="138" font-family="Inter, sans-serif" font-size="16" fill="#E8F1F6">precipitates, or nearby cells are activated</text>
-            <text x="560" y="164" font-family="Inter, sans-serif" font-size="16" fill="#8FA9BC">to lay down new mineralised tissue.</text>
-            <text x="560" y="200" font-family="Inter, sans-serif" font-size="14" fill="#F9A8B8" font-style="italic">This step &mdash; the response &mdash; is what &ldquo;bioactive&rdquo; actually names.</text>
-          </svg>
-        </div>
-      </div>
+<section class="slide">
+<p class="s-eyebrow">The clinical anchor · vital pulp therapy</p>
+<h2 class="s-title">How a calcium-silicate cement heals the pulp</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<ul class="blist"><li>Over a near-exposed pulp, the cement releases <b>calcium</b> and holds a <b>high pH</b>.</li><li>This recruits and differentiates <b>odontoblast-like cells</b>.</li><li>They lay down a <b>dentine bridge</b> that seals the pulp.</li></ul>
+<div class="key"><span class="k-tag">The takeaway</span> That measurable tissue response — not the label — is what makes <b>MTA</b> and <b>Biodentine</b> genuinely bioactive.</div>
+</div>
+<div class="col-visual"><div class="figbox"><img src="assets/pulp-capping-dentine-bridge.png" alt="Calcium-silicate cement over a near-exposed pulp forming a new dentine bridge"><p class="figcap"><b>FIG 06.6</b> Ca&#178;&#8314; + high pH &rarr; odontoblast-like cells &rarr; a new dentine bridge.</p></div></div>
+</div></section>
 
-      <details class="reveal">
-        <summary>Deep dive &middot; the two canonical chemistries (optional)</summary>
-        <div class="reveal__body">
-          <p><b>Bioactive glass</b> is a low-silica glass built to react: in water it exchanges ions and raises pH, a silica-rich gel forms at the surface, and calcium and phosphate then crystallise on it as a hydroxycarbonate apatite layer.</p>
-          <p><b>Calcium-silicate cements</b> (MTA, Biodentine) set by reacting with water; that reaction releases calcium hydroxide, giving a high pH and a supply of calcium &mdash; which drives apatite formation and, in the tooth, a dentine-repair response. The detailed reactions are beyond this lecture; the three-beat pattern above is the point.</p>
-        </div>
-      </details>
-    </div>
-  </section>
+<section class="slide">
+<p class="s-eyebrow">Established materials</p>
+<h2 class="s-title">Where bioactivity shows up in the clinic</h2>
+<div class="s-body one-col" style="justify-content:center">
+<ul class="blist cols" style="max-width:none">
+<li><b>Calcium hydroxide</b> — OH&#8315; / high pH, antibacterial, frees growth factors · <i>pulp capping (classic)</i>.</li>
+<li><b>MTA</b> — Ca&#178;&#8314;, OH&#8315;, apatite, dentine bridge · <i>pulp capping, apexification, root-end repair</i>.</li>
+<li><b>Biodentine</b> — tricalcium silicate; dentine bridge; resin-free · <i>dentine replacement, pulpotomy</i>.</li>
+<li><b>Bioceramic sealers</b> — calcium silicate; apatite at the interface · <i>root-canal obturation</i>.</li>
+<li><b>Glass-ionomer cement</b> — fluoride (rechargeable) · <i>caries-prone &amp; root restorations, liners</i>.</li>
+<li><b>Bioactive glass (NovaMin, BioMin)</b> — Ca + phosphate; HCA layer; occludes tubules · <i>remineralising / desensitising toothpaste</i>.</li>
+</ul>
+</div></section>
 
-  <!-- ===== 5. THREE ROUTES ===== -->
-  <section class="section" id="mechanisms">
-    <div class="l-wide">
-      <p class="eyebrow">Routes of bioactivity</p>
-      <p class="statement">Bioactivity reaches the tissue by <b>three routes: biological, mixed, or chemical</b>.</p>
-      <p class="lead">This is how the FDI organises the field &mdash; a simple map from &ldquo;pure chemistry&rdquo; to &ldquo;pure biology&rdquo;.</p>
+<section class="slide slide--divider"><div class="s-eyebrow">Part 6 of 6</div><div class="num">06</div><h2>Judging a &ldquo;bioactive&rdquo; claim</h2><div class="d-list"><span>The evidence bar</span><span>· the cost</span><span>· take-home</span></div></section>
 
-      <figure class="figure">
-        <img src="assets/three-routes-bioactivity.png" alt="Three routes of bioactivity: purely chemical (glass-ionomer), mixed biological and chemical (calcium hydroxide, MTA, Biodentine), and solely biological (growth factors)">
-        <figcaption><span class="fig-tag">FIG 06.2</span> &nbsp;Three routes of bioactivity, from purely chemical to solely biological, each with an established example and its response.</figcaption>
-      </figure>
+<section class="slide">
+<p class="s-eyebrow">Reading the evidence</p>
+<h2 class="s-title">&ldquo;Bioactive&rdquo; is earned — the FDI bar</h2>
+<div class="s-body one-col" style="justify-content:center">
+<div style="max-width:84ch">
+<ul class="blist"><li>A <b>clearly defined mechanism</b> (biological, mixed, or chemical).</li><li>A <b>proven effect</b> — in&nbsp;vitro / in&nbsp;situ, and preferably clinical.</li><li>A <b>stated duration</b> of the effect (especially antibacterial).</li><li><b>No significant adverse effects</b> (including antimicrobial resistance).</li><li>The <b>primary function</b> — rebuilding tooth structure — is not impaired.</li></ul>
+<div class="key"><span class="k-tag">Reality check</span> Materials marketed as &ldquo;bioactive&rdquo; have failed clinically — one cracked teeth within a year; another failed in about <b>24%</b> of restorations at one year.</div>
+</div>
+</div></section>
 
-      <div class="matters">
-        <div class="box__tag">Why this matters clinically</div>
-        <p>The route decides what evidence you should demand and how it is regulated. A purely chemical fluoride effect is judged very differently from a growth factor that actively reprograms cells &mdash; and the same material can act through more than one route at once.</p>
-      </div>
-    </div>
-  </section>
+<section class="slide">
+<p class="s-eyebrow">The trade-off</p>
+<h2 class="s-title">Bioactivity has a price</h2>
+<div class="s-body one-col" style="justify-content:center">
+<div style="max-width:74ch;margin:0 auto">
+<div class="mech"><span class="k-tag">Structure &rarr; property &rarr; performance</span> The effects come from substances <b>leaving the material into water</b>. The same water that releases useful ions can make the material take up water and <b>soften or dissolve</b>.</div>
+<div class="key" style="margin-top:1.6vh"><span class="k-tag">So</span> &ldquo;more bioactive&rdquo; is <b>not automatically better</b> — reactivity that helps the tissue can cost mechanical integrity.</div>
+</div>
+</div></section>
 
-  <!-- ===== 6. EVOLUTION (timeline stepper) ===== -->
-  <section class="section" id="evolution">
-    <div class="l-wide">
-      <p class="eyebrow">A short history</p>
-      <p class="statement">The word travelled from <b>bonding bone in the 1970s</b> to healing pulp today &mdash; and picked up hype along the way.</p>
-      <p class="substatement">Step through how the meaning of &ldquo;bioactive&rdquo; shifted over time.</p>
+<section class="slide">
+<p class="s-eyebrow">Take-home</p>
+<h2 class="s-title">Bioactivity — the essentials</h2>
+<div class="s-body one-col" style="justify-content:center">
+<div class="objgrid">
+<div class="objcard"><span class="objnum">1</span><div class="objtxt"><b>Bioactive = an active, wanted biological response</b> — not merely &ldquo;does no harm&rdquo; (that&rsquo;s biocompatibility).</div></div>
+<div class="objcard"><span class="objnum">2</span><div class="objtxt"><b>It is a spectrum</b>: apatite, remineralisation, pulp repair, antibacterial — apatite is one example, not the definition.</div></div>
+<div class="objcard"><span class="objnum">3</span><div class="objtxt"><b>Three beats</b>: dissolve &rarr; change the local chemistry (ions, pH) &rarr; a mineral or tissue response follows.</div></div>
+<div class="objcard"><span class="objnum">4</span><div class="objtxt"><b>Three routes</b> — chemical, mixed, biological — and the concept <b>broadened from bone to pulp</b>, which invites overuse.</div></div>
+<div class="objcard"><span class="objnum">5</span><div class="objtxt"><b>Mostly repair, not regeneration</b> — tertiary dentine and fluor-apatite restore function, not the original tissue.</div></div>
+<div class="objcard"><span class="objnum">6</span><div class="objtxt"><b>Earned by evidence</b> — ion release / SBF apatite is screening; MTA &amp; Biodentine carry the strongest clinical case.</div></div>
+</div>
+</div></section>
 
-      <div class="stepper" data-stepper="timeline">
-        <button data-step="1">1969&ndash;71</button>
-        <button data-step="2">1990s&ndash;2000s</button>
-        <button data-step="3">2010s</button>
-        <button data-step="4">2018&ndash;2022</button>
-      </div>
+</div></div>
 
-      <div data-step-panel="timeline" data-step="1">
-        <div class="box box--mech">
-          <div class="box__tag">Origin &middot; bone</div>
-          <p><b>Hench invents Bioglass (45S5).</b> &ldquo;Bioactive&rdquo; is coined for a glass that forms an apatite layer and bonds chemically to bone. The meaning is narrow: <i>surface apatite &rarr; bonding to hard tissue</i>, born in orthopaedics.</p>
-        </div>
-      </div>
-      <div data-step-panel="timeline" data-step="2">
-        <div class="box box--mech">
-          <div class="box__tag">Adoption &middot; dentistry</div>
-          <p><b>The idea enters the mouth.</b> Calcium-silicate cements (MTA) reach endodontics; bioactive-glass toothpastes arrive (from ~2004) for sensitivity and remineralisation. The meaning broadens beyond apatite to <i>ion release, remineralisation and pulp repair</i>.</p>
-        </div>
-      </div>
-      <div data-step-panel="timeline" data-step="3">
-        <div class="box box--myth">
-          <div class="box__tag">Expansion &middot; the label spreads</div>
-          <p><b>&ldquo;Bioactive&rdquo; appears everywhere</b> &mdash; on composites, liners and cements &mdash; often on the strength of a single ion-release study. The term becomes a marketing asset faster than the evidence behind it.</p>
-        </div>
-      </div>
-      <div data-step-panel="timeline" data-step="4">
-        <div class="box box--clinical">
-          <div class="box__tag">Clarification &middot; consensus</div>
-          <p><b>The field pushes back.</b> Editorials, the 2018 Northern Lights consensus and the 2022 FDI Policy Statement demand a defined mechanism and proof of effect. The mature meaning: a <i>specific, intended, proven</i> biological response &mdash; not a slogan.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="deckbar"><button class="navbtn" id="prev">&lsaquo;</button><button class="navbtn" id="next">&rsaquo;</button>
+<span class="part" id="partLabel"></span><button class="navbtn" id="menuBtn" title="Menu (O)">&#9776;</button><span class="count" id="count"></span></div>
+<div class="overview" id="overview"><button class="ov-close" id="ovClose">&#10005; close (Esc)</button><h3>Jump to a slide</h3><p class="ov-hint">Click any slide · press O to toggle · Esc to close</p><div class="ov-grid" id="ovGrid"></div></div>
 
-  <!-- ===== 7. REPAIR vs REGENERATION ===== -->
-  <section class="section" id="repair-regen">
-    <div class="l-wide">
-      <p class="eyebrow">An important distinction</p>
-      <p class="statement statement--clinical">Bioactive materials mostly <b>repair</b> tissue &mdash; they rarely <b>regenerate</b> the original structure.</p>
-
-      <figure class="figure">
-        <img src="assets/repair-vs-regeneration.png" alt="Repair versus regeneration: disorganised tertiary dentine versus original tubular dentine">
-        <figcaption><span class="fig-tag">FIG 06.3</span> &nbsp;<b>Repair</b> restores function with substitute tissue; <b>regeneration</b> rebuilds the original architecture.</figcaption>
-      </figure>
-
-      <div class="box box--clinical">
-        <div class="box__tag">Read the outcome carefully</div>
-        <p>Remineralised enamel is often <i>fluor</i>apatite &mdash; chemically a little different from what was lost. A dentine bridge under a pulp cap seals the pulp but is not native, tubular dentine. Both are genuine, valuable repair. Calling them &ldquo;regeneration&rdquo; overstates what the material did.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 8. CLINICAL MATERIALS ===== -->
-  <section class="section" id="clinical">
-    <div class="l-wide">
-      <p class="eyebrow">Established materials</p>
-      <p class="statement statement--clinical">In the clinic, bioactivity is delivered by a <b>familiar set of established materials</b> &mdash; led by calcium-silicate cements.</p>
-
-      <figure class="figure">
-        <img src="assets/pulp-capping-dentine-bridge.png" alt="Calcium-silicate cement placed over a near-exposed pulp, releasing calcium and raising pH, with odontoblast-like cells forming a new dentine bridge">
-        <figcaption><span class="fig-tag">FIG 06.4</span> &nbsp;Vital pulp therapy: a calcium-silicate cement releases calcium and holds a high pH, recruiting odontoblast-like cells that lay down a new dentine bridge.</figcaption>
-      </figure>
-
-      <table class="ctable">
-        <thead>
-          <tr><th>Material</th><th>What it releases / does</th><th>Established clinical use</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Calcium hydroxide</td><td>OH<sup>&minus;</sup> (high pH), antibacterial; frees dentine growth factors</td><td>Direct / indirect pulp capping (the classic)</td></tr>
-          <tr><td>MTA (e.g. ProRoot)</td><td>Ca<sup>2+</sup>, OH<sup>&minus;</sup>; forms apatite; induces a dentine bridge</td><td>Pulp capping, apexification, perforation &amp; root-end repair</td></tr>
-          <tr><td>Biodentine</td><td>Tricalcium silicate; Ca<sup>2+</sup>, OH<sup>&minus;</sup>; dentine bridge; faster set, resin-free</td><td>&ldquo;Dentine replacement&rdquo;, pulp capping, pulpotomy</td></tr>
-          <tr><td>Bioceramic sealers</td><td>Calcium silicate; apatite at the interface</td><td>Root-canal obturation</td></tr>
-          <tr><td>Glass-ionomer cement</td><td>Fluoride (rechargeable); ion exchange with tooth</td><td>Caries-prone &amp; root restorations, liners</td></tr>
-          <tr><td>Bioactive glass (NovaMin, BioMin)</td><td>Ca &amp; phosphate; hydroxycarbonate apatite layer; occludes tubules</td><td>Remineralising / desensitising toothpaste; composite filler</td></tr>
-        </tbody>
-      </table>
-
-      <div class="box box--clinical">
-        <div class="box__tag">The clinical anchor &middot; vital pulp therapy</div>
-        <p>Back to the deep cavity. A calcium-silicate cement over the near-exposed pulp releases calcium and holds a high pH; this environment recruits and differentiates odontoblast-like cells, which lay down a dentine bridge that seals the pulp. That measurable, intended, tissue-level response &mdash; not the label &mdash; is what makes MTA and Biodentine genuinely bioactive.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 9. EVALUATING CLAIMS ===== -->
-  <section class="section" id="claims">
-    <div class="l-wide">
-      <p class="eyebrow">Reading the evidence</p>
-      <p class="statement">&ldquo;Bioactive&rdquo; is <b>earned by evidence</b> &mdash; ion release or an apatite layer in a beaker is only a screening signal.</p>
-
-      <figure class="figure">
-        <img src="assets/ion-release-not-enough.png" alt="Two panels: ion release alone with no apatite or tissue response, versus ion release with apatite and a tissue response">
-        <figcaption><span class="fig-tag">FIG 06.5</span> &nbsp;Ion release is a signal, not proof &mdash; bioactivity is the response that follows.</figcaption>
-      </figure>
-
-      <div class="box box--myth">
-        <div class="box__tag">Myth vs fact</div>
-        <div class="mf">
-          <div class="myth"><div class="m-title">Myth</div>&ldquo;It&rsquo;s labelled bioactive, so it must work.&rdquo;</div>
-          <div class="fact"><div class="m-title">Fact</div>The FDI asks for a <b>defined mechanism</b>, a <b>proven effect</b> (ideally clinical), a <b>stated duration</b>, and <b>no harm</b> to the material&rsquo;s main job. Materials marketed as &ldquo;bioactive&rdquo; have failed clinically &mdash; one cracked teeth within a year; another failed in about 24% of restorations at one year.</div>
-        </div>
-      </div>
-
-      <div class="matters">
-        <div class="box__tag">Why this matters clinically</div>
-        <p>Bioactivity has a price. The effects come from substances leaving the material into water, so a very reactive material also takes up water and can soften or dissolve. The same water that releases the useful ions can degrade the restoration &mdash; so &ldquo;more bioactive&rdquo; is not automatically better.</p>
-      </div>
-
-      <details class="reveal">
-        <summary>Deep dive &middot; the five FDI criteria for calling a material &ldquo;bioactive&rdquo;</summary>
-        <div class="reveal__body">
-          <ul>
-            <li>The mechanism is clearly defined (biological, mixed, or chemical).</li>
-            <li>The bioactive effect is scientifically proven &mdash; in&nbsp;vitro or in&nbsp;situ, and preferably in clinical studies.</li>
-            <li>The duration of the effect is stated (especially for antibacterial action).</li>
-            <li>There are no significant adverse effects (including driving antimicrobial resistance).</li>
-            <li>The prime purpose &mdash; rebuilding lost tooth structure &mdash; is not impaired, shown by clinical data.</li>
-          </ul>
-        </div>
-      </details>
-    </div>
-  </section>
-
-  <!-- ===== 10. SUMMARY (outcome map, no quiz) ===== -->
-  <section class="section" id="summary">
-    <div class="l-wide">
-      <p class="eyebrow">Take-home</p>
-      <div class="takehome">
-        <h2>Bioactivity &mdash; the essentials</h2>
-        <ol>
-          <li><b>Bioactive = an active, wanted biological response</b> &mdash; not merely &ldquo;does no harm&rdquo; (that&rsquo;s biocompatibility). <span class="mono">[obj 1]</span></li>
-          <li><b>It is a spectrum</b>: apatite formation, remineralisation, pulp repair and antibacterial action all count &mdash; apatite is one example, not the definition. <span class="mono">[obj 2]</span></li>
-          <li><b>The pattern is always the same three beats</b>: dissolve &rarr; change the local chemistry (ions, pH) &rarr; a mineral or tissue response follows. <span class="mono">[obj 3]</span></li>
-          <li><b>Three routes</b> &mdash; chemical, mixed, biological &mdash; and the concept <b>broadened from bone-bonding to pulp healing</b>, which is why the term gets overused. <span class="mono">[obj 2&ndash;4]</span></li>
-          <li><b>Mostly repair, not regeneration</b>: tertiary dentine and fluor-apatite restore function without rebuilding the original tissue. <span class="mono">[obj 5]</span></li>
-          <li><b>The word is earned by evidence</b>: ion release or SBF apatite is screening; established calcium-silicate cements (MTA, Biodentine) carry the strongest clinical case. <span class="mono">[obj 6]</span></li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== rodapé ===== -->
-  <footer class="foot l-wide">
-    <div class="foot__nav">
-      <a href="../../index.html">&larr; Course home</a>
-      <a href="../../index.html">Phase 1 &middot; Fundamentals</a>
-    </div>
-    <p class="mono">Dental Materials &middot; Year 2 &middot; Lecture 06 &mdash; Bioactivity</p>
-  </footer>
-
-  <!-- comportamentos genéricos (progress, scrollspy, flips, steppers, modo apresentação) -->
-  <script src="../../assets/js/lecture.js"></script>
-</body>
-</html>
+<script>
+var track=document.getElementById("track");
+var slides=[].slice.call(document.querySelectorAll(".slide"));var i=0;
+function show(n){i=Math.max(0,Math.min(slides.length-1,n));track.style.transform="translateX("+(-i*100)+"vw)";
+document.getElementById("count").textContent=(i+1)+" / "+slides.length;
+var eb=slides[i].querySelector(".s-eyebrow, h2");document.getElementById("partLabel").textContent=eb?eb.textContent.trim():"";
+document.getElementById("prog").style.width=((i+1)/slides.length*100)+"%";}
+document.getElementById("next").onclick=function(){show(i+1)};
+document.getElementById("prev").onclick=function(){show(i-1)};
+document.addEventListener("keydown",function(e){if(e.target.tagName==="INPUT")return;
+if(e.key==="ArrowRight"||e.key==="PageDown"||e.key===" "){e.preventDefault();show(i+1)}
+else if(e.key==="ArrowLeft"||e.key==="PageUp"){e.preventDefault();show(i-1)}
+else if(e.key==="Home"){show(0)}else if(e.key==="End"){show(slides.length-1)}
+else if(e.key==="f"||e.key==="F"){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}
+else if(e.key==="o"||e.key==="O"){toggleOverview();}
+else if(e.key==="Escape"){closeOverview();}});
+var ov=document.getElementById("overview"),ovGrid=document.getElementById("ovGrid");
+function buildOverview(){
+  ovGrid.innerHTML="";
+  slides.forEach(function(sl,idx){
+    var isPart=sl.classList.contains("slide--divider");
+    var h=sl.querySelector("h1, h2");
+    var label=h?h.textContent.trim():("Slide "+(idx+1));
+    if(isPart){var num=sl.querySelector(".num"),htxt=sl.querySelector("h2");label=(num?num.textContent+" · ":"")+(htxt?htxt.textContent.trim():label);}
+    var item=document.createElement("button");
+    item.className="ov-item"+(isPart?" is-part":"");
+    item.innerHTML='<span class="ov-n">'+(idx+1)+'</span><span class="ov-t">'+label+'</span>';
+    item.onclick=function(){show(idx);closeOverview();};
+    ovGrid.appendChild(item);
+  });
+}
+function openOverview(){buildOverview();ov.classList.add("open");}
+function closeOverview(){ov.classList.remove("open");}
+function toggleOverview(){ov.classList.contains("open")?closeOverview():openOverview();}
+document.getElementById("menuBtn").onclick=toggleOverview;
+document.getElementById("count").onclick=toggleOverview;
+document.getElementById("ovClose").onclick=closeOverview;
+show(0);
+</script>
+</body></html>

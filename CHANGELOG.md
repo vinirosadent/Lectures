@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## Chat 4 (cont.) — Aula 06 reconstruída no esquema de deck horizontal da Aula 03 (2026-07-23)
+- **Novo `index.html`**: deck **autocontido** no esquema `.deck > .track > .slide` (CSS **e** JS inline,
+  motor de navegação clonado da Aula 03/04) substituiu a versão anterior de **scroll vertical** (que usava
+  `assets/js/lecture.js` + animações SVG). `index-deck.html` → `index.html`.
+- **23 slides · 6 partes**: What "bioactive" means · More than apatite · How bioactivity arises ·
+  How it works & how the idea grew (rotas + história) · In the tooth (repair & materials) · Judging a claim.
+  Navegação ←/→ · Espaço · PageUp/Down · Home/End · **F** tela cheia · **O** overview.
+- **6 figuras** (nova ordem, `assets/`, já ligadas): `spectrum-inert-to-bioactive` (FIG 06.1) ·
+  `ion-release-not-enough` (06.2) · `mechanism-three-beats` (06.3, **nova** — antes era animação SVG) ·
+  `three-routes-bioactivity` (06.4) · `repair-vs-regeneration` (06.5) · `pulp-capping-dentine-bridge` (06.6).
+- **Sem quiz** [D-09]; take-home = 6 essenciais. Sem `slide--interactive` (o mecanismo virou figura estática).
+- **`notes.md`** reescrito para o novo formato (estrutura de 6 partes, mapa FIG 06.1–06.6, timing ~60 min);
+  **[Q-06.1]** (formato) fechado.
+- **Validação**: 6 `<img>` resolvem; tags balanceadas (section 23/23, div 126/126, svg 1/1, script 1/1).
+  `node --check` do JS inline pendente nesta sessão (node não instalado); motor idêntico ao já validado na 03/04.
+
 ## Chat 4 (cont.) — Renumeração: Bioactivity vira Aula 06 (2026-07-23)
 - **Decisão do Vinicius: manter o syllabus** — **05 = Biocompatibility**, **06 = Bioactivity**. Reverte o
   swap provisório do item anterior (que havia publicado Bioactivity como 05).

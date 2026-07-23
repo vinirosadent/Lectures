@@ -1,22 +1,21 @@
 # Aula 06 — Bioactivity · notas do professor
 
 > Arquivo de **estado/contexto**. Não é exibido ao aluno.
-> Estado: **deck final publicado (2026-07-23)** — formato enxuto (padrão da Aula 03/04): cada seção =
-> 1 frase-âncora (`.statement`) + 1 visual/animação; texto denso em `<details class="reveal">`.
-> `index.html` entregue pronto pelo Vinicius — **não alterar** (só os rótulos do número da aula 05→06).
-> 5 figuras já nomeadas e ligadas.
-> Sem quiz nos slides [D-09]. Sem `<script>` inline: usa `assets/js/lecture.js` (só um `<style id="ba-anim">`
-> local para a animação da bancada, classes `.ba-`).
-> Pasta no repositório: `lectures/06-bioactivity/` (renomeada de `05-bioactivity` via `git mv`, histórico preservado).
+> Estado: **deck horizontal publicado (2026-07-23)** — reconstruído no **esquema de slides da Aula 03/04**
+> (`.deck > .track > .slide`, **autocontido**: CSS **e** JS inline, motor de navegação próprio). Substituiu
+> a versão anterior de scroll vertical (que usava `lecture.js` + animações SVG).
+> `index.html` entregue pronto pelo Vinicius — **não alterar**. 6 figuras já nomeadas e ligadas.
+> Sem quiz nos slides [D-09]. Pasta no repositório: `lectures/06-bioactivity/`.
 
 ---
 
 ## 0. Formato e espinha
 
-**Página de seções** (não é o deck full-screen da 04; é o formato de `<section>` da 03): barra de progresso,
-índice lateral (`.secnav`), navegação ←/→ · PageUp/Down · Home/End · **F** herdada de `lecture.js`.
-**10 seções.** Identidade *Clinical Clean* [D-02]: teal=ciência, âmbar=clínica, rosa=equívoco, painel
-escuro=mecanismo.
+**Deck full-screen autocontido** (mesmo motor da Aula 03/04): `.deck > .track > .slide`, CSS+JS **inline**
+(só as fontes Google externas, com fallback do sistema). Navegação própria: ←/→ · PageDown/Up · Espaço ·
+Home/End · **F** tela cheia · **O** overview (grade de slides) · Esc fecha. Barra inferior (`.deckbar`) com
+part-label + contador; barra de progresso no topo. Identidade *Clinical Clean* [D-02]: teal=ciência,
+âmbar=clínica, rosa/carmim=equívoco/alerta, slides escuros (título/divisórias) = mecanismo.
 
 Espinha: *"bioativo" não é o rótulo na caixa — é uma resposta biológica específica, intencional e
 comprovada.* Eixo **structure → property → performance** (dissolução/superfície reativa → liberação de
@@ -25,118 +24,105 @@ silicato de cálcio sobre polpa quase exposta → ponte de dentina).
 
 ---
 
-## 1. Estrutura das 10 seções
+## 1. Estrutura do deck — 23 slides · 6 partes
 
-| # | id | Seção | Elemento visual |
-|---|---|---|---|
-| Hero | `#hero` | Bioactivity — abertura + gancho da cavidade profunda | — |
-| 1 | `#objectives` | Learning objectives (os 6) | grade `.objectives` |
-| 2 | `#meaning` | What bioactivity means | **4 flip cards** (bioactive/biocompatible/remineralising/antimicrobial) + deep-dive ISO/SBF |
-| 3 | `#beyond-apatite` | More than apatite | **FIG 06.1** + myth/fact |
-| 4 | `#how` | How bioactivity arises | **bancada animada** (SVG/JS, stepper 3 passos) + deep-dive química |
-| 5 | `#mechanisms` | Three routes | **FIG 06.2** |
-| 6 | `#evolution` | A short history | **timeline stepper** (4 passos) |
-| 7 | `#repair-regen` | Repair vs regeneration | **FIG 06.3** |
-| 8 | `#clinical` | Clinical materials | **FIG 06.4** + tabela de 6 materiais |
-| 9 | `#claims` | Evaluating claims | **FIG 06.5** + myth/fact + deep-dive 5 critérios FDI |
-| 10 | `#summary` | Take-home (mapa de outcomes, sem quiz) | lista `.takehome` com `[obj n]` |
+| Parte | Slides | Conteúdo |
+|---|---|---|
+| Título | 1 | Bioactivity |
+| **01 · What "bioactive" means** | divisória + 4 | objetivos (6 objcards + faixa structure→property→performance) · o conceito (defbox) · bioactive × 3 vizinhos · narrow × broad |
+| **02 · More than apatite** | divisória + 2 | apatita é um sinal, não o todo (**FIG 06.1**) · íon = sinal, não prova (**FIG 06.2**) |
+| **03 · How bioactivity arises** | divisória + 2 | padrão de 3 tempos (**FIG 06.3**) · duas químicas canônicas (deep dive) |
+| **04 · How it works & how the idea grew** | divisória + 2 | três rotas (**FIG 06.4**) · breve história (1969–71 → 2018–22) |
+| **05 · In the tooth: repair & materials** | divisória + 3 | reparo × regeneração (**FIG 06.5**) · terapia pulpar vital (**FIG 06.6**) · materiais estabelecidos |
+| **06 · Judging a claim** | divisória + 3 | barra de evidência FDI · o custo (trade-off) · take-home (6 essenciais) |
+
+Slides escuros = título + 6 divisórias de parte. Sem `slide--interactive` nesta versão (o mecanismo virou
+figura estática **FIG 06.3**, antes era animação SVG).
 
 ---
 
 ## 2. Cobertura dos 6 learning outcomes
 
-1. **Definir bioatividade** e separá-la de biocompatibilidade / remineralização / ação antimicrobiana
-   → §1 (obj) + §2 `#meaning` (4 flip cards + box "duas definições, uma ideia").
-2. **Bioatividade = leque de respostas biológicas**; apatita é um exemplo clássico, não o conceito todo
-   → §3 `#beyond-apatite` (FIG 06.1, espectro) + §5 `#mechanisms` (três rotas).
-3. **Como um material se torna bioativo** (muda a química local: íons, pH, superfície reativa)
-   → §4 `#how` (bancada animada: dissolução → mudança local → resposta).
-4. **Origem no reparo ósseo → ampliação na odontologia** e por que isso convida ao exagero do termo
-   → §6 `#evolution` (timeline: 1969–71 Hench → 1990s–2000s → 2010s hype → 2018–22 consenso/FDI).
-5. **Reparo × regeneração** como desfechos → §7 `#repair-regen` (FIG 06.3; dentina terciária × dentina tubular).
-6. **Julgar se a alegação "bioativo" tem evidência** → §9 `#claims` (FIG 06.5 + escada de evidência + 5 critérios
-   FDI) + §8 `#clinical` (materiais de referência: CaOH, MTA, Biodentine, seladores, GIC, bioglass).
+1. **Definir bioatividade** e separá-la de biocompatibilidade / remineralização / antimicrobiano
+   → Parte 01 (objetivos + "o conceito" + bioactive × 3 vizinhos + narrow/broad).
+2. **Bioatividade = leque de respostas**; apatita é um exemplo → Parte 02 (FIG 06.1 espectro) + Parte 04 (rotas).
+3. **Como se torna bioativo** (muda a química local: íons, pH) → Parte 03 (FIG 06.3, três tempos).
+4. **Origem no osso → ampliação na odontologia** e o exagero do termo → Parte 04 (breve história).
+5. **Reparo × regeneração** → Parte 05 (FIG 06.5).
+6. **Julgar a alegação "bioativo"** → Parte 06 (barra FDI + custo) + Parte 05 (materiais de referência).
 
 ---
 
-## 3. Mapa de figuras (FIG 06.1–06.5) — todas em `assets/`, kebab-case, já ligadas no HTML
+## 3. Mapa de figuras (FIG 06.1–06.6) — nova ordem do deck; todas em `assets/`, kebab-case, ligadas no HTML
 
-| Fig | Arquivo | Seção | O que mostra |
+| Fig | Arquivo | Parte / slide | O que mostra |
 |---|---|---|---|
-| **06.1** | `spectrum-inert-to-bioactive.png` | §3 `#beyond-apatite` | Espectro INERT→BIOACTIVE (ouro/alumina → composito → GIC → bioglass → silicato de cálcio); apatita é marcador, não a definição. |
-| **06.2** | `three-routes-bioactivity.png` | §5 `#mechanisms` | Três rotas: puramente química (GIC/flúor) · mista (CaOH/MTA/Biodentine) · solely biológica (fatores de crescimento). |
-| **06.3** | `repair-vs-regeneration.png` | §7 `#repair-regen` | Reparo (dentina terciária, selada mas desorganizada) × regeneração (dentina tubular original). |
-| **06.4** | `pulp-capping-dentine-bridge.png` | §8 `#clinical` | Cimento de silicato de cálcio sobre polpa: libera Ca²⁺ + pH alto → células odontoblasto-like → ponte de dentina. |
-| **06.5** | `ion-release-not-enough.png` | §9 `#claims` | Liberação de íons **sozinha** (sem apatita/resposta) × liberação **+** resposta tecidual — o efeito, não a liberação, define. |
+| **06.1** | `spectrum-inert-to-bioactive.png` | 02 · apatita é um sinal | Espectro INERT→BIOACTIVE (ouro/alumina → composito → GIC → bioglass → silicato de cálcio); apatita = marcador. |
+| **06.2** | `ion-release-not-enough.png` | 02 · íon = sinal, não prova | Liberação **sozinha** (sem apatita/resposta) × liberação **+** resposta tecidual. |
+| **06.3** | `mechanism-three-beats.png` | 03 · padrão de 3 tempos | Dissolução → mudança local (íons, pH) → resposta (apatita/tecido). Substitui a antiga animação SVG da bancada. |
+| **06.4** | `three-routes-bioactivity.png` | 04 · três rotas | Puramente química (GIC/flúor) · mista (CaOH/MTA/Biodentine) · solely biológica (fatores de crescimento). |
+| **06.5** | `repair-vs-regeneration.png` | 05 · reparo × regeneração | Dentina terciária (selada, desorganizada) × dentina tubular original. |
+| **06.6** | `pulp-capping-dentine-bridge.png` | 05 · terapia pulpar vital | Cimento de silicato de cálcio: Ca²⁺ + pH alto → células odontoblasto-like → ponte de dentina. |
 
-Figuras-fonte extras em `1. Source/05. Bioactivity/Assets/` **não usadas** no deck (disponíveis se precisar):
-"Dissolution → Local change → Response" (mecanismo) e "The evidence ladder" (SBF) — o mesmo conteúdo já
-aparece como animação/deep-dive no HTML. (A pasta-fonte no Drive mantém o nome `05. Bioactivity`; só a pasta
-do repositório passou a `06-bioactivity`.)
-
----
-
-## 4. Elementos animados/interativos próprios
-
-1. **Bancada do mecanismo** (§4 `#how`) — SVG/JS via stepper `data-stepper="how"`, 3 passos:
-   **Dissolução** (íons Ca²⁺/PO₄³⁻/OH⁻·F⁻ derivando da superfície, `@keyframes ba-drift`) →
-   **Mudança local** (pH sobe, fluido supersaturado) → **Resposta** (cristais de apatita crescendo,
-   `@keyframes ba-grow`). Ensina o **mecanismo** [D-10], não é um dial com número. Respeita
-   `prefers-reduced-motion`. CSS local em `<style id="ba-anim">` (classes `.ba-`); comportamento do
-   stepper vem de `lecture.js`.
-2. **Timeline stepper** (§6 `#evolution`) — `data-stepper="timeline"`, 4 passos (1969–71 · 1990s–2000s ·
-   2010s · 2018–22), cada um num box (mech/myth/clinical) mostrando como o significado de "bioativo" mudou.
-3. **4 flip cards** (§2 `#meaning`) — bioactive / biocompatible / remineralising / antimicrobial.
+Figuras-fonte extras em `1. Source/05. Bioactivity/Assets/` **não usadas**: "The evidence ladder" (SBF) — o
+conteúdo aparece como texto (barra FDI). A pasta-fonte no Drive mantém o nome `05. Bioactivity`; só a pasta
+do repositório é `06-bioactivity`.
 
 ---
 
-## 5. Onde ficam química e normas (deep-dives, fechados por padrão)
+## 4. Elementos gráficos próprios (não-figura)
 
-Para manter os slides enxutos, o conteúdo pesado fica em `<details class="reveal">`:
-- **§2** — como as **normas** definem (ISO 23317 = teste de apatita em **SBF**; corpos de biomateriais usam
-  definição ampla; odontologia fica no meio).
-- **§4** — as **duas químicas canônicas**: vidro bioativo (troca iônica → pH ↑ → gel de sílica → camada de
-  apatita) e cimentos de silicato de cálcio (reação com água → Ca(OH)₂ → pH alto + Ca²⁺). Reações
-  detalhadas ficam **fora** da aula; o padrão de 3 tempos é o ponto.
-- **§9** — os **5 critérios FDI** para chamar um material de "bioativo".
+- **Faixa structure → property → performance** (SVG inline, slide de objetivos) — esquema, não animação.
+- **Cards comparativos** (`.vs`): bioactive × biocompatible × remineralising × antimicrobial.
+- **Defboxes** (narrow/broad; duas químicas), **steps** (linha do tempo 1969–71 → 2018–22), **objgrid**
+  (objetivos e take-home).
+- **Sem animações interativas / sem quiz** [D-09/D-10]: esta versão é um deck estático de slides (o mecanismo
+  passou a ser a **FIG 06.3**). Overview (**O**) permite pular para qualquer slide.
 
-Ou seja: química de vidros/silicatos e o par **SBF–ISO** ficam nos deep-dives, não na tela principal.
+---
+
+## 5. Onde ficam química e normas
+
+Enxuto na tela; o conteúdo pesado fica em slides marcados **"Deep dive · optional"** ou no texto:
+- **Parte 03** — as **duas químicas canônicas** (vidro bioativo: troca iônica → pH↑ → gel de sílica → apatita;
+  cimentos de silicato de cálcio: reação com água → Ca(OH)₂ → pH alto + Ca²⁺). Reações detalhadas ficam fora.
+- **Parte 06** — os **5 critérios FDI** + o **par SBF/apatita como triagem** (não prova).
 
 ---
 
 ## 6. Timing sugerido (~60 min)
 
-| Bloco | Seções | min |
+| Bloco | Parte | min |
 |---|---|---|
-| Abertura + objetivos | Hero, §1 | 5 |
-| O que é / além da apatita | §2, §3 | 12 |
-| Mecanismo (bancada) | §4 | 10 |
-| Três rotas | §5 | 6 |
-| História / evolução do termo | §6 | 7 |
-| Reparo × regeneração | §7 | 6 |
-| Materiais clínicos (âncora) | §8 | 8 |
-| Avaliando alegações | §9 | 5 |
-| Take-home | §10 | 1 |
+| Abertura + objetivos | Título + 01 | 10 |
+| Além da apatita | 02 | 9 |
+| Mecanismo (3 tempos + química) | 03 | 10 |
+| Rotas + história | 04 | 11 |
+| Reparo × regeneração + clínica | 05 | 13 |
+| Avaliando alegações + take-home | 06 | 7 |
 | **Total** | | **~60** |
 
-Deep-dives são opcionais — abrir sob demanda estende cada bloco.
+Slides "deep dive" são opcionais — pular estende/encurta cada bloco.
 
 ---
 
 ## 7. Validação técnica
 
-- **Sem `<script>` inline** (só `<script src="../../assets/js/lecture.js">`); um único `<style id="ba-anim">`
-  local para a animação da bancada.
-- **10 `<section>`** + hero; **5 `<img>`** todos resolvidos em `assets/` (5 PNGs conferidos no disco).
-- Tags balanceadas; sem quiz/"test yourself" [D-09]; recap final = mapa dos learning outcomes.
+- **Autocontido** no esquema da Aula 03: **CSS + JS inline** (motor de navegação clonado da 03/04). Aqui o
+  `<script>` inline é **esperado** (deck self-contained) — não usa `assets/js/lecture.js`.
+- **23 `<section class="slide">`** (título + 6 divisórias + 16 de conteúdo); tags balanceadas
+  (section 23/23, div 126/126, svg 1/1, script 1/1).
+- **6 `<img src="assets/…">`** todos resolvidos no disco (6 PNGs conferidos).
+- Sem quiz/"test yourself" [D-09]; take-home = mapa dos 6 essenciais.
+- `node --check` no JS inline: **pendente nesta sessão** (node não instalado no ambiente); o motor é o mesmo
+  já validado nas Aulas 03/04. Rodar na máquina do Vinicius se quiser reconfirmar.
 
 ---
 
 ## 8. Aberto (Q-##)
 
-- **[Q-05.1] — RESOLVIDO (2026-07-23):** numeração definida pelo Vinicius = **manter o syllabus**. Bioactivity
-  é a **Aula 06** (Open); Biocompatibility permanece **05** (Soon). Pasta renomeada `05-bioactivity` →
-  `06-bioactivity` (`git mv`); rótulos do número no deck e as legendas FIG 06.1–06.5 ajustados; hub e README
-  no estado canônico.
+- **[Q-05.1] — RESOLVIDO (2026-07-23):** numeração = manter o syllabus. Bioactivity = **Aula 06** (Open);
+  Biocompatibility = **05** (Soon).
+- **[Q-06.1] — RESOLVIDO (2026-07-23):** formato = **deck horizontal da Aula 03** (substituiu o scroll vertical).
 - **[Q-05.2]** Handout do aluno (`handout.html`/`.pdf`) — **aberto**; não feito nesta aula (a 03/04 têm; a 06 ainda não).
 - **[Q-01 global]** Alinhar aos 14 outcomes oficiais quando a lista for colada.
