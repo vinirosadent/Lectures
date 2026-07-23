@@ -1,5 +1,28 @@
 # CHANGELOG
 
+## Chat 4 — Aula 05 Bioactivity finalizada (2026-07-23)
+- **Aula 05 Bioactivity — 10 seções, 5 figuras, bancada animada, sem quiz.** Deck entregue pronto pelo
+  Vinicius em `lectures/05-bioactivity/index.html` (formato enxuto padrão 03: `<section>` + `.statement` +
+  visual/animação; texto denso em `<details class="reveal">`). **Não alterado.** Usa o design system
+  compartilhado (`assets/css/lecture.css`) e os comportamentos de `assets/js/lecture.js` — **sem `<script>`
+  inline**; único CSS local é `<style id="ba-anim">` para a animação da bancada (classes `.ba-`).
+- **10 seções**: objetivos · o que significa (4 flip cards) · além da apatita · como surge (bancada) ·
+  três rotas · evolução (timeline) · reparo × regeneração · materiais clínicos · avaliando alegações ·
+  take-home (mapa de outcomes, **sem quiz** [D-09]).
+- **5 figuras** (`assets/`, kebab-case, já ligadas): `spectrum-inert-to-bioactive` (FIG 05.1) ·
+  `three-routes-bioactivity` (05.2) · `repair-vs-regeneration` (05.3) · `pulp-capping-dentine-bridge` (05.4) ·
+  `ion-release-not-enough` (05.5).
+- **Bancada animada (SVG/JS)** [D-10]: stepper de 3 tempos dissolução → mudança local (pH↑, supersaturação)
+  → resposta (apatita cresce); ensina o mecanismo, respeita `prefers-reduced-motion`. Mais um **timeline
+  stepper** (1969–71 → 2018–22). Química de vidros/silicatos e o par **SBF–ISO** ficam nos **deep-dives**.
+- **Numeração**: o deck é "Lecture 05 · Bioactivity"; o hub tinha 05 = Biocompatibility / 06 = Bioactivity.
+  Reconciliado com **swap**: **05 = Bioactivity (Open)** e **06 = Biocompatibility (Soon)**, no `index.html`
+  raiz e no README.
+- **Notas** (`lectures/05-bioactivity/notes.md`): cobertura dos 6 objetivos, mapa FIG 05.1–05.5, animações,
+  timing ~60 min.
+- **Validação**: sem `<script>` inline; 10 `<section>` + hero; 5 `<img>` conferidos um a um no disco; tags
+  balanceadas. **Publicação**: badge **Open** no hub → `lectures/05-bioactivity/index.html`.
+
 ## Chat 3 — Aula 04 Colour & Optics finalizada (2026-07-20)
 - **Deck em slides (padrão da Aula 03)**: `lectures/04-colour-and-optics/index.html`, autocontido (CSS+JS
   inline, motor de navegação clonado da 03). **42 slides · 6 partes**: What colour really is · The three
