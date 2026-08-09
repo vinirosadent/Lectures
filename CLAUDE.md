@@ -66,12 +66,22 @@ dentro do repositório.
 
 Quando o Vinicius disser algo como "vamos fazer a aula sobre X", **prepare o terreno antes de qualquer
 conteúdo**, sem mandá-lo ao terminal:
-1. Descubra `NN` e o `slug` pelo mapa do curso (README). Se o número/tópico for ambíguo, **pergunte**.
+1. Descubra `NN` e o `slug` pelo mapa do curso (README / `0. Course plan`). Se ambíguo, **pergunte**.
 2. Crie o esqueleto de material em `1. Source\NN. <Tópico>\` com `Assets\` e `Texts\` (vazias).
-3. Crie o esqueleto do repo em `lectures\NN-slug\` com `assets\` e um `notes.md` inicial (cabeçalho +
+3. **Crie o brief da aula**: copie `0. Course plan\_brief-template.docx` para
+   `1. Source\NN. <Tópico>\_brief.docx` e **pré-preencha os Learning outcomes** daquela aula a partir da
+   lista-mestre `0. Course plan\Learning outcomes (master).docx`. O Vinicius edita esse `.docx` no Word
+   (ajusta outcomes, spine, âncora, o que enfatizar). É o **contrato da aula** — some entre chats se ficar só no chat.
+4. Crie o esqueleto do repo em `lectures\NN-slug\` com `assets\` e um `notes.md` inicial (cabeçalho +
    tabela vazia do manifesto de fontes `Fonte → Alimenta → Status`).
-4. Diga a ele **onde largar o quê**: textos/roteiro em `…\Texts\`, figuras em `…\Assets\`.
-5. **Não construa HTML nem ligue no menu ainda** — espere o material e então faça a proposta de ensino.
+5. Diga a ele **onde largar o quê**: textos/roteiro em `…\Texts\`, figuras em `…\Assets\`, intenção no `_brief.docx`.
+6. **Não construa HTML nem ligue no menu ainda** — espere o material e então leia o `_brief.docx` + o
+   material e faça a proposta de ensino.
+
+**Learning outcomes — onde vivem:** a lista-mestre do curso (6 grandes + objetivo/outcomes das 20 aulas +
+espaço para os 14 oficiais) fica em `0. Course plan\Learning outcomes (master).docx`. Cada `_brief.docx`
+puxa dela. Ao construir/publicar, os outcomes do brief viram os objetivos na tela, a cobertura no `notes.md`,
+o recap final e o handout.
 
 ## Handout do aluno — PDF real paginado
 
