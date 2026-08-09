@@ -55,8 +55,39 @@ crie, mova ou edite arquivos dentro dela**. Todo código, toda figura copiada/re
 acontecem exclusivamente dentro de `2. Repo\` (esta pasta, o repositório git). Se os caminhos não baterem
 com isso, **pare e confirme com o Vinicius antes de escrever em qualquer lugar**.
 
+**Exceção de escrita em `1. Source\`:** no comando **`vamos fazer a aula sobre <Tópico>`** (abaixo) você
+**cria o esqueleto vazio** da pasta do tópico (`NN. <Tópico>\Assets\` + `Texts\`) para o Vinicius largar o
+material. Essa é a única escrita permitida em `1. Source\`; o conteúdo que ele colocar lá continua intocável.
+
 Prompts que você recebe e handovers de cada chat ficam versionados em `_ops\prompts\` e `_ops\handovers\`
 dentro do repositório.
+
+## Comando: `vamos fazer a aula sobre <Tópico>` — montar as pastas primeiro
+
+Quando o Vinicius disser algo como "vamos fazer a aula sobre X", **prepare o terreno antes de qualquer
+conteúdo**, sem mandá-lo ao terminal:
+1. Descubra `NN` e o `slug` pelo mapa do curso (README). Se o número/tópico for ambíguo, **pergunte**.
+2. Crie o esqueleto de material em `1. Source\NN. <Tópico>\` com `Assets\` e `Texts\` (vazias).
+3. Crie o esqueleto do repo em `lectures\NN-slug\` com `assets\` e um `notes.md` inicial (cabeçalho +
+   tabela vazia do manifesto de fontes `Fonte → Alimenta → Status`).
+4. Diga a ele **onde largar o quê**: textos/roteiro em `…\Texts\`, figuras em `…\Assets\`.
+5. **Não construa HTML nem ligue no menu ainda** — espere o material e então faça a proposta de ensino.
+
+## Handout do aluno — PDF real paginado
+
+O handout é um **doc separado** (não os slides): só bullets na espinha structure→property→performance +
+figuras esquemáticas, **sem quiz** [D-09]. Pipeline:
+- `lectures/NN-slug/handout.html` carrega `assets/css/handout.css` (`@media print` com `@page` + rodapé
+  numerado).
+- Gere o PDF real com `python3 tools/build-handouts-pdf.py` (WeasyPrint) → `lectures/NN-slug/handout.pdf`,
+  A4 paginado, figuras não cortadas. Regenere sempre que o handout mudar.
+
+## O menu (`index.html`) — recursos fixos
+
+Entrada única do site, que o Vinicius projeta. Já tem: **senha `1903`** (portão client-side, não é segurança
+real); **filtro** (busca + chips All/Open/Soon) e o botão **⤓ PDF** que abre a janelinha de handouts;
+**cards em grade** (Open = link + pílula PDF quando há handout; Soon = esmaecido); **sem cards de
+Assessment/Exam**. Ao publicar uma aula, troque o card dela soon→live mantendo esse padrão.
 
 Ao montar uma aula:
 - Leia os textos-fonte (docx/pdf) em `1. Source\NN. <Tópico>\Texts\` para entender o conteúdo real.
