@@ -163,6 +163,8 @@ os slides ensinam, não avaliam. Recap final = mapa dos learning outcomes ("onde
 [D-10] Animações têm de **ensinar um mecanismo** (mostrar o fenômeno), não ser só um dial com um número —
 sempre pensar no learning outcome antes de construir.
 
+[D-16] **Registro acadêmico — regra dura.** Isto é material de aula universitária: **nunca use "títulos de impacto"**. Títulos de slide descritivos que nomeiam o conteúdo; rótulos de caixa funcionais (*Definition · Interpretation · Mechanism · Clinical significance · Methodological limitation · Scope of this lecture · General rule · Practical consequence · Discussion point · Note · Summary point*); prosa em terceira pessoa, sem apóstrofe ao aluno e sem suspense; sem componente `.bigq`. Vale também **dentro das strings de texto dos widgets em JS**. Antes de commitar, faça a varredura das frases proibidas. Detalhe e exemplos em `PROJECT_RULES.md`, seção "Registro de escrita".
+
 ## Perguntas em aberto (avise se forem relevantes à tarefa atual)
 
 [Q-01] Alinhar com os 14 outcomes oficiais do syllabus (pedir a lista se ainda não foi colada) ·

@@ -47,11 +47,41 @@ O professor **dirige** o HTML como se fossem slides; os alunos não abrem sozinh
 - `node --check` no JS; contagem de tags balanceada; nomes de figura batendo com o script de cópia.
 - Responsivo até mobile; foco de teclado visível; CSS de impressão para handout.
 
+## Registro de escrita — [D-16] (regra dura)
+
+Isto é **material de aula universitária**, não copy de marketing. **Nunca use "títulos de impacto".**
+
+- **Títulos de slide (`s-title`): descritivos, nomeiam o conteúdo.** Sem aforismo, trocadilho, paralelismo
+  retórico, frase de duas partes com ponto no meio ou promessa dramática.
+  - ❌ "Oxygen: the defect that became the machine" → ✅ "Oxygen inhibition in printing and in CLIP"
+  - ❌ "Same surface. Opposite rule." → ✅ "Support placement on a crown and on a denture base"
+  - ❌ "Six failures, six mechanisms" → ✅ "Characteristic print failures and their causes"
+  - ❌ "Neither one wins. They fail differently." → ✅ "Additive and subtractive manufacturing compared"
+- **Rótulos de caixa (`k-tag`): funcionais, não editoriais.** Vocabulário fixo: *Definition · Interpretation ·
+  Mechanism · Clinical significance · Methodological limitation · Origin of the threshold · Scope of this
+  lecture · Applications · General rule · Practical consequence · Discussion point · Important qualification ·
+  Note · Summary point*.
+  Proibidos: "The twist", "The sentence to remember", "Take this one sentence", "The asymmetry nobody teaches",
+  "Why this is the spine of the lecture", "Read it carefully", "Both things are true", "Ask the class".
+- **Eyebrows** padronizados como rótulos de seção: `Context · Structure · Property · Mechanism · Performance ·
+  Interactive · Summary`.
+- **Prosa** em terceira pessoa, descritiva. Sem apóstrofe ao aluno ("Ask yourself…", "Keep asking…",
+  "You already know…" → "This was introduced in Lecture NN"), sem suspense, sem hipérbole.
+  Analogia **explicativa** é bem-vinda quando carrega física (ex.: o slicer faz com o STL a mesma
+  discretização que o CBCT faz com o volume).
+- **Sem componente `.bigq`** (frase de efeito centralizada em corpo grande). Não recriar.
+- Vale para **títulos, subtítulos, caixas, legendas, `axisnote`, prompts de figura e as strings de texto
+  dentro dos widgets em JS** — é nas strings de JS que o tom informal costuma sobreviver a uma revisão.
+- Numa revisão de registro, **números, dados e citações não mudam**; só a formulação.
+
 ## Decisões registradas
 - **[D-01]** 14 outcomes → 6 objetivos "guarda-chuva" na tela; cobertura fina fica em `notes.md`.
 - **[D-02]** Identidade **Clinical Clean**.
 - **[D-03]** Construir scaffold compartilhado + Aula 03 juntos (feito no chat 1).
 - **[D-04]** O professor dirige o HTML como slide (sem self-learning); navegação por teclado tipo pptx.
+- **[D-16]** **Registro acadêmico**: títulos de slide descritivos, nunca frases de impacto; rótulos de caixa
+  funcionais; prosa em terceira pessoa; sem `.bigq`. Vale também dentro das strings dos widgets. Ver a seção
+  "Registro de escrita" acima.
 - **[D-05]** Formato **enxuto**: frase-âncora + visual por seção; sem modo professor/notas na tela; texto denso vira deep-dive opcional.
 
 ## Questões abertas
