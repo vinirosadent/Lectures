@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Principles of 3D Printing in Dentistry &middot; Dental Materials &middot; Lecture 07</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FBFCFD;--surface:#fff;--ink:#0F1B2A;--ink-soft:#31465C;--muted:#5E7285;--line:#E3E9EF;
+--primary:#0C7489;--primary-ink:#0A5C6D;--primary-wash:#E7F4F6;--navy:#12315B;
+--clinical:#B45309;--clinical-wash:#FDF3E7;--warn:#BE123C;--warn-wash:#FDECEF;--ok:#15803D;
+--dark:#0B1B2B;--dark-2:#10273B;--dark-ink:#E8F1F6;--dark-muted:#8FA9BC;--dark-line:#1E3A52;
+--f-disp:"Space Grotesk",system-ui,sans-serif;--f-body:"Inter",system-ui,sans-serif;--f-mono:"IBM Plex Mono",monospace;}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f-body);color:var(--ink)}
+.deck{height:100vh;width:100vw;overflow:hidden;position:relative}
+.track{display:flex;height:100%;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.slide{min-width:100vw;height:100vh;padding:4vh 4.5vw 6.5vh;background:var(--paper);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.s-eyebrow{font-family:var(--f-mono);font-size:1rem;letter-spacing:.13em;text-transform:uppercase;color:var(--primary-ink);margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem}
+.s-eyebrow::before{content:"";width:30px;height:10px;background:radial-gradient(circle at 5px 5px,var(--primary) 3.2px,transparent 3.6px),radial-gradient(circle at 25px 5px,var(--primary) 3.2px,transparent 3.6px);border-top:2px solid var(--primary)}
+.s-title{font-family:var(--f-disp);font-weight:600;line-height:1.05;color:var(--ink);font-size:clamp(1.9rem,3.4vw,2.9rem);letter-spacing:-.01em;margin-bottom:1.2vh}
+.s-sub{font-size:clamp(1.05rem,1.5vw,1.35rem);color:var(--ink-soft);margin-bottom:1.4vh;max-width:74ch;line-height:1.45}
+.s-body{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:2.5vw;min-height:0;align-items:center;overflow:hidden}
+.s-body.one-col{grid-template-columns:1fr}
+.s-body.text-heavy{grid-template-columns:1.2fr .8fr}
+.s-body.fig-heavy{grid-template-columns:.85fr 1.15fr}
+.col-text{overflow:hidden;padding-right:.3rem;max-height:100%;display:flex;flex-direction:column;justify-content:center}
+.col-visual{height:100%;display:flex;flex-direction:column;justify-content:center;gap:1rem;min-height:0}
+.blist{list-style:none;display:flex;flex-direction:column;gap:1.05vh}
+.blist>li{position:relative;padding-left:1.7rem;font-size:clamp(1.02rem,1.45vw,1.32rem);line-height:1.4;color:var(--ink-soft)}
+.blist>li::before{content:"";position:absolute;left:0;top:.5em;width:11px;height:11px;border-radius:50%;border:2px solid var(--primary);background:var(--primary-wash)}
+.blist>li b{color:var(--ink)}
+.blist .lead-term{font-family:var(--f-disp);font-weight:600;color:var(--primary-ink)}
+.blist.cols{columns:2;column-gap:3rem;display:block}
+.blist.cols>li{break-inside:avoid;margin-bottom:1.3vh}
+.defbox{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--primary);border-radius:0 12px 12px 0;padding:1rem 1.25rem;margin-bottom:1.1vh;box-shadow:0 6px 22px rgba(15,27,42,.05)}
+.defbox .term{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.2rem,1.7vw,1.5rem);color:var(--primary-ink);margin-bottom:.3rem}
+.defbox .def{font-size:clamp(1.02rem,1.45vw,1.28rem);color:var(--ink-soft);line-height:1.4}
+.steps{display:flex;flex-direction:column;gap:1.05vh;counter-reset:st}
+.step{display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:start}
+.step::before{counter-increment:st;content:counter(st);font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:1.05rem;flex:none}
+.step h4{font-family:var(--f-disp);font-size:clamp(1.1rem,1.55vw,1.38rem);color:var(--ink);margin-bottom:.15rem}
+.step p{font-size:clamp(1rem,1.4vw,1.24rem);line-height:1.38;color:var(--ink-soft)}
+.key{margin-top:1.4vh;border-left:5px solid var(--clinical);background:var(--clinical-wash);padding:.9rem 1.15rem;border-radius:0 12px 12px 0;font-size:clamp(1.02rem,1.45vw,1.28rem);color:var(--ink);line-height:1.4}
+.key b{color:var(--clinical)}
+.key .k-tag{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--clinical);display:block;margin-bottom:.35rem}
+.mech{background:var(--primary-wash);border:1px solid #BFE2E8;border-radius:12px;padding:.9rem 1.15rem;font-size:clamp(1.02rem,1.45vw,1.26rem);color:var(--ink-soft);line-height:1.4}
+.mech .k-tag{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--primary-ink);display:block;margin-bottom:.35rem}
+.mech b{color:var(--ink)}
+.figbox{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:.9rem;box-shadow:0 12px 40px rgba(15,27,42,.10);display:flex;flex-direction:column;gap:.5rem;max-height:100%;align-items:center;justify-content:center;overflow:hidden}
+.figbox img{width:100%;height:auto;max-height:76vh;object-fit:contain;display:block;border-radius:8px}
+.figbox.dual{gap:1rem}
+.figcap{font-size:1.05rem;color:var(--muted);line-height:1.4;text-align:center}
+.figcap b{color:var(--ink-soft)}
+.slide--focusfig{align-items:center;text-align:center}
+.slide--focusfig .ff-head{width:100%;max-width:72ch;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+.slide--focusfig .s-eyebrow{justify-content:center}
+.slide--focusfig .s-title{margin-bottom:1vh}
+.slide--focusfig .s-sub{max-width:74ch;margin:0 auto;text-align:center}
+.slide--focusfig .s-body{width:100%;flex:1;padding:1vh 2vw 0.5vh;align-items:center;justify-content:center;justify-items:center}
+.slide--focusfig .figbox{margin:0 auto;padding:1.3rem;max-width:26vw;max-height:100%}
+.slide--focusfig .figbox img{width:auto;max-width:100%;height:auto;max-height:48vh}
+.ph{border:2.5px dashed var(--primary);border-radius:16px;background:repeating-linear-gradient(135deg,#EAF6F8,#EAF6F8 14px,#E1F0F3 14px,#E1F0F3 28px);padding:2rem 1.5rem;text-align:center;display:flex;flex-direction:column;gap:.6rem;align-items:center;justify-content:center;min-height:44vh}
+.ph .ph-badge{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--primary);padding:.3rem .8rem;border-radius:999px}
+.ph .ph-t{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.25rem,1.85vw,1.55rem);color:var(--primary-ink)}
+.ph .ph-f{font-family:var(--f-mono);font-size:1rem;color:var(--muted)}
+.ph .ph-d{font-size:1.1rem;color:var(--ink-soft);max-width:36ch;line-height:1.4}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-content:center}
+.vs.three{grid-template-columns:1fr 1fr 1fr}
+.vs .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.5rem;box-shadow:0 8px 28px rgba(15,27,42,.07)}
+.vs .card h3{font-family:var(--f-disp);font-size:clamp(1.2rem,1.7vw,1.5rem);margin-bottom:.7rem}
+.vs .card.a h3{color:var(--primary-ink)} .vs .card.b h3{color:var(--warn)}
+.vs .card ul{list-style:none;display:flex;flex-direction:column;gap:.95vh}
+.vs .card li{position:relative;padding-left:1.4rem;font-size:clamp(1rem,1.4vw,1.24rem);line-height:1.38;color:var(--ink-soft)}
+.vs .card li::before{content:"";position:absolute;left:0;top:.5em;width:9px;height:9px;border-radius:50%}
+.vs .card.a li::before{background:var(--primary)} .vs .card.b li::before{background:var(--warn)}
+.vs .card li b{color:var(--ink)}
+.objlist{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1.4vh 2.5rem;counter-reset:ob}
+.objlist li{counter-increment:ob;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;font-size:clamp(1.25rem,1.75vw,1.5rem);line-height:1.42;color:var(--ink-soft)}
+.objlist li::before{content:counter(ob);font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:1rem}
+.objlist li b{color:var(--ink)}
+.objgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;flex:1;min-height:0}
+.objcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.25rem;box-shadow:0 8px 24px rgba(15,27,42,.06);display:flex;flex-direction:column;gap:.55rem}
+.objnum{font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:1.05rem;flex:none}
+.objtxt{font-size:clamp(.98rem,1.4vw,1.2rem);line-height:1.36;color:var(--ink-soft)}
+.objtxt b{color:var(--ink)}
+.flowstrip{background:var(--primary-wash);border:1px solid #BFE2E8;border-radius:14px;padding:1rem 1.4rem;display:flex;align-items:center;justify-content:center}
+.flowstrip svg{width:100%;max-width:900px;height:auto;display:block}
+.instrument{background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--dark-line);border-radius:22px;padding:1.6rem 1.6rem 1.4rem;box-shadow:0 20px 50px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.06)}
+.viscowrap{margin-top:1.4rem}
+.viscolabel{font-family:var(--f-mono);font-size:1.05rem;color:var(--dark-muted);display:flex;justify-content:space-between;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.07em}
+.viscolabel span:last-child{color:#fff;font-weight:600;letter-spacing:.03em}
+.viscobar{width:100%;height:22px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--dark-line);overflow:hidden;box-shadow:inset 0 2px 6px rgba(0,0,0,.35)}
+.viscofill{height:100%;width:0%;background:linear-gradient(90deg,#57C6D8,#8FD1A8,#F2B84B,#D64545);transition:width .3s;box-shadow:0 0 12px rgba(87,198,216,.5)}
+.slide--title,.slide--divider,.slide--interactive{background:linear-gradient(155deg,var(--dark),var(--dark-2));color:var(--dark-ink);justify-content:center}
+.slide--title .s-eyebrow,.slide--divider .s-eyebrow,.slide--interactive .s-eyebrow{color:#57C6D8}
+.slide--title .s-eyebrow::before,.slide--divider .s-eyebrow::before,.slide--interactive .s-eyebrow::before{background:radial-gradient(circle at 5px 5px,#57C6D8 3.2px,transparent 3.6px),radial-gradient(circle at 25px 5px,#57C6D8 3.2px,transparent 3.6px);border-top-color:#57C6D8}
+.slide--title h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(2.9rem,6.5vw,5.2rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:1.4rem}
+.slide--title .frame{font-size:clamp(1.35rem,2.3vw,1.85rem);color:var(--dark-muted);max-width:42ch;line-height:1.42}
+.slide--divider .num{font-family:var(--f-disp);font-weight:700;font-size:clamp(4.5rem,12vw,9rem);color:var(--dark-line);line-height:1}
+.slide--divider h2{font-family:var(--f-disp);font-weight:600;font-size:clamp(2.4rem,5vw,4rem);color:#fff;margin-top:-1vh}
+.slide--divider .d-list{margin-top:2.2vh;color:var(--dark-muted);font-size:clamp(1.2rem,1.8vw,1.5rem);display:flex;flex-wrap:wrap;gap:.5rem 1.6rem}
+.slide--interactive .s-title{color:#fff}
+.control{margin:1.4vh 0}
+.control label{font-family:var(--f-mono);font-size:1.1rem;color:var(--dark-muted);display:flex;justify-content:space-between;margin-bottom:.4rem}
+.control input[type=range]{width:100%;accent-color:#14A0B8;height:7px}
+.igloss{color:var(--dark-muted);font-size:clamp(1.02rem,1.45vw,1.26rem);line-height:1.42;margin-top:1.1vh}
+.igloss b{color:#fff}
+.calc{background:rgba(255,255,255,.05);border:1px solid var(--dark-line);border-radius:16px;padding:1.6rem 1.8rem}
+.calc .out{font-family:var(--f-mono);margin-top:1.2rem;display:flex;flex-direction:column;gap:.7rem}
+.calc .out .row{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed var(--dark-line);padding-bottom:.5rem}
+.calc .out .lbl{color:var(--dark-muted);font-size:1rem}
+.calc .out .big{color:#57C6D8;font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:600}
+.calc .formula{font-family:var(--f-mono);color:#fff;font-size:clamp(1.05rem,1.5vw,1.3rem);margin-top:1rem;text-align:center;background:rgba(20,160,184,.12);border-radius:10px;padding:.7rem}
+.deckbar{position:fixed;bottom:0;left:0;right:0;height:5vh;min-height:38px;background:rgba(11,27,43,.94);color:#fff;display:flex;align-items:center;gap:1rem;padding:0 1.2rem;z-index:20;font-family:var(--f-mono)}
+.deckbar .part{font-size:.8rem;color:var(--dark-muted);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.deckbar .count{font-size:.85rem;color:#9FCBD6}
+.navbtn{border:0;background:#17425C;color:#EAF4F8;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:grid;place-items:center}
+.navbtn:hover{background:#1E5877}
+.count{cursor:pointer;user-select:none}
+.count:hover{color:#fff;text-decoration:underline}
+.overview{position:fixed;inset:0;z-index:40;background:rgba(8,18,28,.97);display:none;flex-direction:column;padding:3vh 3vw}
+.overview.open{display:flex}
+.overview h3{font-family:var(--f-disp);color:#fff;font-size:1.6rem;margin-bottom:.4rem}
+.overview .ov-hint{font-family:var(--f-mono);color:var(--dark-muted);font-size:.9rem;margin-bottom:2vh}
+.ov-grid{flex:1;overflow-y:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.9rem;align-content:start}
+.ov-item{background:#10273B;border:1px solid #1E3A52;border-radius:10px;padding:.8rem .9rem;cursor:pointer;display:flex;gap:.7rem;align-items:flex-start;transition:background .15s,border-color .15s;text-align:left}
+.ov-item:hover{background:#17425C;border-color:#57C6D8}
+.ov-item .ov-n{font-family:var(--f-mono);font-size:.8rem;color:#57C6D8;flex:none;min-width:1.6rem}
+.ov-item .ov-t{font-size:.92rem;color:#E8F1F6;line-height:1.3}
+.ov-item.is-part{background:#0A5C6D;border-color:#0C7489}
+.ov-item.is-part .ov-t{font-weight:600}
+.ov-close{position:absolute;top:2vh;right:2vw;background:#17425C;color:#fff;border:0;border-radius:8px;padding:.5rem .9rem;cursor:pointer;font-family:var(--f-mono);font-size:.9rem}
+.ov-close:hover{background:#1E5877}
+.progress{position:fixed;top:0;left:0;height:4px;background:#14A0B8;z-index:21;transition:width .3s;width:0}
+@media (max-width:900px){.s-body,.s-body.text-heavy,.s-body.fig-heavy{grid-template-columns:1fr;gap:1.2rem}.objlist,.blist.cols{grid-template-columns:1fr;columns:1}}
+
+/* ---- Lecture 07 additions ---- */
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:2vw;flex:1;min-height:0;align-items:center}
+.wgrid.wide{grid-template-columns:.78fr 1.22fr}
+.readout{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1.2vh}
+.rcard{background:rgba(255,255,255,.05);border:1px solid var(--dark-line);border-radius:12px;padding:.75rem .9rem}
+.rcard .rl{font-family:var(--f-mono);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dark-muted);display:block;margin-bottom:.25rem}
+.rcard .rv{font-family:var(--f-mono);font-size:clamp(1.3rem,2.3vw,1.9rem);font-weight:600;color:#57C6D8;line-height:1.1}
+.rcard .rv.warn{color:#F58A9B}
+.rcard .rv.ok{color:#8FD1A8}
+.rcard .rs{font-size:.9rem;color:var(--dark-muted);display:block;margin-top:.15rem}
+.seg{display:flex;gap:.5rem;margin:.8rem 0 .2rem}
+.seg button{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--dark-line);color:var(--dark-muted);font-family:var(--f-mono);font-size:1rem;padding:.6rem .2rem;border-radius:10px;cursor:pointer}
+.seg button.on{background:#14A0B8;border-color:#14A0B8;color:#04222B;font-weight:600}
+.stagestrip{display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem;margin-top:1vh}
+.stage{border:1px solid var(--line);border-radius:14px;padding:.9rem .8rem;text-align:center;background:var(--surface);display:flex;flex-direction:column;gap:.5rem;align-items:center}
+.stage .chip{width:100%;height:52px;border-radius:8px;border:1px solid rgba(0,0,0,.12)}
+.stage .st{font-family:var(--f-disp);font-weight:600;font-size:clamp(.98rem,1.25vw,1.12rem);color:var(--ink)}
+.stage .sd{font-size:.94rem;color:var(--muted);line-height:1.32}
+.stage.green{border-color:#F1C7CF;box-shadow:0 0 0 2px #FDECEF inset}
+.axisnote{font-family:var(--f-mono);font-size:.95rem;color:var(--primary-ink);text-align:center;margin-top:.9vh;letter-spacing:.04em}
+.srcline{font-family:var(--f-mono);font-size:.85rem;color:var(--muted);margin-top:.8vh}
+.slide--interactive .srcline{color:var(--dark-muted)}
+.twocap{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1vh}
+.pill{display:inline-block;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .7rem;border-radius:999px;background:var(--primary-wash);color:var(--primary-ink);border:1px solid #BFE2E8}
+.pill.warn{background:var(--warn-wash);color:var(--warn);border-color:#F1C7CF}
+.pill.clin{background:var(--clinical-wash);color:var(--clinical);border-color:#EFD8B8}
+.dtable{width:100%;border-collapse:collapse;font-size:clamp(1rem,1.35vw,1.2rem)}
+.dtable th,.dtable td{border-bottom:1px solid var(--line);padding:.62rem .7rem;text-align:left;color:var(--ink-soft)}
+.dtable th{font-family:var(--f-mono);font-size:.85rem;letter-spacing:.07em;text-transform:uppercase;color:var(--primary-ink);border-bottom:2px solid var(--primary)}
+.dtable td b{color:var(--ink)}
+.dtable tr.hi td{background:var(--primary-wash)}
+.bigq{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.5rem,2.6vw,2.2rem);color:var(--primary-ink);text-align:center;margin-top:1.2vh}
+</style></head><body>
+<div class="progress" id="prog"></div>
+<div class="deck"><div class="track" id="track">
+
+<section class="slide slide--title"><p class="s-eyebrow">Phase 1 · Fundamentals · Lecture 07</p><h1>Principles of<br>3D Printing<br>in Dentistry</h1><p class="frame">Additive manufacturing gives an object its <em>shape</em> in one step and its <em>properties</em> in another. Everything clinical follows from that.</p></section>
+
+<section class="slide">
+<p class="s-eyebrow">The scale of it</p>
+<h2 class="s-title">More than one million custom devices. Every day.</h2>
+<p class="s-sub">Align Technology runs what it describes as the largest 3D printing operation in the world — and almost none of it is visible to the patient.</p>
+<div class="s-body text-heavy">
+<div class="col-text">
+<ul class="blist">
+<li><b>&gt;1,000,000</b> custom appliances printed <b>per day</b>, across factories in Mexico, China and Poland. No two identical. No inventory.</li>
+<li>Every one of them exists because a patient's anatomy was scanned — not because a batch was scheduled.</li>
+<li class="lead-term">But here is the twist.</li>
+</ul>
+<div class="key" style="margin-top:2vh"><span class="k-tag">The twist</span>The aligner itself is <b>not printed</b>. What is printed is the <b>model</b> — and the aligner is thermoformed over it and trimmed off. Most 3D printing in orthodontics is the printing of <b>disposable tooling</b>.</div>
+<p class="srcline">Srini Kaza (EVP R&amp;D, Align), Orthodontic Products, Jul 2025. Align acquired Cubicure (Jan 2024) specifically to print aligners directly.</p>
+</div>
+<div class="col-visual">
+<div class="mech"><span class="k-tag">Why this opens the lecture</span>Because it tells you where additive manufacturing actually sits in dentistry today: <b>not mainly as the final device</b>, but as the fastest way to make a one-off object that another process will use. Keep asking, for every application in this lecture: <b>is the printed thing the product, or the tool?</b></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Adoption · and a common misreading</p>
+<h2 class="s-title">Printing grew. Milling grew too.</h2>
+<div class="s-body">
+<div class="col-text">
+<table class="dtable">
+<tr><th>US dental laboratories</th><th>2014</th><th>2022</th></tr>
+<tr class="hi"><td><b>with a 3D printer</b></td><td>~10%</td><td><b>57%</b></td></tr>
+<tr><td>large labs</td><td>—</td><td>97%</td></tr>
+<tr><td>small labs</td><td>—</td><td>34%</td></tr>
+<tr class="hi"><td><b>with a milling system</b></td><td>39%</td><td><b>67%</b></td></tr>
+</table>
+<p class="srcline">Key Group, 2022 US Dental Laboratory report. In-lab still accounts for ~84% of the market — the laboratory, not the surgery, is where printing happens.</p>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">Read it carefully</span>If printing were replacing milling, the milling line would fall. It <b>rose</b>. These are not rival technologies competing for the same job — they are <b>complementary</b>, and by the end of this hour you should be able to say exactly which job belongs to which.</div>
+<div class="mech" style="margin-top:1.4vh"><span class="k-tag">Also worth noticing</span>97% of large labs, 34% of small ones. The technology is not evenly distributed — capital, throughput and trained staff decide who has it.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">What you should be able to do after this hour</p>
+<h2 class="s-title">Learning outcomes</h2>
+<div class="objgrid" style="grid-template-columns:repeat(3,1fr)">
+<div class="objcard"><span class="objnum">1</span><div class="objtxt"><b>Explain the basic principles</b> of 3D printing — layer-by-layer fabrication and the steps from digital design to a finished dental object.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">→ Parts 1 and 2</span></div></div>
+<div class="objcard"><span class="objnum">2</span><div class="objtxt"><b>Identify the main technologies</b> used to fabricate dental prosthetic and surgical devices.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">→ Part 3</span></div></div>
+<div class="objcard"><span class="objnum">3</span><div class="objtxt"><b>Recognise the applications, advantages and limitations</b> of 3D printing in prosthodontics and dental surgery.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">→ Parts 4 and 5</span></div></div>
+</div>
+<div class="key" style="margin-top:2vh"><span class="k-tag">The single sentence this lecture proves</span>In additive manufacturing the object and its properties are built <b>at the same time</b> — so <b>how</b> it was printed, not only <b>which</b> resin it was printed from, decides how it behaves in the mouth.</div>
+</section>
+
+<section class="slide slide--divider"><div class="s-eyebrow">Part 1 of 5</div><div class="num">01</div><h2>What additive manufacturing is</h2><div class="d-list"><span>The standard definition</span><span>· Single-step vs multi-step</span><span>· Additive vs subtractive</span><span>· The staircase</span></div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Structure · the definition that does the work</p>
+<h2 class="s-title">Shape in one step. Properties in another.</h2>
+<div class="s-body text-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Additive manufacturing</div><div class="def">"Process of <b>joining materials</b> to make objects from 3D model data, <b>usually layer by layer</b>, as opposed to subtractive manufacturing methods."<br><span style="font-family:var(--f-mono);font-size:.9rem;color:var(--muted)">ISO/ASTM 52900</span></div></div>
+<p class="s-sub" style="margin-top:1.2vh">The same standard makes a second distinction that matters far more clinically than the first:</p>
+<div class="vs" style="margin-top:.6vh">
+<div class="card a"><h3>Single-step</h3><ul><li>Shape <b>and</b> basic material properties are achieved in one operation.</li><li>What comes off the machine is what you have.</li></ul></div>
+<div class="card b"><h3>Multi-step</h3><ul><li>Shape is achieved first. <b>Properties are achieved later</b>, in a separate operation.</li><li>Vat photopolymerization is multi-step. So is metal printing. So is printed zirconia.</li></ul></div>
+</div>
+</div>
+<div class="col-visual">
+<div class="mech"><span class="k-tag">Why this is the spine of the lecture</span>A milled crown is carved out of a blank whose properties were <b>set in a factory</b> under controlled pressure and temperature. You inherit them. A printed crown has <b>no properties until you finish making them</b> — at your bench, with your wash time and your cure cycle.</div>
+<div class="key" style="margin-top:1.6vh"><span class="k-tag">Carry this forward</span>Ask of any material: <b>how many state changes does it undergo after it has its shape?</b> Each one is another chance for the dimension, the strength or the biocompatibility to move.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Additive vs subtractive · the honest version</p>
+<h2 class="s-title">Neither one wins. They fail differently.</h2>
+<div class="s-body">
+<div class="col-text">
+<div class="vs" style="grid-template-columns:1fr">
+<div class="card a"><h3>Where additive genuinely wins</h3><ul>
+<li><b>Geometric freedom</b> — undercuts, internal channels, lattices; no tool has to reach the surface.</li>
+<li><b>No tool radius</b> — milling cannot cut a groove narrower than the bur, and internal corners are rounded <b>by definition</b>.</li>
+<li><b>Nesting</b> — dozens of parts per platform; the marginal cost of complexity is near zero.</li>
+<li><b>Waste</b> — a zirconia blank mostly becomes dust.</li>
+</ul></div>
+</div>
+</div>
+<div class="col-text">
+<div class="vs" style="grid-template-columns:1fr">
+<div class="card b"><h3>Where milling genuinely wins</h3><ul>
+<li><b>Industrially processed material</b> — the blank was polymerised or sintered under controlled conditions. You inherit quality instead of manufacturing it.</li>
+<li><b>Isotropy</b> — no layer planes, therefore no weak axis.</li>
+<li><b>Tolerance</b> — typically ±0.025–0.125 mm.</li>
+<li><b>Surface</b> — no layer lines, no support scars.</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="key" style="margin-top:1.4vh"><span class="k-tag">What the laboratory actually does</span>It <b>prints the model and the tray, and mills the definitive crown</b>. That is not indecision — it is the correct reading of both technologies.</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Structure · how a solid becomes a stack</p>
+<h2 class="s-title">The slicer is a CT scan running backwards</h2>
+<div class="s-body text-heavy">
+<div class="col-text">
+<p class="s-sub">You already know this operation. A CBCT takes a continuous volume and converts it into a stack of thin slices along one axis. The slicer does <b>exactly the same thing</b> to your STL — and the printer then runs the operation in reverse, rebuilding the volume from the slices.</p>
+<div class="mech" style="margin-top:1.2vh"><span class="k-tag">The shared artefact</span>Both suffer the same limitation: <b>resolution across the plane is worse than resolution within it</b>. In CBCT, slice thickness limits what you can see. In printing, <b>layer height</b> limits what you can build.</div>
+<div class="key" style="margin-top:1.4vh"><span class="k-tag">Two analogies to discard</span><b>Sliced bread</b> — the slices were cut from a loaf that already existed. That is a <b>subtractive</b> image being used to teach an additive process. <b>A brick wall</b> — bricks are joined by a third material, and are deliberately laid in staggered courses to avoid a continuous plane of weakness. Printed layers are perfectly aligned, so the analogy <b>understates</b> the problem.</div>
+</div>
+<div class="col-visual">
+<div class="defbox"><div class="term">Staircase effect</div><div class="def">A continuous surface approximated by discrete stacked layers is reproduced as a series of steps. The width of each step is <b>layer height ÷ tan θ</b>, where θ is the angle of the surface to the build platform.</div></div>
+<div class="mech" style="margin-top:1.4vh"><span class="k-tag">The counter-intuitive consequence</span>A <b>vertical</b> wall has no staircase at all. The <b>closer a surface lies to horizontal, the worse the steps become</b> — because tan θ collapses towards zero. Predict, before the next slide: which surface of a crown preparation is the worst case?</div>
+</div>
+</div>
+</section>
+
+<section class="slide slide--interactive">
+<p class="s-eyebrow">Interactive · resolution is not accuracy</p>
+<h2 class="s-title">Layer height: what you gain, what you pay</h2>
+<div class="s-body wgrid wide">
+<div class="col-text">
+<p class="igloss" style="margin-top:0">A surface inclined at <b>θ</b> to the platform, magnified. Move the layer height and watch the steps — and the clock.</p>
+<div class="control"><label><span>Layer height</span><span class="mono" id="w1hVal">50 µm</span></label><input type="range" id="w1h" min="0" max="3" step="1" value="1"></div>
+<div class="control"><label><span>Surface angle θ to platform</span><span class="mono" id="w1aVal">30°</span></label><input type="range" id="w1a" min="10" max="80" step="5" value="30"></div>
+<div class="readout">
+<div class="rcard"><span class="rl">Step width</span><span class="rv" id="w1step">—</span><span class="rs">= h / tan θ</span></div>
+<div class="rcard"><span class="rl">Deviation from CAD</span><span class="rv" id="w1dev">—</span><span class="rs">= h · cos θ</span></div>
+<div class="rcard"><span class="rl">Layers (12 mm object)</span><span class="rv" id="w1lay">—</span><span class="rs">= height / h</span></div>
+<div class="rcard"><span class="rl">Print time</span><span class="rv" id="w1time">—</span><span class="rs">≈ 7 s per layer</span></div>
+</div>
+<p class="igloss" id="w1note" style="font-size:1.08rem"></p>
+</div>
+<div class="col-visual">
+<div class="instrument"><svg id="w1svg" viewBox="0 0 560 360" style="width:100%;display:block" aria-label="staircase effect on an inclined surface"></svg></div>
+<p class="srcline">Step geometry is exact. Time model: exposure + lift + retract + rest ≈ 7 s per layer, independent of h — so time scales as 1/h.</p>
+</div>
+</div>
+</section>
+
+<section class="slide slide--divider"><div class="s-eyebrow">Part 2 of 5</div><div class="num">02</div><h2>From digital file to finished object</h2><div class="d-list"><span>The six steps</span><span>· What each step writes into the material</span><span>· Build orientation</span></div></section>
+
+<section class="slide slide--focusfig">
+<div class="ff-head">
+<p class="s-eyebrow">Structure → property · the workflow</p>
+<h2 class="s-title">Every step is a materials decision</h2>
+<p class="s-sub">Top band: what the operator chooses. Bottom band: what that choice writes permanently into the material.</p>
+</div>
+<div class="s-body one-col" style="display:block">
+<div class="figbox" style="max-width:none;padding:.8rem"><img src="assets/workflow-ribbon.png" alt="Six-stage additive manufacturing workflow with operator decisions above and material consequences below" style="max-height:56vh"></div>
+</div>
+<p class="axisnote">Note that step 3 — print preparation — has no counterpart in milling. It is where a file becomes a specific physical object.</p>
+</section>
+
+<section class="slide slide--interactive">
+<p class="s-eyebrow">Interactive · the anchor of this lecture</p>
+<h2 class="s-title">One angle, four consequences</h2>
+<div class="s-body wgrid wide">
+<div class="col-text">
+<p class="igloss" style="margin-top:0">The same crown file, the same resin, the same 50 µm layer. Only the <b>build orientation</b> changes.</p>
+<div class="seg" id="w2seg"><button data-a="0" class="on">0°</button><button data-a="45">45°</button><button data-a="90">90°</button></div>
+<div class="readout">
+<div class="rcard"><span class="rl">Marginal gap · SLA</span><span class="rv" id="w2sla">—</span><span class="rs">Formlabs Form 2, permanent crown resin</span></div>
+<div class="rcard"><span class="rl">Marginal gap · DLP</span><span class="rv" id="w2dlp">—</span><span class="rs">NextDent 5100, C&amp;B resin</span></div>
+</div>
+<p class="igloss" id="w2note" style="font-size:1.08rem"></p>
+<p class="srcline">Farag E et al. BMC Oral Health 2024;24:73. n = 60 mandibular molar crowns, 10 per cell, 50 µm layers, 30 µm cement space, gap measured at 40× on four axial sites.</p>
+</div>
+<div class="col-visual">
+<div class="instrument"><svg id="w2svg" viewBox="0 0 620 430" style="width:100%;display:block" aria-label="build orientation, staircase, supports and marginal gap"></svg></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Reading the result honestly</p>
+<h2 class="s-title">A real effect that did not fail a single specimen</h2>
+<div class="s-body">
+<div class="col-text">
+<ul class="blist">
+<li>Build angle changed the marginal gap <b>in both technologies</b>, every pairwise comparison significant at <b>p &lt; 0.001</b>. Pooled: 48.5 → 62.5 → 80.5 µm.</li>
+<li>The worst cell (DLP at 90°, 89 µm) was <b>more than double</b> the best (SLA at 0°, 40 µm).</li>
+<li>And yet <b>every single group</b> stayed under the conventional clinical limit of <b>120 µm</b>.</li>
+</ul>
+<div class="key" style="margin-top:1.6vh"><span class="k-tag">The sentence to remember</span>Orientation is not the difference between success and failure on a single molar crown under ideal laboratory conditions. It is <b>safety margin that you either spend or save</b> — and you spend it before you ever touch the patient.</div>
+</div>
+<div class="col-visual">
+<div class="mech"><span class="k-tag">A comparison the study could not make</span>SLA came out better than DLP overall (55.6 vs 72 µm). But the two arms differed in <b>printer, resin and post-processing protocol</b> simultaneously. What was compared was two <b>complete systems</b>, not two technologies. The authors themselves conclude that no one printing method is inherently better.</div>
+<div class="key" style="margin-top:1.4vh"><span class="k-tag">Where the 120 µm comes from</span>McLean &amp; von Fraunhofer, British Dental Journal 1971 — around a thousand restorations followed for five years. It is the most cited threshold in dentistry, and it is more than fifty years old. Proposals in the literature range from 25 to 200 µm.</div>
+</div>
+</div>
+</section>
+
+<section class="slide slide--divider"><div class="s-eyebrow">Part 3 of 5</div><div class="num">03</div><h2>The family of technologies</h2><div class="d-list"><span>Five process families</span><span>· What consolidates the material</span><span>· The optics of vat photopolymerization</span></div></section>
+
+<section class="slide slide--focusfig">
+<div class="ff-head">
+<p class="s-eyebrow">Structure · classify by mechanism, not by brand</p>
+<h2 class="s-title">What actually turns feedstock into solid</h2>
+<p class="s-sub">Five families. The organising column is the third one — everything else follows from it.</p>
+</div>
+<div class="s-body one-col" style="display:block">
+<div class="figbox" style="max-width:none;padding:.8rem"><img src="assets/process-families-matrix.png" alt="Matrix of five additive manufacturing process families by consolidation mechanism" style="max-height:56vh"></div>
+</div>
+<p class="axisnote">Notice the pattern: where the feedstock is a powder bed, the powder itself is the support — so there are no support structures to remove, but the part comes out fragile.</p>
+</section>
+
+<section class="slide slide--focusfig">
+<div class="ff-head">
+<p class="s-eyebrow">Vat photopolymerization · same vat, different optics</p>
+<h2 class="s-title">SLA and LCD: point by point, or a whole layer at once</h2>
+</div>
+<div class="s-body one-col" style="display:block">
+<div class="figbox" style="max-width:none;padding:.8rem"><img src="assets/vat-optics-sla-lcd.png" alt="Schematic comparison of SLA and LCD/mSLA optical systems" style="max-height:58vh"></div>
+</div>
+<p class="axisnote">SLA draws each cross-section with a moving laser spot. LCD exposes the entire layer through a pixel mask — which is why its resolution is the pixel size, and why light diffusion erodes it.</p>
+</section>
+
+<section class="slide slide--focusfig">
+<div class="ff-head">
+<p class="s-eyebrow">Vat photopolymerization · projection and continuous growth</p>
+<h2 class="s-title">DLP and CLIP: voxels, and the layer that never peels</h2>
+</div>
+<div class="s-body one-col" style="display:block">
+<div class="figbox" style="max-width:none;padding:.8rem"><img src="assets/vat-optics-dlp-clip.png" alt="Schematic comparison of DLP and CLIP optical systems" style="max-height:58vh"></div>
+</div>
+<p class="axisnote">Hold on to CLIP's dead zone — we come back to it in Part 4, because it is built out of a reaction you already know as a <em>defect</em>.</p>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Metals · what belongs here, and what belongs later</p>
+<h2 class="s-title">Powder bed fusion: sintering versus melting</h2>
+<div class="s-body">
+<div class="col-text">
+<div class="defbox"><div class="term">SLS — selective laser sintering</div><div class="def">The laser raises the powder to the point where particles <b>fuse at their contacts</b> without fully liquefying. Residual porosity is intrinsic.</div></div>
+<div class="defbox"><div class="term">SLM / DMLS — selective laser melting</div><div class="def">A high-energy laser <b>fully melts</b> the metal powder layer into the one below, producing essentially <b>fully dense</b> metal.</div></div>
+<p class="s-sub" style="margin-top:1vh">Materials: Co-Cr, titanium and its alloys, stainless steel. Layers of 20–50 µm, in a sealed inert atmosphere.</p>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">Where you will meet this again</span>Removable partial denture frameworks, metal copings, implant frameworks and custom titanium meshes are printed this way — and the direct route <b>replaces the whole lost-wax casting chain</b>.</div>
+<div class="mech" style="margin-top:1.4vh"><span class="k-tag">Deliberately not covered today</span>The thermal cycle that follows metal printing — stress relief, and for some routes debinding and sintering — belongs with the metallurgy in <b>Lecture 16, Cobalt-chromium alloys</b>. What you need now is only the principle: <b>the laser is the consolidation mechanism</b>, and it either sinters or melts.</div>
+<div class="mech" style="margin-top:1.4vh"><span class="k-tag">The hybrid answer</span>The most mature commercial workflow for an implant bridge <b>prints the framework and then mills the implant interface</b>. Additive where geometry is free; subtractive where tolerance is critical.</div>
+</div>
+</div>
+</section>
+
+<section class="slide slide--divider"><div class="s-eyebrow">Part 4 of 5</div><div class="num">04</div><h2>Where the properties are written</h2><div class="d-list"><span>The green part</span><span>· Gel point and trapped monomer</span><span>· Two windows, not two dials</span><span>· Oxygen</span></div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Property · the part is not finished when printing stops</p>
+<h2 class="s-title">The green part: shape achieved, material not</h2>
+<p class="s-sub">The term comes from ceramics and powder metallurgy — a <em>green body</em> is formed but not yet sintered. It holds its shape and nothing else.</p>
+<div class="stagestrip">
+<div class="stage green"><div class="chip" style="background:#F6E6A8"></div><div class="st">1 · Printed &amp; washed</div><div class="sd">Translucent pale yellow. Support nubs still attached.</div></div>
+<div class="stage"><div class="chip" style="background:#E8A24A"></div><div class="st">2 · Post-cured</div><div class="sd">Translucent orange.</div></div>
+<div class="stage"><div class="chip" style="background:#E8A24A"></div><div class="st">3 · Polished</div><div class="sd">Same colour, smooth, nubs removed.</div></div>
+<div class="stage"><div class="chip" style="background:#E8A24A;background-image:radial-gradient(circle at 30% 50%,#9AA8B2 8px,transparent 9px),radial-gradient(circle at 70% 50%,#9AA8B2 8px,transparent 9px)"></div><div class="st">4 · Sleeves seated</div><div class="sd">Metal guide cylinders inserted.</div></div>
+<div class="stage"><div class="chip" style="background:#F3EBC0"></div><div class="st">5 · Autoclaved</div><div class="sd">Back to pale yellow, slightly lighter.</div></div>
+</div>
+<p class="axisnote">→ degree of conversion increasing →</p>
+<div class="s-body one-col" style="flex:0;margin-top:1vh">
+<div class="key"><span class="k-tag">Colour is chemistry you can see</span>Yellow to orange is the photoinitiator system reacting as conversion rises. That is a <b>macroscopic readout of a molecular event</b> — and it means a technician can tell, across the bench, that a device has not been cured.</div>
+</div>
+</section>
+
+<section class="slide slide--interactive">
+<p class="s-eyebrow">Interactive · the mechanism that governs everything downstream</p>
+<h2 class="s-title">The gel point, and the monomer that gets trapped</h2>
+<div class="s-body wgrid wide">
+<div class="col-text">
+<p class="igloss" style="margin-top:0">Drag through the reaction. Watch mobility collapse before conversion is anywhere near complete.</p>
+<div class="control"><label><span>Reaction progress</span><span class="mono" id="w3phase">printing exposure</span></label><input type="range" id="w3t" min="0" max="100" step="1" value="0"></div>
+<div class="readout">
+<div class="rcard"><span class="rl">Degree of conversion</span><span class="rv" id="w3dc">0%</span><span class="rs">below 50% → leachable monomer</span></div>
+<div class="rcard"><span class="rl">Monomer mobility</span><span class="rv" id="w3mob">100%</span><span class="rs">collapses at the gel point</span></div>
+</div>
+<div class="viscowrap" style="margin-top:1.1rem">
+<div class="viscolabel"><span>Leachable monomer</span><span id="w3leachTxt">100%</span></div>
+<div class="viscobar"><div class="viscofill" id="w3leach" style="background:linear-gradient(90deg,#8FD1A8,#F2B84B,#D64545)"></div></div>
+</div>
+<p class="igloss" id="w3note" style="font-size:1.08rem"></p>
+</div>
+<div class="col-visual">
+<div class="instrument"><canvas id="w3canvas" style="width:100%;display:block;border-radius:12px"></canvas></div>
+<p class="srcline">Kinetics per Hassanpour et al., Polymers 2024;16:2795. Best measured DC in a commercial cure unit: 69.6% at 45 min (Kirby et al.).</p>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property · post-processing</p>
+<h2 class="s-title">Washing and curing are windows, not dials</h2>
+<div class="s-body">
+<div class="col-text">
+<div class="vs" style="grid-template-columns:1fr">
+<div class="card a"><h3>Washing</h3><ul>
+<li><b>Too little</b> — unreacted surface monomer stays. Oxygen inhibits it, so post-curing cannot rescue it. Cytotoxicity, roughness, and a substrate for cariogenic bacteria.</li>
+<li><b>Too much</b> — solvent penetrates the network, causing swelling, osmotic stress and relaxation. Beyond 12 h: flexural strength falls and surface cracks appear.</li>
+<li><b>Time matters more than solvent choice</b> for cell viability.</li>
+</ul></div>
+</div>
+</div>
+<div class="col-text">
+<div class="vs" style="grid-template-columns:1fr">
+<div class="card b"><h3>Post-curing</h3><ul>
+<li><b>Too little</b> — conversion stalls, mechanical properties and biocompatibility both suffer.</li>
+<li><b>Too much</b> — embrittlement, and PMMA-based systems begin to <b>depolymerise above ~125 °C</b>, releasing monomer.</li>
+<li>Temperature raises conversion but <b>lowers dimensional accuracy</b> — the two optima are not the same point.</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="key" style="margin-top:1.4vh"><span class="k-tag">The rule to carry into clinic</span>"More" is not a protocol. Every post-processing variable has a window, and stepping outside it in <b>either direction</b> costs you something — usually strength on one side and biocompatibility on the other.</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Mechanism · the same reaction, twice</p>
+<h2 class="s-title">Oxygen: the defect that became the machine</h2>
+<div class="s-body">
+<div class="col-text">
+<p class="s-sub">You have already met oxygen inhibition — as a nuisance. Atmospheric oxygen scavenges free radicals at the surface, leaving a thin unpolymerised, tacky layer on a composite restoration.</p>
+<div class="mech" style="margin-top:1.2vh"><span class="k-tag">In printing, it is the same nuisance</span>The surface of a printed part is oxygen-inhibited too. That is why insufficient washing cannot be fixed by longer curing — <b>the oxygen is still there, still inhibiting</b>. It is also why post-curing under nitrogen improves dimensional accuracy.</div>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">And then somebody inverted it</span>In CLIP, an <b>oxygen-permeable window</b> maintains a permanently liquid <b>dead zone</b> of a few tens of micrometres at the bottom of the vat. Because the solid never touches the window, there is nothing to peel — and the part can grow <b>continuously</b> instead of layer by layer.</div>
+<div class="bigq">The oxygen that spoils your restoration is the oxygen that makes continuous printing possible.</div>
+</div>
+</div>
+</section>
+
+<section class="slide slide--divider"><div class="s-eyebrow">Part 5 of 5</div><div class="num">05</div><h2>When it goes wrong — and where it reaches the patient</h2><div class="d-list"><span>Failure modes</span><span>· Supports</span><span>· Trueness and precision</span><span>· Maturity</span></div></section>
+
+<section class="slide slide--focusfig">
+<div class="ff-head">
+<p class="s-eyebrow">Performance · reading a failed print</p>
+<h2 class="s-title">Six failures, six mechanisms</h2>
+<p class="s-sub">None of these is bad luck. Each one names a specific physical cause.</p>
+</div>
+<div class="s-body one-col" style="display:block">
+<div class="figbox" style="max-width:none;padding:.8rem"><img src="assets/failure-gallery.png" alt="Six characteristic 3D printing failures with their causes" style="max-height:56vh"></div>
+</div>
+<p class="axisnote">Cupping blowout is the one worth dwelling on: as the platform lifts, a sealed concavity gains volume, pressure drops, and the wall implodes to equalise. Ask yourself why a hollow full-arch model is exactly that geometry.</p>
+</section>
+
+<section class="slide slide--focusfig">
+<div class="ff-head">
+<p class="s-eyebrow">Performance · the decision that reaches the patient</p>
+<h2 class="s-title">Same surface. Opposite rule.</h2>
+</div>
+<div class="s-body one-col" style="display:block">
+<div class="figbox" style="max-width:none;padding:.8rem"><img src="assets/supports-intaglio-inversion.png" alt="Support placement on a crown versus a complete denture base" style="max-height:54vh"></div>
+</div>
+<p class="axisnote">The intaglio of a crown is the cementation interface and will never be touched again. The intaglio of a denture base will be adjusted, relined and polished. The surface is the same; its future is not.</p>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Performance · saying what you actually measured</p>
+<h2 class="s-title">Trueness, precision, accuracy</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Trueness</div><div class="def">Closeness of the <b>mean</b> result to the true or reference value. How close you are to the CAD design.</div></div>
+<div class="defbox"><div class="term">Precision</div><div class="def">Closeness of <b>repeated results to each other</b>. Reproducibility between copies.</div></div>
+<div class="defbox"><div class="term">Accuracy</div><div class="def">Both together. <b>Not a quadrant — the diagonal.</b><br><span style="font-family:var(--f-mono);font-size:.9rem;color:var(--muted)">ISO 5725</span></div></div>
+<div class="key" style="margin-top:1.2vh"><span class="k-tag">The asymmetry nobody teaches</span>You can measure <b>precision</b> in your own clinic — scan the same case repeatedly and compare the scans to each other. You <b>cannot</b> measure trueness without an external reference you do not have. So a systematic bias is <b>invisible</b> to you. It shows up as "every crown comes back tight", and the laboratory gets blamed.</div>
+</div>
+<div class="col-visual"><div class="figbox"><img src="assets/trueness-precision-target.png" alt="Four targets arranged by trueness and precision"><p class="figcap"><b>FIG.</b> Accuracy runs along the diagonal, from bottom-left to top-right. Older dental papers often write "accuracy" where they mean trueness — the standard itself notes that the word changed meaning.</p></div></div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Performance · numbers that survive scrutiny</p>
+<h2 class="s-title">Predictably imperfect — and the pattern tells you why</h2>
+<div class="s-body">
+<div class="col-text">
+<p class="pill">Static guided implant surgery</p>
+<table class="dtable" style="margin-top:.7vh">
+<tr><th>Guide support</th><th>Angular</th><th>At the entry</th><th>At the apex</th></tr>
+<tr class="hi"><td><b>Tooth-supported</b></td><td>1.81°</td><td>0.59 mm</td><td>0.73 mm</td></tr>
+<tr><td>Bone-supported</td><td>2.14°</td><td>1.04 mm</td><td>1.61 mm</td></tr>
+<tr><td>Mucosa-supported</td><td>2.95°</td><td>1.47 mm</td><td>1.87 mm</td></tr>
+</table>
+<p class="srcline">J Funct Biomater 2026;17(4):194. Values are means ± SD in the source.</p>
+<div class="key" style="margin-top:1.2vh"><span class="k-tag">Ask the class</span>Tooth, then bone, then mucosa. Why does the error rise in exactly that order? <b>The guide is only as rigid as what it sits on.</b></div>
+</div>
+<div class="col-visual">
+<p class="pill clin">Printed vs milled zirconia crowns</p>
+<table class="dtable" style="margin-top:.7vh">
+<tr><th></th><th>Printed</th><th>Milled</th></tr>
+<tr><td>Vertical marginal gap</td><td>80 ± 30 µm</td><td><b>60 ± 20 µm</b></td></tr>
+<tr><td>Seating discrepancy</td><td>100 ± 10 µm</td><td><b>60 ± 10 µm</b></td></tr>
+<tr><td>Axial gap</td><td colspan="2" style="text-align:center">no significant difference</td></tr>
+</table>
+<p class="srcline">BMC Oral Health 2023, 3Y-TZP, n = 20 per group.</p>
+<div class="mech" style="margin-top:1.2vh"><span class="k-tag">Both things are true</span><b>Milling wins, and printing passes.</b> Every value sits under 120 µm. The honest conclusion is not "printing is worse" — it is "printing is acceptable here, with less margin to spare".</div>
+</div>
+</div>
+</section>
+
+<section class="slide slide--focusfig">
+<div class="ff-head">
+<p class="s-eyebrow">Performance · what is actually ready</p>
+<h2 class="s-title">Clinically available is not clinically proven</h2>
+</div>
+<div class="s-body one-col" style="display:block">
+<div class="figbox" style="max-width:none;padding:.8rem"><img src="assets/maturity-ladder.png" alt="Three-tier maturity ladder of dental 3D printing applications" style="max-height:54vh"></div>
+</div>
+<p class="axisnote">The evidence axis is deliberately inverted against the steps: the highest tier has the weakest evidence. Almost the entire published body of work is in vitro, and long-term survival data for printed definitive restorations does not yet exist.</p>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Recap · the outcome map</p>
+<h2 class="s-title">What you should now be able to do</h2>
+<div class="objgrid" style="grid-template-columns:repeat(3,1fr)">
+<div class="objcard"><span class="objnum">1</span><div class="objtxt"><b>Principles and workflow.</b> Layer-by-layer construction; digital model → print preparation → build → post-processing → device. Single-step versus multi-step, and why the distinction is clinical.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">Parts 1–2 · staircase widget · orientation widget</span></div></div>
+<div class="objcard"><span class="objnum">2</span><div class="objtxt"><b>The technologies.</b> Five families classified by what consolidates the feedstock; the four optical routes in vat photopolymerization; sintering versus melting in metals.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">Part 3</span></div></div>
+<div class="objcard"><span class="objnum">3</span><div class="objtxt"><b>Applications, advantages, limitations.</b> Routine, emerging and experimental indications; failure modes and their causes; trueness versus precision; where milling still wins.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">Parts 4–5</span></div></div>
+</div>
+<div class="key" style="margin-top:2vh"><span class="k-tag">Take this one sentence</span>The STL is not the object. The STL is an <b>intention</b>. The object is whatever your machine, your resin, your build angle and your cure cycle make of that intention — and the same file has been measured to give 0.07 mm of deviation on one printer and 0.26 mm on another.</div>
+</section>
+
+</div></div>
+<div class="deckbar"><button class="navbtn" id="prev">&lsaquo;</button><button class="navbtn" id="next">&rsaquo;</button>
+<span class="part" id="partLabel"></span><button class="navbtn" id="menuBtn" title="Menu (O)">☰</button><span class="count" id="count"></span></div>
+<div class="overview" id="overview"><button class="ov-close" id="ovClose">✕ close (Esc)</button><h3>Jump to a slide</h3><p class="ov-hint">Click any slide · press O to toggle · Esc to close</p><div class="ov-grid" id="ovGrid"></div></div>
+<script>
+/* ============ deck engine (same as Lecture 03) ============ */
+var track=document.getElementById("track");
+var slides=[].slice.call(document.querySelectorAll(".slide"));var i=0;
+function show(n){i=Math.max(0,Math.min(slides.length-1,n));track.style.transform="translateX("+(-i*100)+"vw)";
+document.getElementById("count").textContent=(i+1)+" / "+slides.length;
+var eb=slides[i].querySelector(".s-eyebrow, h2");document.getElementById("partLabel").textContent=eb?eb.textContent.trim():"";
+document.getElementById("prog").style.width=((i+1)/slides.length*100)+"%";
+if(window.__w3fit){try{window.__w3fit();}catch(e){}}}
+document.getElementById("next").onclick=function(){show(i+1)};
+document.getElementById("prev").onclick=function(){show(i-1)};
+document.addEventListener("keydown",function(e){if(e.target.tagName==="INPUT")return;
+if(e.key==="ArrowRight"||e.key==="PageDown"||e.key===" "){e.preventDefault();show(i+1)}
+else if(e.key==="ArrowLeft"||e.key==="PageUp"){e.preventDefault();show(i-1)}
+else if(e.key==="Home"){show(0)}else if(e.key==="End"){show(slides.length-1)}
+else if(e.key==="f"||e.key==="F"){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}
+else if(e.key==="o"||e.key==="O"){toggleOverview();}
+else if(e.key==="Escape"){closeOverview();}});
+var ov=document.getElementById("overview"),ovGrid=document.getElementById("ovGrid");
+function buildOverview(){
+  ovGrid.innerHTML="";
+  slides.forEach(function(sl,idx){
+    var isPart=sl.classList.contains("slide--divider");
+    var h=sl.querySelector("h1, h2 .s-title, h2");
+    var label=h?h.textContent.trim():("Slide "+(idx+1));
+    if(isPart){var num=sl.querySelector(".num"),htxt=sl.querySelector("h2");label=(num?num.textContent+" · ":"")+(htxt?htxt.textContent.trim():label);}
+    var item=document.createElement("button");
+    item.className="ov-item"+(isPart?" is-part":"");
+    item.innerHTML='<span class="ov-n">'+(idx+1)+'</span><span class="ov-t">'+label+'</span>';
+    item.onclick=function(){show(idx);closeOverview();};
+    ovGrid.appendChild(item);
+  });
+}
+function openOverview(){buildOverview();ov.classList.add("open");}
+function closeOverview(){ov.classList.remove("open");}
+function toggleOverview(){ov.classList.contains("open")?closeOverview():openOverview();}
+document.getElementById("menuBtn").onclick=toggleOverview;
+document.getElementById("count").onclick=toggleOverview;
+document.getElementById("ovClose").onclick=closeOverview;
+
+show(0);
+var NS="http://www.w3.org/2000/svg";
+function el(t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);return e;}
+function txt(x,y,s,a){var t=el("text",a||{});t.setAttribute("x",x);t.setAttribute("y",y);t.textContent=s;return t;}
+
+/* ============ W1 · staircase: layer height vs angle ============ */
+(function(){try{
+var hS=document.getElementById("w1h"),aS=document.getElementById("w1a"),svg=document.getElementById("w1svg");
+if(!svg)return;
+var HS=[25,50,100,150];
+var VH=500;                 /* physical height of the magnified view, µm */
+var X0=70,Y0=310,PW=470,PH=265;
+function draw(){
+  var h=HS[+hS.value], th=+aS.value, rad=th*Math.PI/180;
+  var stepW=h/Math.tan(rad);            /* µm */
+  var dev=h*Math.cos(rad);              /* µm */
+  var VW=VH/Math.tan(rad);              /* µm of horizontal span for VH of rise */
+  var sc=Math.min(PH/VH,PW/VW);
+  var n=Math.max(2,Math.floor(VH/h));
+  svg.innerHTML="";
+  svg.appendChild(el("rect",{x:0,y:0,width:560,height:360,fill:"none"}));
+  /* platform */
+  svg.appendChild(el("line",{x1:40,y1:Y0,x2:540,y2:Y0,stroke:"#3E6076","stroke-width":2}));
+  svg.appendChild(txt(40,Y0+22,"build platform (layers stack upwards)",{fill:"#8FA9BC","font-size":"13","font-family":"IBM Plex Mono, monospace"}));
+  svg.appendChild(el("path",{d:"M28 "+(Y0-10)+" L28 "+(Y0-90),stroke:"#57C6D8","stroke-width":2,"marker-end":""}));
+  svg.appendChild(el("path",{d:"M28 "+(Y0-96)+" l-5 10 l10 0 z",fill:"#57C6D8"}));
+  /* staircase polyline */
+  var d="M"+X0+" "+Y0, x=X0, y=Y0, pts=[];
+  for(var k=0;k<n;k++){
+    var nx=x+stepW*sc; if(nx-X0>PW+2)break;
+    d+=" L"+nx+" "+y; x=nx;
+    var ny=y-h*sc; if(Y0-ny>PH+2)break;
+    d+=" L"+x+" "+ny; y=ny; pts.push([x,y]);
+  }
+  var endX=x,endY=y;
+  /* ideal surface */
+  svg.appendChild(el("line",{x1:X0,y1:Y0,x2:endX,y2:endY,stroke:"#F2B84B","stroke-width":2.5,"stroke-dasharray":"7 5"}));
+  svg.appendChild(el("path",{d:d+" L"+endX+" "+endY+" Z",fill:"rgba(214,69,69,.20)",stroke:"none"}));
+  svg.appendChild(el("path",{d:d,fill:"none",stroke:"#57C6D8","stroke-width":2.6,"stroke-linejoin":"miter"}));
+  svg.appendChild(txt(endX+8,endY-4,"CAD surface",{fill:"#F2B84B","font-size":"14","font-family":"IBM Plex Mono, monospace"}));
+  svg.appendChild(txt(endX+8,endY+16,"printed surface",{fill:"#57C6D8","font-size":"14","font-family":"IBM Plex Mono, monospace"}));
+  /* step-width bracket on the first step */
+  if(pts.length){
+    var bw=stepW*sc, by=Y0+12;
+    svg.appendChild(el("line",{x1:X0,y1:by,x2:X0+bw,y2:by,stroke:"#F58A9B","stroke-width":1.6}));
+    svg.appendChild(el("line",{x1:X0,y1:by-5,x2:X0,y2:by+5,stroke:"#F58A9B","stroke-width":1.6}));
+    svg.appendChild(el("line",{x1:X0+bw,y1:by-5,x2:X0+bw,y2:by+5,stroke:"#F58A9B","stroke-width":1.6}));
+    svg.appendChild(txt(X0+bw/2,by+20,"step width",{fill:"#F58A9B","font-size":"13","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"}));
+  }
+  svg.appendChild(txt(40,26,"magnified view · "+VH+" µm of rise · θ = "+th+"°",{fill:"#8FA9BC","font-size":"14","font-family":"IBM Plex Mono, monospace"}));
+  svg.appendChild(txt(40,48,n+" layers across this view",{fill:"#57C6D8","font-size":"14","font-family":"IBM Plex Mono, monospace"}));
+  /* readouts */
+  document.getElementById("w1hVal").textContent=h+" µm";
+  document.getElementById("w1aVal").textContent=th+"°";
+  document.getElementById("w1step").textContent=Math.round(stepW)+" µm";
+  document.getElementById("w1dev").textContent=Math.round(dev)+" µm";
+  var layers=Math.round(12000/h);
+  document.getElementById("w1lay").textContent=layers;
+  var mins=layers*7/60;
+  document.getElementById("w1time").textContent=(mins<60?Math.round(mins)+" min":(mins/60).toFixed(1)+" h");
+  var devEl=document.getElementById("w1dev");
+  devEl.className="rv"+(dev>50?" warn":" ok");
+  var note;
+  if(th<=20) note="Near-horizontal: tan θ collapses, the step becomes <b>"+Math.round(stepW)+" µm wide</b>. This is the occlusal surface and the shallow cuspal inclines — the worst case in a crown.";
+  else if(th>=70) note="Near-vertical: the layers stack almost straight up, the staircase nearly disappears. This is the axial wall of a preparation — the best case.";
+  else note="Halving the layer height halves the step, and <b>doubles the print time</b>. Resolution is a machine specification; accuracy is not.";
+  document.getElementById("w1note").innerHTML=note;
+}
+hS.addEventListener("input",draw);aS.addEventListener("input",draw);draw();
+}catch(e){if(window.console)console.error("W1",e);}})();
+
+/* ============ W2 · one angle, four consequences ============ */
+(function(){try{
+var svg=document.getElementById("w2svg"),seg=document.getElementById("w2seg");
+if(!svg)return;
+var DATA={0:{sla:40,dlp:57},45:{sla:55,dlp:70},90:{sla:72,dlp:89}};
+var ang=0;
+function crownPath(){
+  return "M-52 34 C-58 6 -48 -14 -36 -22 C-28 -34 -14 -30 -8 -20 C-2 -32 12 -34 20 -24 C34 -18 44 2 40 32 Z";
+}
+function draw(){
+  var d=DATA[ang];
+  svg.innerHTML="";
+  /* ---------- panel A: crown on the platform ---------- */
+  svg.appendChild(txt(20,24,"A · on the build platform",{fill:"#8FA9BC","font-size":"14","font-family":"IBM Plex Mono, monospace"}));
+  var cx=150,cy=120;
+  var g=el("g",{transform:"translate("+cx+","+cy+") rotate("+(-ang)+")"});
+  g.appendChild(el("path",{d:crownPath(),fill:"rgba(87,198,216,.13)",stroke:"#9FCBD6","stroke-width":2}));
+  /* margin line highlighted */
+  g.appendChild(el("line",{x1:-52,y1:34,x2:40,y2:32,stroke:"#F58A9B","stroke-width":4,"stroke-linecap":"round"}));
+  svg.appendChild(g);
+  /* horizontal layer lines stay horizontal in world space */
+  var clip=el("clipPath",{id:"w2clip"});
+  var cg=el("g",{transform:"translate("+cx+","+cy+") rotate("+(-ang)+")"});
+  cg.appendChild(el("path",{d:crownPath()}));
+  clip.appendChild(cg);svg.appendChild(clip);
+  var lg=el("g",{"clip-path":"url(#w2clip)"});
+  for(var y=cy-70;y<cy+70;y+=7){lg.appendChild(el("line",{x1:cx-80,y1:y,x2:cx+80,y2:y,stroke:"#57C6D8","stroke-width":.9,opacity:.55}));}
+  svg.appendChild(lg);
+  /* platform + supports */
+  svg.appendChild(el("line",{x1:40,y1:210,x2:270,y2:210,stroke:"#3E6076","stroke-width":3}));
+  var supCol = ang===90?"#D64545":(ang===45?"#F2B84B":"#8FD1A8");
+  for(var k=0;k<5;k++){var sx=80+k*32;svg.appendChild(el("line",{x1:sx,y1:210,x2:sx,y2:172,stroke:supCol,"stroke-width":2.4}));}
+  var supTxt = ang===90?"supports land on the margin":(ang===45?"supports set back from the margin":"supports on the occlusal, away from the margin");
+  svg.appendChild(txt(40,232,supTxt,{fill:supCol,"font-size":"13.5","font-family":"IBM Plex Mono, monospace"}));
+  svg.appendChild(txt(40,250,"pink = finish line",{fill:"#F58A9B","font-size":"12.5","font-family":"IBM Plex Mono, monospace"}));
+  /* ---------- panel B: margin zoom ---------- */
+  svg.appendChild(txt(330,24,"B · the finish line, magnified",{fill:"#8FA9BC","font-size":"14","font-family":"IBM Plex Mono, monospace"}));
+  var bx=350,by=190,bw=230,bh=140;
+  var nsteps = ang===0?1:(ang===45?5:11);
+  var stepW=bw/nsteps, stepH=bh/nsteps;
+  var dd="M"+bx+" "+by, px=bx,py=by;
+  for(var s=0;s<nsteps;s++){px+=stepW;dd+=" L"+px+" "+py;py-=stepH;dd+=" L"+px+" "+py;}
+  svg.appendChild(el("line",{x1:bx,y1:by,x2:bx+bw,y2:by-bh,stroke:"#F2B84B","stroke-width":2,"stroke-dasharray":"6 4"}));
+  svg.appendChild(el("path",{d:dd,fill:"none",stroke:"#F58A9B","stroke-width":2.6}));
+  var zt = ang===0?"axial wall vertical to the build — clean stacked layers":(ang===45?"the wall now crosses the layers":"the wall is nearly horizontal to the build — maximum staircase");
+  svg.appendChild(txt(330,232,zt,{fill:"#F58A9B","font-size":"13.5","font-family":"IBM Plex Mono, monospace"}));
+  if(ang===90)svg.appendChild(txt(330,250,"+ light enters a wider area, shorter path → over-cure",{fill:"#F2B84B","font-size":"13","font-family":"IBM Plex Mono, monospace"}));
+  /* ---------- panel C: measured gap ---------- */
+  svg.appendChild(txt(20,290,"C · measured marginal gap",{fill:"#8FA9BC","font-size":"14","font-family":"IBM Plex Mono, monospace"}));
+  var gx=140,gw=420,maxv=130;
+  function bar(y,label,val,col){
+    svg.appendChild(txt(gx-12,y+13,label,{fill:"#E8F1F6","font-size":"14","text-anchor":"end","font-family":"IBM Plex Mono, monospace"}));
+    svg.appendChild(el("rect",{x:gx,y:y,width:gw,height:18,rx:9,fill:"rgba(255,255,255,.06)"}));
+    svg.appendChild(el("rect",{x:gx,y:y,width:gw*val/maxv,height:18,rx:9,fill:col}));
+    svg.appendChild(txt(gx+gw*val/maxv+10,y+14,val+" µm",{fill:col,"font-size":"15","font-weight":"600","font-family":"IBM Plex Mono, monospace"}));
+  }
+  bar(305,"SLA",d.sla,"#57C6D8");
+  bar(335,"DLP",d.dlp,"#F2B84B");
+  var lx=gx+gw*120/maxv;
+  svg.appendChild(el("line",{x1:lx,y1:298,x2:lx,y2:362,stroke:"#D64545","stroke-width":2,"stroke-dasharray":"5 4"}));
+  svg.appendChild(txt(lx-6,375,"120 µm clinical limit",{fill:"#D64545","font-size":"13","text-anchor":"end","font-family":"IBM Plex Mono, monospace"}));
+  document.getElementById("w2sla").textContent=d.sla+" µm";
+  document.getElementById("w2dlp").textContent=d.dlp+" µm";
+  var note;
+  if(ang===0)note="Occlusal parallel to the platform. The axial wall — where the gap is measured — is built <b>vertically</b>, layer on layer. Best result in both technologies.";
+  else if(ang===45)note="Intermediate. Supports move away from the margin, which protects it during removal — but the wall now crosses the layers and the staircase appears.";
+  else note="The wall is nearly horizontal to the build direction: maximum staircase, maximum over-cure on the buccal intaglio, and supports sitting on the margin itself.";
+  document.getElementById("w2note").innerHTML=note;
+  [].forEach.call(seg.children,function(b){b.className=(+b.dataset.a===ang)?"on":"";});
+}
+[].forEach.call(seg.children,function(b){b.onclick=function(){ang=+b.dataset.a;draw();};});
+draw();
+}catch(e){if(window.console)console.error("W2",e);}})();
+
+/* ============ W3 · gel point and trapped monomer ============ */
+(function(){try{
+var cv=document.getElementById("w3canvas"),sl=document.getElementById("w3t");
+if(!cv)return;
+var ctx=cv.getContext?cv.getContext("2d"):null;
+if(!ctx){cv.style.display="none";return;}
+/* deterministic pseudo-random */
+var seed=20260812;
+function rnd(){seed=(seed*1664525+1013904223)%4294967296;return seed/4294967296;}
+var W=520,H=340,parts=[],bonds=[];
+(function build(){
+  var cols=18,rows=13,mx=34,my=30;
+  var dx=(W-2*mx)/(cols-1), dy=(H-2*my)/(rows-1);
+  for(var r=0;r<rows;r++)for(var c=0;c<cols;c++){
+    parts.push({x:mx+c*dx+(rnd()-.5)*dx*.55,y:my+r*dy+(rnd()-.5)*dy*.55,ph:rnd()*6.28,deg:0});
+  }
+  var cand=[];
+  for(var a=0;a<parts.length;a++)for(var b=a+1;b<parts.length;b++){
+    var d=Math.hypot(parts[a].x-parts[b].x,parts[a].y-parts[b].y);
+    if(d<38)cand.push({a:a,b:b,k:rnd()});
+  }
+  cand.sort(function(p,q){return p.k-q.k;});
+  bonds=cand;
+})();
+function fit(){
+  var dpr=Math.min(window.devicePixelRatio||1,2);
+  var w=cv.clientWidth||520, h=w*H/W;
+  cv.style.height=h+"px";
+  cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);
+  ctx.setTransform(dpr*w/W,0,0,dpr*w/W,0,0);
+  render(+sl.value);
+}
+window.__w3fit=fit;
+function dcOf(t){
+  if(t<40)return 40*(t/40);
+  if(t<55)return 40+6*((t-40)/15);
+  if(t<62)return 46;
+  return 46+24*((t-62)/38);
+}
+function render(t){
+  var dc=dcOf(t);
+  var mob=Math.max(3,100-2.05*dc);
+  if(t>=62)mob=Math.min(100,mob+22*(1-(t-62)/38));
+  var nb=Math.round(bonds.length*Math.min(1,dc/74));
+  var amp=mob/100*4.2;
+  for(var p=0;p<parts.length;p++)parts[p].deg=0;
+  for(var k=0;k<nb;k++){parts[bonds[k].a].deg++;parts[bonds[k].b].deg++;}
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle="rgba(255,255,255,.02)";ctx.fillRect(0,0,W,H);
+  function pos(p){return [p.x+Math.sin(p.ph+t*0.11)*amp, p.y+Math.cos(p.ph*1.7+t*0.09)*amp];}
+  ctx.lineWidth=1.6;ctx.strokeStyle="rgba(143,209,168,.75)";
+  ctx.beginPath();
+  for(var k2=0;k2<nb;k2++){
+    var A=pos(parts[bonds[k2].a]),B=pos(parts[bonds[k2].b]);
+    ctx.moveTo(A[0],A[1]);ctx.lineTo(B[0],B[1]);
+  }
+  ctx.stroke();
+  var gelled=(t>=40);
+  for(var p2=0;p2<parts.length;p2++){
+    var q=pos(parts[p2]),deg=parts[p2].deg;
+    var col,r;
+    if(deg===0){col=gelled?"#D64545":"#7E96A8";r=gelled?3.4:2.8;}
+    else if(deg>=3){col="#F2B84B";r=3.6;}
+    else{col="#57C6D8";r=2.9;}
+    ctx.fillStyle=col;ctx.beginPath();ctx.arc(q[0],q[1],r,0,6.2832);ctx.fill();
+  }
+  /* legend */
+  ctx.font="12px 'IBM Plex Mono', monospace";
+  ctx.fillStyle="#8FA9BC";ctx.fillText("● unreacted", 12,16);
+  ctx.fillStyle="#57C6D8";ctx.fillText("● in a chain", 108,16);
+  ctx.fillStyle="#F2B84B";ctx.fillText("● crosslink node", 208,16);
+  if(gelled&&t<62){ctx.fillStyle="#D64545";ctx.fillText("● trapped — cannot reach a radical", 330,16);}
+  /* readouts */
+  document.getElementById("w3dc").textContent=dc.toFixed(0)+"%";
+  document.getElementById("w3dc").className="rv"+(dc<50?" warn":" ok");
+  document.getElementById("w3mob").textContent=mob.toFixed(0)+"%";
+  var un=Math.max(0,100-dc);
+  document.getElementById("w3leach").style.width=un+"%";
+  document.getElementById("w3leachTxt").textContent=un.toFixed(0)+"%";
+  var ph,note;
+  if(t<40){ph="printing exposure";note="Monomers are mobile, radicals diffuse freely, chains grow fast. Conversion climbs almost linearly.";}
+  else if(t<55){ph="gel point";note="The network percolates. <b>Mobility collapses</b> — and conversion stalls at around <b>46%</b>, below the 50% threshold at which unreacted monomer can leach out and kill cells. The part looks finished. It is not.";}
+  else if(t<62){ph="green part";note="Off the printer: geometry correct, chemistry incomplete, surface still oxygen-inhibited. This is the state in which washing happens — and why washing cannot be skipped.";}
+  else{ph="post-curing";note="Energy is put back in — 405 nm light, and heat. Mobility rises, trapped monomer converts, and conversion reaches roughly <b>70%</b>, the best value measured in a commercial cure unit at 45 min.";}
+  document.getElementById("w3phase").textContent=ph;
+  document.getElementById("w3note").innerHTML=note;
+}
+sl.addEventListener("input",function(){render(+sl.value);});
+window.addEventListener("resize",fit);
+fit();
+}catch(e){if(window.console)console.error("W3",e);}})();
+
+show(0);
+</script></body></html>

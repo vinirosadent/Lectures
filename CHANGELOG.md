@@ -1,5 +1,36 @@
 # CHANGELOG
 
+## Chat 5 — Aula 07 · Principles of 3D printing in dentistry (2026-08-12)
+- **Nova aula publicada**: `lectures/07-3d-printing/index.html` — deck **autocontido** no esquema da Aula 03
+  (`.deck > .track > .slide`, CSS e JS inline), **30 slides · 5 partes**: What additive manufacturing is ·
+  From digital file to finished object · The family of technologies · Where the properties are written ·
+  When it goes wrong and where it reaches the patient. Sem quiz [D-09].
+- **Espinha**: ISO/ASTM 52900 *single-step* × *multi-step* — a peça ganha a forma num passo e as propriedades
+  noutro. Fecho: *"o STL não é o objeto, é uma intenção"*. Âncora: Farag 2024 (build angle × gap marginal).
+- **3 widgets interativos** (SVG/canvas inline, sem bibliotecas, determinísticos para scrub ao vivo):
+  **W1 staircase** (layer height × ângulo → `h/tanθ`, desvio, nº de camadas, tempo `T ∝ 1/h`);
+  **W2 one angle, four consequences** (0/45/90° → orientação na plataforma · staircase na margem ·
+  posição dos supports · gap medido SLA/DLP com a linha dos 120 µm);
+  **W3 gel point** (canvas: rede polimérica, mobilidade colapsando, DC travando em 46% e destravando a 70%
+  na pós-cura, barra de monômero não reagido).
+- **8 figuras** em `assets/`: `workflow-ribbon` · `process-families-matrix` · `vat-optics-sla-lcd` ·
+  `vat-optics-dlp-clip` · `failure-gallery` · `supports-intaglio-inversion` · `trueness-precision-target` ·
+  `maturity-ladder`. Prompts versionados em `_ops/prompts/07-3d-printing-figuras.md`.
+- **Base documental**: 17 PDFs digeridos + pesquisa web, sintetizados em `lectures/07-3d-printing/_sources/`
+  (A princípios/tecnologias · B aplicações · C processo→propriedade · D recursos de ensino ·
+  E simulações web · F exemplos clínicos), com nível de evidência por fonte e lacunas declaradas.
+- **Decisões**: metais só pelo mecanismo de consolidação, ciclo térmico adiado para a Aula 16; fontes
+  comerciais usadas como referência visual e de fluxo, sem citar seus números; guias cirúrgicas ensinadas
+  com os desvios por tipo de suporte (dente/osso/mucosa).
+- **Robustez**: cada widget isolado em `try/catch` e o hook de canvas protegido — um erro num widget não
+  derruba a navegação do deck; `show(0)` passou a rodar antes dos widgets.
+- **Validação**: `node --check` do JS inline OK; tags balanceadas (section 30/30, div 201/201, svg 2/2);
+  8 `<img>` resolvem; execução headless em jsdom — varredura completa de W1 (4 alturas × 15 ângulos, sem
+  NaN), W2 (3 ângulos) e W3 (DC monotônico 0→70%, cor vira de alerta para ok ao cruzar 50%), navegação,
+  barra de progresso e overview com 30 itens.
+- **Menu**: card 07 `soon` → `live`. Sem handout ainda.
+
+
 ## Chat 4 (cont.) — Aula 06 reconstruída no esquema de deck horizontal da Aula 03 (2026-07-23)
 - **Novo `index.html`**: deck **autocontido** no esquema `.deck > .track > .slide` (CSS **e** JS inline,
   motor de navegação clonado da Aula 03/04) substituiu a versão anterior de **scroll vertical** (que usava
