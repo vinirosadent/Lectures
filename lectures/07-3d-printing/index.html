@@ -164,92 +164,91 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 .dtable th{font-family:var(--f-mono);font-size:.85rem;letter-spacing:.07em;text-transform:uppercase;color:var(--primary-ink);border-bottom:2px solid var(--primary)}
 .dtable td b{color:var(--ink)}
 .dtable tr.hi td{background:var(--primary-wash)}
-.bigq{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.5rem,2.6vw,2.2rem);color:var(--primary-ink);text-align:center;margin-top:1.2vh}
 </style></head><body>
 <div class="progress" id="prog"></div>
 <div class="deck"><div class="track" id="track">
 
-<section class="slide slide--title"><p class="s-eyebrow">Phase 1 · Fundamentals · Lecture 07</p><h1>Principles of<br>3D Printing<br>in Dentistry</h1><p class="frame">Additive manufacturing gives an object its <em>shape</em> in one step and its <em>properties</em> in another. Everything clinical follows from that.</p></section>
+<section class="slide slide--title"><p class="s-eyebrow">Phase 1 · Fundamentals · Lecture 07</p><h1>Principles of<br>3D Printing<br>in Dentistry</h1><p class="frame">Additive manufacturing gives an object its <em>shape</em> in one step and its <em>properties</em> in another. This lecture follows the consequences of that separation.</p></section>
 
 <section class="slide">
-<p class="s-eyebrow">The scale of it</p>
-<h2 class="s-title">More than one million custom devices. Every day.</h2>
-<p class="s-sub">Align Technology runs what it describes as the largest 3D printing operation in the world — and almost none of it is visible to the patient.</p>
+<p class="s-eyebrow">Context · industrial scale</p>
+<h2 class="s-title">Additive manufacturing at industrial scale</h2>
+<p class="s-sub">Align Technology reports producing more than one million custom orthodontic appliances per day, which it describes as the largest 3D printing operation in the world.</p>
 <div class="s-body text-heavy">
 <div class="col-text">
 <ul class="blist">
-<li><b>&gt;1,000,000</b> custom appliances printed <b>per day</b>, across factories in Mexico, China and Poland. No two identical. No inventory.</li>
-<li>Every one of them exists because a patient's anatomy was scanned — not because a batch was scheduled.</li>
-<li class="lead-term">But here is the twist.</li>
+<li><b>&gt;1,000,000</b> custom appliances per day, across facilities in Mexico, China and Poland. No two are identical, and none is held as stock.</li>
+<li>Each one is produced from an individual patient scan rather than from a production batch. This is the defining economic property of additive manufacturing: <b>customisation carries no tooling penalty</b>.</li>
 </ul>
-<div class="key" style="margin-top:2vh"><span class="k-tag">The twist</span>The aligner itself is <b>not printed</b>. What is printed is the <b>model</b> — and the aligner is thermoformed over it and trimmed off. Most 3D printing in orthodontics is the printing of <b>disposable tooling</b>.</div>
+<div class="key" style="margin-top:2vh"><span class="k-tag">Important qualification</span>The aligner itself is <b>not printed</b>. The <b>model</b> is printed, and the aligner is thermoformed over it and trimmed off. Most additive manufacturing in orthodontics is therefore the production of <b>disposable tooling</b>, not of the final device.</div>
 <p class="srcline">Srini Kaza (EVP R&amp;D, Align), Orthodontic Products, Jul 2025. Align acquired Cubicure (Jan 2024) specifically to print aligners directly.</p>
 </div>
 <div class="col-visual">
-<div class="mech"><span class="k-tag">Why this opens the lecture</span>Because it tells you where additive manufacturing actually sits in dentistry today: <b>not mainly as the final device</b>, but as the fastest way to make a one-off object that another process will use. Keep asking, for every application in this lecture: <b>is the printed thing the product, or the tool?</b></div>
+<div class="mech"><span class="k-tag">Implication</span>In contemporary dentistry, additive manufacturing is used predominantly to produce a one-off object that a subsequent process will use, rather than the definitive device itself. For each application in this lecture, distinguish whether the printed object is the <b>product</b> or the <b>tool</b>.</div>
 </div>
 </div>
 </section>
 
 <section class="slide">
-<p class="s-eyebrow">Adoption</p>
-<h2 class="s-title">In eight years it went from a curiosity to the majority</h2>
+<p class="s-eyebrow">Context · adoption</p>
+<h2 class="s-title">Adoption in dental laboratories, 2014–2022</h2>
 <div class="s-body">
 <div class="col-text">
 <table class="dtable">
-<tr><th>US dental laboratories with a 3D printer</th><th>2014</th><th>2022</th></tr>
-<tr class="hi"><td><b>All laboratories</b></td><td>~10%</td><td><b>57%</b></td></tr>
-<tr><td>Large laboratories</td><td>—</td><td>97%</td></tr>
-<tr><td>Small laboratories</td><td>—</td><td>34%</td></tr>
+<tr><th>US dental laboratories</th><th>2014</th><th>2022</th></tr>
+<tr class="hi"><td><b>With a 3D printer</b></td><td>~10%</td><td><b>57%</b></td></tr>
+<tr><td>— large laboratories</td><td>—</td><td>97%</td></tr>
+<tr><td>— small laboratories</td><td>—</td><td>34%</td></tr>
+<tr class="hi"><td><b>With a milling system</b></td><td>39%</td><td><b>67%</b></td></tr>
 </table>
 <p class="srcline">Key Group, 2022 US Dental Laboratory report. In-lab work still accounts for ~84% of the market — the laboratory, not the surgery, is where printing happens.</p>
 </div>
 <div class="col-visual">
-<div class="key"><span class="k-tag">Where the technology actually sits</span>Nearly every large laboratory has a printer; only a third of small ones do. Adoption is not driven by enthusiasm — it is driven by <b>capital, throughput and trained staff</b>. That already tells you something about what this technology costs to run well.</div>
-<div class="mech" style="margin-top:1.4vh"><span class="k-tag">One thing it does not mean</span>There is <b>no sign that milling declined because of printing</b> — over the same period, milling adoption rose as well. Treat these as <b>complementary</b> tools, and by the end of the hour you should be able to say which job belongs to which.</div>
+<div class="key"><span class="k-tag">Interpretation</span>Adoption of additive manufacturing rose from approximately 10% to 57% over eight years. It is unevenly distributed: 97% of large laboratories against 34% of small ones, which reflects the capital cost, throughput requirement and trained personnel the technology demands.</div>
+<div class="mech" style="margin-top:1.4vh"><span class="k-tag">Note</span>There is <b>no evidence that milling declined as a result</b>: over the same period milling adoption also rose, from 39% to 67%. The two are best regarded as <b>complementary</b> processes, and the criteria for choosing between them are developed later in this lecture.</div>
 </div>
 </div>
 </section>
 
 <section class="slide">
-<p class="s-eyebrow">What you should be able to do after this hour</p>
+<p class="s-eyebrow">Learning outcomes</p>
 <h2 class="s-title">Learning outcomes</h2>
 <div class="objgrid" style="grid-template-columns:repeat(3,1fr)">
 <div class="objcard"><span class="objnum">1</span><div class="objtxt"><b>Explain the basic principles</b> of 3D printing — layer-by-layer fabrication and the steps from digital design to a finished dental object.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">→ Parts 1 and 2</span></div></div>
 <div class="objcard"><span class="objnum">2</span><div class="objtxt"><b>Identify the main technologies</b> used to fabricate dental prosthetic and surgical devices.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">→ Part 3</span></div></div>
 <div class="objcard"><span class="objnum">3</span><div class="objtxt"><b>Recognise the applications, advantages and limitations</b> of 3D printing in prosthodontics and dental surgery.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">→ Parts 4 and 5</span></div></div>
 </div>
-<div class="key" style="margin-top:2vh"><span class="k-tag">The single sentence this lecture proves</span>In additive manufacturing the object and its properties are built <b>at the same time</b> — so <b>how</b> it was printed, not only <b>which</b> resin it was printed from, decides how it behaves in the mouth.</div>
+<div class="key" style="margin-top:2vh"><span class="k-tag">Organising principle</span>In additive manufacturing, the object and its properties are formed in the same operation. The processing route therefore determines clinical behaviour to a degree comparable with the choice of material itself.</div>
 </section>
 
 <section class="slide slide--divider"><div class="s-eyebrow">Part 1 of 5</div><div class="num">01</div><h2>What additive manufacturing is</h2><div class="d-list"><span>The standard definition</span><span>· Single-step vs multi-step</span><span>· Additive vs subtractive</span><span>· The staircase</span></div></section>
 
 <section class="slide">
-<p class="s-eyebrow">Structure · the definition that does the work</p>
-<h2 class="s-title">Shape in one step. Properties in another.</h2>
+<p class="s-eyebrow">Structure · definitions</p>
+<h2 class="s-title">Single-step and multi-step processes</h2>
 <div class="s-body text-heavy">
 <div class="col-text">
 <div class="defbox"><div class="term">Additive manufacturing</div><div class="def">"Process of <b>joining materials</b> to make objects from 3D model data, <b>usually layer by layer</b>, as opposed to subtractive manufacturing methods."<br><span style="font-family:var(--f-mono);font-size:.9rem;color:var(--muted)">ISO/ASTM 52900</span></div></div>
-<p class="s-sub" style="margin-top:1.2vh">The same standard makes a second distinction that matters far more clinically than the first:</p>
+<p class="s-sub" style="margin-top:1.2vh">The same standard draws a second distinction, which carries most of the clinical consequence:</p>
 <div class="vs" style="margin-top:.6vh">
 <div class="card a"><h3>Single-step</h3><ul><li>Shape <b>and</b> basic material properties are achieved in one operation.</li><li>What comes off the machine is what you have.</li></ul></div>
 <div class="card b"><h3>Multi-step</h3><ul><li>Shape is achieved first. <b>Properties are achieved later</b>, in a separate operation.</li><li>Vat photopolymerization is multi-step. So is metal printing. So is printed zirconia.</li></ul></div>
 </div>
 </div>
 <div class="col-visual">
-<div class="mech"><span class="k-tag">Why this is the spine of the lecture</span>A milled crown is carved out of a blank whose properties were <b>set in a factory</b> under controlled pressure and temperature. You inherit them. A printed crown has <b>no properties until you finish making them</b> — at your bench, with your wash time and your cure cycle.</div>
-<div class="key" style="margin-top:1.6vh"><span class="k-tag">Carry this forward</span>Ask of any material: <b>how many state changes does it undergo after it has its shape?</b> Each one is another chance for the dimension, the strength or the biocompatibility to move.</div>
+<div class="mech"><span class="k-tag">Clinical significance</span>A milled crown is machined from a blank whose properties were established industrially, under controlled pressure and temperature; those properties are inherited unchanged. A printed crown acquires its final properties during post-processing at the bench, and therefore depends on the wash and cure protocol actually used.</div>
+<div class="key" style="margin-top:1.6vh"><span class="k-tag">General rule</span>For any material, consider how many state changes occur <b>after</b> the geometry has been established. Each additional transformation is a further opportunity for dimension, strength or biocompatibility to change.</div>
 </div>
 </div>
 </section>
 
 <section class="slide">
-<p class="s-eyebrow">Additive vs subtractive · the honest version</p>
-<h2 class="s-title">Neither one wins. They fail differently.</h2>
+<p class="s-eyebrow">Structure · comparison of manufacturing routes</p>
+<h2 class="s-title">Additive and subtractive manufacturing compared</h2>
 <div class="s-body">
 <div class="col-text">
 <div class="vs" style="grid-template-columns:1fr">
-<div class="card a"><h3>Where additive genuinely wins</h3><ul>
+<div class="card a"><h3>Advantages of the additive route</h3><ul>
 <li><b>Geometric freedom</b> — undercuts, internal channels, lattices; no tool has to reach the surface.</li>
 <li><b>No tool radius</b> — milling cannot cut a groove narrower than the bur, and internal corners are rounded <b>by definition</b>.</li>
 <li><b>Nesting</b> — dozens of parts per platform; the marginal cost of complexity is near zero.</li>
@@ -259,8 +258,8 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 </div>
 <div class="col-text">
 <div class="vs" style="grid-template-columns:1fr">
-<div class="card b"><h3>Where milling genuinely wins</h3><ul>
-<li><b>Industrially processed material</b> — the blank was polymerised or sintered under controlled conditions. You inherit quality instead of manufacturing it.</li>
+<div class="card b"><h3>Advantages of the subtractive route</h3><ul>
+<li><b>Industrially processed material</b> — the blank was polymerised or sintered under controlled conditions, so its quality is inherited rather than produced at the bench.</li>
 <li><b>Isotropy</b> — no layer planes, therefore no weak axis.</li>
 <li><b>Tolerance</b> — typically ±0.025–0.125 mm.</li>
 <li><b>Surface</b> — no layer lines, no support scars.</li>
@@ -268,31 +267,31 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 </div>
 </div>
 </div>
-<div class="key" style="margin-top:1.4vh"><span class="k-tag">What the laboratory actually does</span>It <b>prints the model and the tray, and mills the definitive crown</b>. That is not indecision — it is the correct reading of both technologies.</div>
+<div class="key" style="margin-top:1.4vh"><span class="k-tag">Current laboratory practice</span>Typical practice is to <b>print the model and the custom tray and to mill the definitive crown</b>, allocating each process to the task for which its limitations are least consequential.</div>
 </section>
 
 <section class="slide">
-<p class="s-eyebrow">Structure · how a solid becomes a stack</p>
-<h2 class="s-title">The slicer is a CT scan running backwards</h2>
+<p class="s-eyebrow">Structure · slicing and layer geometry</p>
+<h2 class="s-title">Slicing: converting a volume into a stack of layers</h2>
 <div class="s-body text-heavy">
 <div class="col-text">
-<p class="s-sub">You already know this operation. A CBCT takes a continuous volume and converts it into a stack of thin slices along one axis. The slicer does <b>exactly the same thing</b> to your STL — and the printer then runs the operation in reverse, rebuilding the volume from the slices.</p>
-<div class="mech" style="margin-top:1.2vh"><span class="k-tag">The shared artefact</span>Both suffer the same limitation: <b>resolution across the plane is worse than resolution within it</b>. In CBCT, slice thickness limits what you can see. In printing, <b>layer height</b> limits what you can build.</div>
-<div class="key" style="margin-top:1.4vh"><span class="k-tag">Two analogies to discard</span><b>Sliced bread</b> — the slices were cut from a loaf that already existed. That is a <b>subtractive</b> image being used to teach an additive process. <b>A brick wall</b> — bricks are joined by a third material, and are deliberately laid in staggered courses to avoid a continuous plane of weakness. Printed layers are perfectly aligned, so the analogy <b>understates</b> the problem.</div>
+<p class="s-sub">The operation is familiar from imaging. A CBCT converts a continuous volume into a stack of thin slices along one axis; the slicer performs the same discretisation on the STL, and the printer then reverses it, reconstructing the volume from the slices.</p>
+<div class="mech" style="margin-top:1.2vh"><span class="k-tag">Shared limitation</span>Both are subject to the same constraint: <b>resolution across the plane is inferior to resolution within it</b>. In CBCT, slice thickness limits what can be resolved; in printing, <b>layer height</b> limits what can be fabricated.</div>
+<div class="key" style="margin-top:1.4vh"><span class="k-tag">Analogies to avoid</span><b>Sliced bread</b>: the slices are cut from a loaf that already exists, so a subtractive image is being used to describe an additive process. <b>A brick wall</b>: bricks are joined by a third material and are laid in staggered courses precisely to avoid a continuous plane of weakness, whereas printed layers are aligned — the analogy therefore <b>understates</b> the anisotropy.</div>
 </div>
 <div class="col-visual">
 <div class="defbox"><div class="term">Staircase effect</div><div class="def">A continuous surface approximated by discrete stacked layers is reproduced as a series of steps. The width of each step is <b>layer height ÷ tan θ</b>, where θ is the angle of the surface to the build platform.</div></div>
-<div class="mech" style="margin-top:1.4vh"><span class="k-tag">The counter-intuitive consequence</span>A <b>vertical</b> wall has no staircase at all. The <b>closer a surface lies to horizontal, the worse the steps become</b> — because tan θ collapses towards zero. Predict, before the next slide: which surface of a crown preparation is the worst case?</div>
+<div class="mech" style="margin-top:1.4vh"><span class="k-tag">Consequence</span>A <b>vertical</b> surface produces no staircase. As a surface approaches the horizontal, tan θ tends to zero and the step width increases without limit. Consider which surface of a crown preparation represents the least favourable case.</div>
 </div>
 </div>
 </section>
 
 <section class="slide slide--interactive">
-<p class="s-eyebrow">Interactive · resolution is not accuracy</p>
-<h2 class="s-title">Layer height: what you gain, what you pay</h2>
+<p class="s-eyebrow">Interactive · layer height and surface angle</p>
+<h2 class="s-title">Layer height, surface angle and the staircase effect</h2>
 <div class="s-body wgrid wide">
 <div class="col-text">
-<p class="igloss" style="margin-top:0">A surface inclined at <b>θ</b> to the platform, magnified. Move the layer height and watch the steps — and the clock.</p>
+<p class="igloss" style="margin-top:0">A surface inclined at <b>θ</b> to the build platform, shown magnified. Vary the layer height and the surface angle, and observe the effect on step geometry and on build time.</p>
 <div class="control"><label><span>Layer height</span><span class="mono" id="w1hVal">50 µm</span></label><input type="range" id="w1h" min="0" max="3" step="1" value="1"></div>
 <div class="control"><label><span>Surface angle θ to platform</span><span class="mono" id="w1aVal">30°</span></label><input type="range" id="w1a" min="10" max="80" step="5" value="30"></div>
 <div class="readout">
@@ -314,22 +313,22 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 
 <section class="slide slide--focusfig">
 <div class="ff-head">
-<p class="s-eyebrow">Structure → property · the workflow</p>
-<h2 class="s-title">Every step is a materials decision</h2>
-<p class="s-sub">Top band: what the operator chooses. Bottom band: what that choice writes permanently into the material.</p>
+<p class="s-eyebrow">Structure → property · process workflow</p>
+<h2 class="s-title">From digital model to finished device</h2>
+<p class="s-sub">The upper band lists the decision taken at each stage; the lower band lists the material property that the decision determines.</p>
 </div>
 <div class="s-body one-col" style="display:block">
 <div class="figbox" style="max-width:none;padding:.8rem"><img src="assets/workflow-ribbon.png" alt="Six-stage additive manufacturing workflow with operator decisions above and material consequences below" style="max-height:56vh"></div>
 </div>
-<p class="axisnote">Note that step 3 — print preparation — has no counterpart in milling. It is where a file becomes a specific physical object.</p>
+<p class="axisnote">Stage 3, print preparation, has no equivalent in subtractive manufacturing. It is the stage at which a file is committed to one particular physical realisation.</p>
 </section>
 
 <section class="slide slide--interactive">
-<p class="s-eyebrow">Interactive · the anchor of this lecture</p>
-<h2 class="s-title">One angle, four consequences</h2>
+<p class="s-eyebrow">Interactive · build orientation</p>
+<h2 class="s-title">Build orientation and marginal adaptation</h2>
 <div class="s-body wgrid wide">
 <div class="col-text">
-<p class="igloss" style="margin-top:0">The same crown file, the same resin, the same 50 µm layer. Only the <b>build orientation</b> changes.</p>
+<p class="igloss" style="margin-top:0">The same crown file, resin and 50 µm layer height in every case. Only the <b>build orientation</b> is varied.</p>
 <div class="seg" id="w2seg"><button data-a="0" class="on">0°</button><button data-a="45">45°</button><button data-a="90">90°</button></div>
 <div class="readout">
 <div class="rcard"><span class="rl">Marginal gap · SLA</span><span class="rv" id="w2sla">—</span><span class="rs">Formlabs Form 2, permanent crown resin</span></div>
@@ -345,20 +344,20 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 </section>
 
 <section class="slide">
-<p class="s-eyebrow">Reading the result honestly</p>
-<h2 class="s-title">A real effect that did not fail a single specimen</h2>
+<p class="s-eyebrow">Interpretation of the evidence</p>
+<h2 class="s-title">Interpreting the marginal gap data</h2>
 <div class="s-body">
 <div class="col-text">
 <ul class="blist">
 <li>Build angle changed the marginal gap <b>in both technologies</b>, every pairwise comparison significant at <b>p &lt; 0.001</b>. Pooled: 48.5 → 62.5 → 80.5 µm.</li>
 <li>The worst cell (DLP at 90°, 89 µm) was <b>more than double</b> the best (SLA at 0°, 40 µm).</li>
-<li>And yet <b>every single group</b> stayed under the conventional clinical limit of <b>120 µm</b>.</li>
+<li>All six groups nevertheless remained below the conventional clinical limit of <b>120 µm</b>.</li>
 </ul>
-<div class="key" style="margin-top:1.6vh"><span class="k-tag">The sentence to remember</span>Orientation is not the difference between success and failure on a single molar crown under ideal laboratory conditions. It is <b>safety margin that you either spend or save</b> — and you spend it before you ever touch the patient.</div>
+<div class="key" style="margin-top:1.6vh"><span class="k-tag">Interpretation</span>Under these conditions, build orientation did not determine clinical acceptability for a single molar crown. It determined the <b>margin of safety</b> retained: the effect is systematic and predictable, and it is committed at the planning stage rather than at the chairside.</div>
 </div>
 <div class="col-visual">
-<div class="mech"><span class="k-tag">A comparison the study could not make</span>SLA came out better than DLP overall (55.6 vs 72 µm). But the two arms differed in <b>printer, resin and post-processing protocol</b> simultaneously. What was compared was two <b>complete systems</b>, not two technologies. The authors themselves conclude that no one printing method is inherently better.</div>
-<div class="key" style="margin-top:1.4vh"><span class="k-tag">Where the 120 µm comes from</span>McLean &amp; von Fraunhofer, British Dental Journal 1971 — around a thousand restorations followed for five years. It is the most cited threshold in dentistry, and it is more than fifty years old. Proposals in the literature range from 25 to 200 µm.</div>
+<div class="mech"><span class="k-tag">Methodological limitation</span>SLA produced smaller gaps than DLP overall (55.6 vs 72 µm), but the two arms differed simultaneously in <b>printer, resin and post-processing protocol</b>. The comparison is therefore between two <b>complete systems</b> rather than between two technologies, and the authors conclude that no single method is inherently superior.</div>
+<div class="key" style="margin-top:1.4vh"><span class="k-tag">Origin of the threshold</span>The 120 µm figure derives from McLean &amp; von Fraunhofer (<i>British Dental Journal</i>, 1971), based on approximately one thousand restorations followed for five years. It remains the most frequently cited threshold, although proposed values in the literature range from 25 to 200 µm and no consensus exists.</div>
 </div>
 </div>
 </section>
@@ -367,40 +366,40 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 
 <section class="slide slide--focusfig">
 <div class="ff-head">
-<p class="s-eyebrow">Structure · classify by mechanism, not by brand</p>
-<h2 class="s-title">What actually turns feedstock into solid</h2>
-<p class="s-sub">Five families. The organising column is the third one — everything else follows from it.</p>
+<p class="s-eyebrow">Structure · process classification</p>
+<h2 class="s-title">Process families classified by consolidation mechanism</h2>
+<p class="s-sub">Five families. The third column is the classifying criterion; the remaining columns follow from it.</p>
 </div>
 <div class="s-body one-col" style="display:block">
 <div class="figbox" style="max-width:none;padding:.8rem"><img src="assets/process-families-matrix.png" alt="Matrix of five additive manufacturing process families by consolidation mechanism" style="max-height:56vh"></div>
 </div>
-<p class="axisnote">Notice the pattern: where the feedstock is a powder bed, the powder itself is the support — so there are no support structures to remove, but the part comes out fragile.</p>
+<p class="axisnote">Where the feedstock is a powder bed, the unconsolidated powder acts as the support: no support structures require removal, but the part leaves the machine in a fragile state.</p>
 </section>
 
 <section class="slide slide--focusfig">
 <div class="ff-head">
-<p class="s-eyebrow">Vat photopolymerization · same vat, different optics</p>
-<h2 class="s-title">SLA and LCD: point by point, or a whole layer at once</h2>
+<p class="s-eyebrow">Structure · vat photopolymerization (1 of 2)</p>
+<h2 class="s-title">SLA and LCD / mSLA</h2>
 </div>
 <div class="s-body one-col" style="display:block">
 <div class="figbox" style="max-width:none;padding:.8rem"><img src="assets/vat-optics-sla-lcd.png" alt="Schematic comparison of SLA and LCD/mSLA optical systems" style="max-height:58vh"></div>
 </div>
-<p class="axisnote">SLA draws each cross-section with a moving laser spot. LCD exposes the entire layer through a pixel mask — which is why its resolution is the pixel size, and why light diffusion erodes it.</p>
+<p class="axisnote">SLA traces each cross-section with a moving laser spot. LCD exposes the entire layer simultaneously through a pixel mask, so its resolution is determined by the pixel size and is degraded by light diffusion.</p>
 </section>
 
 <section class="slide slide--focusfig">
 <div class="ff-head">
-<p class="s-eyebrow">Vat photopolymerization · projection and continuous growth</p>
-<h2 class="s-title">DLP and CLIP: voxels, and the layer that never peels</h2>
+<p class="s-eyebrow">Structure · vat photopolymerization (2 of 2)</p>
+<h2 class="s-title">DLP and CLIP</h2>
 </div>
 <div class="s-body one-col" style="display:block">
 <div class="figbox" style="max-width:none;padding:.8rem"><img src="assets/vat-optics-dlp-clip.png" alt="Schematic comparison of DLP and CLIP optical systems" style="max-height:58vh"></div>
 </div>
-<p class="axisnote">Hold on to CLIP's dead zone — we come back to it in Part 4, because it is built out of a reaction you already know as a <em>defect</em>.</p>
+<p class="axisnote">The dead zone in CLIP is revisited in Part 4, where the same reaction is examined in its more familiar form as a surface defect.</p>
 </section>
 
 <section class="slide">
-<p class="s-eyebrow">Metals · what belongs here, and what belongs later</p>
+<p class="s-eyebrow">Structure · powder bed fusion</p>
 <h2 class="s-title">Powder bed fusion: sintering versus melting</h2>
 <div class="s-body">
 <div class="col-text">
@@ -409,9 +408,9 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <p class="s-sub" style="margin-top:1vh">Materials: Co-Cr, titanium and its alloys, stainless steel. Layers of 20–50 µm, in a sealed inert atmosphere.</p>
 </div>
 <div class="col-visual">
-<div class="key"><span class="k-tag">Where you will meet this again</span>Removable partial denture frameworks, metal copings, implant frameworks and custom titanium meshes are printed this way — and the direct route <b>replaces the whole lost-wax casting chain</b>.</div>
-<div class="mech" style="margin-top:1.4vh"><span class="k-tag">Deliberately not covered today</span>The thermal cycle that follows metal printing — stress relief, and for some routes debinding and sintering — belongs with the metallurgy in <b>Lecture 16, Cobalt-chromium alloys</b>. What you need now is only the principle: <b>the laser is the consolidation mechanism</b>, and it either sinters or melts.</div>
-<div class="mech" style="margin-top:1.4vh"><span class="k-tag">The hybrid answer</span>The most mature commercial workflow for an implant bridge <b>prints the framework and then mills the implant interface</b>. Additive where geometry is free; subtractive where tolerance is critical.</div>
+<div class="key"><span class="k-tag">Applications</span>Removable partial denture frameworks, metal copings, implant frameworks and custom titanium meshes are produced by this route, which <b>replaces the lost-wax casting sequence</b> entirely.</div>
+<div class="mech" style="margin-top:1.4vh"><span class="k-tag">Scope of this lecture</span>The thermal cycle that follows metal printing — stress relief, and in some routes debinding and sintering — is treated with the metallurgy in <b>Lecture 16, Cobalt-chromium alloys</b>. Required here is only the consolidation principle: <b>the laser either sinters or fully melts the powder</b>.</div>
+<div class="mech" style="margin-top:1.4vh"><span class="k-tag">Hybrid workflows</span>The most established commercial workflow for an implant bridge <b>prints the framework and machines the implant interface</b>: the additive route is used where geometry is unconstrained, the subtractive route where tolerance is critical.</div>
 </div>
 </div>
 </section>
@@ -419,11 +418,11 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <section class="slide slide--divider"><div class="s-eyebrow">Part 4 of 5</div><div class="num">04</div><h2>Where the properties are written</h2><div class="d-list"><span>The green part</span><span>· Gel point and trapped monomer</span><span>· Two windows, not two dials</span><span>· Oxygen</span></div></section>
 
 <section class="slide">
-<p class="s-eyebrow">Property · the part is not finished when printing stops</p>
-<h2 class="s-title">The green part: shape achieved, material not</h2>
-<p class="s-sub">The term comes from ceramics and powder metallurgy — a <em>green body</em> is formed but not yet sintered. It holds its shape and nothing else.</p>
+<p class="s-eyebrow">Property · post-processing sequence</p>
+<h2 class="s-title">The green part and the post-processing sequence</h2>
+<p class="s-sub">The term is borrowed from ceramics and powder metallurgy, where a <em>green body</em> has been formed but not yet sintered: the geometry is established, the material properties are not.</p>
 <div class="stagestrip">
-<div class="stage green"><div class="chip" style="background:#F6E6A8"></div><div class="st">1 · Printed &amp; washed</div><div class="sd">Translucent pale yellow. Support nubs still attached.</div></div>
+<div class="stage green"><div class="chip" style="background:#F6E6A8"></div><div class="st">1 · Printed and washed</div><div class="sd">Translucent pale yellow; support nubs still attached.</div></div>
 <div class="stage"><div class="chip" style="background:#E8A24A"></div><div class="st">2 · Post-cured</div><div class="sd">Translucent orange.</div></div>
 <div class="stage"><div class="chip" style="background:#E8A24A"></div><div class="st">3 · Polished</div><div class="sd">Same colour, smooth, nubs removed.</div></div>
 <div class="stage"><div class="chip" style="background:#E8A24A;background-image:radial-gradient(circle at 30% 50%,#9AA8B2 8px,transparent 9px),radial-gradient(circle at 70% 50%,#9AA8B2 8px,transparent 9px)"></div><div class="st">4 · Sleeves seated</div><div class="sd">Metal guide cylinders inserted.</div></div>
@@ -431,16 +430,16 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 </div>
 <p class="axisnote">→ degree of conversion increasing →</p>
 <div class="s-body one-col" style="flex:0;margin-top:1vh">
-<div class="key"><span class="k-tag">Colour is chemistry you can see</span>Yellow to orange is the photoinitiator system reacting as conversion rises. That is a <b>macroscopic readout of a molecular event</b> — and it means a technician can tell, across the bench, that a device has not been cured.</div>
+<div class="key"><span class="k-tag">Colour as an indicator</span>The shift from yellow to orange reflects the photoinitiator system reacting as conversion increases, providing a <b>macroscopic indication of a molecular change</b>. In practice it allows an uncured device to be identified visually.</div>
 </div>
 </section>
 
 <section class="slide slide--interactive">
-<p class="s-eyebrow">Interactive · the mechanism that governs everything downstream</p>
-<h2 class="s-title">The gel point, and the monomer that gets trapped</h2>
+<p class="s-eyebrow">Interactive · polymerisation kinetics</p>
+<h2 class="s-title">The gel point and residual monomer</h2>
 <div class="s-body wgrid wide">
 <div class="col-text">
-<p class="igloss" style="margin-top:0">Drag through the reaction. Watch mobility collapse before conversion is anywhere near complete.</p>
+<p class="igloss" style="margin-top:0">Advance the reaction and observe that monomer mobility falls sharply while conversion is still well below completion.</p>
 <div class="control"><label><span>Reaction progress</span><span class="mono" id="w3phase">printing exposure</span></label><input type="range" id="w3t" min="0" max="100" step="1" value="0"></div>
 <div class="readout">
 <div class="rcard"><span class="rl">Degree of conversion</span><span class="rv" id="w3dc">0%</span><span class="rs">below 50% → leachable monomer</span></div>
@@ -460,42 +459,42 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 </section>
 
 <section class="slide">
-<p class="s-eyebrow">Property · post-processing</p>
-<h2 class="s-title">Washing and curing are windows, not dials</h2>
+<p class="s-eyebrow">Property · process parameters</p>
+<h2 class="s-title">Washing and post-curing: optimal ranges</h2>
 <div class="s-body">
 <div class="col-text">
 <div class="vs" style="grid-template-columns:1fr">
 <div class="card a"><h3>Washing</h3><ul>
-<li><b>Too little</b> — unreacted surface monomer stays. Oxygen inhibits it, so post-curing cannot rescue it. Cytotoxicity, roughness, and a substrate for cariogenic bacteria.</li>
-<li><b>Too much</b> — solvent penetrates the network, causing swelling, osmotic stress and relaxation. Beyond 12 h: flexural strength falls and surface cracks appear.</li>
-<li><b>Time matters more than solvent choice</b> for cell viability.</li>
+<li><b>Insufficient</b> — unreacted surface monomer remains. It is oxygen-inhibited and therefore not recovered by post-curing, and is associated with cytotoxicity, increased roughness and a substrate for cariogenic bacteria.</li>
+<li><b>Excessive</b> — solvent penetrates the network, producing swelling, osmotic stress and relaxation. Beyond 12 h, flexural strength falls and surface cracking is reported.</li>
+<li>For cell viability, <b>duration is a stronger determinant than the choice of solvent</b>.</li>
 </ul></div>
 </div>
 </div>
 <div class="col-text">
 <div class="vs" style="grid-template-columns:1fr">
 <div class="card b"><h3>Post-curing</h3><ul>
-<li><b>Too little</b> — conversion stalls, mechanical properties and biocompatibility both suffer.</li>
-<li><b>Too much</b> — embrittlement, and PMMA-based systems begin to <b>depolymerise above ~125 °C</b>, releasing monomer.</li>
-<li>Temperature raises conversion but <b>lowers dimensional accuracy</b> — the two optima are not the same point.</li>
+<li><b>Insufficient</b> — conversion remains low, with corresponding reductions in mechanical properties and biocompatibility.</li>
+<li><b>Excessive</b> — embrittlement; PMMA-based systems begin to <b>depolymerise above approximately 125 °C</b>, releasing monomer.</li>
+<li>Temperature increases conversion but <b>reduces dimensional accuracy</b>; the two optima do not coincide.</li>
 </ul></div>
 </div>
 </div>
 </div>
-<div class="key" style="margin-top:1.4vh"><span class="k-tag">The rule to carry into clinic</span>"More" is not a protocol. Every post-processing variable has a window, and stepping outside it in <b>either direction</b> costs you something — usually strength on one side and biocompatibility on the other.</div>
+<div class="key" style="margin-top:1.4vh"><span class="k-tag">General rule</span>Each post-processing variable has an optimal range rather than a monotonic effect. Departure in <b>either direction</b> carries a penalty, typically biocompatibility at the low end and mechanical performance at the high end.</div>
 </section>
 
 <section class="slide">
-<p class="s-eyebrow">Mechanism · the same reaction, twice</p>
-<h2 class="s-title">Oxygen: the defect that became the machine</h2>
+<p class="s-eyebrow">Mechanism · oxygen inhibition</p>
+<h2 class="s-title">Oxygen inhibition in printing and in CLIP</h2>
 <div class="s-body">
 <div class="col-text">
-<p class="s-sub">You have already met oxygen inhibition — as a nuisance. Atmospheric oxygen scavenges free radicals at the surface, leaving a thin unpolymerised, tacky layer on a composite restoration.</p>
-<div class="mech" style="margin-top:1.2vh"><span class="k-tag">In printing, it is the same nuisance</span>The surface of a printed part is oxygen-inhibited too. That is why insufficient washing cannot be fixed by longer curing — <b>the oxygen is still there, still inhibiting</b>. It is also why post-curing under nitrogen improves dimensional accuracy.</div>
+<p class="s-sub">Oxygen inhibition was introduced in Lecture 03 as a surface defect: atmospheric oxygen scavenges free radicals at the surface, leaving a thin unpolymerised, tacky layer on a composite restoration.</p>
+<div class="mech" style="margin-top:1.2vh"><span class="k-tag">In printed parts</span>The surface of a printed part is inhibited by the same mechanism. This explains why insufficient washing is not corrected by longer curing — <b>the inhibiting oxygen remains present</b> — and why post-curing under nitrogen improves dimensional accuracy.</div>
 </div>
 <div class="col-visual">
-<div class="key"><span class="k-tag">And then somebody inverted it</span>In CLIP, an <b>oxygen-permeable window</b> maintains a permanently liquid <b>dead zone</b> of a few tens of micrometres at the bottom of the vat. Because the solid never touches the window, there is nothing to peel — and the part can grow <b>continuously</b> instead of layer by layer.</div>
-<div class="bigq">The oxygen that spoils your restoration is the oxygen that makes continuous printing possible.</div>
+<div class="key"><span class="k-tag">Application in CLIP</span>In CLIP, an <b>oxygen-permeable window</b> maintains a permanently liquid <b>dead zone</b> a few tens of micrometres thick at the base of the vat. Because the solid never contacts the window, no separation step is required and the part grows <b>continuously</b> rather than layer by layer.</div>
+<div class="mech" style="margin-top:1.4vh"><span class="k-tag">Summary of the mechanism</span>The same radical-scavenging reaction accounts both for the inhibited surface layer, which must be removed by washing, and for the continuous-growth interface used in CLIP. Whether it presents as a defect or as a design feature depends on where in the process it is allowed to occur.</div>
 </div>
 </div>
 </section>
@@ -504,44 +503,44 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 
 <section class="slide slide--focusfig">
 <div class="ff-head">
-<p class="s-eyebrow">Performance · reading a failed print</p>
-<h2 class="s-title">Six failures, six mechanisms</h2>
-<p class="s-sub">None of these is bad luck. Each one names a specific physical cause.</p>
+<p class="s-eyebrow">Performance · failure modes</p>
+<h2 class="s-title">Characteristic print failures and their causes</h2>
+<p class="s-sub">Each of these failure modes corresponds to an identifiable physical cause rather than to random variation.</p>
 </div>
 <div class="s-body one-col" style="display:block">
 <div class="figbox" style="max-width:none;padding:.8rem"><img src="assets/failure-gallery.png" alt="Six characteristic 3D printing failures with their causes" style="max-height:56vh"></div>
 </div>
-<p class="axisnote">Cupping blowout is the one worth dwelling on: as the platform lifts, a sealed concavity gains volume, pressure drops, and the wall implodes to equalise. Ask yourself why a hollow full-arch model is exactly that geometry.</p>
+<p class="axisnote">Cupping blowout illustrates the mechanism most clearly: as the platform lifts, a sealed concavity increases in volume, internal pressure falls, and the wall deforms inwards to equalise. A hollowed full-arch model presents precisely this geometry.</p>
 </section>
 
 <section class="slide slide--focusfig">
 <div class="ff-head">
-<p class="s-eyebrow">Performance · the decision that reaches the patient</p>
-<h2 class="s-title">Same surface. Opposite rule.</h2>
+<p class="s-eyebrow">Performance · support placement</p>
+<h2 class="s-title">Support placement on a crown and on a denture base</h2>
 </div>
 <div class="s-body one-col" style="display:block">
 <div class="figbox" style="max-width:none;padding:.8rem"><img src="assets/supports-intaglio-inversion.png" alt="Support placement on a crown versus a complete denture base" style="max-height:54vh"></div>
 </div>
-<p class="axisnote">The intaglio of a crown is the cementation interface and will never be touched again. The intaglio of a denture base will be adjusted, relined and polished. The surface is the same; its future is not.</p>
+<p class="axisnote">The intaglio of a crown is the cementation interface and receives no further finishing. The intaglio of a denture base is subsequently adjusted, relined and polished. The anatomical surface is equivalent; the subsequent processing is not, and the support strategy follows from that difference.</p>
 </section>
 
 <section class="slide">
-<p class="s-eyebrow">Performance · saying what you actually measured</p>
+<p class="s-eyebrow">Performance · accuracy terminology</p>
 <h2 class="s-title">Trueness, precision, accuracy</h2>
 <div class="s-body fig-heavy">
 <div class="col-text">
 <div class="defbox"><div class="term">Trueness</div><div class="def">Closeness of the <b>mean</b> result to the true or reference value. How close you are to the CAD design.</div></div>
 <div class="defbox"><div class="term">Precision</div><div class="def">Closeness of <b>repeated results to each other</b>. Reproducibility between copies.</div></div>
-<div class="defbox"><div class="term">Accuracy</div><div class="def">Both together. <b>Not a quadrant — the diagonal.</b><br><span style="font-family:var(--f-mono);font-size:.9rem;color:var(--muted)">ISO 5725</span></div></div>
-<div class="key" style="margin-top:1.2vh"><span class="k-tag">The asymmetry nobody teaches</span>You can measure <b>precision</b> in your own clinic — scan the same case repeatedly and compare the scans to each other. You <b>cannot</b> measure trueness without an external reference you do not have. So a systematic bias is <b>invisible</b> to you. It shows up as "every crown comes back tight", and the laboratory gets blamed.</div>
+<div class="defbox"><div class="term">Accuracy</div><div class="def">The combination of the two. In the figure it corresponds to the <b>diagonal</b>, not to any single quadrant.<br><span style="font-family:var(--f-mono);font-size:.9rem;color:var(--muted)">ISO 5725</span></div></div>
+<div class="key" style="margin-top:1.2vh"><span class="k-tag">Practical consequence</span><b>Precision</b> can be estimated in practice by scanning the same case repeatedly and comparing the scans with one another. <b>Trueness</b> cannot, since it requires an external reference that is not normally available. A systematic bias is therefore not directly detectable by the operator, and may present indirectly, for example as restorations that consistently seat tightly.</div>
 </div>
-<div class="col-visual"><div class="figbox"><img src="assets/trueness-precision-target.png" alt="Four targets arranged by trueness and precision"><p class="figcap"><b>FIG.</b> Accuracy runs along the diagonal, from bottom-left to top-right. Older dental papers often write "accuracy" where they mean trueness — the standard itself notes that the word changed meaning.</p></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/trueness-precision-target.png" alt="Four targets arranged by trueness and precision"><p class="figcap"><b>FIG.</b> Accuracy increases along the diagonal, from bottom-left to top-right. Earlier dental literature frequently uses "accuracy" where "trueness" is meant; ISO 5725 records that the term formerly covered only that component.</p></div></div>
 </div>
 </section>
 
 <section class="slide">
-<p class="s-eyebrow">Performance · numbers that survive scrutiny</p>
-<h2 class="s-title">Predictably imperfect — and the pattern tells you why</h2>
+<p class="s-eyebrow">Performance · reported accuracy</p>
+<h2 class="s-title">Reported accuracy: surgical guides and printed zirconia</h2>
 <div class="s-body">
 <div class="col-text">
 <p class="pill">Static guided implant surgery</p>
@@ -552,7 +551,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <tr><td>Mucosa-supported</td><td>2.95°</td><td>1.47 mm</td><td>1.87 mm</td></tr>
 </table>
 <p class="srcline">J Funct Biomater 2026;17(4):194. Values are means ± SD in the source.</p>
-<div class="key" style="margin-top:1.2vh"><span class="k-tag">Ask the class</span>Tooth, then bone, then mucosa. Why does the error rise in exactly that order? <b>The guide is only as rigid as what it sits on.</b></div>
+<div class="key" style="margin-top:1.2vh"><span class="k-tag">Discussion point</span>Deviation increases in the order tooth, bone, mucosa. The determining factor is the rigidity and positional stability of the supporting tissue, since the accuracy of the guide cannot exceed that of its seat.</div>
 </div>
 <div class="col-visual">
 <p class="pill clin">Printed vs milled zirconia crowns</p>
@@ -563,31 +562,31 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <tr><td>Axial gap</td><td colspan="2" style="text-align:center">no significant difference</td></tr>
 </table>
 <p class="srcline">BMC Oral Health 2023, 3Y-TZP, n = 20 per group.</p>
-<div class="mech" style="margin-top:1.2vh"><span class="k-tag">Both things are true</span><b>Milling wins, and printing passes.</b> Every value sits under 120 µm. The honest conclusion is not "printing is worse" — it is "printing is acceptable here, with less margin to spare".</div>
+<div class="mech" style="margin-top:1.2vh"><span class="k-tag">Interpretation</span>Milled crowns performed significantly better, and all values in both groups remained below 120 µm. The appropriate conclusion is that the printed route is <b>clinically acceptable for this indication with a smaller margin of safety</b>, rather than that it is unsuitable.</div>
 </div>
 </div>
 </section>
 
 <section class="slide slide--focusfig">
 <div class="ff-head">
-<p class="s-eyebrow">Performance · what is actually ready</p>
-<h2 class="s-title">Clinically available is not clinically proven</h2>
+<p class="s-eyebrow">Performance · clinical maturity</p>
+<h2 class="s-title">Maturity of clinical applications</h2>
 </div>
 <div class="s-body one-col" style="display:block">
 <div class="figbox" style="max-width:none;padding:.8rem"><img src="assets/maturity-ladder.png" alt="Three-tier maturity ladder of dental 3D printing applications" style="max-height:54vh"></div>
 </div>
-<p class="axisnote">The evidence axis is deliberately inverted against the steps: the highest tier has the weakest evidence. Almost the entire published body of work is in vitro, and long-term survival data for printed definitive restorations does not yet exist.</p>
+<p class="axisnote">The evidence axis is inverted with respect to the steps: the highest tier is supported by the weakest evidence. Almost the entire published body of work is in vitro, and long-term survival data for printed definitive restorations are not yet available.</p>
 </section>
 
 <section class="slide">
-<p class="s-eyebrow">Recap · the outcome map</p>
-<h2 class="s-title">What you should now be able to do</h2>
+<p class="s-eyebrow">Summary</p>
+<h2 class="s-title">Summary of learning outcomes</h2>
 <div class="objgrid" style="grid-template-columns:repeat(3,1fr)">
 <div class="objcard"><span class="objnum">1</span><div class="objtxt"><b>Principles and workflow.</b> Layer-by-layer construction; digital model → print preparation → build → post-processing → device. Single-step versus multi-step, and why the distinction is clinical.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">Parts 1–2 · staircase widget · orientation widget</span></div></div>
 <div class="objcard"><span class="objnum">2</span><div class="objtxt"><b>The technologies.</b> Five families classified by what consolidates the feedstock; the four optical routes in vat photopolymerization; sintering versus melting in metals.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">Part 3</span></div></div>
 <div class="objcard"><span class="objnum">3</span><div class="objtxt"><b>Applications, advantages, limitations.</b> Routine, emerging and experimental indications; failure modes and their causes; trueness versus precision; where milling still wins.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">Parts 4–5</span></div></div>
 </div>
-<div class="key" style="margin-top:2vh"><span class="k-tag">Take this one sentence</span>The STL is not the object. The STL is an <b>intention</b>. The object is whatever your machine, your resin, your build angle and your cure cycle make of that intention — and the same file has been measured to give 0.07 mm of deviation on one printer and 0.26 mm on another.</div>
+<div class="key" style="margin-top:2vh"><span class="k-tag">Summary point</span>The STL file specifies the intended geometry; the object that results is determined jointly by the printer, the resin, the build orientation and the post-processing cycle. The same file has been reported to yield a mean deviation of 0.07 mm on one system and 0.26 mm on another.</div>
 </section>
 
 </div></div>
@@ -697,9 +696,9 @@ function draw(){
   var devEl=document.getElementById("w1dev");
   devEl.className="rv"+(dev>50?" warn":" ok");
   var note;
-  if(th<=20) note="Near-horizontal: tan θ collapses, the step becomes <b>"+Math.round(stepW)+" µm wide</b>. This is the occlusal surface and the shallow cuspal inclines — the worst case in a crown.";
-  else if(th>=70) note="Near-vertical: the layers stack almost straight up, the staircase nearly disappears. This is the axial wall of a preparation — the best case.";
-  else note="Halving the layer height halves the step, and <b>doubles the print time</b>. Resolution is a machine specification; accuracy is not.";
+  if(th<=20) note="Near-horizontal surface: tan θ tends to zero and the step widens to <b>"+Math.round(stepW)+" µm</b>. This corresponds to the occlusal surface and the shallow cuspal inclines, the least favourable case in a crown.";
+  else if(th>=70) note="Near-vertical surface: the layers stack almost directly above one another and the staircase becomes negligible. This corresponds to the axial wall of a preparation.";
+  else note="Halving the layer height halves the step width and <b>doubles the build time</b>. Layer height is a machine setting; the resulting deviation from the CAD surface depends additionally on the surface angle.";
   document.getElementById("w1note").innerHTML=note;
 }
 hS.addEventListener("input",draw);aS.addEventListener("input",draw);draw();
@@ -769,9 +768,9 @@ function draw(){
   document.getElementById("w2sla").textContent=d.sla+" µm";
   document.getElementById("w2dlp").textContent=d.dlp+" µm";
   var note;
-  if(ang===0)note="Occlusal parallel to the platform. The axial wall — where the gap is measured — is built <b>vertically</b>, layer on layer. Best result in both technologies.";
-  else if(ang===45)note="Intermediate. Supports move away from the margin, which protects it during removal — but the wall now crosses the layers and the staircase appears.";
-  else note="The wall is nearly horizontal to the build direction: maximum staircase, maximum over-cure on the buccal intaglio, and supports sitting on the margin itself.";
+  if(ang===0)note="Occlusal surface parallel to the platform. The axial wall, where the gap is measured, is built <b>vertically</b>, layer upon layer. This gave the smallest gap in both technologies.";
+  else if(ang===45)note="Intermediate orientation. The supports are set back from the margin, which reduces the risk of damage during removal, but the wall now crosses the layers and the staircase appears.";
+  else note="The wall lies close to horizontal relative to the build direction, giving the largest staircase, the greatest over-polymerisation of the buccal intaglio, and supports located on the margin itself.";
   document.getElementById("w2note").innerHTML=note;
   [].forEach.call(seg.children,function(b){b.className=(+b.dataset.a===ang)?"on":"";});
 }
@@ -859,10 +858,10 @@ function render(t){
   document.getElementById("w3leach").style.width=un+"%";
   document.getElementById("w3leachTxt").textContent=un.toFixed(0)+"%";
   var ph,note;
-  if(t<40){ph="printing exposure";note="Monomers are mobile, radicals diffuse freely, chains grow fast. Conversion climbs almost linearly.";}
-  else if(t<55){ph="gel point";note="The network percolates. <b>Mobility collapses</b> — and conversion stalls at around <b>46%</b>, below the 50% threshold at which unreacted monomer can leach out and kill cells. The part looks finished. It is not.";}
-  else if(t<62){ph="green part";note="Off the printer: geometry correct, chemistry incomplete, surface still oxygen-inhibited. This is the state in which washing happens — and why washing cannot be skipped.";}
-  else{ph="post-curing";note="Energy is put back in — 405 nm light, and heat. Mobility rises, trapped monomer converts, and conversion reaches roughly <b>70%</b>, the best value measured in a commercial cure unit at 45 min.";}
+  if(t<40){ph="printing exposure";note="Monomers are mobile and radicals diffuse freely, so chains propagate rapidly and conversion rises almost linearly.";}
+  else if(t<55){ph="gel point";note="The network percolates and <b>mobility falls sharply</b>. Conversion stalls at approximately <b>46%</b>, below the 50% threshold above which unreacted monomer is unlikely to leach in cytotoxic quantities.";}
+  else if(t<62){ph="green part";note="The part leaves the printer with the correct geometry, incomplete conversion and an oxygen-inhibited surface. Washing is performed in this state.";}
+  else{ph="post-curing";note="Additional energy is supplied as 405 nm light and heat. Mobility increases, trapped monomer reacts, and conversion reaches approximately <b>70%</b>, the highest value reported for a commercial cure unit at 45 min.";}
   document.getElementById("w3phase").textContent=ph;
   document.getElementById("w3note").innerHTML=note;
 }

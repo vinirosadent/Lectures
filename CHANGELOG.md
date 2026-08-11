@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## Chat 5 (cont.) — Aula 07: revisão de registro para tom acadêmico (2026-08-12)
+- **Todos os 24 títulos de slide** reescritos em forma descritiva (ex.: *"Oxygen: the defect that became the
+  machine"* → *"Oxygen inhibition in printing and in CLIP"*; *"Same surface. Opposite rule."* →
+  *"Support placement on a crown and on a denture base"*).
+- **Todos os 26 rótulos de caixa** (`k-tag`) trocados por rótulos funcionais neutros: *Definition ·
+  Interpretation · Methodological limitation · Scope of this lecture · Practical consequence · Discussion
+  point · General rule*, no lugar de *"The twist" · "The sentence to remember" · "The asymmetry nobody
+  teaches" · "Take this one sentence" · "Why this is the spine of the lecture"*.
+- **Removido** o bloco `.bigq` (frase de efeito sobre o oxigênio) e a regra CSS órfã; substituído por uma
+  caixa de mecanismo que resume a mesma física em registro descritivo.
+- **Eyebrows** padronizados como rótulos de seção (*Context · Structure · Property · Mechanism ·
+  Performance · Interactive · Summary*).
+- **Prosa e strings dos widgets** revisadas: retiradas as construções de apóstrofe ao aluno ("Ask yourself",
+  "Keep asking", "The part looks finished. It is not."), mantidos os conteúdos e todos os números.
+- **Slide de adoção**: tabela de crescimento restaurada com as duas linhas (impressão 3D 10%→57%;
+  fresagem 39%→67%); a não-substituição virou nota curta, sem enquadramento retórico.
+- Validação repetida: tags balanceadas, `node --check` OK, varredura headless dos 3 widgets sem alteração
+  de comportamento.
+
+
 ## Chat 5 — Aula 07 · Principles of 3D printing in dentistry (2026-08-12)
 - **Nova aula publicada**: `lectures/07-3d-printing/index.html` — deck **autocontido** no esquema da Aula 03
   (`.deck > .track > .slide`, CSS e JS inline), **30 slides · 5 partes**: What additive manufacturing is ·
