@@ -49,15 +49,18 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 .figbox img{width:100%;height:auto;max-height:76vh;object-fit:contain;display:block;border-radius:8px}
 .figbox.dual{gap:1rem}
 /* A figbox sharing col-visual with another box (a .mech, .key or .dtable below it): the sibling
-   keeps its natural, un-shrinkable size (flex:0 0 auto — it is text/data, it is never sacrificed),
-   and the figure GROWS to fill exactly whatever height is left (flex:1 1 0). Inside the figure,
-   the same negotiation happens again between the image and its caption. This replaces a fixed
-   vh guess: no slide-specific tuning, no wasted space, and the image is always as large as the
-   real remaining room allows on the actual browser rendering it — not a number typed by a human
-   who could not see the page. */
+   keeps its natural, un-shrinkable size (flex:0 0 auto — it is text/data, it is never sacrificed).
+   The figure itself uses flex:0 1 auto: it renders at its own natural size (full column width,
+   height following the image's real aspect ratio) and only SHRINKS if that natural size would
+   overflow the column (min-height:0 lifts the shrink floor). It does not force-grow to fill every
+   pixel of leftover height — a forced grow stretches the figure's invisible box taller than the
+   image itself, and object-fit:contain then letterboxes the picture inside it, which looks like
+   wasted white space above/below a smaller-than-necessary picture. Natural sizing lets the image
+   render as large as its own proportions allow at full column width, with no guessed constant and
+   no letterbox gap. */
 .col-visual > .mech,.col-visual > .key,.col-visual > .dtable{flex:0 0 auto}
-.col-visual .figbox:not(:only-child){flex:1 1 0;min-height:0;justify-content:flex-start}
-.col-visual .figbox:not(:only-child) img{flex:1 1 auto;min-height:0;width:100%;height:auto;max-height:100%;object-fit:contain}
+.col-visual .figbox:not(:only-child){flex:0 1 auto;min-height:0}
+.col-visual .figbox:not(:only-child) img{flex:0 1 auto;min-height:0;width:100%;height:auto;max-height:100%;object-fit:contain}
 .col-visual .figbox:not(:only-child) .figcap{flex:0 0 auto}
 .figcap{font-size:1.05rem;color:var(--muted);line-height:1.4;text-align:center}
 .figcap b{color:var(--ink-soft)}
@@ -173,6 +176,14 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 .dtable{width:100%;border-collapse:collapse;font-size:clamp(1rem,1.35vw,1.2rem)}
 .dtable th,.dtable td{border-bottom:1px solid var(--line);padding:.62rem .7rem;text-align:left;color:var(--ink-soft)}
 .dtable th{font-family:var(--f-mono);font-size:.85rem;letter-spacing:.07em;text-transform:uppercase;color:var(--primary-ink);border-bottom:2px solid var(--primary)}
+.chart{width:100%;display:block}
+.chart .grid{stroke:var(--line);stroke-width:1}
+.chart .cat{font-family:var(--f-disp);font-weight:600;font-size:15px;fill:var(--ink)}
+.chart .val{font-family:var(--f-mono);font-weight:700;font-size:13.5px;fill:var(--ink)}
+.chart .tick{font-family:var(--f-mono);font-size:11px;fill:var(--muted)}
+.chart .axislabel{font-family:var(--f-mono);font-size:11px;fill:var(--muted);letter-spacing:.06em}
+.chart .note{font-family:var(--f-body);font-size:12.5px;font-style:italic;fill:var(--muted)}
+.chart .legend text{font-family:var(--f-mono);font-size:11px;fill:var(--muted)}
 .dtable td b{color:var(--ink)}
 .dtable tr.hi td{background:var(--primary-wash)}
 .objgrid.compact{flex:none;grid-auto-rows:min-content}
@@ -185,6 +196,26 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 .rm.a2{border-top-color:var(--clinical)}
 .spine{margin-top:1.4vh;border-left:5px solid var(--primary);background:var(--primary-wash);padding:.85rem 1.1rem;border-radius:0 12px 12px 0;font-size:clamp(1.02rem,1.4vw,1.24rem);color:var(--ink-soft);line-height:1.4}
 .spine b{color:var(--primary-ink)}
+/* Learning-outcomes slide: the 3 blocks (objectives, principle, roadmap) used to just stack at the
+   top with a fixed .compact sizing, leaving the lower half of the slide empty. .lo-body makes them
+   flex-grow to use the real height of the slide, and enlarges type/padding to match — the same
+   flex-based, no-guessed-number approach as [D-20], applied to vertical rhythm instead of a figure. */
+.lo-body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:2.6vh;min-height:0}
+.lo-body .objcard{padding:1.35rem 1.5rem;gap:.6rem}
+.lo-body .objnum{width:44px;height:44px;font-size:1.15rem}
+.lo-body .objtxt{font-size:clamp(1.08rem,1.55vw,1.32rem);line-height:1.4}
+.lo-body .spine{margin-top:0;font-size:clamp(1.1rem,1.6vw,1.34rem);padding:1.1rem 1.3rem}
+.lo-body .roadmap{margin-top:0}
+.lo-body .rm{padding:1.05rem 1.15rem;gap:.45rem}
+.lo-body .rm .rmt{font-size:clamp(1.05rem,1.4vw,1.24rem)}
+.lo-body .rm .rmd{font-size:1rem;line-height:1.35}
+.frameflow{display:flex;align-items:stretch;gap:.9rem}
+.ff-seg{flex:1;text-align:center;padding:1rem 1rem;border-radius:12px;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;gap:.25rem}
+.ff-seg.ff-a{border-top:4px solid var(--primary)}
+.ff-seg.ff-b{border-top:4px solid var(--clinical)}
+.ff-label{font-family:var(--f-disp);font-weight:700;font-size:clamp(1.1rem,1.6vw,1.36rem);color:var(--ink);letter-spacing:.01em}
+.ff-sub{font-family:var(--f-mono);font-size:.82rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.ff-arrow{display:flex;align-items:center;font-size:1.7rem;color:var(--muted);flex:none}
 .ph{min-height:0;padding:1.4rem 1.2rem}
 .figbox .ph{width:100%}
 .datastrip{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-top:1.2vh}
@@ -224,13 +255,35 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <h2 class="s-title">Adoption in dental laboratories, 2014–2022</h2>
 <div class="s-body">
 <div class="col-text">
-<table class="dtable">
-<tr><th>US dental laboratories</th><th>2014</th><th>2022</th></tr>
-<tr class="hi"><td><b>With a 3D printer</b></td><td>~10%</td><td><b>57%</b></td></tr>
-<tr><td>— large laboratories</td><td>—</td><td>97%</td></tr>
-<tr><td>— small laboratories</td><td>—</td><td>34%</td></tr>
-<tr class="hi"><td><b>With a milling system</b></td><td>39%</td><td><b>67%</b></td></tr>
-</table>
+<svg class="chart" viewBox="0 0 600 226" role="img" aria-label="Bar chart: percentage of US dental laboratories with a 3D printer or a milling system, 2014 versus 2022">
+<line class="grid" x1="215" y1="20" x2="215" y2="176"></line>
+<line class="grid" x1="301.2" y1="20" x2="301.2" y2="176" stroke-dasharray="3 4"></line>
+<line class="grid" x1="387.5" y1="20" x2="387.5" y2="176" stroke-dasharray="3 4"></line>
+<line class="grid" x1="473.8" y1="20" x2="473.8" y2="176" stroke-dasharray="3 4"></line>
+<line class="grid" x1="560" y1="20" x2="560" y2="176" stroke-dasharray="3 4"></line>
+<text class="cat" x="208" y="58" text-anchor="end">With a 3D printer</text>
+<rect x="215" y="30" width="34.5" height="20" rx="3" style="fill:var(--primary)" opacity=".32"></rect>
+<text class="val" x="255.5" y="45" style="fill:var(--muted)">10%</text>
+<rect x="215" y="56" width="196.7" height="20" rx="3" style="fill:var(--primary)"></rect>
+<text class="val" x="417.6" y="71">57%</text>
+<text class="note" x="215" y="97"><tspan x="215" dy="0">By laboratory size in 2022:</tspan><tspan x="215" dy="15">large 97% · small 34%.</tspan></text>
+<text class="cat" x="208" y="148" text-anchor="end">With a milling system</text>
+<rect x="215" y="120" width="134.6" height="20" rx="3" style="fill:var(--ink-soft)" opacity=".28"></rect>
+<text class="val" x="355.6" y="135" style="fill:var(--muted)">39%</text>
+<rect x="215" y="146" width="231.2" height="20" rx="3" style="fill:var(--ink-soft)" opacity=".78"></rect>
+<text class="val" x="452.1" y="161">67%</text>
+<text class="tick" x="215" y="192" text-anchor="middle">0</text>
+<text class="tick" x="301.2" y="192" text-anchor="middle">25</text>
+<text class="tick" x="387.5" y="192" text-anchor="middle">50</text>
+<text class="tick" x="473.8" y="192" text-anchor="middle">75</text>
+<text class="tick" x="560" y="192" text-anchor="middle">100</text>
+<g class="legend">
+<rect x="215" y="208" width="14" height="10" rx="2" style="fill:var(--muted)" opacity=".3"></rect>
+<text x="233" y="217">2014</text>
+<rect x="275" y="208" width="14" height="10" rx="2" style="fill:var(--muted)"></rect>
+<text x="293" y="217">2022</text>
+</g>
+</svg>
 <p class="srcline">Key Group, 2022 US Dental Laboratory report. In-lab work still accounts for ~84% of the market — the laboratory, not the surgery, is where printing happens.</p>
 </div>
 <div class="col-visual">
@@ -243,18 +296,27 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <section class="slide">
 <p class="s-eyebrow">Learning outcomes</p>
 <h2 class="s-title">Learning outcomes</h2>
+<div class="lo-body">
 <div class="objgrid compact" style="grid-template-columns:repeat(3,1fr)">
 <div class="objcard"><span class="objnum">1</span><div class="objtxt"><b>Explain the basic principles</b> of 3D printing — layer-by-layer fabrication and the steps from digital design to a finished dental object.</div></div>
 <div class="objcard"><span class="objnum">2</span><div class="objtxt"><b>Identify the main technologies</b> used to fabricate dental prosthetic and surgical devices.</div></div>
 <div class="objcard"><span class="objnum">3</span><div class="objtxt"><b>Recognise the applications, advantages and limitations</b> of 3D printing in prosthodontics and dental surgery.</div></div>
 </div>
 <div class="spine"><b>Organising principle.</b> In additive manufacturing the object and its properties are formed in the same operation. The processing route therefore determines clinical behaviour to a degree comparable with the choice of material itself — which is why this hour is arranged along <b>structure → property → performance</b> rather than by device.</div>
+<div class="frameflow">
+<div class="ff-seg ff-a"><span class="ff-label">Structure</span><span class="ff-sub">Parts 1–3</span></div>
+<div class="ff-arrow">→</div>
+<div class="ff-seg ff-b"><span class="ff-label">Property</span><span class="ff-sub">Part 4</span></div>
+<div class="ff-arrow">→</div>
+<div class="ff-seg ff-b"><span class="ff-label">Performance</span><span class="ff-sub">Part 5</span></div>
+</div>
 <div class="roadmap">
 <div class="rm"><span class="rmn">PART 01 · structure</span><span class="rmt">What additive manufacturing is</span><span class="rmd">ISO/ASTM 52900; single-step vs multi-step; slicing and the staircase effect.</span></div>
 <div class="rm"><span class="rmn">PART 02 · structure</span><span class="rmt">From file to object</span><span class="rmd">The six process stages, and the build-orientation decision.</span></div>
 <div class="rm"><span class="rmn">PART 03 · structure</span><span class="rmt">The technologies</span><span class="rmd">Five process families; the four optical routes; sintering vs melting.</span></div>
 <div class="rm a2"><span class="rmn">PART 04 · property</span><span class="rmt">Where properties are written</span><span class="rmd">Green part, gel point, washing and post-curing, oxygen inhibition.</span></div>
 <div class="rm a2"><span class="rmn">PART 05 · performance</span><span class="rmt">Failures and the patient</span><span class="rmd">Failure modes, support placement, accuracy, clinical maturity.</span></div>
+</div>
 </div>
 </section>
 
