@@ -154,9 +154,9 @@ compactos + faixa da espinha + **roadmap das 5 partes**; single/multi-step e sli
 de exigir que o aluno imagine. **Slicing virou dois slides** (princípio → consequências numa coroa) antes da
 simulação, a pedido do Vinicius.
 
-**4 placeholders `.ph` no deck** aguardando as figuras do lote 2 (`_ops/prompts/07-3d-printing-figuras-lote2.md`):
-FIG 07.9 `single-vs-multi-step` · 07.10 `slicing-principle` · 07.11 `crown-surfaces-staircase` ·
-07.12 `aligner-production-chain`. O deck renderiza normalmente com os placeholders.
+**Lote 2 completo (2026-08-12).** As 4 figuras do `_ops/prompts/07-3d-printing-figuras-lote2.md` foram
+geradas e ligadas: FIG 07.9 `single-vs-multi-step` · 07.10 `slicing-principle` · 07.11
+`crown-surfaces-staircase` · 07.12 `aligner-production-chain`. Zero placeholders `.ph` restantes no deck.
 
 Slides escuros = título, 5 divisórias e os 3 slides interativos.
 
@@ -193,7 +193,7 @@ deve ser renomeada no mesmo ato em que é copiada para o repo.**
 | `single-vs-multi-step.png` | 6 | 2 |
 | `slicing-principle.png` | 8 | 2 |
 | `crown-surfaces-staircase.png` | 9 | 2 |
-| _`aligner-production-chain.png`_ | 2 | 2 — **pendente**, placeholder no deck |
+| `aligner-production-chain.png` | 2 | 2 |
 
 **Conferência dos números nas figuras do lote 2** (feita na imagem, não só no prompt):
 `crown-surfaces-staircase` traz 284/49 µm a 10°, 50/35 µm a 45°, 9/9 µm a 80°, a linha clínica de 120 µm e
@@ -201,26 +201,20 @@ o fator 30× — todos batem com `h/tanθ` e `h·cosθ` para h = 50 µm. `slicin
 16–32 / 20–50 / 25–100 / 50–400 µm, o cement space de 30 µm e o limite de 120 µm, todos corretos.
 `single-vs-multi-step` manteve o eixo como "share of final material properties" (em vez de grau de conversão)
 e traz os callouts de ≈46% e ≈70% — aceitável, e na prática melhor, porque evita atribuir grau de conversão
-à peça fresada.
+à peça fresada. `aligner-production-chain` traz a escala de vida útil requerida (minutos → anos) com os três
+objetos corretos: modelo impresso (minutos, só precisa de estabilidade dimensional na Tg do termoformado,
+não durabilidade), alinhador (1–2 semanas, sorção/manchamento/creep) e coroa definitiva (anos, fadiga/
+desgaste/hidrólise) — amarra o slide de abertura à escada de maturidade do fim da aula.
+
+**[Q-07.5]** O Vinicius pediu para colocar a figura `aligner-production-chain` mesmo sem ter certeza de como
+ela fecha com o tema, e disse que vai revisar depois. Está ligada no slide 2 (abertura/Align). O ponto
+pedagógico que ela carrega: a AM entra na cadeia de alinhadores como **ferramenta descartável** (o modelo),
+não como o **produto** (o alinhador é termoformado); a escala de vida útil conecta isso ao argumento
+estrutura→propriedade→desempenho que fecha a aula (escada de maturidade, slide 30). Revisar se esse enquadramento
+é o que o Vinicius quer manter, ou se prefere um recorte diferente para essa figura.
 
 **[VERIFY]** `trueness-precision-target.png` saiu **sem a seta diagonal "ACCURACY"** que o prompt pedia;
 compensado por texto no slide (defbox "Accuracy — the diagonal, not a quadrant") e pela legenda.
-**Não gerada:** `post-processing-five-stages` — substituída por uma faixa de 5 estágios em HTML/CSS
-(`.stagestrip`), que ficou melhor porque as cores são exatas e editáveis.
-
----|---|---|
-| 06_10_35 | `workflow-ribbon.png` | 11 |
-| 06_13_37 | `process-families-matrix.png` | 15 |
-| 06_25_45 (1) | `vat-optics-sla-lcd.png` | 16 |
-| 06_25_45 (2) | `vat-optics-dlp-clip.png` | 17 |
-| 06_28_11 | `failure-gallery.png` | 25 |
-| 06_38_38 | `supports-intaglio-inversion.png` | 26 |
-| 06_47_00 | `trueness-precision-target.png` | 27 |
-| 06_48_50 | `maturity-ladder.png` | 29 |
-
-**[VERIFY]** a figura `trueness-precision-target.png` saiu **sem a seta diagonal "ACCURACY"** que o prompt pedia.
-Compensado por texto no slide (defbox "Accuracy — not a quadrant, the diagonal") e pela legenda. Se quiser,
-regerar com ênfase na diagonal.
 **Não gerada:** `post-processing-five-stages` — substituída por uma faixa de 5 estágios em HTML/CSS
 (`.stagestrip`), que ficou melhor porque as cores são exatas e editáveis.
 
