@@ -135,17 +135,46 @@ processo aditivo) e parede de tijolos (argamassa é um terceiro material; fiada 
 **Contraste embutido:** a Formlabs afirma peça pós-curada "isotropic and 100% dense"; a literatura mede
 resistência mudando com o ângulo. Apresentar lado a lado, sem acusar.
 
-## 3. O deck construído — 30 slides · 5 partes
+## 3. O deck construído — 34 slides · 5 partes (v2, reconstruído em 2026-08-12)
 
 | Parte | Slides | Conteúdo |
 |---|---|---|
-| Abertura | 1–4 | título · escala industrial (Align, 3 datacards + **FIG 07.12**) · adoção 10%→57% com o milling subindo junto · outcomes compactos + espinha + **roadmap de 5 partes** |
-| **01 · What AM is** | 5–10 | divisória · ISO/ASTM 52900 + single/multi-step (**FIG 07.9**) · aditivo × subtrativo · **slicing como princípio (FIG 07.10)** · **consequências do slicing numa coroa (FIG 07.11 + tabela de layer heights)** · **W1** |
-| **02 · File → object** | 11–14 | divisória · **FIG workflow-ribbon** · **W2 (âncora)** · leitura do Farag (todos < 120 µm) |
-| **03 · Technologies** | 15–19 | divisória · **FIG process-families-matrix** · **FIG vat-optics-sla-lcd** · **FIG vat-optics-dlp-clip** · metais (sinterizar × fundir) + ponte p/ Aula 16 |
-| **04 · Properties written** | 20–24 | divisória · green part (faixa de 5 estágios em CSS, cor = química) · **W3** · as duas janelas · oxigênio (defeito → CLIP) |
-| **05 · Wrong / patient** | 25–30 | divisória · **FIG failure-gallery** · **FIG supports-intaglio-inversion** · **FIG trueness-precision-target** · guias por suporte + zircônia impressa × fresada · **FIG maturity-ladder** |
-| Recap | 31 | mapa dos outcomes + o ponto de resumo do STL |
+| Abertura | 1–5 | título · escala industrial (Align, produto × ferramenta, **FIG 07.12**) · **o que se imprime hoje (3 níveis de maturidade EM TEXTO + FIG maturity-ladder)** · **onde acontece, quanto custa ($ a $$$$), quanto demora (gráfico de adoção + 84% in-lab)** · outcomes + espinha + roadmap |
+| **01 · O que é e como se faz** | 6–12 | divisória · **o equipamento: impressora, lavadora, curadora (FIG 07.13)** · **os seis passos EM TEXTO (FIG workflow-ribbon)** · **a resina: monómero + fotoiniciador + luz, gel point definido (FIG 07.14)** · **supports: o que são, porquê, a cicatriz (FIG 07.15)** · single/multi-step (**FIG 07.9**) · aditivo × subtrativo |
+| **02 · Camadas** | 13–16 | divisória · slicing + **escala 30/50/70/120 µm** + anisotropia definida (**FIG 07.10**) · consequências numa coroa (**FIG 07.11**) · **W1 staircase** |
+| **03 · Tecnologias** | 17–21 | divisória · cinco famílias EM TEXTO + layer heights + acrónimos expandidos (**FIG process-families-matrix**) · SLA × LCD com mecanismo (**FIG vat-optics-sla-lcd**) · DLP + as 4 rotas (**FIG vat-optics-dlp-clip**) · metais (sinterizar × fundir) + ponte p/ Aula 16 |
+| **04 · Pós-processamento** | 22–26 | divisória · green part (faixa de 5 estágios em CSS) · **W3 gel point** · **oxigénio (antes do slide que o usa)** · lavagem e pós-cura: faixas ótimas |
+| **05 · Exatidão e limites** | 27–33 | divisória · trueness/precision **antes de qualquer número** · **gap marginal: o que é, como se mede, origem dos 120 µm** · orientação de construção: dados do Farag (**FIG 07.16**, sem widget) · modos de falha EM TEXTO · supports coroa × base de prótese EM TEXTO · zircónia impressa × fresada |
+| Recap | 34 | mapa dos outcomes · **resposta à pergunta produto-vs-ferramenta** · ponto de resumo do STL |
+
+### Reconstrução pedagógica (2026-08-12) — porquê
+
+Um subagente a fazer de **aluno de 2.º ano que nunca viu uma impressora 3D** leu o deck inteiro duas vezes.
+Diagnóstico da 1.ª leitura: *"passei a aula a raciocinar sobre as consequências de um processo que nunca me
+foi mostrado"*. Nunca via a máquina, não havia passo-a-passo em palavras (o slide do workflow dava a
+**análise** dos 6 passos em vez dos passos), o widget de build orientation comparava SLA × DLP quatro slides
+antes de os definir (*"foi onde parei de tentar acompanhar"*), e o conteúdo de 4 slides vivia só dentro das
+figuras. Decisões do Vinicius: **cortar o avançado** (CLIP reduzido, tabela de guias cirúrgicas removida),
+**remover o widget de orientação**, e **incluir custo em bandas `$`–`$$$$`, sem valores absolutos**.
+
+O que mudou: 5 slides novos de "andar térreo" (equipamento · seis passos · química da resina · supports ·
+realidade operacional); reordenação para que **nada seja medido antes de ser descrito** (tecnologias antes
+dos dados que as usam, trueness/precision antes dos números, escala em µm antes do primeiro juízo de 120 µm,
+aplicações clínicas na abertura); conteúdo tirado de dentro de 6 figuras; estatística traduzida (p-values,
+n, ±SD); acrónimos expandidos; e os laços fechados no fim (staircase → gap marginal; a pergunta
+produto-vs-ferramenta do slide 2 é respondida no 34).
+
+Da 2.ª leitura, o aluno considerou os outcomes 1 e 3 cumpridos e o 2 "borderline". As 5 correções que
+priorizou foram todas aplicadas. **Preservado explicitamente a pedido dele:** as passagens em que a aula
+declara a fraqueza da própria evidência (*"the evidence axis runs opposite to the tiers"*, *"a convention,
+not a constant"*, o parágrafo dos braços confundidos do Farag, *"no clinical survival data exist"*) —
+*"confio no resto por causa dessas. Não as corte por tempo."*
+
+**[Q-07.6]** O aluno pediu duas coisas que ficaram fora de escopo e valem decisão: (a) **o papel do dentista**
+— a aula diz que o técnico decide orientação, supports e pós-processamento, e nunca diz o que o dentista
+controla ou confere quando o caso volta do laboratório; (b) **regulação, esterilização e validade da resina**
+— o autoclave aparece uma vez de passagem e não há nada sobre certificação de dispositivo médico. Ambos
+podem caber em 1 slide ou ser remetidos para a Aula 14 (CAD/CAM).
 
 **Revisão de densidade (2026-08-12).** Slides identificados como vazios foram reestruturados: o de escala
 industrial ganhou 3 datacards, o mecanismo econômico (customização sem penalidade de ferramental) e o
@@ -156,9 +185,15 @@ simulação, a pedido do Vinicius.
 
 **Lote 2 completo (2026-08-12).** As 4 figuras do `_ops/prompts/07-3d-printing-figuras-lote2.md` foram
 geradas e ligadas: FIG 07.9 `single-vs-multi-step` · 07.10 `slicing-principle` · 07.11
-`crown-surfaces-staircase` · 07.12 `aligner-production-chain`. Zero placeholders `.ph` restantes no deck.
+`crown-surfaces-staircase` · 07.12 `aligner-production-chain`.
 
-Slides escuros = título, 5 divisórias e os 3 slides interativos.
+**Lote 3 pendente (2026-08-12).** A reconstrução criou **4 placeholders `.ph`** novos, com prompts em
+`_ops/prompts/07-3d-printing-figuras-lote3.md`: FIG 07.13 `printer-hardware` (slide 7) · 07.14
+`resin-network` (slide 9) · 07.15 `supports-basics` (slide 10) · 07.16 `build-orientation-three`
+(slide 30). **A 07.16 é a mais importante**: substitui o widget removido e é o que o aluno disse não
+conseguir imaginar. O deck renderiza normalmente com os placeholders.
+
+Slides escuros = título, 5 divisórias e os 2 slides interativos (o W2 foi removido).
 
 ---
 
