@@ -139,13 +139,24 @@ resistência mudando com o ângulo. Apresentar lado a lado, sem acusar.
 
 | Parte | Slides | Conteúdo |
 |---|---|---|
-| Abertura | 1–4 | título · gancho Align (1 M/dia + o twist) · adoção 10%→57% com o milling subindo junto · objetivos |
-| **01 · What AM is** | 5–9 | divisória · ISO/ASTM 52900 + single-step × multi-step · aditivo × subtrativo honesto · slicer = CT ao contrário + staircase · **W1** |
-| **02 · File → object** | 10–13 | divisória · **FIG workflow-ribbon** · **W2 (âncora)** · leitura honesta do Farag (todos < 120 µm) |
-| **03 · Technologies** | 14–18 | divisória · **FIG process-families-matrix** · **FIG vat-optics-sla-lcd** · **FIG vat-optics-dlp-clip** · metais (sinterizar × fundir) + ponte p/ Aula 16 |
-| **04 · Properties written** | 19–23 | divisória · green part (faixa de 5 estágios em CSS, cor = química) · **W3** · as duas janelas · inversão do oxigênio (defeito → CLIP) |
-| **05 · Wrong / patient** | 24–29 | divisória · **FIG failure-gallery** · **FIG supports-intaglio-inversion** · **FIG trueness-precision-target** · guias por suporte + zircônia impressa × fresada · **FIG maturity-ladder** |
-| Recap | 30 | mapa dos outcomes + a frase do STL |
+| Abertura | 1–4 | título · escala industrial (Align, 3 datacards + **FIG 07.12**) · adoção 10%→57% com o milling subindo junto · outcomes compactos + espinha + **roadmap de 5 partes** |
+| **01 · What AM is** | 5–10 | divisória · ISO/ASTM 52900 + single/multi-step (**FIG 07.9**) · aditivo × subtrativo · **slicing como princípio (FIG 07.10)** · **consequências do slicing numa coroa (FIG 07.11 + tabela de layer heights)** · **W1** |
+| **02 · File → object** | 11–14 | divisória · **FIG workflow-ribbon** · **W2 (âncora)** · leitura do Farag (todos < 120 µm) |
+| **03 · Technologies** | 15–19 | divisória · **FIG process-families-matrix** · **FIG vat-optics-sla-lcd** · **FIG vat-optics-dlp-clip** · metais (sinterizar × fundir) + ponte p/ Aula 16 |
+| **04 · Properties written** | 20–24 | divisória · green part (faixa de 5 estágios em CSS, cor = química) · **W3** · as duas janelas · oxigênio (defeito → CLIP) |
+| **05 · Wrong / patient** | 25–30 | divisória · **FIG failure-gallery** · **FIG supports-intaglio-inversion** · **FIG trueness-precision-target** · guias por suporte + zircônia impressa × fresada · **FIG maturity-ladder** |
+| Recap | 31 | mapa dos outcomes + o ponto de resumo do STL |
+
+**Revisão de densidade (2026-08-12).** Slides identificados como vazios foram reestruturados: o de escala
+industrial ganhou 3 datacards, o mecanismo econômico (customização sem penalidade de ferramental) e o
+histórico Cubicure/Invisalign Palatal Expander; o de outcomes trocou os cards altos e vazios por cards
+compactos + faixa da espinha + **roadmap das 5 partes**; single/multi-step e slicing ganharam figura em vez
+de exigir que o aluno imagine. **Slicing virou dois slides** (princípio → consequências numa coroa) antes da
+simulação, a pedido do Vinicius.
+
+**4 placeholders `.ph` no deck** aguardando as figuras do lote 2 (`_ops/prompts/07-3d-printing-figuras-lote2.md`):
+FIG 07.9 `single-vs-multi-step` · 07.10 `slicing-principle` · 07.11 `crown-surfaces-staircase` ·
+07.12 `aligner-production-chain`. O deck renderiza normalmente com os placeholders.
 
 Slides escuros = título, 5 divisórias e os 3 slides interativos.
 
@@ -189,12 +200,19 @@ exatamente o mesmo desenho. Cada um está isolado em `try/catch` — um erro nã
 
 | Widget | Slide | Entrada | Saídas | Base |
 |---|---|---|---|---|
-| **W1 staircase** | 9 | layer height (25/50/100/150 µm) × θ (10–80°) | largura do degrau `h/tanθ`, desvio `h·cosθ` (vermelho acima de 50 µm), nº de camadas, tempo (`7 s`/camada → `T ∝ 1/h`) | geometria exata; modelo de tempo declarado no slide |
-| **W2 one angle, four consequences** | 12 | ângulo 0/45/90° (discreto — só onde há dado) | A coroa girando com as camadas fixas na horizontal + supports mudando de cor · B margem ampliada com os degraus · C barras SLA/DLP com a linha dos 120 µm | Farag 2024, valores reais |
-| **W3 gel point** | 21 | progresso 0–100 | rede polimérica em canvas, DC (0→40 → trava em 46 → 70), mobilidade colapsando e sendo reerguida pela pós-cura, barra de monômero não reagido | Hassanpour 2024; DC 69,6% em 45 min (Kirby) |
+| **W1 staircase** | 10 | layer height (25/50/100/150 µm) × θ (10–80°) | largura do degrau `h/tanθ`, desvio `h·cosθ` (vermelho acima de 50 µm), nº de camadas, tempo (`7 s`/camada → `T ∝ 1/h`) | geometria exata; modelo de tempo declarado no slide |
+| **W2 build orientation** | 13 | ângulo 0/45/90° (discreto — só onde há dado) | A coroa girando com as camadas fixas na horizontal + supports mudando de cor · B margem ampliada com os degraus · C barras SLA/DLP com a linha dos 120 µm | Farag 2024, valores reais |
+| **W3 gel point** | 22 | progresso 0–100 | rede polimérica em canvas, DC (0→40 → trava em 46 → 70), mobilidade colapsando e sendo reerguida pela pós-cura, barra de monômero não reagido | Hassanpour 2024; DC 69,6% em 45 min (Kirby) |
 
-Verificação headless (jsdom): W1 varrido em 4×15 combinações sem NaN; W3 com DC monotônico e a cor virando
-de alerta para ok exatamente ao cruzar 50%; navegação, progresso e overview (30 itens) OK.
+Verificação headless (jsdom): W1 varrido em 4×15 combinações sem NaN **e sem nenhum elemento fora do
+viewBox** (o teste checa texto, linhas e paths contra 560×366 — foi assim que se pegou o overshoot dos
+rótulos "CAD surface"/"printed surface"); W3 com DC monotônico e a cor virando de alerta para ok exatamente
+ao cruzar 50%; navegação, progresso e overview (31 itens) OK.
+
+**Correção do W1 (2026-08-12):** os rótulos saíam pela direita e a legenda de "step width" colidia com a
+legenda da plataforma. Redesenhado: legenda fixa no topo (CAD × printed), texto do topo-direito
+right-anchored, escada contida na área de desenho com reticências quando não cabe, e a largura do degrau
+virou uma **barra de escala isolada** na base do SVG. Teste de viewBox agora é parte da validação.
 
 ---
 

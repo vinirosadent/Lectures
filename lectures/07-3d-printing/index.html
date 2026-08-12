@@ -164,6 +164,22 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 .dtable th{font-family:var(--f-mono);font-size:.85rem;letter-spacing:.07em;text-transform:uppercase;color:var(--primary-ink);border-bottom:2px solid var(--primary)}
 .dtable td b{color:var(--ink)}
 .dtable tr.hi td{background:var(--primary-wash)}
+.objgrid.compact{flex:none;grid-auto-rows:min-content}
+.objgrid.compact .objcard{padding:.9rem 1rem;gap:.4rem}
+.roadmap{display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem;margin-top:1.6vh}
+.rm{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--primary);border-radius:12px;padding:.8rem .9rem;display:flex;flex-direction:column;gap:.35rem}
+.rm .rmn{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.1em;color:var(--primary-ink)}
+.rm .rmt{font-family:var(--f-disp);font-weight:600;font-size:clamp(1rem,1.3vw,1.16rem);color:var(--ink);line-height:1.22}
+.rm .rmd{font-size:.94rem;color:var(--muted);line-height:1.3}
+.rm.a2{border-top-color:var(--clinical)}
+.spine{margin-top:1.4vh;border-left:5px solid var(--primary);background:var(--primary-wash);padding:.85rem 1.1rem;border-radius:0 12px 12px 0;font-size:clamp(1.02rem,1.4vw,1.24rem);color:var(--ink-soft);line-height:1.4}
+.spine b{color:var(--primary-ink)}
+.ph{min-height:0;padding:1.4rem 1.2rem}
+.figbox .ph{width:100%}
+.datastrip{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-top:1.2vh}
+.ds{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.75rem .9rem}
+.ds .dsv{font-family:var(--f-mono);font-weight:600;font-size:clamp(1.25rem,2vw,1.7rem);color:var(--primary-ink);line-height:1.1}
+.ds .dsl{font-size:.92rem;color:var(--muted);line-height:1.3;margin-top:.2rem}
 </style></head><body>
 <div class="progress" id="prog"></div>
 <div class="deck"><div class="track" id="track">
@@ -174,17 +190,20 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <p class="s-eyebrow">Context · industrial scale</p>
 <h2 class="s-title">Additive manufacturing at industrial scale</h2>
 <p class="s-sub">Align Technology reports producing more than one million custom orthodontic appliances per day, which it describes as the largest 3D printing operation in the world.</p>
-<div class="s-body text-heavy">
+<div class="s-body fig-heavy">
 <div class="col-text">
-<ul class="blist">
-<li><b>&gt;1,000,000</b> custom appliances per day, across facilities in Mexico, China and Poland. No two are identical, and none is held as stock.</li>
-<li>Each one is produced from an individual patient scan rather than from a production batch. This is the defining economic property of additive manufacturing: <b>customisation carries no tooling penalty</b>.</li>
-</ul>
-<div class="key" style="margin-top:2vh"><span class="k-tag">Important qualification</span>The aligner itself is <b>not printed</b>. The <b>model</b> is printed, and the aligner is thermoformed over it and trimmed off. Most additive manufacturing in orthodontics is therefore the production of <b>disposable tooling</b>, not of the final device.</div>
-<p class="srcline">Srini Kaza (EVP R&amp;D, Align), Orthodontic Products, Jul 2025. Align acquired Cubicure (Jan 2024) specifically to print aligners directly.</p>
+<div class="datastrip">
+<div class="ds"><div class="dsv">&gt;1,000,000</div><div class="dsl">custom appliances printed per day</div></div>
+<div class="ds"><div class="dsv">3</div><div class="dsl">facilities: Mexico, China, Poland</div></div>
+<div class="ds"><div class="dsv">0</div><div class="dsl">units held as stock; every one is patient-specific</div></div>
+</div>
+<div class="mech" style="margin-top:1.4vh"><span class="k-tag">Why this is possible</span>Each appliance is produced from an individual patient scan rather than from a production batch. In a moulded or milled workflow, every new geometry requires new tooling or a new blank; in additive manufacturing it requires only a different file. <b>Customisation carries no tooling penalty</b> — this is the defining economic property of the process.</div>
+<div class="key" style="margin-top:1.2vh"><span class="k-tag">Important qualification</span>The aligner itself is <b>not printed</b>. The <b>model</b> is printed; the aligner is thermoformed over it and trimmed off, and the model is discarded. Most additive manufacturing in orthodontics is therefore the production of <b>disposable tooling</b> rather than of the definitive device.</div>
+<p class="srcline">Srini Kaza (EVP R&amp;D, Align), Orthodontic Products, Jul 2025. Align acquired Cubicure (Vienna) in Jan 2024 to move towards directly printed appliances; the first product of that route was the Invisalign Palatal Expander (FDA clearance Dec 2023).</p>
 </div>
 <div class="col-visual">
-<div class="mech"><span class="k-tag">Implication</span>In contemporary dentistry, additive manufacturing is used predominantly to produce a one-off object that a subsequent process will use, rather than the definitive device itself. For each application in this lecture, distinguish whether the printed object is the <b>product</b> or the <b>tool</b>.</div>
+<div class="figbox"><div class="ph"><span class="ph-badge">figure to generate</span><span class="ph-t">Aligner production chain</span><span class="ph-f">aligner-production-chain.png</span><span class="ph-d">Intraoral scan → digital set-up (staged tooth positions) → printed model for each stage → thermoforming → trimming → aligner. The printed object is highlighted as the tool, the aligner as the product.</span></div><p class="figcap"><b>FIG.</b> The printed object is the model, not the appliance.</p></div>
+<div class="mech" style="margin-top:1rem"><span class="k-tag">Question to carry through the lecture</span>For each application: is the printed object the <b>product</b> or the <b>tool</b>?</div>
 </div>
 </div>
 </section>
@@ -213,12 +232,19 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <section class="slide">
 <p class="s-eyebrow">Learning outcomes</p>
 <h2 class="s-title">Learning outcomes</h2>
-<div class="objgrid" style="grid-template-columns:repeat(3,1fr)">
-<div class="objcard"><span class="objnum">1</span><div class="objtxt"><b>Explain the basic principles</b> of 3D printing — layer-by-layer fabrication and the steps from digital design to a finished dental object.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">→ Parts 1 and 2</span></div></div>
-<div class="objcard"><span class="objnum">2</span><div class="objtxt"><b>Identify the main technologies</b> used to fabricate dental prosthetic and surgical devices.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">→ Part 3</span></div></div>
-<div class="objcard"><span class="objnum">3</span><div class="objtxt"><b>Recognise the applications, advantages and limitations</b> of 3D printing in prosthodontics and dental surgery.<br><span style="color:#0A5C6D;font-family:var(--f-mono);font-size:.95rem">→ Parts 4 and 5</span></div></div>
+<div class="objgrid compact" style="grid-template-columns:repeat(3,1fr)">
+<div class="objcard"><span class="objnum">1</span><div class="objtxt"><b>Explain the basic principles</b> of 3D printing — layer-by-layer fabrication and the steps from digital design to a finished dental object.</div></div>
+<div class="objcard"><span class="objnum">2</span><div class="objtxt"><b>Identify the main technologies</b> used to fabricate dental prosthetic and surgical devices.</div></div>
+<div class="objcard"><span class="objnum">3</span><div class="objtxt"><b>Recognise the applications, advantages and limitations</b> of 3D printing in prosthodontics and dental surgery.</div></div>
 </div>
-<div class="key" style="margin-top:2vh"><span class="k-tag">Organising principle</span>In additive manufacturing, the object and its properties are formed in the same operation. The processing route therefore determines clinical behaviour to a degree comparable with the choice of material itself.</div>
+<div class="spine"><b>Organising principle.</b> In additive manufacturing the object and its properties are formed in the same operation. The processing route therefore determines clinical behaviour to a degree comparable with the choice of material itself — which is why this hour is arranged along <b>structure → property → performance</b> rather than by device.</div>
+<div class="roadmap">
+<div class="rm"><span class="rmn">PART 01 · structure</span><span class="rmt">What additive manufacturing is</span><span class="rmd">ISO/ASTM 52900; single-step vs multi-step; slicing and the staircase effect.</span></div>
+<div class="rm"><span class="rmn">PART 02 · structure</span><span class="rmt">From file to object</span><span class="rmd">The six process stages, and the build-orientation decision.</span></div>
+<div class="rm"><span class="rmn">PART 03 · structure</span><span class="rmt">The technologies</span><span class="rmd">Five process families; the four optical routes; sintering vs melting.</span></div>
+<div class="rm a2"><span class="rmn">PART 04 · property</span><span class="rmt">Where properties are written</span><span class="rmd">Green part, gel point, washing and post-curing, oxygen inhibition.</span></div>
+<div class="rm a2"><span class="rmn">PART 05 · performance</span><span class="rmt">Failures and the patient</span><span class="rmd">Failure modes, support placement, accuracy, clinical maturity.</span></div>
+</div>
 </section>
 
 <section class="slide slide--divider"><div class="s-eyebrow">Part 1 of 5</div><div class="num">01</div><h2>What additive manufacturing is</h2><div class="d-list"><span>The standard definition</span><span>· Single-step vs multi-step</span><span>· Additive vs subtractive</span><span>· The staircase</span></div></section>
@@ -236,8 +262,8 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 </div>
 </div>
 <div class="col-visual">
-<div class="mech"><span class="k-tag">Clinical significance</span>A milled crown is machined from a blank whose properties were established industrially, under controlled pressure and temperature; those properties are inherited unchanged. A printed crown acquires its final properties during post-processing at the bench, and therefore depends on the wash and cure protocol actually used.</div>
-<div class="key" style="margin-top:1.6vh"><span class="k-tag">General rule</span>For any material, consider how many state changes occur <b>after</b> the geometry has been established. Each additional transformation is a further opportunity for dimension, strength or biocompatibility to change.</div>
+<div class="figbox"><div class="ph"><span class="ph-badge">figure to generate</span><span class="ph-t">Single-step vs multi-step</span><span class="ph-f">single-vs-multi-step.png</span><span class="ph-d">Two parallel process lanes. Milled crown: industrial blank (properties already set) → machining → finished. Printed crown: liquid resin → printing (shape only, green) → washing → post-curing → finished, with a property bar filling only in the last stages.</span></div><p class="figcap"><b>FIG.</b> Where in the chain the material acquires its properties.</p></div>
+<div class="mech" style="margin-top:1rem"><span class="k-tag">Clinical significance</span>A milled crown is machined from a blank whose properties were established industrially; those properties are inherited unchanged. A printed crown acquires its final properties during post-processing at the bench, and therefore depends on the wash and cure protocol actually used.</div>
 </div>
 </div>
 </section>
@@ -271,17 +297,42 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 </section>
 
 <section class="slide">
-<p class="s-eyebrow">Structure · slicing and layer geometry</p>
+<p class="s-eyebrow">Structure · slicing</p>
 <h2 class="s-title">Slicing: converting a volume into a stack of layers</h2>
-<div class="s-body text-heavy">
+<div class="s-body fig-heavy">
 <div class="col-text">
-<p class="s-sub">The operation is familiar from imaging. A CBCT converts a continuous volume into a stack of thin slices along one axis; the slicer performs the same discretisation on the STL, and the printer then reverses it, reconstructing the volume from the slices.</p>
-<div class="mech" style="margin-top:1.2vh"><span class="k-tag">Shared limitation</span>Both are subject to the same constraint: <b>resolution across the plane is inferior to resolution within it</b>. In CBCT, slice thickness limits what can be resolved; in printing, <b>layer height</b> limits what can be fabricated.</div>
-<div class="key" style="margin-top:1.4vh"><span class="k-tag">Analogies to avoid</span><b>Sliced bread</b>: the slices are cut from a loaf that already exists, so a subtractive image is being used to describe an additive process. <b>A brick wall</b>: bricks are joined by a third material and are laid in staggered courses precisely to avoid a continuous plane of weakness, whereas printed layers are aligned — the analogy therefore <b>understates</b> the anisotropy.</div>
+<p class="s-sub" style="margin-bottom:1.2vh">The operation is familiar from imaging. A CBCT converts a continuous volume into a stack of thin slices along one axis; the slicer performs the same discretisation on the STL, and the printer then reverses it, reconstructing the volume from the slices.</p>
+<div class="mech"><span class="k-tag">Shared limitation</span>Both are subject to the same constraint: <b>resolution across the plane is inferior to resolution within it</b>. In CBCT, slice thickness limits what can be resolved; in printing, <b>layer height</b> limits what can be fabricated. In-plane resolution is set by the optics or the nozzle; the z resolution <b>is</b> the layer height.</div>
+<div class="key" style="margin-top:1.2vh"><span class="k-tag">Analogies to avoid</span><b>Sliced bread</b>: the slices are cut from a loaf that already exists, so a subtractive image is being used to describe an additive process. <b>A brick wall</b>: bricks are joined by a third material and are laid in staggered courses precisely to avoid a continuous plane of weakness, whereas printed layers are aligned — the analogy therefore <b>understates</b> the anisotropy.</div>
 </div>
 <div class="col-visual">
-<div class="defbox"><div class="term">Staircase effect</div><div class="def">A continuous surface approximated by discrete stacked layers is reproduced as a series of steps. The width of each step is <b>layer height ÷ tan θ</b>, where θ is the angle of the surface to the build platform.</div></div>
-<div class="mech" style="margin-top:1.4vh"><span class="k-tag">Consequence</span>A <b>vertical</b> surface produces no staircase. As a surface approaches the horizontal, tan θ tends to zero and the step width increases without limit. Consider which surface of a crown preparation represents the least favourable case.</div>
+<div class="figbox"><div class="ph"><span class="ph-badge">figure to generate</span><span class="ph-t">Slicing principle</span><span class="ph-f">slicing-principle.png</span><span class="ph-d">Three panels: (1) solid crown as a continuous volume; (2) the same crown cut into horizontal layers, one layer lifted out to show its 2D cross-section; (3) the printer rebuilding the stack from bottom to top, with the topmost layer being formed. Arrows: CAD volume → slices → rebuilt object.</span></div><p class="figcap"><b>FIG.</b> The slicer discretises the volume; the printer reverses the operation.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Structure → property · consequences of slicing</p>
+<h2 class="s-title">What layer height does to a restoration</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Staircase effect</div><div class="def">A continuous surface approximated by discrete stacked layers is reproduced as a series of steps of width <b>h / tan θ</b>, where <b>h</b> is the layer height and <b>θ</b> the angle of the surface to the build platform.</div></div>
+<ul class="blist" style="margin-top:1.2vh">
+<li>A <b>vertical</b> surface produces no staircase. As a surface approaches the horizontal, tan θ tends to zero and the step widens without limit.</li>
+<li>In a crown this means the <b>occlusal surface and the shallow cuspal inclines are the least favourable case</b>, and the <b>axial walls the most favourable</b> — and which one the finish line belongs to depends on how the crown is oriented on the platform.</li>
+<li>Reducing the layer height reduces the step, but the number of layers, and therefore the build time, rises in proportion to <b>1/h</b>.</li>
+</ul>
+<div class="key" style="margin-top:1.2vh"><span class="k-tag">Device tolerance decides</span>Layer height is not equally important for every device. For <b>orthodontic retainers</b>, no significant difference in accuracy was found between 100 µm and 50 µm layers (p &gt; 0.05). For a <b>crown margin</b>, where the acceptable discrepancy is measured in tens of micrometres, the same change is not negligible.</div>
+</div>
+<div class="col-visual">
+<div class="figbox"><div class="ph"><span class="ph-badge">figure to generate</span><span class="ph-t">Staircase across a crown</span><span class="ph-f">crown-surfaces-staircase.png</span><span class="ph-d">Cross-section of a crown on a preparation, with the layer lines drawn horizontally through it. Three zoom callouts: occlusal surface (wide steps, marked as worst case), cuspal incline (intermediate), axial wall and finish line (steps almost absent, best case). A colour scale from crimson to teal ranks the surfaces.</span></div><p class="figcap"><b>FIG.</b> The same layer height produces very different surface error depending on local geometry.</p></div>
+<table class="dtable" style="margin-top:1rem">
+<tr><th>Process</th><th>Typical layer height</th></tr>
+<tr class="hi"><td>Vat photopolymerization (SLA/DLP/LCD)</td><td><b>25–100 µm</b> (commonly 50)</td></tr>
+<tr><td>Material jetting</td><td>16–32 µm</td></tr>
+<tr><td>Powder bed fusion (metal)</td><td>20–50 µm</td></tr>
+<tr><td>Material extrusion (FFF)</td><td>50–400 µm</td></tr>
+</table>
 </div>
 </div>
 </section>
@@ -303,7 +354,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <p class="igloss" id="w1note" style="font-size:1.08rem"></p>
 </div>
 <div class="col-visual">
-<div class="instrument"><svg id="w1svg" viewBox="0 0 560 360" style="width:100%;display:block" aria-label="staircase effect on an inclined surface"></svg></div>
+<div class="instrument"><svg id="w1svg" viewBox="0 0 560 366" style="width:100%;display:block" aria-label="staircase effect on an inclined surface"></svg></div>
 <p class="srcline">Step geometry is exact. Time model: exposure + lift + retract + rest ≈ 7 s per layer, independent of h — so time scales as 1/h.</p>
 </div>
 </div>
@@ -643,47 +694,49 @@ function txt(x,y,s,a){var t=el("text",a||{});t.setAttribute("x",x);t.setAttribut
 var hS=document.getElementById("w1h"),aS=document.getElementById("w1a"),svg=document.getElementById("w1svg");
 if(!svg)return;
 var HS=[25,50,100,150];
-var VH=500;                 /* physical height of the magnified view, µm */
-var X0=70,Y0=310,PW=470,PH=265;
+var VH=500;                 /* altura fisica da vista ampliada, µm */
+var X0=95,Y0=286,PW=420,PH=215;
 function draw(){
   var h=HS[+hS.value], th=+aS.value, rad=th*Math.PI/180;
   var stepW=h/Math.tan(rad);            /* µm */
   var dev=h*Math.cos(rad);              /* µm */
-  var VW=VH/Math.tan(rad);              /* µm of horizontal span for VH of rise */
+  var VW=VH/Math.tan(rad);
   var sc=Math.min(PH/VH,PW/VW);
   var n=Math.max(2,Math.floor(VH/h));
   svg.innerHTML="";
-  svg.appendChild(el("rect",{x:0,y:0,width:560,height:360,fill:"none"}));
-  /* platform */
+  var MONO="IBM Plex Mono, monospace";
+  /* --- legenda fixa, canto superior esquerdo --- */
+  svg.appendChild(el("line",{x1:20,y1:22,x2:52,y2:22,stroke:"#F2B84B","stroke-width":2.5,"stroke-dasharray":"7 5"}));
+  svg.appendChild(txt(60,27,"CAD surface",{fill:"#F2B84B","font-size":"14","font-family":MONO}));
+  svg.appendChild(el("line",{x1:20,y1:44,x2:52,y2:44,stroke:"#57C6D8","stroke-width":2.6}));
+  svg.appendChild(txt(60,49,"printed surface",{fill:"#57C6D8","font-size":"14","font-family":MONO}));
+  svg.appendChild(txt(545,27,"magnified view · "+VH+" µm of rise",{fill:"#8FA9BC","font-size":"13","text-anchor":"end","font-family":MONO}));
+  svg.appendChild(txt(545,49,n+" layers in view · θ = "+th+"°",{fill:"#8FA9BC","font-size":"13","text-anchor":"end","font-family":MONO}));
+  /* --- plataforma e direcao de construcao --- */
   svg.appendChild(el("line",{x1:40,y1:Y0,x2:540,y2:Y0,stroke:"#3E6076","stroke-width":2}));
-  svg.appendChild(txt(40,Y0+22,"build platform (layers stack upwards)",{fill:"#8FA9BC","font-size":"13","font-family":"IBM Plex Mono, monospace"}));
-  svg.appendChild(el("path",{d:"M28 "+(Y0-10)+" L28 "+(Y0-90),stroke:"#57C6D8","stroke-width":2,"marker-end":""}));
-  svg.appendChild(el("path",{d:"M28 "+(Y0-96)+" l-5 10 l10 0 z",fill:"#57C6D8"}));
-  /* staircase polyline */
-  var d="M"+X0+" "+Y0, x=X0, y=Y0, pts=[];
+  svg.appendChild(txt(540,Y0+20,"build platform",{fill:"#8FA9BC","font-size":"13","text-anchor":"end","font-family":MONO}));
+  svg.appendChild(el("line",{x1:28,y1:Y0-12,x2:28,y2:Y0-86,stroke:"#57C6D8","stroke-width":2}));
+  svg.appendChild(el("path",{d:"M28 "+(Y0-94)+" l-5 10 l10 0 z",fill:"#57C6D8"}));
+  svg.appendChild(txt(38,Y0-96,"build",{fill:"#57C6D8","font-size":"12","font-family":MONO}));
+  /* --- escada, contida na area de desenho --- */
+  var d="M"+X0+" "+Y0, x=X0, y=Y0, drawn=0;
   for(var k=0;k<n;k++){
-    var nx=x+stepW*sc; if(nx-X0>PW+2)break;
-    d+=" L"+nx+" "+y; x=nx;
-    var ny=y-h*sc; if(Y0-ny>PH+2)break;
-    d+=" L"+x+" "+ny; y=ny; pts.push([x,y]);
+    var nx=x+stepW*sc, ny=y-h*sc;
+    if(nx-X0>PW||Y0-ny>PH)break;
+    d+=" L"+nx+" "+y+" L"+nx+" "+ny; x=nx; y=ny; drawn++;
   }
   var endX=x,endY=y;
-  /* ideal surface */
   svg.appendChild(el("line",{x1:X0,y1:Y0,x2:endX,y2:endY,stroke:"#F2B84B","stroke-width":2.5,"stroke-dasharray":"7 5"}));
-  svg.appendChild(el("path",{d:d+" L"+endX+" "+endY+" Z",fill:"rgba(214,69,69,.20)",stroke:"none"}));
+  svg.appendChild(el("path",{d:d+" L"+endX+" "+endY+" Z",fill:"rgba(214,69,69,.22)",stroke:"none"}));
   svg.appendChild(el("path",{d:d,fill:"none",stroke:"#57C6D8","stroke-width":2.6,"stroke-linejoin":"miter"}));
-  svg.appendChild(txt(endX+8,endY-4,"CAD surface",{fill:"#F2B84B","font-size":"14","font-family":"IBM Plex Mono, monospace"}));
-  svg.appendChild(txt(endX+8,endY+16,"printed surface",{fill:"#57C6D8","font-size":"14","font-family":"IBM Plex Mono, monospace"}));
-  /* step-width bracket on the first step */
-  if(pts.length){
-    var bw=stepW*sc, by=Y0+12;
-    svg.appendChild(el("line",{x1:X0,y1:by,x2:X0+bw,y2:by,stroke:"#F58A9B","stroke-width":1.6}));
-    svg.appendChild(el("line",{x1:X0,y1:by-5,x2:X0,y2:by+5,stroke:"#F58A9B","stroke-width":1.6}));
-    svg.appendChild(el("line",{x1:X0+bw,y1:by-5,x2:X0+bw,y2:by+5,stroke:"#F58A9B","stroke-width":1.6}));
-    svg.appendChild(txt(X0+bw/2,by+20,"step width",{fill:"#F58A9B","font-size":"13","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"}));
-  }
-  svg.appendChild(txt(40,26,"magnified view · "+VH+" µm of rise · θ = "+th+"°",{fill:"#8FA9BC","font-size":"14","font-family":"IBM Plex Mono, monospace"}));
-  svg.appendChild(txt(40,48,n+" layers across this view",{fill:"#57C6D8","font-size":"14","font-family":"IBM Plex Mono, monospace"}));
+  if(drawn<n)svg.appendChild(txt(endX+6,endY+4,"…",{fill:"#8FA9BC","font-size":"16","font-family":MONO}));
+  /* --- barra de escala de um degrau, fora da area de desenho --- */
+  var BY=336,BX=150,BMAX=330,bw=Math.min(stepW*sc,BMAX);
+  svg.appendChild(txt(20,BY+5,"one step",{fill:"#F58A9B","font-size":"13","font-family":MONO}));
+  svg.appendChild(el("line",{x1:BX,y1:BY,x2:BX+bw,y2:BY,stroke:"#F58A9B","stroke-width":2}));
+  svg.appendChild(el("line",{x1:BX,y1:BY-6,x2:BX,y2:BY+6,stroke:"#F58A9B","stroke-width":2}));
+  svg.appendChild(el("line",{x1:BX+bw,y1:BY-6,x2:BX+bw,y2:BY+6,stroke:"#F58A9B","stroke-width":2}));
+  svg.appendChild(txt(BX+bw+10,BY+5,Math.round(stepW)+" µm"+(stepW*sc>BMAX?" (clipped)":""),{fill:"#F58A9B","font-size":"14","font-family":MONO}));
   /* readouts */
   document.getElementById("w1hVal").textContent=h+" µm";
   document.getElementById("w1aVal").textContent=th+"°";
