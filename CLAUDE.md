@@ -165,6 +165,15 @@ sempre pensar no learning outcome antes de construir.
 
 [D-16] **Registro acadêmico — regra dura.** Isto é material de aula universitária: **nunca use "títulos de impacto"**. Títulos de slide descritivos que nomeiam o conteúdo; rótulos de caixa funcionais (*Definition · Interpretation · Mechanism · Clinical significance · Methodological limitation · Scope of this lecture · General rule · Practical consequence · Discussion point · Note · Summary point*); prosa em terceira pessoa, sem apóstrofe ao aluno e sem suspense; sem componente `.bigq`. Vale também **dentro das strings de texto dos widgets em JS**. Antes de commitar, faça a varredura das frases proibidas. Detalhe e exemplos em `PROJECT_RULES.md`, seção "Registro de escrita".
 
+[D-17] **Layout de figura composta — nunca chutar altura, sempre `flex-grow`.** Quando um `.figbox` divide
+`.col-visual` com outra caixa (`.mech`/`.key`/tabela `.dtable`), a caixa de texto nunca encolhe
+(`flex:0 0 auto`) e a figura cresce para ocupar exatamente o espaço que sobra (`flex:1 1 0; min-height:0`,
+repetido dentro do figbox entre `img` e `.figcap`). **Nunca escreva um `max-height` fixo em vh/px** para
+"resolver" o espaço — foi assim que a Aula 07 desperdiçou metade da coluna com um chute conservador.
+Como não há browser real no sandbox, valide com um smoke-test via WeasyPrint (renderizar o slide isolado a
+1920×1080 e olhar o PNG) e confirme com o Vinicius por screenshot antes de dar por definitivo. Referência de
+CSS: `lectures/07-3d-printing/index.html`, regra `.col-visual .figbox:not(:only-child)`.
+
 ## Perguntas em aberto (avise se forem relevantes à tarefa atual)
 
 [Q-01] Alinhar com os 14 outcomes oficiais do syllabus (pedir a lista se ainda não foi colada) ·

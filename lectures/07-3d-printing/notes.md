@@ -241,6 +241,22 @@ legenda da plataforma. Redesenhado: legenda fixa no topo (CAD × printed), texto
 right-anchored, escada contida na área de desenho com reticências quando não cabe, e a largura do degrau
 virou uma **barra de escala isolada** na base do SVG. Teste de viewBox agora é parte da validação.
 
+**Correção de layout: figura composta cortando/desperdiçando espaço (2026-08-12).** No slide de abertura
+(Align), a figura `aligner-production-chain` cortava — a legenda e a caixa "Question to carry through the
+lecture" sumiam — porque o `.figbox` divide `.col-visual` com essa caixa, e `overflow:hidden` zera o mínimo
+automático do flexbox, deixando a caixa de texto vencer o espaço. Primeira correção foi um `max-height:32vh`
+chutado à mão (sem browser real no sandbox para medir) — resolveu o corte, mas desperdiçou quase metade da
+coluna, como o Vinicius apontou. **Correção definitiva:** `flex-grow` em vez de número fixo — a caixa de
+texto/tabela ao lado nunca encolhe (`flex:0 0 auto`), a figura cresce para ocupar exatamente o que sobra
+(`flex:1 1 0`), e a mesma negociação se repete dentro do figbox entre a imagem e a legenda. Afeta 3 slides
+desta aula (abertura/Align, single-vs-multi-step, crown-surfaces-staircase+tabela) e qualquer slide futuro
+do mesmo formato, automaticamente — regra em `.col-visual .figbox:not(:only-child)`. Validado com um
+smoke-test via WeasyPrint (renderiza o slide isolado a 1920×1080, converte pra PNG) — confirma que a legenda
+e a caixa de texto aparecem inteiras e que a figura cresceu; **não é o motor real** (Chromium/Edge que projeta
+em sala), então pediu confirmação por screenshot do Vinicius. Regra geral registrada como **[D-17]** em
+`PROJECT_RULES.md`/`CLAUDE.md` e **[D-20]** na skill `dental-materials-lectures`, para valer em toda aula
+futura, não só nesta.
+
 ---
 
 ## 7. Timing (≈ 58 min)

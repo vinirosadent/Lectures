@@ -74,6 +74,25 @@ Isto é **material de aula universitária**, não copy de marketing. **Nunca use
   dentro dos widgets em JS** — é nas strings de JS que o tom informal costuma sobreviver a uma revisão.
 - Numa revisão de registro, **números, dados e citações não mudam**; só a formulação.
 
+## Layout de figura composta — [D-17] (regra dura)
+
+Quando um `.figbox` divide `.col-visual` com outra caixa (`.mech`, `.key`, uma tabela `.dtable`), **nunca
+escreva um `max-height` fixo em `vh`/`px`** para fazer a figura "caber". Um chute assim já causou um bug real
+na Aula 07: um valor conservador (`32vh`) deixou metade da coluna vazia, porque o número não sabia quanto
+espaço sobrava de verdade em cada slide.
+
+- A caixa de texto/tabela ao lado **nunca encolhe** — `flex:0 0 auto`. É a informação que o aluno precisa;
+  nunca é sacrificada.
+- A figura **cresce para ocupar exatamente o que sobra** — `flex:1 1 0; min-height:0` no `.figbox`, e a mesma
+  negociação repetida dentro dele entre a imagem (`flex:1 1 auto;min-height:0`) e a legenda
+  (`.figcap{flex:0 0 auto}`).
+- Isso se ajusta sozinho a qualquer legenda ou tabela futura, sem medir nada à mão. CSS de referência:
+  `lectures/07-3d-printing/index.html`, regra `.col-visual .figbox:not(:only-child)`.
+- Não há browser real no sandbox de desenvolvimento. Valide layouts assim com um smoke-test via WeasyPrint
+  (renderizar o slide isolado a 1920×1080, converter para PNG e olhar) e confirme com o Vinicius por
+  screenshot antes de considerar definitivo — o WeasyPrint não é o motor que projeta em sala, é só um
+  detector de erro grosseiro.
+
 ## Decisões registradas
 - **[D-01]** 14 outcomes → 6 objetivos "guarda-chuva" na tela; cobertura fina fica em `notes.md`.
 - **[D-02]** Identidade **Clinical Clean**.
@@ -83,6 +102,8 @@ Isto é **material de aula universitária**, não copy de marketing. **Nunca use
   funcionais; prosa em terceira pessoa; sem `.bigq`. Vale também dentro das strings dos widgets. Ver a seção
   "Registro de escrita" acima.
 - **[D-05]** Formato **enxuto**: frase-âncora + visual por seção; sem modo professor/notas na tela; texto denso vira deep-dive opcional.
+- **[D-17]** **Layout de figura composta**: figura que divide coluna com outra caixa usa `flex-grow`, nunca
+  `max-height` chutado. Ver a seção "Layout de figura composta" acima.
 
 ## Questões abertas
 - **[Q-01]** Alinhar com os 14 outcomes oficiais (colar lista verbatim).
