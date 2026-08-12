@@ -359,7 +359,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <div class="key" style="margin-top:1.2vh"><span class="k-tag">Important qualification</span>What comes off the platform is <b>not the finished device</b>. It is coated in uncured resin and only partly reacted. It goes to the <b>wash station</b> (solvent, to remove liquid resin from the surface) and then to the <b>curing unit</b> (light, often with heat, to complete the reaction). Part 4 of this lecture is about that sequence.</div>
 </div>
 <div class="col-visual">
-<div class="figbox"><div class="ph"><span class="ph-badge">figure to generate</span><span class="ph-t">The equipment</span><span class="ph-f">printer-hardware.png</span><span class="ph-d">Labelled cutaway of a bottom-up vat photopolymerization printer (vat, transparent window, light engine, build platform, part growing upside down, supports), plus the wash station and the curing unit alongside, with the peel-and-refill cycle indicated by arrows.</span></div><p class="figcap"><b>FIG.</b> Three machines, in sequence: the printer establishes the geometry; the wash station removes surface resin; the curing unit produces the final properties.</p></div>
+<div class="figbox"><img src="assets/printer-hardware.png" alt="Cutaway of a bottom-up vat photopolymerization printer with the vat, transparent window, build platform and supports, alongside the wash station and the curing unit"><p class="figcap"><b>FIG.</b> Three machines, in sequence: the printer establishes the geometry; the wash station removes surface resin; the curing unit produces the final properties.</p></div>
 </div>
 </div>
 </section>
@@ -399,7 +399,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <div class="defbox" style="margin-top:1.2vh"><div class="term">Degree of conversion</div><div class="def">The percentage of the original double bonds that have reacted. It is never 100%. In a printed part it is roughly <b>half</b> when the object leaves the printer, and rises during post-curing.</div></div>
 </div>
 <div class="col-visual">
-<div class="figbox"><div class="ph"><span class="ph-badge">figure to generate</span><span class="ph-t">From liquid to network</span><span class="ph-f">resin-network.png</span><span class="ph-d">Three panels — free monomer in liquid; chains growing after light exposure with the gel point marked; a crosslinked network with a few unreacted monomers trapped inside it — with a degree-of-conversion scale beneath.</span></div><p class="figcap"><b>FIG.</b> The gel point arrives long before the reaction is complete, which is why unreacted monomer remains in the part.</p></div>
+<div class="figbox"><img src="assets/resin-network.png" alt="Three panels: free monomer in liquid resin, chains growing under light exposure, and a crosslinked network with unreacted monomer trapped inside it"><p class="figcap"><b>FIG.</b> The gel point arrives long before the reaction is complete. Conversion is about <b>46%</b> in the part as printed and about <b>70%</b> after post-curing; 100% is never reached.</p></div>
 <div class="key" style="margin-top:1rem"><span class="k-tag">Clinical significance</span>Unreacted monomer can <b>leach out</b> of the device into saliva and tissue, and is cytotoxic. Washing removes what is on the surface; post-curing converts part of what is inside. Neither reaches 100%.</div>
 </div>
 </div>
@@ -419,7 +419,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <div class="mech" style="margin-top:1.2vh"><span class="k-tag">Practical consequence</span>Orientation and supports are decided together at stage 3. Choosing an orientation that reduces the staircase on one surface usually moves the supports onto another.</div>
 </div>
 <div class="col-visual">
-<div class="figbox"><div class="ph"><span class="ph-badge">figure to generate</span><span class="ph-t">Supports</span><span class="ph-f">supports-basics.png</span><span class="ph-d">A crown suspended above the build platform on a lattice of thin supports, with an overhang region highlighted, a magnified detail of a support contact point, and the same surface after removal showing the residual scar.</span></div><p class="figcap"><b>FIG.</b> The support holds the overhang during the build and leaves a scar where it touched.</p></div>
+<div class="figbox"><img src="assets/supports-basics.png" alt="A crown held above the build platform by a lattice of supports, with the overhang, the thin contact point and the residual scar after removal"><p class="figcap"><b>FIG.</b> The support holds the overhang during the build and leaves a scar where it touched.</p></div>
 </div>
 </div>
 </section>
@@ -729,11 +729,22 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 </div>
 </section>
 
+<section class="slide slide--focusfig">
+<div class="ff-head">
+<p class="s-eyebrow">Performance · build orientation</p>
+<h2 class="s-title">The three build orientations</h2>
+<p class="s-sub">The same crown, the same resin and 50 µm layers in every case. The layers are always horizontal — it is the crown that is rotated.</p>
+</div>
+<div class="s-body one-col" style="display:block">
+<div class="figbox" style="max-width:none;padding:.8rem"><img src="assets/build-orientation-three.png" alt="The same molar crown on a build platform at 0, 45 and 90 degrees, with horizontal layer lines, supports, the margin highlighted, and the measured marginal gap under each" style="max-height:56vh"></div>
+</div>
+<p class="axisnote">At <b>0°</b> the axial wall carrying the margin is close to vertical, so the layers stack along it and the margin is smooth. At <b>90°</b> that same wall approaches the horizontal, the layers cross the margin, and the steps are widest. This is the <b>staircase effect of Part 2</b>, on a real crown.</p>
+</section>
+
 <section class="slide">
 <p class="s-eyebrow">Performance · build orientation</p>
-<h2 class="s-title">Build orientation and marginal gap: the measured effect</h2>
-<p class="s-sub">The same crown file, the same resin and 50 µm layers in every case. Only the angle at which the crown sits on the build platform was varied.</p>
-<div class="s-body fig-heavy">
+<h2 class="s-title">What build orientation does to the marginal gap</h2>
+<div class="s-body">
 <div class="col-text">
 <table class="dtable">
 <tr><th>Build angle</th><th>SLA</th><th>DLP</th></tr>
@@ -748,10 +759,9 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 </ul>
 </div>
 <div class="col-visual">
-<div class="figbox"><div class="ph"><span class="ph-badge">figure to generate</span><span class="ph-t">Three build orientations</span><span class="ph-f">build-orientation-three.png</span><span class="ph-d">The same molar crown on a build platform at 0°, 45° and 90°, with horizontal layer lines drawn through it, supports shown, and the margin highlighted in a contrasting colour so that the layer lines are seen cutting across the margin at one angle and running along it at another. Measured marginal gap printed under each.</span></div><p class="figcap"><b>FIG.</b> At 0° the axial wall carrying the margin is built vertically, layer upon layer; at 90° the same wall is built across the layers.</p></div>
-<div class="mech" style="margin-top:1rem"><span class="k-tag">Connection to Part 2</span>This is the <b>staircase effect measured on a real crown</b>. At 0° the axial wall carrying the margin is close to vertical, where <b>h / tan θ</b> is smallest; at 90° that same wall approaches the horizontal, where the step widens. The geometry of Part 2 and the marginal gap of Part 5 are the same phenomenon at two scales.</div>
-<div class="key" style="margin-top:1rem"><span class="k-tag">Interpretation</span>Orientation determined the <b>margin of safety retained</b>, not clinical acceptability. The effect is systematic and predictable, and it is committed at the planning stage in the laboratory rather than at the chairside.</div>
-<div class="mech" style="margin-top:1rem"><span class="k-tag">Methodological limitation</span>The SLA and DLP arms differed in <b>printer, resin and post-processing protocol at the same time</b>. The comparison is therefore between two complete systems, not between two technologies, and no general conclusion about SLA versus DLP follows from it.</div>
+<div class="key"><span class="k-tag">Interpretation</span>Orientation determined the <b>margin of safety retained</b>, not clinical acceptability. The effect is systematic and predictable, and it is committed at the planning stage in the laboratory rather than at the chairside.</div>
+<div class="mech" style="margin-top:1.4vh"><span class="k-tag">Methodological limitation</span>The SLA and DLP arms differed in <b>printer, resin and post-processing protocol at the same time</b>. The comparison is therefore between two complete systems, not between two technologies, and no general conclusion about SLA versus DLP follows from it.</div>
+<div class="mech" style="margin-top:1.4vh"><span class="k-tag">Practical consequence</span>The dentist does not make this decision; the laboratory does. What the dentist sees is a crown that seats well or does not, several days later, with no record of the angle at which it was built.</div>
 </div>
 </div>
 </section>
@@ -830,6 +840,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <div class="mech" style="margin-top:2vh"><span class="k-tag">The question carried through the lecture</span>For each application, is the printed object the <b>product</b> or the <b>tool</b>? For most dental printing today it is the <b>tool</b>: models, trays, guides and casting patterns, which are used once and discarded, and whose required service life is measured in minutes. The applications in which the printed object is the <b>product</b> — worn or cemented in the patient — are precisely the ones with the weakest evidence, because they are the ones that demand properties the process is still least reliable at producing.</div>
 <div class="key" style="margin-top:1.4vh"><span class="k-tag">Summary point</span>The STL file specifies the intended geometry; the object that results is determined jointly by the printer, the resin, the build orientation and the post-processing cycle. The same file has been reported to yield a mean deviation of <b>70 µm</b> on one system and <b>260 µm</b> on another — the second exceeding the 120 µm reference line that the first comfortably meets.</div>
 </section>
+
 
 
 

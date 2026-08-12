@@ -135,7 +135,7 @@ processo aditivo) e parede de tijolos (argamassa é um terceiro material; fiada 
 **Contraste embutido:** a Formlabs afirma peça pós-curada "isotropic and 100% dense"; a literatura mede
 resistência mudando com o ângulo. Apresentar lado a lado, sem acusar.
 
-## 3. O deck construído — 34 slides · 5 partes (v2, reconstruído em 2026-08-12)
+## 3. O deck construído — 35 slides · 5 partes (v2, reconstruído em 2026-08-12)
 
 | Parte | Slides | Conteúdo |
 |---|---|---|
@@ -187,11 +187,28 @@ simulação, a pedido do Vinicius.
 geradas e ligadas: FIG 07.9 `single-vs-multi-step` · 07.10 `slicing-principle` · 07.11
 `crown-surfaces-staircase` · 07.12 `aligner-production-chain`.
 
-**Lote 3 pendente (2026-08-12).** A reconstrução criou **4 placeholders `.ph`** novos, com prompts em
-`_ops/prompts/07-3d-printing-figuras-lote3.md`: FIG 07.13 `printer-hardware` (slide 7) · 07.14
-`resin-network` (slide 9) · 07.15 `supports-basics` (slide 10) · 07.16 `build-orientation-three`
-(slide 30). **A 07.16 é a mais importante**: substitui o widget removido e é o que o aluno disse não
-conseguir imaginar. O deck renderiza normalmente com os placeholders.
+**Lote 3 completo (2026-08-12).** As 4 figuras foram geradas e ligadas: FIG 07.13 `printer-hardware`
+(slide 7) · 07.14 `resin-network` (slide 9) · 07.15 `supports-basics` (slide 10) · 07.16
+`build-orientation-three` (slide 30). **Zero placeholders no deck.**
+
+*Pós-processamento aplicado às imagens geradas:* três delas vieram com o cabeçalho de trabalho
+("FIG 07.15 — supports-basics.png") impresso dentro da própria arte; foi **recortado**. A
+`printer-and-resin-combined-UNUSED.png` ficou em `Assets\` como variante combinada que não foi usada
+(as duas versões separadas servem melhor os dois slides).
+
+**[VERIFY] `resin-network.png` — o eixo foi recortado de propósito.** A versão gerada trazia a linha do
+**gel point desenhada em ~50% de conversão**, com o marcador "as printed ≈46%" **à esquerda dela** — o que
+implicaria que a peça impressa ainda não gelificou, quando ela sai sólida da máquina. Além disso, em redes
+de dimetacrilato a gelificação ocorre em conversão **muito baixa**, não a 50%. Cortou-se a faixa do eixo e
+mantiveram-se os três painéis, que estão corretos; os números (46% / 70% / nunca 100%) passaram para a
+legenda e para o texto do slide, onde são controláveis. Se algum dia se regerar, o pedido é: gel point
+bem à esquerda, e o marcador de "as printed" **à direita** dele.
+
+**Slide de build orientation dividido em dois** (a pedido do Vinicius: a figura não cabia junto com a
+tabela). Slide 30 = "The three build orientations", figura em grande, `slide--focusfig`, com a ponte
+explícita para o staircase da Parte 2. Slide 31 = "What build orientation does to the marginal gap",
+tabela + interpretação + limitação metodológica + a nota de que quem toma essa decisão é o laboratório,
+não o dentista. Total: **35 slides**.
 
 Slides escuros = título, 5 divisórias e os 2 slides interativos (o W2 foi removido).
 
