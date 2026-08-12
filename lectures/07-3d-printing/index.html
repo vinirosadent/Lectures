@@ -262,7 +262,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 </div>
 </div>
 <div class="col-visual">
-<div class="figbox"><div class="ph"><span class="ph-badge">figure to generate</span><span class="ph-t">Single-step vs multi-step</span><span class="ph-f">single-vs-multi-step.png</span><span class="ph-d">Two parallel process lanes. Milled crown: industrial blank (properties already set) → machining → finished. Printed crown: liquid resin → printing (shape only, green) → washing → post-curing → finished, with a property bar filling only in the last stages.</span></div><p class="figcap"><b>FIG.</b> Where in the chain the material acquires its properties.</p></div>
+<div class="figbox"><img src="assets/single-vs-multi-step.png" alt="Milled and printed crown process lanes with a chart of the share of final material properties at each stage"><p class="figcap"><b>FIG.</b> At the moment the geometry is complete, the milled crown already has its properties; the printed crown has less than half. Degree of conversion ≈46% in the green part, ≈70% after post-curing.</p></div>
 <div class="mech" style="margin-top:1rem"><span class="k-tag">Clinical significance</span>A milled crown is machined from a blank whose properties were established industrially; those properties are inherited unchanged. A printed crown acquires its final properties during post-processing at the bench, and therefore depends on the wash and cure protocol actually used.</div>
 </div>
 </div>
@@ -306,7 +306,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <div class="key" style="margin-top:1.2vh"><span class="k-tag">Analogies to avoid</span><b>Sliced bread</b>: the slices are cut from a loaf that already exists, so a subtractive image is being used to describe an additive process. <b>A brick wall</b>: bricks are joined by a third material and are laid in staggered courses precisely to avoid a continuous plane of weakness, whereas printed layers are aligned — the analogy therefore <b>understates</b> the anisotropy.</div>
 </div>
 <div class="col-visual">
-<div class="figbox"><div class="ph"><span class="ph-badge">figure to generate</span><span class="ph-t">Slicing principle</span><span class="ph-f">slicing-principle.png</span><span class="ph-d">Three panels: (1) solid crown as a continuous volume; (2) the same crown cut into horizontal layers, one layer lifted out to show its 2D cross-section; (3) the printer rebuilding the stack from bottom to top, with the topmost layer being formed. Arrows: CAD volume → slices → rebuilt object.</span></div><p class="figcap"><b>FIG.</b> The slicer discretises the volume; the printer reverses the operation.</p></div>
+<div class="figbox"><img src="assets/slicing-principle.png" alt="Volume sliced into layers and rebuilt, with a micrometre scale comparing layer heights, cement space and the clinical marginal limit"><p class="figcap"><b>FIG.</b> Resolution is anisotropic: layer height sets the z resolution, the optics or nozzle set the in-plane resolution. The scale places a 50 µm layer against the 30 µm cement space and the 120 µm marginal limit.</p></div>
 </div>
 </div>
 </section>
@@ -325,7 +325,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <div class="key" style="margin-top:1.2vh"><span class="k-tag">Device tolerance decides</span>Layer height is not equally important for every device. For <b>orthodontic retainers</b>, no significant difference in accuracy was found between 100 µm and 50 µm layers (p &gt; 0.05). For a <b>crown margin</b>, where the acceptable discrepancy is measured in tens of micrometres, the same change is not negligible.</div>
 </div>
 <div class="col-visual">
-<div class="figbox"><div class="ph"><span class="ph-badge">figure to generate</span><span class="ph-t">Staircase across a crown</span><span class="ph-f">crown-surfaces-staircase.png</span><span class="ph-d">Cross-section of a crown on a preparation, with the layer lines drawn horizontally through it. Three zoom callouts: occlusal surface (wide steps, marked as worst case), cuspal incline (intermediate), axial wall and finish line (steps almost absent, best case). A colour scale from crimson to teal ranks the surfaces.</span></div><p class="figcap"><b>FIG.</b> The same layer height produces very different surface error depending on local geometry.</p></div>
+<div class="figbox"><img src="assets/crown-surfaces-staircase.png" alt="Crown cross-section with horizontal layer lines, three magnified surfaces with calculated step widths, and a plot of step width against surface angle"><p class="figcap"><b>FIG.</b> With h = 50 µm the step is 284 µm on the occlusal surface, 50 µm on a cuspal incline and 9 µm on the axial wall — a 30-fold range within one crown, and only the occlusal value exceeds the 120 µm limit.</p></div>
 <table class="dtable" style="margin-top:1rem">
 <tr><th>Process</th><th>Typical layer height</th></tr>
 <tr class="hi"><td>Vat photopolymerization (SLA/DLP/LCD)</td><td><b>25–100 µm</b> (commonly 50)</td></tr>

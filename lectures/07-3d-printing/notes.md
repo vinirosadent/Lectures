@@ -174,8 +174,41 @@ Slides escuros = título, 5 divisórias e os 3 slides interativos.
 
 ## 5. Mapa de figuras (Drive → repo)
 
-| Origem (`…\Assets\ChatGPT Image Aug 12, 2026…`) | Destino (`assets/`) | Slide |
+**As figuras foram renomeadas também em `1. Source\…\Assets\`** (2026-08-12, a pedido do Vinicius), de modo
+que fonte e repo usam **exatamente o mesmo nome**. É uma exceção deliberada à regra de `1. Source` ser
+read-only: nenhum conteúdo foi alterado, só o nome do arquivo, porque os nomes originais do ChatGPT
+("ChatGPT Image Aug 12, 2026, 06_25_45 AM (1).png") tornavam a pasta ilegível. **Toda figura nova desta aula
+deve ser renomeada no mesmo ato em que é copiada para o repo.**
+
+| Arquivo (fonte e repo têm o mesmo nome) | Slide | Lote |
 |---|---|---|
+| `workflow-ribbon.png` | 12 | 1 |
+| `process-families-matrix.png` | 16 | 1 |
+| `vat-optics-sla-lcd.png` | 17 | 1 |
+| `vat-optics-dlp-clip.png` | 18 | 1 |
+| `failure-gallery.png` | 26 | 1 |
+| `supports-intaglio-inversion.png` | 27 | 1 |
+| `trueness-precision-target.png` | 28 | 1 |
+| `maturity-ladder.png` | 30 | 1 |
+| `single-vs-multi-step.png` | 6 | 2 |
+| `slicing-principle.png` | 8 | 2 |
+| `crown-surfaces-staircase.png` | 9 | 2 |
+| _`aligner-production-chain.png`_ | 2 | 2 — **pendente**, placeholder no deck |
+
+**Conferência dos números nas figuras do lote 2** (feita na imagem, não só no prompt):
+`crown-surfaces-staircase` traz 284/49 µm a 10°, 50/35 µm a 45°, 9/9 µm a 80°, a linha clínica de 120 µm e
+o fator 30× — todos batem com `h/tanθ` e `h·cosθ` para h = 50 µm. `slicing-principle` traz as faixas
+16–32 / 20–50 / 25–100 / 50–400 µm, o cement space de 30 µm e o limite de 120 µm, todos corretos.
+`single-vs-multi-step` manteve o eixo como "share of final material properties" (em vez de grau de conversão)
+e traz os callouts de ≈46% e ≈70% — aceitável, e na prática melhor, porque evita atribuir grau de conversão
+à peça fresada.
+
+**[VERIFY]** `trueness-precision-target.png` saiu **sem a seta diagonal "ACCURACY"** que o prompt pedia;
+compensado por texto no slide (defbox "Accuracy — the diagonal, not a quadrant") e pela legenda.
+**Não gerada:** `post-processing-five-stages` — substituída por uma faixa de 5 estágios em HTML/CSS
+(`.stagestrip`), que ficou melhor porque as cores são exatas e editáveis.
+
+---|---|---|
 | 06_10_35 | `workflow-ribbon.png` | 11 |
 | 06_13_37 | `process-families-matrix.png` | 15 |
 | 06_25_45 (1) | `vat-optics-sla-lcd.png` | 16 |
