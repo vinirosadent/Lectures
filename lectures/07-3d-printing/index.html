@@ -48,13 +48,17 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 .figbox{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:.9rem;box-shadow:0 12px 40px rgba(15,27,42,.10);display:flex;flex-direction:column;gap:.5rem;max-height:100%;align-items:center;justify-content:center;overflow:hidden}
 .figbox img{width:100%;height:auto;max-height:76vh;object-fit:contain;display:block;border-radius:8px}
 .figbox.dual{gap:1rem}
-/* A figbox sharing col-visual with another box (a .mech, .key or .dtable below it) must never
-   let flexbox shrink it past its content and clip the caption. overflow:hidden resets a flex
-   item's automatic minimum size to 0, so without this cap the sibling box "wins" the space and
-   the figure+caption get silently cut off. Capping the image height keeps total content within
-   the row on every slide of this shape, so nothing needs to shrink at all. */
-.col-visual .figbox:not(:only-child){flex-shrink:0}
-.col-visual .figbox:not(:only-child) img{max-height:32vh}
+/* A figbox sharing col-visual with another box (a .mech, .key or .dtable below it): the sibling
+   keeps its natural, un-shrinkable size (flex:0 0 auto — it is text/data, it is never sacrificed),
+   and the figure GROWS to fill exactly whatever height is left (flex:1 1 0). Inside the figure,
+   the same negotiation happens again between the image and its caption. This replaces a fixed
+   vh guess: no slide-specific tuning, no wasted space, and the image is always as large as the
+   real remaining room allows on the actual browser rendering it — not a number typed by a human
+   who could not see the page. */
+.col-visual > .mech,.col-visual > .key,.col-visual > .dtable{flex:0 0 auto}
+.col-visual .figbox:not(:only-child){flex:1 1 0;min-height:0;justify-content:flex-start}
+.col-visual .figbox:not(:only-child) img{flex:1 1 auto;min-height:0;width:100%;height:auto;max-height:100%;object-fit:contain}
+.col-visual .figbox:not(:only-child) .figcap{flex:0 0 auto}
 .figcap{font-size:1.05rem;color:var(--muted);line-height:1.4;text-align:center}
 .figcap b{color:var(--ink-soft)}
 .slide--focusfig{align-items:center;text-align:center}
