@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impression Materials &middot; Dental Materials &middot; Lecture 08</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FBFCFD;--surface:#fff;--ink:#0F1B2A;--ink-soft:#31465C;--muted:#5E7285;--line:#E3E9EF;
+--primary:#0C7489;--primary-ink:#0A5C6D;--primary-wash:#E7F4F6;--navy:#12315B;
+--clinical:#B45309;--clinical-wash:#FDF3E7;--warn:#BE123C;--warn-wash:#FDECEF;--ok:#15803D;
+--dark:#0B1B2B;--dark-2:#10273B;--dark-ink:#E8F1F6;--dark-muted:#8FA9BC;--dark-line:#1E3A52;
+--f-disp:"Space Grotesk",system-ui,sans-serif;--f-body:"Inter",system-ui,sans-serif;--f-mono:"IBM Plex Mono",monospace;}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f-body);color:var(--ink)}
+.deck{height:100vh;width:100vw;overflow:hidden;position:relative}
+.track{display:flex;height:100%;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.slide{min-width:100vw;height:100vh;padding:4vh 4.5vw 6.5vh;background:var(--paper);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.s-eyebrow{font-family:var(--f-mono);font-size:1rem;letter-spacing:.13em;text-transform:uppercase;color:var(--primary-ink);margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem}
+.s-eyebrow::before{content:"";width:30px;height:10px;background:radial-gradient(circle at 5px 5px,var(--primary) 3.2px,transparent 3.6px),radial-gradient(circle at 25px 5px,var(--primary) 3.2px,transparent 3.6px);border-top:2px solid var(--primary)}
+.s-title{font-family:var(--f-disp);font-weight:600;line-height:1.05;color:var(--ink);font-size:clamp(1.9rem,3.4vw,2.9rem);letter-spacing:-.01em;margin-bottom:1.2vh}
+.s-sub{font-size:clamp(1.05rem,1.5vw,1.35rem);color:var(--ink-soft);margin-bottom:1.4vh;max-width:74ch;line-height:1.45}
+.s-body{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:2.5vw;min-height:0;align-items:center;overflow:hidden}
+.s-body.one-col{grid-template-columns:1fr}
+.s-body.text-heavy{grid-template-columns:1.2fr .8fr}
+.s-body.fig-heavy{grid-template-columns:.85fr 1.15fr}
+.col-text{overflow:hidden;padding-right:.3rem;max-height:100%;display:flex;flex-direction:column;justify-content:center}
+.col-visual{height:100%;display:flex;flex-direction:column;justify-content:center;gap:1rem;min-height:0}
+.blist{list-style:none;display:flex;flex-direction:column;gap:1.05vh}
+.blist>li{position:relative;padding-left:1.7rem;font-size:clamp(1.02rem,1.45vw,1.32rem);line-height:1.4;color:var(--ink-soft)}
+.blist>li::before{content:"";position:absolute;left:0;top:.5em;width:11px;height:11px;border-radius:50%;border:2px solid var(--primary);background:var(--primary-wash)}
+.blist>li b{color:var(--ink)}
+.blist .lead-term{font-family:var(--f-disp);font-weight:600;color:var(--primary-ink)}
+.blist.cols{columns:2;column-gap:3rem;display:block}
+.blist.cols>li{break-inside:avoid;margin-bottom:1.3vh}
+.defbox{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--primary);border-radius:0 12px 12px 0;padding:1rem 1.25rem;margin-bottom:1.1vh;box-shadow:0 6px 22px rgba(15,27,42,.05)}
+.defbox .term{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.2rem,1.7vw,1.5rem);color:var(--primary-ink);margin-bottom:.3rem}
+.defbox .def{font-size:clamp(1.02rem,1.45vw,1.28rem);color:var(--ink-soft);line-height:1.4}
+.steps{display:flex;flex-direction:column;gap:1.05vh;counter-reset:st}
+.step{display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:start}
+.step::before{counter-increment:st;content:counter(st);font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:1.05rem;flex:none}
+.step h4{font-family:var(--f-disp);font-size:clamp(1.1rem,1.55vw,1.38rem);color:var(--ink);margin-bottom:.15rem}
+.step p{font-size:clamp(1rem,1.4vw,1.24rem);line-height:1.38;color:var(--ink-soft)}
+.key{margin-top:1.4vh;border-left:5px solid var(--clinical);background:var(--clinical-wash);padding:.9rem 1.15rem;border-radius:0 12px 12px 0;font-size:clamp(1.02rem,1.45vw,1.28rem);color:var(--ink);line-height:1.4}
+.key b{color:var(--clinical)}
+.key .k-tag{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--clinical);display:block;margin-bottom:.35rem}
+.mech{background:var(--primary-wash);border:1px solid #BFE2E8;border-radius:12px;padding:.9rem 1.15rem;font-size:clamp(1.02rem,1.45vw,1.26rem);color:var(--ink-soft);line-height:1.4}
+.mech .k-tag{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--primary-ink);display:block;margin-bottom:.35rem}
+.mech b{color:var(--ink)}
+.figbox{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:.9rem;box-shadow:0 12px 40px rgba(15,27,42,.10);display:flex;flex-direction:column;gap:.5rem;max-height:100%;align-items:center;justify-content:center;overflow:hidden}
+.figbox img{width:100%;height:auto;max-height:76vh;object-fit:contain;display:block;border-radius:8px}
+.figbox.dual{gap:1rem}
+/* A figbox sharing col-visual with another box (a .mech, .key or .dtable below it): the sibling
+   keeps its natural, un-shrinkable size (flex:0 0 auto — it is text/data, it is never sacrificed).
+   The figure itself uses flex:0 1 auto: it renders at its own natural size (full column width,
+   height following the image's real aspect ratio) and only SHRINKS if that natural size would
+   overflow the column (min-height:0 lifts the shrink floor). It does not force-grow to fill every
+   pixel of leftover height — a forced grow stretches the figure's invisible box taller than the
+   image itself, and object-fit:contain then letterboxes the picture inside it, which looks like
+   wasted white space above/below a smaller-than-necessary picture. Natural sizing lets the image
+   render as large as its own proportions allow at full column width, with no guessed constant and
+   no letterbox gap. */
+.col-visual > .mech,.col-visual > .key,.col-visual > .dtable{flex:0 0 auto}
+.col-visual .figbox:not(:only-child){flex:0 1 auto;min-height:0}
+.col-visual .figbox:not(:only-child) img{flex:0 1 auto;min-height:0;width:100%;height:auto;max-height:100%;object-fit:contain}
+.col-visual .figbox:not(:only-child) .figcap{flex:0 0 auto}
+.figcap{font-size:1.05rem;color:var(--muted);line-height:1.4;text-align:center}
+.figcap b{color:var(--ink-soft)}
+.slide--focusfig{align-items:center;text-align:center}
+.slide--focusfig .ff-head{width:100%;max-width:72ch;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+.slide--focusfig .s-eyebrow{justify-content:center}
+.slide--focusfig .s-title{margin-bottom:1vh}
+.slide--focusfig .s-sub{max-width:74ch;margin:0 auto;text-align:center}
+.slide--focusfig .s-body{width:100%;flex:1;padding:1vh 2vw 0.5vh;align-items:center;justify-content:center;justify-items:center}
+.slide--focusfig .figbox{margin:0 auto;padding:1.3rem;max-width:26vw;max-height:100%}
+.slide--focusfig .figbox img{width:auto;max-width:100%;height:auto;max-height:48vh}
+.ph{border:2.5px dashed var(--primary);border-radius:16px;background:repeating-linear-gradient(135deg,#EAF6F8,#EAF6F8 14px,#E1F0F3 14px,#E1F0F3 28px);padding:2rem 1.5rem;text-align:center;display:flex;flex-direction:column;gap:.6rem;align-items:center;justify-content:center;min-height:44vh}
+.ph .ph-badge{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--primary);padding:.3rem .8rem;border-radius:999px}
+.ph .ph-t{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.25rem,1.85vw,1.55rem);color:var(--primary-ink)}
+.ph .ph-f{font-family:var(--f-mono);font-size:1rem;color:var(--muted)}
+.ph .ph-d{font-size:1.1rem;color:var(--ink-soft);max-width:36ch;line-height:1.4}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-content:center}
+.vs.three{grid-template-columns:1fr 1fr 1fr}
+.vs .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.5rem;box-shadow:0 8px 28px rgba(15,27,42,.07)}
+.vs .card h3{font-family:var(--f-disp);font-size:clamp(1.2rem,1.7vw,1.5rem);margin-bottom:.7rem}
+.vs .card.a h3{color:var(--primary-ink)} .vs .card.b h3{color:var(--warn)}
+.vs .card ul{list-style:none;display:flex;flex-direction:column;gap:.95vh}
+.vs .card li{position:relative;padding-left:1.4rem;font-size:clamp(1rem,1.4vw,1.24rem);line-height:1.38;color:var(--ink-soft)}
+.vs .card li::before{content:"";position:absolute;left:0;top:.5em;width:9px;height:9px;border-radius:50%}
+.vs .card.a li::before{background:var(--primary)} .vs .card.b li::before{background:var(--warn)}
+.vs .card li b{color:var(--ink)}
+.objlist{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1.4vh 2.5rem;counter-reset:ob}
+.objlist li{counter-increment:ob;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;font-size:clamp(1.25rem,1.75vw,1.5rem);line-height:1.42;color:var(--ink-soft)}
+.objlist li::before{content:counter(ob);font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:1rem}
+.objlist li b{color:var(--ink)}
+.objgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;flex:1;min-height:0}
+.objcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.25rem;box-shadow:0 8px 24px rgba(15,27,42,.06);display:flex;flex-direction:column;gap:.55rem}
+.objnum{font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:1.05rem;flex:none}
+.objtxt{font-size:clamp(.98rem,1.4vw,1.2rem);line-height:1.36;color:var(--ink-soft)}
+.objtxt b{color:var(--ink)}
+.flowstrip{background:var(--primary-wash);border:1px solid #BFE2E8;border-radius:14px;padding:1rem 1.4rem;display:flex;align-items:center;justify-content:center}
+.flowstrip svg{width:100%;max-width:900px;height:auto;display:block}
+.instrument{background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--dark-line);border-radius:22px;padding:1.6rem 1.6rem 1.4rem;box-shadow:0 20px 50px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.06)}
+.viscowrap{margin-top:1.4rem}
+.viscolabel{font-family:var(--f-mono);font-size:1.05rem;color:var(--dark-muted);display:flex;justify-content:space-between;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.07em}
+.viscolabel span:last-child{color:#fff;font-weight:600;letter-spacing:.03em}
+.viscobar{width:100%;height:22px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--dark-line);overflow:hidden;box-shadow:inset 0 2px 6px rgba(0,0,0,.35)}
+.viscofill{height:100%;width:0%;background:linear-gradient(90deg,#57C6D8,#8FD1A8,#F2B84B,#D64545);transition:width .3s;box-shadow:0 0 12px rgba(87,198,216,.5)}
+.slide--title,.slide--divider,.slide--interactive{background:linear-gradient(155deg,var(--dark),var(--dark-2));color:var(--dark-ink);justify-content:center}
+.slide--title .s-eyebrow,.slide--divider .s-eyebrow,.slide--interactive .s-eyebrow{color:#57C6D8}
+.slide--title .s-eyebrow::before,.slide--divider .s-eyebrow::before,.slide--interactive .s-eyebrow::before{background:radial-gradient(circle at 5px 5px,#57C6D8 3.2px,transparent 3.6px),radial-gradient(circle at 25px 5px,#57C6D8 3.2px,transparent 3.6px);border-top-color:#57C6D8}
+.slide--title h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(2.9rem,6.5vw,5.2rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:1.4rem}
+.slide--title .frame{font-size:clamp(1.35rem,2.3vw,1.85rem);color:var(--dark-muted);max-width:42ch;line-height:1.42}
+.slide--divider .num{font-family:var(--f-disp);font-weight:700;font-size:clamp(4.5rem,12vw,9rem);color:var(--dark-line);line-height:1}
+.slide--divider h2{font-family:var(--f-disp);font-weight:600;font-size:clamp(2.4rem,5vw,4rem);color:#fff;margin-top:-1vh}
+.slide--divider .d-list{margin-top:2.2vh;color:var(--dark-muted);font-size:clamp(1.2rem,1.8vw,1.5rem);display:flex;flex-wrap:wrap;gap:.5rem 1.6rem}
+.slide--interactive .s-title{color:#fff}
+.control{margin:1.4vh 0}
+.control label{font-family:var(--f-mono);font-size:1.1rem;color:var(--dark-muted);display:flex;justify-content:space-between;margin-bottom:.4rem}
+.control input[type=range]{width:100%;accent-color:#14A0B8;height:7px}
+.igloss{color:var(--dark-muted);font-size:clamp(1.02rem,1.45vw,1.26rem);line-height:1.42;margin-top:1.1vh}
+.igloss b{color:#fff}
+.calc{background:rgba(255,255,255,.05);border:1px solid var(--dark-line);border-radius:16px;padding:1.6rem 1.8rem}
+.calc .out{font-family:var(--f-mono);margin-top:1.2rem;display:flex;flex-direction:column;gap:.7rem}
+.calc .out .row{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed var(--dark-line);padding-bottom:.5rem}
+.calc .out .lbl{color:var(--dark-muted);font-size:1rem}
+.calc .out .big{color:#57C6D8;font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:600}
+.calc .formula{font-family:var(--f-mono);color:#fff;font-size:clamp(1.05rem,1.5vw,1.3rem);margin-top:1rem;text-align:center;background:rgba(20,160,184,.12);border-radius:10px;padding:.7rem}
+.deckbar{position:fixed;bottom:0;left:0;right:0;height:5vh;min-height:38px;background:rgba(11,27,43,.94);color:#fff;display:flex;align-items:center;gap:1rem;padding:0 1.2rem;z-index:20;font-family:var(--f-mono)}
+.deckbar .part{font-size:.8rem;color:var(--dark-muted);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.deckbar .count{font-size:.85rem;color:#9FCBD6}
+.navbtn{border:0;background:#17425C;color:#EAF4F8;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:grid;place-items:center}
+.navbtn:hover{background:#1E5877}
+.count{cursor:pointer;user-select:none}
+.count:hover{color:#fff;text-decoration:underline}
+.overview{position:fixed;inset:0;z-index:40;background:rgba(8,18,28,.97);display:none;flex-direction:column;padding:3vh 3vw}
+.overview.open{display:flex}
+.overview h3{font-family:var(--f-disp);color:#fff;font-size:1.6rem;margin-bottom:.4rem}
+.overview .ov-hint{font-family:var(--f-mono);color:var(--dark-muted);font-size:.9rem;margin-bottom:2vh}
+.ov-grid{flex:1;overflow-y:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.9rem;align-content:start}
+.ov-item{background:#10273B;border:1px solid #1E3A52;border-radius:10px;padding:.8rem .9rem;cursor:pointer;display:flex;gap:.7rem;align-items:flex-start;transition:background .15s,border-color .15s;text-align:left}
+.ov-item:hover{background:#17425C;border-color:#57C6D8}
+.ov-item .ov-n{font-family:var(--f-mono);font-size:.8rem;color:#57C6D8;flex:none;min-width:1.6rem}
+.ov-item .ov-t{font-size:.92rem;color:#E8F1F6;line-height:1.3}
+.ov-item.is-part{background:#0A5C6D;border-color:#0C7489}
+.ov-item.is-part .ov-t{font-weight:600}
+.ov-close{position:absolute;top:2vh;right:2vw;background:#17425C;color:#fff;border:0;border-radius:8px;padding:.5rem .9rem;cursor:pointer;font-family:var(--f-mono);font-size:.9rem}
+.ov-close:hover{background:#1E5877}
+.progress{position:fixed;top:0;left:0;height:4px;background:#14A0B8;z-index:21;transition:width .3s;width:0}
+@media (max-width:900px){.s-body,.s-body.text-heavy,.s-body.fig-heavy{grid-template-columns:1fr;gap:1.2rem}.objlist,.blist.cols{grid-template-columns:1fr;columns:1}}
+
+/* ---- Lecture 07 additions ---- */
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:2vw;flex:1;min-height:0;align-items:center}
+.wgrid.wide{grid-template-columns:.78fr 1.22fr}
+.readout{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1.2vh}
+.rcard{background:rgba(255,255,255,.05);border:1px solid var(--dark-line);border-radius:12px;padding:.75rem .9rem}
+.rcard .rl{font-family:var(--f-mono);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dark-muted);display:block;margin-bottom:.25rem}
+.rcard .rv{font-family:var(--f-mono);font-size:clamp(1.3rem,2.3vw,1.9rem);font-weight:600;color:#57C6D8;line-height:1.1}
+.rcard .rv.warn{color:#F58A9B}
+.rcard .rv.ok{color:#8FD1A8}
+.rcard .rs{font-size:.9rem;color:var(--dark-muted);display:block;margin-top:.15rem}
+.seg{display:flex;gap:.5rem;margin:.8rem 0 .2rem}
+.seg button{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--dark-line);color:var(--dark-muted);font-family:var(--f-mono);font-size:1rem;padding:.6rem .2rem;border-radius:10px;cursor:pointer}
+.seg button.on{background:#14A0B8;border-color:#14A0B8;color:#04222B;font-weight:600}
+.stagestrip{display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem;margin-top:1vh}
+.stage{border:1px solid var(--line);border-radius:14px;padding:.9rem .8rem;text-align:center;background:var(--surface);display:flex;flex-direction:column;gap:.5rem;align-items:center}
+.stage .chip{width:100%;height:52px;border-radius:8px;border:1px solid rgba(0,0,0,.12)}
+.stage .st{font-family:var(--f-disp);font-weight:600;font-size:clamp(.98rem,1.25vw,1.12rem);color:var(--ink)}
+.stage .sd{font-size:.94rem;color:var(--muted);line-height:1.32}
+.stage.green{border-color:#F1C7CF;box-shadow:0 0 0 2px #FDECEF inset}
+.axisnote{font-family:var(--f-mono);font-size:.95rem;color:var(--primary-ink);text-align:center;margin-top:.9vh;letter-spacing:.04em}
+.srcline{font-family:var(--f-mono);font-size:.85rem;color:var(--muted);margin-top:.8vh}
+.slide--interactive .srcline{color:var(--dark-muted)}
+.twocap{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1vh}
+.pill{display:inline-block;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .7rem;border-radius:999px;background:var(--primary-wash);color:var(--primary-ink);border:1px solid #BFE2E8}
+.pill.warn{background:var(--warn-wash);color:var(--warn);border-color:#F1C7CF}
+.pill.clin{background:var(--clinical-wash);color:var(--clinical);border-color:#EFD8B8}
+.dtable{width:100%;border-collapse:collapse;font-size:clamp(1rem,1.35vw,1.2rem)}
+.dtable th,.dtable td{border-bottom:1px solid var(--line);padding:.62rem .7rem;text-align:left;color:var(--ink-soft)}
+.dtable th{font-family:var(--f-mono);font-size:.85rem;letter-spacing:.07em;text-transform:uppercase;color:var(--primary-ink);border-bottom:2px solid var(--primary)}
+.chart{width:100%;display:block}
+.chart .grid{stroke:var(--line);stroke-width:1}
+.chart .cat{font-family:var(--f-disp);font-weight:600;font-size:15px;fill:var(--ink)}
+.chart .val{font-family:var(--f-mono);font-weight:700;font-size:13.5px;fill:var(--ink)}
+.chart .tick{font-family:var(--f-mono);font-size:11px;fill:var(--muted)}
+.chart .axislabel{font-family:var(--f-mono);font-size:11px;fill:var(--muted);letter-spacing:.06em}
+.chart .note{font-family:var(--f-body);font-size:12.5px;font-style:italic;fill:var(--muted)}
+.chart .legend text{font-family:var(--f-mono);font-size:11px;fill:var(--muted)}
+.dtable td b{color:var(--ink)}
+.dtable tr.hi td{background:var(--primary-wash)}
+.objgrid.compact{flex:none;grid-auto-rows:min-content}
+.objgrid.compact .objcard{padding:.9rem 1rem;gap:.4rem}
+.roadmap{display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem;margin-top:1.6vh}
+.rm{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--primary);border-radius:12px;padding:.8rem .9rem;display:flex;flex-direction:column;gap:.35rem}
+.rm .rmn{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.1em;color:var(--primary-ink)}
+.rm .rmt{font-family:var(--f-disp);font-weight:600;font-size:clamp(1rem,1.3vw,1.16rem);color:var(--ink);line-height:1.22}
+.rm .rmd{font-size:.94rem;color:var(--muted);line-height:1.3}
+.rm.a2{border-top-color:var(--clinical)}
+.spine{margin-top:1.4vh;border-left:5px solid var(--primary);background:var(--primary-wash);padding:.85rem 1.1rem;border-radius:0 12px 12px 0;font-size:clamp(1.02rem,1.4vw,1.24rem);color:var(--ink-soft);line-height:1.4}
+.spine b{color:var(--primary-ink)}
+/* Learning-outcomes slide: the 3 blocks (objectives, principle, roadmap) used to just stack at the
+   top with a fixed .compact sizing, leaving the lower half of the slide empty. .lo-body makes them
+   flex-grow to use the real height of the slide, and enlarges type/padding to match — the same
+   flex-based, no-guessed-number approach as [D-20], applied to vertical rhythm instead of a figure. */
+.lo-body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:2.6vh;min-height:0}
+.lo-body .objcard{padding:1.35rem 1.5rem;gap:.6rem}
+.lo-body .objnum{width:44px;height:44px;font-size:1.15rem}
+.lo-body .objtxt{font-size:clamp(1.08rem,1.55vw,1.32rem);line-height:1.4}
+.lo-body .spine{margin-top:0;font-size:clamp(1.1rem,1.6vw,1.34rem);padding:1.1rem 1.3rem}
+.lo-body .roadmap{margin-top:0}
+.lo-body .rm{padding:1.05rem 1.15rem;gap:.45rem}
+.lo-body .rm .rmt{font-size:clamp(1.05rem,1.4vw,1.24rem)}
+.lo-body .rm .rmd{font-size:1rem;line-height:1.35}
+.frameflow{display:flex;align-items:stretch;gap:.9rem}
+.ff-seg{flex:1;text-align:center;padding:1rem 1rem;border-radius:12px;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;gap:.25rem}
+.ff-seg.ff-a{border-top:4px solid var(--primary)}
+.ff-seg.ff-b{border-top:4px solid var(--clinical)}
+.ff-label{font-family:var(--f-disp);font-weight:700;font-size:clamp(1.1rem,1.6vw,1.36rem);color:var(--ink);letter-spacing:.01em}
+.ff-sub{font-family:var(--f-mono);font-size:.82rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.ff-arrow{display:flex;align-items:center;font-size:1.7rem;color:var(--muted);flex:none}
+.ph{min-height:0;padding:1.4rem 1.2rem}
+.figbox .ph{width:100%}
+.datastrip{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-top:1.2vh}
+.ds{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.75rem .9rem}
+.ds .dsv{font-family:var(--f-mono);font-weight:600;font-size:clamp(1.25rem,2vw,1.7rem);color:var(--primary-ink);line-height:1.1}
+.ds .dsl{font-size:.92rem;color:var(--muted);line-height:1.3;margin-top:.2rem}
+
+/* ---- Lecture 08 additions ---- */
+.col-text .defbox + .defbox{margin-top:.9vh}
+.s-body.text-heavy .defbox .def{font-size:clamp(1rem,1.4vw,1.24rem)}
+.s-body.one-col > .roadmap{margin-top:0}
+.dtable.gloss th,.dtable.gloss td{padding:.42rem .6rem;font-size:clamp(.95rem,1.25vw,1.12rem)}
+.dtable.gloss td:last-child,.dtable.gloss th:last-child{font-family:var(--f-mono);font-size:.88rem;color:var(--muted)}
+.dtable.gloss td:first-child{font-family:var(--f-mono);color:var(--primary-ink)}
+.stagestrip .sd{font-size:clamp(.9rem,1.12vw,1.02rem)}
+.stagestrip .chip{height:34px}
+/* [D-21] one idea per slide: slides now carry fewer blocks, so the blocks themselves
+   are allowed to breathe. Boxes and cards grow into the height they are given rather
+   than sitting at the top of an empty column. */
+.col-text,.col-visual{justify-content:center}
+.s-body.one-col > .vs{align-content:center}
+.s-body.one-col .vs .card{padding:1.7rem 1.8rem}
+.s-body.one-col .vs .card li{font-size:clamp(1.05rem,1.5vw,1.32rem)}
+.s-body.one-col .vs .card h3{font-size:clamp(1.3rem,1.9vw,1.7rem)}
+/* A definition slide with a single defbox: give the definition itself more presence. */
+.col-text > .defbox:only-child .term{font-size:clamp(1.35rem,2vw,1.75rem)}
+.col-text > .defbox:only-child .def{font-size:clamp(1.1rem,1.6vw,1.4rem)}
+/* .datastrip: .dsv and .dsl are spans, so they run together on one line and the
+   margin-top on .dsl is ignored. They have to be block for the value to sit above
+   its caption. (Inherited from the Lecture 07 stylesheet; fixed here.) */
+.ds .dsv,.ds .dsl{display:block}
+/* A figure that is the only thing in a one-column body should use the height it is
+   given rather than its intrinsic pixel size — same flex-grow reasoning as [D-20]. */
+/* Figure alone on a slide: the figbox is the only child of the body and simply fills it.
+   The caption for these slides lives in the slide subtitle instead, so there is no
+   image-versus-caption height negotiation to get wrong — the simplest construction that
+   cannot be clipped. */
+.s-body.one-col > .figbox:only-child{flex:1 1 0;min-height:0;width:100%;max-width:none;padding:1rem}
+.s-body.one-col > .figbox:only-child img{max-height:100%;width:auto;max-width:100%;object-fit:contain}
+
+/* ---- Images were being clipped at the top. Why, and the fix. ----
+   The base rule is `.figbox img{width:100%;height:auto;max-height:76vh}`. Forcing
+   width:100% makes the height follow the image's aspect ratio, and 76vh is a guessed
+   ceiling that does not know how much height the column actually has left after the
+   title, the subtitle and any sibling box. When the resulting height exceeds the column,
+   `.figbox{overflow:hidden}` silently cuts the top off — which is exactly what happened
+   to the "too stiff" figure, where the two panel headings disappeared.
+   The fix states the real constraint instead of guessing: the image may use up to the
+   full width AND up to the full height of whatever space the flex column gives the
+   figbox, and object-fit:contain keeps its proportions. No fixed number anywhere. [D-20] */
+.col-visual > .figbox{flex:0 1 auto;min-height:0;overflow:hidden}
+.col-visual > .figbox img{width:auto;max-width:100%;height:auto;max-height:100%;object-fit:contain}
+</style></head><body>
+<div class="progress" id="prog"></div>
+<div class="deck"><div class="track" id="track">
+<section class="slide slide--title"><p class="s-eyebrow">Phase 2 · Clinical materials · Lecture 08 · Part 0</p><h1>The Language of<br>Material<br>Properties</h1><p class="frame">Nine properties, defined one at a time, each followed by its own examples. This is the vocabulary the rest of the lecture &mdash; and the rest of the course &mdash; is written in.</p></section>
+
+<section class="slide">
+<p class="s-eyebrow">Context · Before the vocabulary</p>
+<h2 class="s-title">The procedure these properties describe</h2>
+<p class="s-sub">Every property in this section is a question about one step of this sequence.</p>
+<div class="s-body one-col">
+<div class="stagestrip" style="grid-template-columns:repeat(6,1fr)">
+<div class="stage"><div class="chip" style="background:#E7F4F6;border-color:#BFE2E8"></div><span class="st">1 · Tray</span><span class="sd">A rigid carrier, shaped like an arch, holds the soft material and takes it to the teeth.</span></div>
+<div class="stage"><div class="chip" style="background:#D9EEF2;border-color:#BFE2E8"></div><span class="st">2 · Impression</span><span class="sd">The material is pressed against the teeth and sets. Removed, it is a negative copy.</span></div>
+<div class="stage"><div class="chip" style="background:#FDF3E7;border-color:#EFD8B8"></div><span class="st">3 · Pouring</span><span class="sd">Gypsum, a plaster slurry, is poured into the negative and left to harden.</span></div>
+<div class="stage"><div class="chip" style="background:#F6EAD6;border-color:#EFD8B8"></div><span class="st">4 · Cast and die</span><span class="sd">The hardened gypsum is a positive copy of the mouth.</span></div>
+<div class="stage"><div class="chip" style="background:#EDE7F6;border-color:#D6CCE8"></div><span class="st">5 · Restoration</span><span class="sd">A crown is built on that copy, in the laboratory.</span></div>
+<div class="stage green"><div class="chip" style="background:#FDECEF;border-color:#F1C7CF"></div><span class="st">6 · Fitting</span><span class="sd">The crown goes to the patient. It fits the copy. Whether it fits the tooth is the question.</span></div>
+</div>
+<div class="key"><span class="k-tag">Scope of this lecture</span>The patient's mouth is measured <b>once</b>, at step 2. Everything after that is a copy of a copy. An error introduced at step 2 is inherited by every later step, and is not discovered until step 6.</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Context · Vocabulary of the procedure</p>
+<h2 class="s-title">Six words used throughout this lecture</h2>
+<p class="s-sub">These are the terms the definitions rest on. They are not properties &mdash; they are the objects the properties are about.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="defbox"><div class="term">Tray</div><div class="def">The rigid arch-shaped carrier that holds the unset material and takes it to the teeth.</div></div>
+<div class="defbox"><div class="term">Impression</div><div class="def">The set material after removal: a <b>negative</b> of the mouth, with a hole where each tooth was.</div></div>
+<div class="defbox"><div class="term">Cast and die</div><div class="def">The hardened gypsum poured into the impression is the <b>cast</b>, a positive copy. The portion reproducing one prepared tooth is the <b>die</b>.</div></div>
+</div>
+<div class="col-text">
+<div class="defbox"><div class="term">Prepared tooth</div><div class="def">A tooth reshaped with a drill so that a restoration can be fitted over it.</div></div>
+<div class="defbox"><div class="term">Margin</div><div class="def">The boundary line where the restoration will end and the tooth surface begins. The hardest feature in the mouth to record, and the one that decides whether a crown succeeds.</div></div>
+<div class="defbox"><div class="term">Gingival sulcus</div><div class="def">The shallow groove between tooth and gum. Margins are often placed at, or just inside, it &mdash; which is why the material has to reach in there.</div></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Context</p>
+<h2 class="s-title">Why the properties come before the materials</h2>
+<p class="s-sub">A comparison is only informative once both sides of it are understood.</p>
+<div class="s-body text-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">An impression is a dimensional record</div><div class="def">A soft material is placed against the teeth, becomes solid, and is removed carrying a negative copy of them. Every property in this section describes one way that record can be gained, kept or lost.</div></div>
+<ul class="blist">
+<li><b>Each property answers one question</b>, at one moment of the procedure.</li>
+<li><b>The properties are not interchangeable.</b> A material can be excellent at one and poor at another &mdash; which is why a table is needed rather than a ranking.</li>
+<li><b>Every term is defined in an international standard</b>, and the clause number is given, so the definition can be looked up rather than remembered.</li>
+</ul>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/impression-timeline-four-moments.png" alt=""><p class="figcap">The properties grouped by the moment at which each one acts.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Context · Map</p>
+<h2 class="s-title">The nine properties and the question each one answers</h2>
+<p class="s-sub">The four groups follow the sequence of the procedure.</p>
+<div class="s-body one-col">
+<div class="roadmap" style="grid-template-columns:repeat(3,1fr)">
+<div class="rm"><span class="rmn">1 · Mixing</span><span class="rmt">Consistency</span><span class="rmd">How thick is the mixed paste?</span></div>
+<div class="rm"><span class="rmn">2 · Mixing</span><span class="rmt">Working &amp; setting time</span><span class="rmd">How long can it be shaped, and when is it safe to remove?</span></div>
+<div class="rm"><span class="rmn">3 · Mixing</span><span class="rmt">Wettability</span><span class="rmd">Does it spread over a moist surface?</span></div>
+</div>
+<div class="roadmap" style="grid-template-columns:repeat(3,1fr);margin-top:1.4vh">
+<div class="rm a2"><span class="rmn">4 · Recording</span><span class="rmt">Detail reproduction</span><span class="rmd">What is the finest line it can copy?</span></div>
+<div class="rm a2"><span class="rmn">5 · Removal</span><span class="rmt">Elastic recovery &amp;<br>permanent deformation</span><span class="rmd">How much of its shape does it get back &mdash; and how much not?</span></div>
+<div class="rm a2"><span class="rmn">6 · Removal</span><span class="rmt">Strain in compression</span><span class="rmd">How much does it give under a load?</span></div>
+</div>
+<div class="roadmap" style="grid-template-columns:repeat(3,1fr);margin-top:1.4vh">
+<div class="rm a2"><span class="rmn">7 · Removal</span><span class="rmt">Tear strength</span><span class="rmd">What force tears it where it is thinnest?</span></div>
+<div class="rm"><span class="rmn">8 · Storage and pouring</span><span class="rmt">Dimensional change &amp;<br>stability</span><span class="rmd">Does the record hold, and in which direction does it drift?</span></div>
+<div class="rm"><span class="rmn">9 · Storage and pouring</span><span class="rmt">Accuracy</span><span class="rmd">Is it close to the truth, and does it repeat?</span></div>
+</div>
+</div>
+</section>
+
+<section class="slide slide--divider"><div class="s-eyebrow">Group 1 of 4</div><div class="num">01</div><h2>Before the material sets</h2><div class="d-list"><span>Consistency</span><span>· Working and setting time</span><span>· Wettability</span></div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 1 · Definition</p>
+<h2 class="s-title">Consistency</h2>
+<p class="s-sub">How thick or runny the freshly mixed material is.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="defbox"><div class="term">Consistency</div><div class="def">How readily a freshly mixed material flows, or resists flowing, under a given load.</div></div>
+<div class="mech"><span class="k-tag">Important qualification</span>It is a property of the <b>unset paste only</b>. Once the material has set, consistency no longer exists as a measurable quantity &mdash; the property that replaces it is strain in compression, defined later in this lecture.</div>
+<p class="srcline">ISO 4823, clause 3.1.</p>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/consistency-four-types-disc-test.png" alt=""><p class="figcap">Same volume, same load: the disc that spreads wider is the runnier material.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 1 · Example</p>
+<h2 class="s-title">Consistency in everyday materials</h2>
+<p class="s-sub">Three kitchen materials under the same push.</p>
+<div class="s-body one-col">
+<div class="vs three">
+<div class="card a"><h3>Honey</h3><ul>
+<li>Flows on its own, under its own weight.</li>
+<li>Finds every crack and corner.</li>
+<li>Will not stay where it is put.</li>
+</ul></div>
+<div class="card a"><h3>Toothpaste</h3><ul>
+<li>Flows when pushed, stops when the push stops.</li>
+<li>Holds a ridge.</li>
+</ul></div>
+<div class="card a"><h3>Modelling clay</h3><ul>
+<li>Barely moves under the same push.</li>
+<li>Keeps whatever shape it is given.</li>
+<li>Pushes back on whatever is next to it.</li>
+</ul></div>
+</div>
+<div class="key"><span class="k-tag">Interpretation</span>All three are the same property at three values. An impression material is chosen along exactly this scale &mdash; and the choice decides <b>where in the mouth</b> that material can be used.</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 1 · Example</p>
+<h2 class="s-title">The four consistencies of impression material</h2>
+<p class="s-sub">Consistency is the single measurement that assigns a material to a type.</p>
+<div class="s-body">
+<div class="col-text">
+<table class="dtable"><tr><th>Type</th><th>Name</th><th>Where it goes</th></tr>
+<tr><td><b>0</b></td><td>Putty</td><td>Stiffest. Loaded in the tray, compresses the others into place</td></tr>
+<tr><td><b>1</b></td><td>Heavy-bodied</td><td>Tray material</td></tr>
+<tr><td><b>2</b></td><td>Medium-bodied</td><td>General purpose, tray or syringe</td></tr>
+<tr class="hi"><td><b>3</b></td><td>Light-bodied</td><td>Runniest. Syringed around the margin</td></tr></table>
+<p class="srcline">ISO 4823, clause 4. Measured as the diameter of a disc formed when a fixed volume is compressed under a fixed load: runnier material, wider disc.</p>
+</div>
+<div class="col-visual">
+<div class="mech"><span class="k-tag">Note</span>The type is not a quality grade. A putty and a light body are not a worse and a better material &mdash; they are two jobs. The standard judges each type against a <b>different</b> requirement for detail reproduction, precisely because only one of them is expected to record the margin.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 1 · Clinical example</p>
+<h2 class="s-title">Why two consistencies are used in the same impression</h2>
+<p class="s-sub">The two requirements cannot be met by one material.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="vs">
+<div class="card a"><h3>The runny one</h3><ul>
+<li>Delivered from a syringe directly around the prepared tooth.</li>
+<li>Must reach into the gingival sulcus to capture the margin.</li>
+<li>On its own it would collapse and flow away from the tooth.</li>
+</ul></div>
+<div class="card a"><h3>The stiff one</h3><ul>
+<li>Fills the tray behind it.</li>
+<li>Pushes the runny material into the sulcus and holds it there.</li>
+<li>On its own it could never reach the detail.</li>
+</ul></div>
+</div>
+<div class="key"><span class="k-tag">Practical consequence</span>A single impression is normally made with <b>two materials at once</b>, set simultaneously against each other: one runny enough to reach the margin, one stiff enough to drive it there.</div>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/two-consistencies-one-impression.png" alt=""><p class="figcap">The heavy body presses the light body into the sulcus; neither would work alone.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 2 · Definition</p>
+<h2 class="s-title">Working time</h2>
+<p class="s-sub">The window in which the material can still be shaped.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="defbox"><div class="term">Working time</div><div class="def">The period that begins when mixing starts and ends when the material begins to behave elastically &mdash; when it springs back instead of flowing, and can no longer be shaped without damaging the record it will carry.</div></div>
+<div class="mech"><span class="k-tag">Important qualification</span>Working time ends <b>before the material feels hard</b>. Anything shaped after that moment records a distorted surface, even though the paste still looks and feels workable.</div>
+<p class="srcline">ISO 4823, clause 3.11.</p>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/working-setting-time-two-clocks.png" alt=""><p class="figcap">Both clocks start at mixing. The first closes while the paste still feels soft.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 2 · Definition</p>
+<h2 class="s-title">Setting time</h2>
+<p class="s-sub">The second clock, running from the same moment.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="defbox"><div class="term">Setting time</div><div class="def">The period from the start of mixing until the reaction has progressed far enough for the material to be removed from the mouth without deforming.</div></div>
+<div class="mech"><span class="k-tag">Note</span>The standard sets <b>no required value</b> for either time. It requires the material to perform as the manufacturer states &mdash; so these are numbers to read on the box, not values to memorise. The order of magnitude is <b>minutes</b>: roughly two to ten, depending on the material.</div>
+<p class="srcline">ISO 4823, clause 5.4.</p>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">Practical consequence</span>Two clocks, one start. The operator races the first one; the patient waits out the second. A material with a long working time and a short setting time would be ideal, and no material offers both, because <b>they are the same reaction measured at two points</b>.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 2 · Example</p>
+<h2 class="s-title">Setting concrete has the same two clocks</h2>
+<p class="s-sub">A familiar material where the two moments are far apart enough to see.</p>
+<div class="s-body one-col">
+<div class="vs">
+<div class="card a"><h3>Concrete</h3><ul>
+<li>There is a window in which the surface can still be smoothed.</li>
+<li>That window closes while the concrete still looks wet.</li>
+<li>Long after it closes, the slab is still not safe to walk on.</li>
+<li>Smoothing it after the window has closed leaves a permanently spoiled surface.</li>
+</ul></div>
+<div class="card a"><h3>Impression material</h3><ul>
+<li>There is a window in which the tray can still be seated and adjusted.</li>
+<li>That window closes while the paste still feels soft.</li>
+<li>After it closes, the material still needs time before it can be removed.</li>
+<li>Reseating the tray after the window has closed records a permanently distorted surface.</li>
+</ul></div>
+</div>
+<div class="key"><span class="k-tag">Interpretation</span>The difference is the timescale: hours for concrete, <b>minutes</b> for an impression. The mistake is the same one, and in the mouth there is no chance to notice it before the material is removed.</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 3 · Definition</p>
+<h2 class="s-title">Wettability</h2>
+<p class="s-sub">Whether the unset material spreads over a surface or beads up on it.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="defbox"><div class="term">Wettability</div><div class="def">The tendency of a liquid to spread across a solid surface rather than draw itself into a bead.</div></div>
+<div class="defbox"><div class="term">Contact angle</div><div class="def">The angle between the surface and the edge of a drop resting on it. <b>Small angle, good wetting</b> &mdash; the drop flattens and follows the surface. <b>Large angle, poor wetting</b> &mdash; the drop stands up on itself.</div></div>
+<p class="srcline">Not among the requirements of ISO 4823. Reported by manufacturers as a contact angle in degrees.</p>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/wettability-contact-angle-voids.png" alt=""><p class="figcap">The same surface, two liquids &mdash; and the void that poor wetting leaves at the margin.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 3 · Example</p>
+<h2 class="s-title">Why poor wetting shows up as a missing margin</h2>
+<p class="s-sub">The consequence is not a blurred record. It is an absent one.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="vs">
+<div class="card a"><h3>Good wetting</h3><ul>
+<li>The material follows the tooth into the sulcus.</li>
+<li>It stays in contact all the way down.</li>
+<li>The margin is recorded.</li>
+</ul></div>
+<div class="card b"><h3>Poor wetting</h3><ul>
+<li>The material bridges over the entrance of the sulcus.</li>
+<li>A void is left underneath.</li>
+<li>The margin is not recorded at all &mdash; and the impression looks smooth.</li>
+</ul></div>
+</div>
+<div class="key"><span class="k-tag">Practical consequence</span>Wetting matters <b>twice</b> in the procedure. The material must wet the moist tooth at step 2, and the set impression must be wetted by the gypsum poured into it at step 3. A void at either moment produces the same result: a die with no margin on it.</div>
+</div>
+<div class="col-visual">
+<div class="mech"><span class="k-tag">Important qualification</span>A material described as <b>hydrophilic</b> wets a moist surface more readily. That is not the same as tolerating blood or saliva pooled on the tooth &mdash; no impression material records through a liquid layer.</div>
+</div>
+</div>
+</section>
+
+<section class="slide slide--divider"><div class="s-eyebrow">Group 2 of 4</div><div class="num">02</div><h2>At the moment of recording</h2><div class="d-list"><span>Detail reproduction</span><span>· And why it is not the same as accuracy</span></div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 4 · Definition</p>
+<h2 class="s-title">Detail reproduction</h2>
+<p class="s-sub">The finest line the material can copy without the copy breaking up.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="defbox"><div class="term">Detail reproduction</div><div class="def">The ability of a material to reproduce a fine line engraved in a test block, continuously and without interruption, along its whole length.</div></div>
+<p class="srcline">ISO 4823, clauses 5.5 and 7.4.</p>
+</div>
+<div class="col-visual">
+<div class="mech"><span class="k-tag">Note</span>It is a <b>pass or fail, not a score</b>. The line is either continuous or it is not.</div>
+<div class="key"><span class="k-tag">Interpretation</span>Detail reproduction depends on the two properties already defined: the material must be <b>runny enough</b>, and <b>wet the surface well enough</b>, to reach the detail before it becomes elastic. It is not an independent virtue of the material &mdash; it is what consistency and wettability deliver together.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 4 · Example</p>
+<h2 class="s-title">Pressing a coin into modelling clay</h2>
+<p class="s-sub">The everyday version of the same test.</p>
+<div class="s-body">
+<div class="col-text">
+<ul class="blist">
+<li><b>The coin is the tooth.</b> Its surface carries features far finer than its overall shape.</li>
+<li><b>The clay is the impression material.</b> Whether the lettering comes out readable depends on how finely the clay follows the surface before it stiffens.</li>
+<li><b>Press too late and the lettering is missing</b>, even though the outline of the coin is perfect. The overall shape was recorded and the fine detail was not.</li>
+<li><b>Nothing about this is a measurement of size.</b> The lettering can be perfectly sharp on a clay disc that has since shrunk.</li>
+</ul>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">Interpretation</span>This is why detail reproduction is judged by <b>looking</b>, under a microscope, at one small area &mdash; and not by measuring anything.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 4 · Why it matters</p>
+<h2 class="s-title">Why 20 micrometres is the number that matters</h2>
+<p class="s-sub">The requirement is not an arbitrary figure chosen by a committee. It is the scale at which the margin actually lives. <b>Every object on this scale is real, and they are all within a factor of a hundred of each other.</b></p>
+<div class="s-body one-col">
+<div class="figbox"><img src="assets/why-twenty-micrometres-matters.png" alt=""></div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 4 · Why it matters</p>
+<h2 class="s-title">Three things that share this scale</h2>
+<p class="s-sub">What has to be recorded, what seals the margin, and what colonises it.</p>
+<div class="s-body one-col">
+<div class="vs three">
+<div class="card a"><h3>What must be recorded</h3><ul>
+<li>The <b>finish line</b> left by the drill &mdash; another name for the margin.</li>
+<li>The step between tooth and restoration.</li>
+<li>The roughness of the prepared surface.</li>
+<li><b>Features of tens of micrometres</b>, not of millimetres.</li>
+</ul></div>
+<div class="card a"><h3>What seals the margin</h3><ul>
+<li>A <b>luting cement</b> &mdash; the thin layer that fixes the finished crown onto the tooth &mdash; must form a film no thicker than <b>25 &micro;m</b>.</li>
+<li>That is almost exactly the 20 &micro;m the impression must record.</li>
+<li><b>A gap the material failed to record is a gap the cement was never designed to fill.</b></li>
+</ul></div>
+<div class="card b"><h3>What colonises the margin</h3><ul>
+<li>An oral bacterium is roughly <b>1 &micro;m</b> across.</li>
+<li><b>Twenty fit side by side</b> across a 20 &micro;m discrepancy.</li>
+<li>For comparison, a dentinal tubule near the pulp is about 2.5 &micro;m.</li>
+</ul></div>
+</div>
+<div class="key"><span class="k-tag">General rule</span><b>Detail that is not recorded cannot be recovered later.</b> No step after the impression adds information that the impression did not capture.</div>
+<p class="srcline">Line widths: ISO 4823, Table 1. Cement film thickness: ISO 9917-1 (maximum 25 &micro;m for luting cements). Dentinal tubule diameter: Garberoglio &amp; Br&auml;nnstr&ouml;m, <i>Arch Oral Biol</i> 1976 &mdash; 2.5 &micro;m near the pulp, 0.9 &micro;m at the periphery.</p>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 4 · Qualification</p>
+<h2 class="s-title">Why the requirement is not the same for every material</h2>
+<p class="s-sub">Three different thresholds, because the three materials are not being asked the same question.</p>
+<div class="s-body">
+<div class="col-text">
+<table class="dtable"><tr><th>Type</th><th>Line it must reproduce</th><th>Where it sits in the impression</th></tr>
+<tr class="hi"><td><b>3</b> &middot; light-bodied</td><td><b>20 &micro;m</b></td><td>Syringed at the margin</td></tr>
+<tr class="hi"><td><b>2</b> &middot; medium-bodied</td><td><b>20 &micro;m</b></td><td>May be at the margin</td></tr>
+<tr><td><b>1</b> &middot; heavy-bodied</td><td>50 &micro;m</td><td>In the tray, behind the light body</td></tr>
+<tr><td><b>0</b> &middot; putty</td><td>75 &micro;m</td><td>In the tray, carrying the others</td></tr></table>
+<p class="srcline">ISO 4823, Table 1.</p>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">Interpretation</span>The putty is not a worse material. It is <b>not the one being asked this question</b> &mdash; it never reaches the margin, so the standard does not require it to record one.</div>
+<div class="mech"><span class="k-tag">Note</span>The standard applies a <b>second</b> requirement to the gypsum cast poured against the impression: 50 &micro;m for types 1, 2 and 3. Detail is lost in the transfer, and the standard already assumes it.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 4 · Qualification</p>
+<h2 class="s-title">Detail reproduction is not accuracy</h2>
+<p class="s-sub">The most common confusion in this topic. Accuracy is defined properly in Group 4; for now, read it as being the right size, in the right place.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="vs">
+<div class="card a"><h3>Detail reproduction</h3><ul>
+<li>A property of the <b>surface</b>.</li>
+<li>Asks: can this material copy a fine line?</li>
+<li>Judged by looking at one small area.</li>
+<li>Governed by flow before setting.</li>
+</ul></div>
+<div class="card b"><h3>Accuracy</h3><ul>
+<li>A property of the <b>distance between two points</b>.</li>
+<li>Asks: is this feature in the right place?</li>
+<li>Judged by measuring across the whole impression.</li>
+<li>Governed by what happens during and after setting.</li>
+</ul></div>
+</div>
+<div class="key"><span class="k-tag">Interpretation</span>An impression can reproduce a 20 &micro;m line perfectly and still produce a crown that does not fit &mdash; because every detail it recorded has moved <b>together</b>, in the same direction, after it was recorded.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 4 · Qualification</p>
+<h2 class="s-title">Sharp, and in the wrong place</h2>
+<p class="s-sub">On the left, the margin is recorded perfectly. On the right, every tooth of the arch is drawn just as sharply &mdash; and the whole arch has contracted. <b>Nothing about the second picture is blurred. That is exactly the point: the two properties fail independently.</b></p>
+<div class="s-body one-col">
+<div class="figbox"><img src="assets/detail-vs-accuracy-sharp-but-shifted.png" alt=""></div>
+</div>
+</section>
+
+<section class="slide slide--divider"><div class="s-eyebrow">Group 3 of 4</div><div class="num">03</div><h2>During removal from the mouth</h2><div class="d-list"><span>Elastic recovery and permanent deformation</span><span>· Strain in compression</span><span>· Tear strength</span></div><p class="frame" style="margin-top:2vh;font-size:clamp(1.05rem,1.6vw,1.35rem);max-width:60ch">All three describe the same underlying behaviour: a material that is part liquid and part solid, so that part of any deformation is returned and part is kept.</p></section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 5 · Definition</p>
+<h2 class="s-title">Elastic recovery</h2>
+<p class="s-sub">How much of its shape the set material gets back.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="defbox"><div class="term">Elastic recovery</div><div class="def">The ability of an elastic material to return to its original shape once the load deforming it has been removed. Expressed as the <b>percentage of the deformation that is recovered</b>.</div></div>
+<div class="mech"><span class="k-tag">Definition</span>Measured by compressing a cylindrical specimen by a fixed percentage of its height for a few seconds, releasing it, and re-measuring.</div>
+<p class="srcline">ISO 4823, clause 3.2 (definition) and 7.7 (test method).</p>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">Interpretation</span>Note what the percentage is a percentage <b>of</b>: the deformation that was applied, not the size of the object. A material that recovers 98% of a large deformation still ends up further from its original shape than one that recovers 98% of a small one.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 5 · Definition</p>
+<h2 class="s-title">Permanent deformation</h2>
+<p class="s-sub">The same measurement, stated from the other side.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="defbox"><div class="term">Permanent deformation</div><div class="def">The percentage of the deformation that is <b>not</b> recovered.</div></div>
+<div class="calc" style="background:var(--primary-wash);border-color:#BFE2E8">
+<div class="formula" style="background:#fff;color:var(--primary-ink)">permanent deformation = 100% &minus; elastic recovery</div>
+</div>
+<ul class="blist" style="margin-top:1.4vh">
+<li>A material with <b>98% elastic recovery</b> has <b>2% permanent deformation</b>.</li>
+<li>They are not two properties. They are one measurement with two names, and different textbooks pick different ones.</li>
+</ul>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">Important qualification</span>Both numbers are percentages <b>of the deformation applied</b>. To find out what they cost in the die, that percentage has to be applied to the deformation, and then to the size of the tooth. That calculation is done once, in full, three slides from now.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 5 &middot; How it is measured</p>
+<h2 class="s-title">How the percentage is measured</h2>
+<p class="s-sub">Four steps, and one thing to watch: what the percentage is a percentage <b>of</b>.</p>
+<div class="s-body one-col">
+<div class="figbox"><img src="assets/elastic-recovery-step-by-step.png" alt=""></div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 5 &middot; Mechanism</p>
+<h2 class="s-title">Why the material springs back at all</h2>
+<p class="s-sub">And why it never springs back completely.</p>
+<div class="s-body one-col">
+<div class="figbox"><img src="assets/why-the-material-springs-back.png" alt=""></div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 5 · Example</p>
+<h2 class="s-title">Two everyday materials at the ends of the scale</h2>
+<p class="s-sub">Impression materials sit near one end, and never quite at it.</p>
+<div class="s-body one-col">
+<div class="vs">
+<div class="card a"><h3>A hair elastic</h3><ul>
+<li>Stretched around a handful of hair, then released.</li>
+<li>Returns to almost exactly its original shape.</li>
+<li>Can be used again the same way tomorrow.</li>
+<li><b>Elastic recovery close to 100%.</b></li>
+</ul></div>
+<div class="card b"><h3>Chewing gum</h3><ul>
+<li>Pulled into a new shape, then released.</li>
+<li>Keeps whatever shape it was pulled into.</li>
+<li>Every deformation is inherited by the next one.</li>
+<li><b>Elastic recovery close to zero.</b></li>
+</ul></div>
+</div>
+<div class="key"><span class="k-tag">Interpretation</span>An impression material sits near the elastic end &mdash; typically <b>96% to 99.5%</b> &mdash; but never at it. Every impression keeps a little of whatever deformation it went through, and the whole of Group 3 is about how much.</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 5 · Example</p>
+<h2 class="s-title">Why an impression is deformed at all</h2>
+<p class="s-sub">The material is deformed on its way out of the mouth, every single time, by the shape of the tooth itself.</p>
+<div class="s-body">
+<div class="col-text">
+<ul class="blist">
+<li><b>A tooth is not a cone.</b> It is narrow at the neck, bulges outward, and narrows again towards the biting surface.</li>
+<li><b>The region beneath the bulge is the undercut.</b> Set material that has flowed into it is trapped behind a wider ring of tooth.</li>
+<li><b>To come out, the material must stretch over the bulge</b> and then relax back.</li>
+<li><b>Whatever it fails to relax back becomes an error in the die</b> &mdash; and the die is what the crown is built on.</li>
+</ul>
+<div class="key"><span class="k-tag">General rule</span>Deformation on removal is not a mistake by the operator. It is a geometric necessity, and the only variable is how much of it the material gives back.</div>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/undercut-deformation-on-removal.png" alt=""><p class="figcap">The material has to stretch over the widest contour. What it fails to recover becomes the error in the die.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 5 · Worked example</p>
+<h2 class="s-title">What 96.5% recovery costs on one molar</h2>
+<p class="s-sub">The calculation, done once, with every assumption stated.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="steps">
+<div class="step"><div><h4>Start with the material</h4><p>96.5% elastic recovery &mdash; the minimum the standard allows for an elastomeric impression material.</p></div></div>
+<div class="step"><div><h4>Read it as permanent deformation</h4><p>100% &minus; 96.5% = <b>3.5%</b> of the deformation is kept.</p></div></div>
+<div class="step"><div><h4>Apply it to the deformation on removal</h4><p>Assume the undercut forces the material to stretch by 20% <b>of its own thickness</b>. It keeps 3.5% of that stretch: 3.5% of 20% = <b>0.7%</b>.</p></div></div>
+<div class="step"><div><h4>Read what that 0.7% is a percentage of</h4><p>It is 0.7% <b>of the dimension the material was recording</b> &mdash; so the cavity in the impression, and the die poured into it, sit 0.7% away from the tooth.</p></div></div>
+<div class="step"><div><h4>Apply that to a real tooth</h4><p>A molar is roughly 8 mm across. 0.7% of 8 mm = <b>56 &micro;m</b> of error, carried into the die.</p></div></div>
+</div>
+</div>
+<div class="col-visual">
+<div class="mech"><span class="k-tag">Methodological limitation</span>The 20% deformation and the 8 mm span are <b>teaching assumptions</b>, not measured values. The recovery figure is the standard's minimum. The purpose of the calculation is the order of magnitude, not the exact number.</div>
+<div class="key"><span class="k-tag">Interpretation</span>A figure that reads as almost perfect on a data sheet &mdash; 96.5% &mdash; arrives at the die as <b>tens of micrometres</b>. This is the reason the properties in this lecture are worth defining carefully.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 5 · Worked example</p>
+<h2 class="s-title">The same calculation for a better material</h2>
+<p class="s-sub">Same tooth, same undercut, same deformation. Only the material changes.</p>
+<div class="s-body one-col">
+<table class="dtable">
+<tr><th></th><th>Elastic recovery</th><th>Permanent deformation<br><span style="text-transform:none">(of the deformation)</span></th><th>Of the original dimension<br><span style="text-transform:none">(at 20% deformation)</span></th><th>Error over 8 mm</th></tr>
+<tr><td><b>The standard's minimum</b></td><td>96.5%</td><td>3.5%</td><td>0.70%</td><td><b>56 &micro;m</b></td></tr>
+<tr class="hi"><td><b>A well-performing material</b></td><td>99.5%</td><td>0.5%</td><td>0.10%</td><td><b>8 &micro;m</b></td></tr>
+<tr><td colspan="4"><b>Difference between the two</b></td><td><b>48 &micro;m</b></td></tr>
+</table>
+<div class="key"><span class="k-tag">Interpretation</span>A difference of <b>three percentage points</b> on the data sheet becomes a difference of <b>48 &micro;m</b> in the die. For scale, 120 &micro;m has been the figure conventionally quoted as an acceptable marginal gap since 1971 &mdash; a threshold on which the literature has never actually reached consensus, with values from 50 to 200 &micro;m proposed. Against a budget of that size, the choice of material spends a substantial part of it.</div>
+<p class="srcline">Illustrative calculation with the assumptions of the previous slide. The 120 &micro;m figure originates in a 1971 measurement of cement film thickness, not in a clinical survival study.</p>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 6 · Definition</p>
+<h2 class="s-title">Strain in compression</h2>
+<p class="s-sub">How much the set material gives when it is squeezed.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="defbox"><div class="term">Strain in compression</div><div class="def">The amount a set material deforms under a defined compressive load, expressed as a percentage of its original height. It is the everyday <b>flexibility</b> of the set impression.</div></div>
+<div class="mech"><span class="k-tag">Note</span>This is the same idea as the <b>elastic modulus</b> met in Lecture 02, read the other way round: modulus is stress divided by strain, so a high strain under a fixed load means a low modulus. The standard reports the strain directly because the clinically relevant question is how far the impression gives, not how stiff the material is in absolute terms.</div>
+<p class="srcline">ISO 4823, clause 3.10 (definition) and 7.8 (test method).</p>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">General rule</span>This is the only property in this lecture specified as a <b>range, with both a minimum and a maximum</b>. Everywhere else, more is better or less is better. Here, both extremes fail &mdash; in different ways, at different steps of the procedure.</div><table class="dtable" style="margin-top:1.2vh"><tr><th>Type</th><th>Minimum</th><th>Maximum</th></tr><tr><td><b>0</b> putty &middot; <b>1</b> heavy</td><td>0.8%</td><td>20.0%</td></tr><tr><td><b>2</b> medium &middot; <b>3</b> light</td><td>2.0%</td><td>20.0%</td></tr></table>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 6 &middot; How it is measured</p>
+<h2 class="s-title">The strain-in-compression test</h2>
+<p class="s-sub">The same specimen and a similar load, but measured at a different moment: <b>strain in compression is read with the load still on</b>, while elastic recovery is read after it comes off. And the denominator is different &mdash; here it is the original height h&#8320;.</p>
+<div class="s-body one-col">
+<div class="figbox"><img src="assets/strain-in-compression-test.png" alt=""></div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 6 · Example</p>
+<h2 class="s-title">What happens when the material is too flexible</h2>
+<p class="s-sub">The failure occurs at step 3, after the impression has left the mouth, and it is caused by the gypsum growing &mdash; not by the gypsum weighing.</p>
+<div class="s-body">
+<div class="col-text">
+<ul class="blist">
+<li><b>Gypsum expands as it sets.</b> The reaction grows crystals, and the standard permits up to <b>0.20%</b> for model stone and <b>0.15%</b> for die stone.</li>
+<li><b>Across an arch, that is a real distance.</b> 0.20% of a 50 mm intermolar width is <b>100 &micro;m</b>.</li>
+<li><b>The impression and the tray act as a corset around it.</b> A stiff material restrains the expansion; a flexible one lets it happen.</li>
+<li><b>So the cast comes out larger than the mouth</b> &mdash; wider arches, larger dies &mdash; and the impression itself is still correct.</li>
+</ul>
+<p class="srcline">Expansion limits: ISO 6873, Table 1.</p>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/strain-too-flexible-gypsum.png" alt=""><p class="figcap">The gypsum expands as it sets. A stiff impression restrains it; a flexible one does not.</p></div>
+</div>
+</div>
+</section>
+
+
+<section class="slide">
+<p class="s-eyebrow">Property 6 · Example</p>
+<h2 class="s-title">What happens when the material is too stiff</h2>
+<p class="s-sub">The failure occurs at separation, and the standard's lower limit exists to protect the patient's tissues.</p>
+<div class="s-body">
+<div class="col-text">
+<ul class="blist">
+<li><b>A stiff impression grips the cast.</b> Separating the two can fracture the slender parts of the gypsum &mdash; a thin die, an unsupported tooth &mdash; and the fracture is in the model, where the crown will be built.</li>
+<li><b>The standard sets a lower limit for exactly one reason:</b> the set material must be flexible enough to leave the mouth <b>without injuring the tissues it was pressed against</b>. That is the wording of the definition itself.</li>
+<li><b>Force applied to a set impression is a route to distortion</b> wherever it comes from.</li>
+</ul>
+<p class="srcline">ISO 4823, clause 3.10 and Table 1.</p>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/strain-too-stiff-separation.png" alt=""><p class="figcap">Excess stiffness fractures the die at separation. Removal force is a different question.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 6 · Important qualification</p>
+<h2 class="s-title">Stiffness does not predict how hard an impression is to remove</h2>
+<p class="s-sub">A claim taught for decades, measured directly, and not supported.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="mech"><span class="k-tag">Note</span>Three material names appear below. They are the three families compared throughout Part 3, and for now only one thing about them matters: they are <b>chemically different materials</b>. <b>Addition silicone</b> and <b>polyether</b> are two of the elastomers; <b>alginate</b> is the cheap water-based one used for study models.</div>
+<div class="vs">
+<div class="card a"><h3>What was expected</h3><ul>
+<li>A stiffer, harder material should grip the undercuts more.</li>
+<li>It should therefore need more force to pull off the teeth.</li>
+<li>Manufacturers reformulated materials to be less rigid for exactly this reason.</li>
+</ul></div>
+<div class="card b"><h3>What was measured</h3><ul>
+<li><b>No correlation</b> between removal force and either rigidity or hardness.</li>
+<li>The <b>addition silicone</b> was the stiffest and hardest of the three.</li>
+<li>The <b>polyether</b> needed the most force to remove.</li>
+</ul></div>
+</div>
+<p class="srcline">Walker MP, Alderman N, Petrie CS, Melander J, McGuire J. <i>J Prosthodont</i> 2013;22(5):362-6. In vitro, n=5 per group, standardised steel model with a metal tray &mdash; no soft tissue and no saliva.</p>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">Interpretation</span>What actually governs removal force is the <b>depth of the undercuts</b> and <b>how strongly the material adheres</b> to the surfaces it is pressed against &mdash; not how stiff it is. The polyether is the most hydrophilic and the most adherent of the three, and that is the property doing the work.</div>
+<div class="mech"><span class="k-tag">General rule</span>A mechanism that sounds plausible is not evidence. This is the second claim in this lecture that survives as a <b>rule of thumb</b> while failing as an <b>explanation</b> &mdash; and the difference matters whenever a new material has to be judged.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 7 · Definition</p>
+<h2 class="s-title">Tear strength</h2>
+<p class="s-sub">The force needed to tear the set material.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="defbox"><div class="term">Tear strength</div><div class="def">The force required to <b>propagate</b> a tear through the set material, divided by the thickness of the specimen. Reported in newtons per millimetre.</div></div>
+<div class="mech"><span class="k-tag">Note</span>Why N/mm and not MPa: a tear runs along a <b>line</b>, not across a face. The force is carried by the thickness at the tip of the tear, so it is divided by a length rather than an area. It is not a stress, and it cannot be compared with the strengths met in Lecture 02.</div>
+<p class="srcline">Not among the requirements of ISO 4823. Required of alginate by ISO 21563.</p>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/tear-strength-trouser-test.png" alt=""><p class="figcap">Force divided by a thickness, not by an area &mdash; which is why it is not a stress.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 7 · Example</p>
+<h2 class="s-title">A plastic bag tears the same way</h2>
+<p class="s-sub">The distinction the property is really about.</p>
+<div class="s-body one-col">
+<div class="vs">
+<div class="card a"><h3>Before the nick</h3><ul>
+<li>The bag carries a heavy load without complaint.</li>
+<li>The force is spread across the whole width of the material.</li>
+<li>It feels strong, and it is.</li>
+</ul></div>
+<div class="card b"><h3>After the nick</h3><ul>
+<li>The same load now runs a tear straight across it.</li>
+<li>All the force is concentrated at one point &mdash; the tip of the tear.</li>
+<li>Nothing about the material changed.</li>
+</ul></div>
+</div>
+<div class="key"><span class="k-tag">Interpretation</span>What tear strength describes is resistance to the tear <b>spreading</b> &mdash; not resistance to the first pull. This is why a material can be strong in every other sense and still fail here.</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 7 · Example</p>
+<h2 class="s-title">Where an impression tears</h2>
+<p class="s-sub">Not at random: at the two places where the material is thinnest, which are the two places the margin is.</p>
+<div class="s-body">
+<div class="col-text">
+<ul class="blist">
+<li><b>The sulcular collar.</b> The thin sleeve of material that ran down into the gingival sulcus. It is the thinnest material in the whole impression, and it carries the margin.</li>
+<li><b>The interproximal web.</b> The narrow membrane of material squeezed between two adjacent teeth.</li>
+<li><b>A torn impression is not always obvious.</b> The torn fragment can stay behind in the sulcus, leaving an impression that looks smooth and complete and is simply missing its margin.</li>
+</ul>
+<div class="key"><span class="k-tag">Practical consequence</span>Tear strength is not a bench property. It decides whether the one feature the impression was made for survives the journey out of the mouth.</div>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/tear-strength-thin-regions.png" alt=""><p class="figcap">The two thinnest regions of the impression are the two that carry the margin.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 7 · Mechanism</p>
+<h2 class="s-title">Why the impression is removed with one quick movement</h2>
+<p class="s-sub">A clinical instruction that follows directly from the physics of the material.</p>
+<div class="s-body">
+<div class="col-text">
+<ul class="blist">
+<li><b>These materials are viscoelastic:</b> part liquid, part solid. Their response depends on <b>how fast</b> they are loaded.</li>
+<li><b>Loaded slowly, the liquid character dominates.</b> Chains have time to slide past each other: the material flows, deforms more, and tears at a lower force.</li>
+<li><b>Loaded rapidly, the solid character dominates.</b> There is no time for chains to slide, so the material behaves elastically: it resists tearing and recovers more of its shape.</li>
+<li><b>Easing an impression out slowly therefore does the opposite of what it feels like it does</b> &mdash; it maximises both tearing and permanent deformation.</li>
+</ul>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">General rule</span>The same viscoelastic behaviour explains three of the properties in this group: why working time ends when elastic behaviour begins, why some deformation is never recovered, and why removal speed changes the result. <b>One material behaviour, three properties.</b></div>
+<div class="mech"><span class="k-tag">Methodological limitation</span>The direction of this effect is well described in the literature, but the primary experimental source for the magnitude has not yet been located. Presented here as a mechanism, without a number.</div>
+</div>
+</div>
+</section>
+
+<section class="slide slide--divider"><div class="s-eyebrow">Group 4 of 4</div><div class="num">04</div><h2>After the impression leaves the mouth</h2><div class="d-list"><span>Dimensional change and stability</span><span>· Accuracy: trueness and precision</span></div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 8 · Definition</p>
+<h2 class="s-title">Linear dimensional change</h2>
+<p class="s-sub">One number, measured at one moment.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="defbox"><div class="term">Linear dimensional change</div><div class="def">The change in a measured length between the moment the material sets and a defined later moment, expressed as a percentage.</div></div>
+<div class="mech"><span class="k-tag">Definition</span>Measured by comparing a line in the test block with the same line in the set material after <b>24 hours</b>, at controlled temperature and humidity.</div>
+<p class="srcline">ISO 4823, clauses 5.6 and 7.5.</p>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">Interpretation</span>This is a <b>quality gate</b>, not a description of clinical behaviour. It asks whether the material has moved too far by one arbitrary moment. It says nothing about the path it took to get there, or where it goes next.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 8 · Definition</p>
+<h2 class="s-title">Dimensional stability</h2>
+<p class="s-sub">Not a number. A curve, with a direction.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="defbox"><div class="term">Dimensional stability</div><div class="def">The tendency of a material to <b>hold</b> its dimensions over time. Described by a curve of percentage change against hours &mdash; and the curve has a sign: shrinkage or expansion.</div></div>
+<ul class="blist">
+<li><b>Two materials can pass the same 24-hour test</b> and drift in <b>opposite directions</b> along the way.</li>
+<li><b>One can be measured; the other has to be plotted.</b> A data sheet quoting a single percentage has answered only the first question.</li>
+</ul>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">Practical consequence</span>This is why <b>when the cast is poured</b> is a decision about the material, not about the laboratory's schedule. Part 3 of this lecture gives the curve for each family.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 8 · Mechanism</p>
+<h2 class="s-title">Three reasons a set material changes size</h2>
+<p class="s-sub">The set impression is not inert. Three different processes continue after it has left the mouth.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="steps">
+<div class="step"><div><h4>Cross-linking continues</h4><p>Reaction does not stop the moment the material feels solid. Chains keep bonding to each other and are pulled closer together. The material <b>shrinks</b>.</p></div></div>
+<div class="step"><div><h4>A by-product leaves</h4><p>Some setting reactions release a small molecule &mdash; ethanol, or water. It evaporates out of the set material, which loses exactly the volume of what escaped and <b>shrinks</b>. This is the condensation reaction from Lecture 03.</p></div></div>
+<div class="step"><div><h4>Water moves in or out</h4><p>A material that is a water-based gel exchanges water with its surroundings. Losing water is <b>syneresis</b>, and it shrinks; gaining water is <b>imbibition</b>, and it expands.</p></div></div>
+</div>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/dimensional-change-three-mechanisms.png" alt=""><p class="figcap">Three different processes, two directions of change.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 8 · Example</p>
+<h2 class="s-title">A sponge on the bench</h2>
+<p class="s-sub">The third mechanism, at a scale that can be seen.</p>
+<div class="s-body one-col">
+<div class="vs">
+<div class="card a"><h3>Left out to dry</h3><ul>
+<li>Water evaporates from the gel.</li>
+<li>The sponge shrinks and stiffens.</li>
+<li>Nothing was made badly &mdash; it is exchanging water with the room.</li>
+</ul></div>
+<div class="card a"><h3>Put back in water</h3><ul>
+<li>Water is drawn back into the gel.</li>
+<li>The sponge swells.</li>
+<li>The same material, moving in the opposite direction.</li>
+</ul></div>
+</div>
+<div class="key"><span class="k-tag">Important qualification</span>The mechanism is the same in an alginate impression; the <b>scale is not</b>. A sponge changes size by an amount anyone can see. An impression changes by a fraction of a per cent &mdash; and, as the worked example in Group 3 showed, a fraction of a per cent is already tens of micrometres.</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 9 · Definition</p>
+<h2 class="s-title">Trueness</h2>
+<p class="s-sub">The first of the two components of accuracy.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="defbox"><div class="term">Trueness</div><div class="def">How close the <b>average</b> of many measurements lies to the true value of the object being measured.</div></div>
+<ul class="blist">
+<li><b>In one phrase: where the group sits.</b></li>
+<li><b>Poor trueness means being wrong in a consistent direction.</b> Every impression is displaced the same way.</li>
+</ul>
+<p class="srcline">ISO 5725-1.</p>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">Interpretation</span>A material that shrinks by the same amount every single time has poor trueness &mdash; and perfect consistency. It is wrong, reliably.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 9 · Definition</p>
+<h2 class="s-title">Precision</h2>
+<p class="s-sub">The second component, and entirely independent of the first.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="defbox"><div class="term">Precision</div><div class="def">How close repeated measurements lie <b>to each other</b>, whether or not they are right.</div></div>
+<ul class="blist">
+<li><b>In one phrase: how tight the group is.</b></li>
+<li><b>Poor precision means being unpredictable</b> from one impression to the next, even if the average is correct.</li>
+</ul>
+<p class="srcline">ISO 5725-1.</p>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">Interpretation</span>An average is a property of a <b>set</b> of impressions. The patient receives <b>one</b>. This is why a material cannot be judged on trueness alone.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 9 · Definition</p>
+<h2 class="s-title">Accuracy</h2>
+<p class="s-sub">The word that covers both, and is meaningless without them.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="defbox"><div class="term">Accuracy</div><div class="def">The term covering trueness <b>and</b> precision together. A material is accurate when it is close to the truth and repeats itself. Accuracy has two components; it is not the sum of two numbers.</div></div>
+<div class="key"><span class="k-tag">Interpretation</span>Without this distinction, the sentence &ldquo;addition silicone is the most accurate material&rdquo; carries no information. With it, the claim becomes testable: more true (less systematic drift) <b>and</b> more precise (less scatter between impressions).</div>
+<p class="srcline">ISO 5725-1. The same pair of terms returns in Lecture 14 (CAD/CAM) and Lecture 20 (degradation).</p>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/trueness-precision-four-targets.png" alt=""><p class="figcap">Where the group sits, and how tight the group is.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Property 9 · Example</p>
+<h2 class="s-title">The one error that could be corrected</h2>
+<p class="s-sub">The two components fail differently, and only one of them can be compensated.</p>
+<div class="s-body one-col">
+<div class="vs">
+<div class="card b"><h3>Precise, not true</h3><ul>
+<li>The material shrinks by the same small amount every time.</li>
+<li>The error is <b>systematic</b>: same size, same direction.</li>
+<li>Because it is predictable, it can in principle be corrected &mdash; by making the die deliberately larger by that amount.</li>
+<li>This is why some laboratory procedures build in a compensating expansion.</li>
+</ul></div>
+<div class="card b"><h3>True, not precise</h3><ul>
+<li>The material is right on average and different every time.</li>
+<li>The error is <b>random</b>: unknown size, unknown direction.</li>
+<li>Nothing can be corrected, because the next impression cannot be predicted from the last one.</li>
+<li>The average is a property of the set; the patient receives one impression.</li>
+</ul></div>
+</div>
+<div class="key"><span class="k-tag">General rule</span>Between a material that is reliably wrong and one that is unreliably right, the first is the more workable problem. This is a general principle of measurement, and it returns whenever accuracy is discussed in this course.</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Summary</p>
+<h2 class="s-title">The nine properties, and the question each one answers</h2>
+<p class="s-sub">Every definition in this section is written in an international standard. The clause is given so it can be looked up rather than recalled.</p>
+<div class="s-body one-col">
+<table class="dtable gloss">
+<tr><th>#</th><th>Property</th><th>The question it answers</th><th>When it acts</th><th>Defined in</th><th>Required?</th></tr>
+<tr><td>1</td><td><b>Consistency</b></td><td>How thick is the mixed paste?</td><td>Before setting</td><td>ISO 4823, 3.1</td><td>yes &mdash; sets the type</td></tr>
+<tr><td>2</td><td><b>Working &amp; setting time</b></td><td>How long can it be shaped, and when is it safe to remove?</td><td>Before setting</td><td>ISO 4823, 3.11 &middot; 5.4</td><td>as declared by maker</td></tr>
+<tr><td>3</td><td><b>Wettability</b></td><td>Does it spread over a moist surface?</td><td>Before setting</td><td>&mdash; measured as contact angle</td><td>no</td></tr>
+<tr class="hi"><td>4</td><td><b>Detail reproduction</b></td><td>What is the finest line it can copy?</td><td>While recording</td><td>ISO 4823, 5.5 · 7.4</td><td>yes</td></tr>
+<tr><td>5</td><td><b>Elastic recovery &amp; permanent deformation</b></td><td>How much of its shape does it get back &mdash; and how much not?</td><td>During removal</td><td>ISO 4823, 3.2 · 7.7</td><td>yes</td></tr>
+<tr><td>6</td><td><b>Strain in compression</b></td><td>How much does it give under load?</td><td>During removal</td><td>ISO 4823, 3.10 · 7.8</td><td>yes &mdash; as a range</td></tr>
+<tr><td>7</td><td><b>Tear strength</b></td><td>What force tears it where it is thinnest?</td><td>During removal</td><td>ISO 21563 (alginate)</td><td>not by ISO 4823</td></tr>
+<tr class="hi"><td>8</td><td><b>Dimensional change &amp; stability</b></td><td>Does the record hold, and in which direction does it drift?</td><td>After removal</td><td>ISO 4823, 5.6 · 7.5</td><td>yes &mdash; at 24 h</td></tr>
+<tr class="hi"><td>9</td><td><b>Accuracy: trueness + precision</b></td><td>Is it close to the truth, and does it repeat?</td><td>After removal</td><td>ISO 5725-1</td><td>metrology term</td></tr>
+</table>
+<div class="spine"><b>Where this leads.</b> Part 3 of this lecture places five materials against these nine rows. Nothing in that table will be a new property &mdash; only new values for properties already defined here.</div>
+</div>
+</section>
+
+</div></div>
+<div class="deckbar"><button class="navbtn" id="prev">&lsaquo;</button><button class="navbtn" id="next">&rsaquo;</button>
+<span class="part" id="partLabel"></span><button class="navbtn" id="menuBtn" title="Menu (O)">&#9776;</button><span class="count" id="count"></span></div>
+<div class="overview" id="overview"><button class="ov-close" id="ovClose">&#10005; close (Esc)</button><h3>Jump to a slide</h3><p class="ov-hint">Click any slide &middot; press O to toggle &middot; Esc to close</p><div class="ov-grid" id="ovGrid"></div></div>
+<script>
+
+/* ============ deck engine (same as Lecture 03) ============ */
+var track=document.getElementById("track");
+var slides=[].slice.call(document.querySelectorAll(".slide"));var i=0;
+function show(n){i=Math.max(0,Math.min(slides.length-1,n));track.style.transform="translateX("+(-i*100)+"vw)";
+document.getElementById("count").textContent=(i+1)+" / "+slides.length;
+var eb=slides[i].querySelector(".s-eyebrow, h2");document.getElementById("partLabel").textContent=eb?eb.textContent.trim():"";
+document.getElementById("prog").style.width=((i+1)/slides.length*100)+"%";
+if(window.__w3fit){try{window.__w3fit();}catch(e){}}}
+document.getElementById("next").onclick=function(){show(i+1)};
+document.getElementById("prev").onclick=function(){show(i-1)};
+document.addEventListener("keydown",function(e){if(e.target.tagName==="INPUT")return;
+if(e.key==="ArrowRight"||e.key==="PageDown"||e.key===" "){e.preventDefault();show(i+1)}
+else if(e.key==="ArrowLeft"||e.key==="PageUp"){e.preventDefault();show(i-1)}
+else if(e.key==="Home"){show(0)}else if(e.key==="End"){show(slides.length-1)}
+else if(e.key==="f"||e.key==="F"){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}
+else if(e.key==="o"||e.key==="O"){toggleOverview();}
+else if(e.key==="Escape"){closeOverview();}});
+var ov=document.getElementById("overview"),ovGrid=document.getElementById("ovGrid");
+function buildOverview(){
+  ovGrid.innerHTML="";
+  slides.forEach(function(sl,idx){
+    var isPart=sl.classList.contains("slide--divider");
+    var h=sl.querySelector("h1, h2 .s-title, h2");
+    var label=h?h.textContent.trim():("Slide "+(idx+1));
+    if(isPart){var num=sl.querySelector(".num"),htxt=sl.querySelector("h2");label=(num?num.textContent+" · ":"")+(htxt?htxt.textContent.trim():label);}
+    var item=document.createElement("button");
+    item.className="ov-item"+(isPart?" is-part":"");
+    item.innerHTML='<span class="ov-n">'+(idx+1)+'</span><span class="ov-t">'+label+'</span>';
+    item.onclick=function(){show(idx);closeOverview();};
+    ovGrid.appendChild(item);
+  });
+}
+function openOverview(){buildOverview();ov.classList.add("open");}
+function closeOverview(){ov.classList.remove("open");}
+function toggleOverview(){ov.classList.contains("open")?closeOverview():openOverview();}
+document.getElementById("menuBtn").onclick=toggleOverview;
+document.getElementById("count").onclick=toggleOverview;
+document.getElementById("ovClose").onclick=closeOverview;
+
+show(0);
+var NS="http://www.w3.org/2000/svg";
+function el(t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);return e;}
+function txt(x,y,s,a){var t=el("text",a||{});t.setAttribute("x",x);t.setAttribute("y",y);t.textContent=s;return t;}
+
+
+show(0);
+</script></body></html>
