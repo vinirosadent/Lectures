@@ -10,10 +10,10 @@ Cada aula é uma página que roda no navegador, com figuras + animações própr
 
 | | |
 |---|---|
-| **Chat atual** | 4 (Aula 05 finalizada) |
+| **Chat atual** | 6 (Aula 08 &mdash; Parte 0 finalizada) |
 | **Identidade visual** | Clinical Clean (**[D-02]**) — teal=ciência, âmbar=clínica, rosa=equívoco, painel escuro=mecanismo |
-| **Aulas prontas** | **03 · Polymers & Polymerization** (45 slides, 17 figuras) · **04 · Colour & Optics** — deck em slides (42 slides · 6 partes, 6 animações; 21 figuras esquemáticas a gerar) · **06 · Bioactivity** — deck horizontal (esquema Aula 03; 23 slides · 6 partes, 6 figuras, sem quiz) · **07 · Principles of 3D printing in dentistry** — deck horizontal (30 slides · 5 partes, 8 figuras, **3 widgets interativos**) |
-| **Próxima sugerida** | 02 · Mechanical properties |
+| **Aulas prontas** | **03 · Polymers & Polymerization** (45 slides, 17 figuras) · **04 · Colour & Optics** — deck em slides (42 slides · 6 partes, 6 animações; 21 figuras esquemáticas a gerar) · **06 · Bioactivity** — deck horizontal (esquema Aula 03; 23 slides · 6 partes, 6 figuras, sem quiz) · **07 · Principles of 3D printing in dentistry** — deck horizontal (30 slides · 5 partes, 8 figuras, **3 widgets interativos**) &middot; **08 &middot; Impression materials — Parte 0** (glossário de 9 propriedades; 51 slides, 17 figuras, sem widgets) |
+| **Próxima sugerida** | Aula 08, Partes 1 a 4 (classificação · reações de presa · propriedades comparadas · técnicas) |
 | **Repositório** | https://github.com/vinirosadent/Lectures |
 | **Publicação** | GitHub Pages → `https://vinirosadent.github.io/Lectures/` |
 
@@ -25,8 +25,8 @@ Cada aula é uma página que roda no navegador, com figuras + animações própr
 - [ ] 05 Biocompatibility
 - [x] **06 Bioactivity** ✅ — deck horizontal (esquema Aula 03; autocontido, 23 slides · 6 partes), 6 figuras (FIG 06.1–06.6); sem quiz [D-09]
 - [x] **07 Principles of 3D printing in dentistry** ✅ — deck horizontal autocontido, 30 slides · 5 partes, 8 figuras + **3 widgets em SVG/canvas** (staircase · build angle · gel point); sem quiz [D-09]
-- [ ] 07 3D printing
-- [ ] 08–14 Impressions · Gypsum · Cements · Composites · Adhesives · Ceramics · CAD/CAM
+- [~] **08 Impression materials** — **Parte 0 pronta** (glossário de 9 propriedades, 51 slides, 17 figuras, zero placeholders); Partes 1–4 pendentes
+- [ ] 09–14 Gypsum · Cements · Composites · Adhesives · Ceramics · CAD/CAM
 - [ ] 15–20 Acrylics · CoCr · Endo · NiTi/aligners · Implants · Degradation
 
 ---

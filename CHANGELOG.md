@@ -1,5 +1,33 @@
 # CHANGELOG
 
+## Chat 6 — Aula 08 Impression materials: Parte 0, o glossário de propriedades (2026-08-13/14)
+- **Aula 08 criada do zero**: pasta-fonte com `_brief.docx` pré-preenchido, pasta no repo, manifesto de
+  fontes e o material histórico do Drive (4 aulas antigas) extraído para `_sources/`.
+- **Escopo decidido**: materiais não-elásticos e escaneamento intraoral **fora**; todo número ancorado em
+  norma ou literatura peer-reviewed, com a fonte visível no slide.
+- **Dossiê de fontes primárias** (`_sources/00-glossary-…`) com ISO 4823, ISO 6873, ISO 21563 e ISO 5725-1
+  mais ~25 referências, **auditado por um agente de verificação** (9 correções aplicadas, uma fonte
+  descartada por ser irrastreável).
+- **Parte 0 construída**: 51 slides, 17 figuras, zero placeholders. Deck desdobrado segundo o princípio
+  **uma ideia por slide** — definição, exemplo do cotidiano, exemplo dental e consequência em slides
+  separados.
+- **Widgets removidos**: a calculadora de deformação permanente e o alvo de trueness/precision viraram
+  slides. O critério que fica: animação só quando o aluno precisa ver uma grandeza mudar em resposta a
+  outra para entender um mecanismo.
+- **Duas correções científicas** ao que se ensina habitualmente: o modelo de gesso sai maior pela
+  **expansão de presa restringida**, não pelo peso do gesso (a coluna exerce ~0,6 kPa contra os ~0,1 MPa
+  do ensaio da própria norma); e **rigidez não prediz a força de remoção** da moldagem (Walker 2013 — o
+  silicone de adição era o mais rígido e o poliéter exigiu mais força).
+- **5 figuras construídas em SVG por código** (ensaio do disco, quatro alvos, os passos da recuperação
+  elástica, o mecanismo molecular do retorno, e o ensaio de strain), com a geometria calculada em vez de
+  estimada — volume constante real, médias conferidas, escalas proporcionais.
+- **Bug de CSS corrigido**: `.figbox img` usava `width:100%` com um teto fixo de `76vh`, o que cortava o
+  topo das imagens; substituído pela negociação por flex do [D-20].
+- **Duas revisões por persona de aluno de Ano II sem experiência clínica**, ambas aplicadas: a primeira
+  apontou ~30 termos clínicos usados sem definição e uma contradição numérica real; a segunda mediu os
+  pixels das figuras e encontrou erros de escala dentro delas.
+- Menu, README e este CHANGELOG atualizados; card 08 ligado como **Open**.
+
 ## Chat 5 (cont.) — Aula 07: revisão de registro para tom acadêmico (2026-08-12)
 - **Todos os 24 títulos de slide** reescritos em forma descritiva (ex.: *"Oxygen: the defect that became the
   machine"* → *"Oxygen inhibition in printing and in CLIP"*; *"Same surface. Opposite rule."* →
