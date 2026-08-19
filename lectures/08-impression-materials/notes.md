@@ -383,3 +383,72 @@ Relatório completo não versionado — o resumo acima é o registro.
 | Q-08.8 | As figuras 08.1 a 08.5 foram removidas do arquivo de prompts a pedido do Vinicius — confirmar se já foram geradas ou se aqueles slides ficam sem figura, para fechar o mapa de figuras. |
 | Q-08.5 | Âncora: candidato A (adição × condensação no mesmo preparo) ou B (poliéter na desinfecção)? Ele escolhe no brief. |
 | Q-08.6 | Handout + PDF da Aula 08 — decidir se entra junto com o deck. |
+
+
+---
+
+## 7. Parte 2 — os quatro elastômeros (2026-08-19)
+
+**29 slides novos (52–80)**, na ordem escolhida pelo Vinicius: **polissulfeto → poliéter → condensação →
+adição**. Deck agora com **80 slides e 28 figuras**, zero placeholders.
+
+### 7a. O eixo da Parte 2
+
+Tudo pende de **uma pergunta**: *a reação de presa deixa alguma coisa para trás?* A matriz 2×2 do slide 53
+(subproduto sim/não × absorve água sim/não) é apresentada como **previsão**, não como lista — sabendo só a
+resposta da coluna do meio, o aluno prevê o prazo de vazamento e se o modelo pode ser vazado duas vezes.
+
+### 7b. Estrutura por material
+
+Cada material tem: **identidade** (foto real) → **química** (com o subproduto no centro) → **consequência**
+→ **slides de referência** (valores + aplicações/prós/contras). Os slides de referência existem para o
+aluno estudar; ele os pula em aula. **Sem marcação visual** — decisão dele.
+
+### 7c. Decisões desta sessão
+
+| # | Decisão |
+|---|---|
+| D-08.5 | **Ordem dos materiais:** polissulfeto → poliéter → condensação → adição (histórica e química). |
+| D-08.6 | **Ordenações nunca com `<` ou `>` cru.** Cada linha traz o rótulo do sentido: *more is BETTER · more is WORSE · too soft distorts, too stiff fractures the die*. Pedido explícito do Vinicius. |
+| D-08.7 | **Hidrogênio e paládio ficam de fora.** Verificado: a liberação de H₂ pelos silicones de adição é problema dos anos 1980, resolvido pelos fabricantes com sequestrantes de paládio; os produtos atuais não exigem espera (Craig 1988). |
+| D-08.8 | **Metalização com cobre/prata cortada.** |
+| D-08.9 | **Tear strength entra como ranking, não como número** — os valores publicados se sobrepõem demais entre produtos: silicones < poliéter < polissulfeto (Craig 1988). |
+
+### 7d. Revisão pela persona de aluno — Parte 2
+
+20 achados no grupo (a). **Aplicados 18.** Os que eram erro factual meu:
+
+| # | Achado | Correção |
+|---|---|---|
+| a1 | **Contradição numérica real** entre a linha de ranking (`adição ≈ poliéter`) e a tabela (adição ~0,05% × poliéter 0,2–0,3%) | O `≈` estava no par errado: agora `adição → poliéter ≈ polissulfeto → condensação` |
+| a3 | O catalisador do silicone de condensação nunca era nomeado, e "excesso deixa grupos terminais não reagidos" confundia catalisador com reticulador | Nomeados **silicato de tetraetila** (reticulador) e **composto de estanho**, com a nota de que nenhum é catalisador no sentido estrito — ambos são consumidos, ao contrário da platina |
+| a4 | A linha do ângulo de contato usava a cor verde de "mais é melhor", mas seu melhor valor está à **esquerda** — a cor instruía a leitura invertida | Cor trocada e slide próprio explicando que naquela linha número e qualidade correm em sentidos opostos |
+| a5 | Tear strength estava no ranking e **ausente da tabela grande**; três dos quatro cards diziam o mesmo "Low tear strength", apagando a distinção | Linha nova na tabela; cada card agora diz o que é específico daquele material |
+| a7 | Recuperação elástica e deformação permanente em linhas separadas sem dizer que são a mesma medida | Declarado na tabela: as duas somam 100% |
+| a8 | Anel de aziridina chamado de **imina** | Corrigido, com a nota de que a literatura odontológica usa o termo impropriamente |
+| a10 | "A contração cria o espaço para o cimento" | Corrigido: erra numa direção tolerante, mas o espaço é feito de propósito com die spacer |
+| a13 | Ângulo de contato do silicone de condensação **faltava** na tabela | Preenchido (~98°) |
+| a14 | Cores na linha de custo emitiam um veredito que contradizia o slide-resumo | Cores removidas da linha |
+| a15 | "can wait" para o poliéter sem a condição | Agora "can wait — **if kept dry**" |
+| a16 | *polar*, *surfactant* e *ppm/°C* carregavam argumentos inteiros e nunca eram definidos | Definidos na primeira aparição |
+| a18 | 7 fotos renomeadas e nunca ligadas, duas delas evidência direta de afirmações feitas sem prova | **Dois slides novos** (mistura automática · duas viscosidades) e mais duas fotos ligadas; restam 4 reservadas para a Parte 4 |
+
+**Não aplicado, por decisão anterior do Vinicius:** o achado **a2** pedia devolver o conteúdo de
+hidrogênio/paládio. Contraria [D-08.7] e foi mantido fora.
+
+**Também aplicado por [D-21]:** três slides densos desdobrados — a tabela de rankings separou-se da sua
+leitura, o slide de química do poliéter perdeu a caixa de polaridade (que pertence ao slide seguinte), e o
+slide de referência do polissulfeto virou dois (valores · usos e trade-offs).
+
+### 7e. Validação
+
+`tags balanceadas · 80 slides · 28 imagens · 0 placeholders · todos os src resolvem · nenhuma ordenação com
+< ou > cru · nenhuma frase repetida entre cards · node --check OK · jsdom 80 slides e 0 erros de console ·
+WeasyPrint 80 páginas para 80 slides (sem estouro)`
+
+### 7f. Fotos ainda não ligadas
+
+`photo-addition-clinical-sequence.png` · `photo-addition-wash-into-tray.png` ·
+`photo-impression-defects.png` · `photo-polyether-tray-adhesive-bottle.png` — **reservadas para a Parte 4
+(técnicas)**, onde há contexto para elas. `photo-impression-defects.png` em particular pede um slide de
+defeitos que ainda não existe.

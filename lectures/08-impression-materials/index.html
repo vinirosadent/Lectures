@@ -268,6 +268,26 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
    figbox, and object-fit:contain keeps its proportions. No fixed number anywhere. [D-20] */
 .col-visual > .figbox{flex:0 1 auto;min-height:0;overflow:hidden}
 .col-visual > .figbox img{width:auto;max-width:100%;height:auto;max-height:100%;object-fit:contain}
+/* ---- Part 2: comparison tables ---- */
+/* Rankings and comparison cells need a colour that says better/worse without relying on
+   the reader remembering a legend. Kept to the deck palette. */
+.dtable .better{color:var(--ok);font-weight:600}
+.dtable .worse{color:var(--warn);font-weight:600}
+.dtable .mid{color:var(--clinical);font-weight:600}
+.dtable .yes{color:var(--warn);font-weight:600}
+.dtable .no{color:var(--ok);font-weight:600}
+.dtable.rank td:nth-child(2){font-family:var(--f-mono);font-size:.92rem;letter-spacing:.03em;white-space:nowrap}
+.dtable.rank td:nth-child(3){font-size:clamp(1rem,1.35vw,1.2rem)}
+/* The side-by-side table of four materials has 5 columns and 10 rows: tighten it and let
+   the first column carry the weight. */
+.dtable.gloss td:not(:first-child),.dtable.gloss th:not(:first-child){text-align:center}
+.dtable.gloss td:first-child{font-family:var(--f-body);color:var(--ink-soft)}
+/* ---- Figure sizing carried over from the Lecture 04 deck ---- */
+.s-body>.col-visual{justify-content:center}
+.col-visual .ph{min-height:60vh;height:100%;width:100%}
+.col-visual .figbox{max-height:100%}
+.s-body.one-col{gap:1.6vh;align-content:center}
+
 </style></head><body>
 <div class="progress" id="prog"></div>
 <div class="deck"><div class="track" id="track">
@@ -294,8 +314,8 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <p class="s-eyebrow">Context · Vocabulary of the procedure</p>
 <h2 class="s-title">Six words used throughout this lecture</h2>
 <p class="s-sub">These are the terms the definitions rest on. They are not properties &mdash; they are the objects the properties are about.</p>
-<div class="s-body">
-<div class="col-text">
+<div class="s-body one-col">
+<div style="width:100%;max-width:78vw">
 <div class="defbox"><div class="term">Tray</div><div class="def">The rigid arch-shaped carrier that holds the unset material and takes it to the teeth.</div></div>
 <div class="defbox"><div class="term">Impression</div><div class="def">The set material after removal: a <b>negative</b> of the mouth, with a hole where each tooth was.</div></div>
 <div class="defbox"><div class="term">Cast and die</div><div class="def">The hardened gypsum poured into the impression is the <b>cast</b>, a positive copy. The portion reproducing one prepared tooth is the <b>die</b>.</div></div>
@@ -633,8 +653,8 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <p class="s-eyebrow">Property 4 · Qualification</p>
 <h2 class="s-title">Detail reproduction is not accuracy</h2>
 <p class="s-sub">The most common confusion in this topic. Accuracy is defined properly in Group 4; for now, read it as being the right size, in the right place.</p>
-<div class="s-body">
-<div class="col-text">
+<div class="s-body one-col">
+<div style="width:100%;max-width:78vw">
 <div class="vs">
 <div class="card a"><h3>Detail reproduction</h3><ul>
 <li>A property of the <b>surface</b>.</li>
@@ -1142,6 +1162,612 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 </div>
 </section>
 
+
+<section class="slide slide--divider"><div class="s-eyebrow">Part 2</div><div class="num">02</div><h2>The four elastomers</h2><div class="d-list"><span>Polysulphide</span><span>· Polyether</span><span>· Condensation silicone</span><span>· Addition silicone</span></div><p class="frame" style="margin-top:2vh;font-size:clamp(1.05rem,1.6vw,1.35rem);max-width:62ch">Four rubbers that all set by cross-linking, and differ in one thing the operator never sees: what the reaction leaves behind.</p></section>
+
+<section class="slide">
+<p class="s-eyebrow">Part 2 · The organising question</p>
+<h2 class="s-title">What the setting reaction leaves behind</h2>
+<p class="s-sub">Every one of the four turns a paste into a rubber by tying chains to each other. The question that separates them is whether that reaction also makes a small molecule that has to get out.</p>
+<div class="s-body one-col">
+<table class="dtable">
+<tr><th>Material</th><th>Does the reaction make a by-product?</th><th>What leaves, and what it costs</th></tr>
+<tr><td><b>Polysulphide</b></td><td class="yes">Yes</td><td><b>Water.</b> It evaporates over hours and the impression shrinks slowly.</td></tr>
+<tr><td><b>Polyether</b></td><td class="no">No</td><td>Nothing leaves &mdash; but the set rubber <b>takes water in</b>, and swells.</td></tr>
+<tr><td><b>Condensation silicone</b></td><td class="yes">Yes</td><td><b>Ethanol.</b> It evaporates faster than water: the largest shrinkage of the four.</td></tr>
+<tr><td><b>Addition silicone</b></td><td class="no">No</td><td>Nothing leaves and nothing enters. The most stable of the four.</td></tr>
+</table>
+<div class="spine"><b>Read the table as a prediction, not as a list.</b> Knowing only the answer in the middle column, it is possible to predict <b>how long the impression can wait before pouring</b> and <b>whether the cast can be poured twice</b>. The direction of the error &mdash; die larger or smaller than the tooth &mdash; needs one more fact, which comes with the polysulphide.</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Part 2 · Chemistry in one screen</p>
+<h2 class="s-title">The four backbones and what reacts</h2>
+<p class="s-sub">The chain that carries the material, and the group at the end of it that does the setting.</p>
+<div class="s-body one-col">
+<table class="dtable">
+<tr><th>Material</th><th>Main chain</th><th>Reactive group</th><th>What triggers the set</th></tr>
+<tr><td><b>Polysulphide</b></td><td>Polysulphide (&ndash;S&ndash;S&ndash;) chain</td><td>Mercaptan, &ndash;SH</td><td>Lead dioxide oxidises the &ndash;SH groups</td></tr>
+<tr><td><b>Polyether</b></td><td>Polyether chain</td><td><b>Aziridine ring</b> (imine) at the ends</td><td>An aromatic sulphonate ester opens the rings</td></tr>
+<tr class="hi"><td><b>Condensation silicone</b></td><td>Polydimethylsiloxane</td><td><b>Hydroxyl</b>, &ndash;OH (silanol)</td><td>Tetraethyl silicate ties three chains together</td></tr>
+<tr class="hi"><td><b>Addition silicone</b></td><td>Polydimethylsiloxane</td><td><b>Vinyl</b> and <b>Si&ndash;H</b></td><td>A platinum catalyst adds Si&ndash;H across the vinyl bond</td></tr>
+</table>
+<div class="key"><span class="k-tag">Note</span>The two silicones share the same backbone and differ only in the group at the end of the chain. That single difference &mdash; hydroxyl versus vinyl &mdash; is the whole reason one of them releases ethanol and the other releases nothing.</div>
+<p class="srcline">Van Noort R. <i>Introduction to Dental Materials</i>, ch. 2.7, figures 2.7.6 to 2.7.13.</p>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Polysulphide · Identity</p>
+<h2 class="s-title">Polysulphide</h2>
+<p class="s-sub">The first elastomer to reach dentistry, and still the toughest of the four.</p>
+<div class="s-body">
+<div class="col-text">
+<ul class="blist">
+<li><b>Supplied as two pastes</b> in collapsible tubes: a white base and a brown catalyst, mixed on a pad.</li>
+<li><b>The brown colour is lead dioxide</b>, the oxidising agent that drives the reaction. It stains clothing permanently.</li>
+<li><b>Only light and heavy body</b> &mdash; there is no putty version, so it needs a custom tray.</li>
+<li><b>Distinctive smell.</b> The mercaptan groups are chemically related to the compounds added to natural gas to make leaks detectable.</li>
+</ul>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/photo-polysulfide-two-pastes.png" alt=""><p class="figcap">Base and catalyst pastes, and the mixed material. The brown comes from lead dioxide.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Polysulphide · Chemistry</p>
+<h2 class="s-title">The polysulphide reaction makes water</h2>
+<p class="s-sub">Two things happen at once, and the second one is what turns paste into rubber.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="steps">
+<div class="step"><div><h4>Chain lengthening</h4><p>The mercaptan groups at the <b>ends</b> of the chains are oxidised and join, so short chains become long ones. The paste thickens.</p></div></div>
+<div class="step"><div><h4>Cross-linking</h4><p>Mercaptan groups <b>along</b> the chains react too, tying neighbouring chains together. This is what makes it elastic rather than merely viscous.</p></div></div>
+<div class="step"><div><h4>Water is released</h4><p>The oxidation produces <b>water</b> as a by-product. It stays in the set rubber and evaporates slowly over the following hours.</p></div></div>
+</div>
+<p class="srcline">Van Noort, figures 2.7.6 and 2.7.7. The reaction is exothermic, raising the temperature by about 3 to 4 &deg;C.</p>
+</div>
+<div class="col-visual">
+<div class="mech"><span class="k-tag">Mechanism</span>Losing water means the material <b>shrinks as it dries</b>, and it shrinks towards the tray it is glued to. The cavity therefore gets slightly wider, and the die poured from it comes out <b>slightly larger than the tooth</b>.</div>
+<div class="key"><span class="k-tag">Practical consequence</span>A die that is slightly too large leaves room for the cement, which is not a disaster. But the drift continues, so the cast must be poured within about an hour, and the impression must never be stored in a dry place.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Polysulphide · Reference</p>
+<h2 class="s-title">Polysulphide: the figures</h2>
+<p class="s-sub">Kept in the course because it holds both extremes: the toughest material and the one that recovers worst.</p>
+<div class="s-body">
+<div class="col-text">
+<table class="dtable">
+<tr><th>Property</th><th>Typical value</th></tr>
+<tr><td>Working time</td><td>4 to 6 min &mdash; <b>the longest of the four</b></td></tr>
+<tr><td>Setting time in the mouth</td><td>12 to 16 min &mdash; <b>the longest of the four</b></td></tr>
+<tr><td>Elastic recovery</td><td>97 to 98% &mdash; the lowest of the four</td></tr>
+<tr><td>Permanent deformation</td><td>2 to 3% &mdash; the highest of the four</td></tr>
+<tr><td>Contraction at 24 h</td><td>about 0.25%</td></tr>
+<tr><td>Thermal contraction</td><td>270 ppm/&deg;C</td></tr>
+<tr><td>Contact angle of water</td><td>82&deg;</td></tr>
+<tr><td>Consistencies</td><td>light and heavy body only &mdash; <b>no putty</b></td></tr>
+</table>
+<p class="srcline">Times: Phillips' <i>Science of Dental Materials</i>, table 8-3 (37 &deg;C). Contact angle and thermal contraction: Van Noort. Recovery: consensus range across textbook sources.</p>
+</div>
+<div class="col-visual">
+<div class="mech"><span class="k-tag">Read the two extremes together</span>The longest times, the worst recovery and the highest permanent deformation all come from the same fact: this is the <b>softest and slowest</b> of the four. The same softness is what gives it the highest tear strength.</div>
+<div class="key"><span class="k-tag">Consequence</span>Softness is why it needs a <b>custom tray</b>: with nothing rigid holding the record, the tray has to supply the stiffness the material lacks.</div>
+</div>
+</div>
+</section>
+<section class="slide">
+<p class="s-eyebrow">Polysulphide &middot; Reference</p>
+<h2 class="s-title">Polysulphide: uses and trade-offs</h2>
+<div class="s-body">
+<div class="col-text">
+<div class="vs">
+<div class="card a"><h3>Why it survives</h3><ul>
+<li><b>The highest tear strength</b> of any impression material.</li>
+<li>Wets the tissues well &mdash; better than any silicone.</li>
+<li>Long working time suits large, slow cases.</li>
+<li>Cheaper than addition silicone.</li>
+</ul></div>
+<div class="card b"><h3>Why it is rarely used</h3><ul>
+<li>The worst elastic recovery of the four.</li>
+<li>Unpleasant smell and taste; stains clothing.</li>
+<li>Needs a custom tray and a long time in the mouth.</li>
+<li>Must be poured within the hour.</li>
+</ul></div>
+</div>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">Applications</span>Complete dentures, and any situation where a <b>tear in a thin section</b> is the main risk. Not recommended for crown and bridge work today.</div>
+<div class="figbox"><img src="assets/photo-impression-chairside.png" alt=""><p class="figcap">A seated tray. The long setting time of polysulphide is spent exactly like this.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Polyether · Identity</p>
+<h2 class="s-title">Polyether</h2>
+<p class="s-sub">The only impression material developed specifically for dentistry, launched at the end of the 1960s.</p>
+<div class="s-body">
+<div class="col-text">
+<ul class="blist">
+<li><b>Two pastes</b>, base and catalyst (often called the accelerator), in equal proportions &mdash; now usually in cartridges with an automatic mixing tip.</li>
+<li><b>Historically a single viscosity</b>, thinned with a separate softening liquid when a light body was needed. Modern versions come in light, medium and heavy body.</li>
+<li><b>The only hydrophilic elastomer by nature</b> &mdash; the others need a <b>surfactant</b> added to come close. A surfactant is a molecule with a water-liking end and an oil-liking end; sitting at the surface, it lets water spread instead of beading.</li>
+<li><b>A single mix in a stock tray</b> is often enough, which is a large part of why it became popular.</li>
+</ul>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/photo-polyether-cartridges.png" alt=""><p class="figcap">Cartridge system with automatic mixing, and the resulting impression.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Polyether · Chemistry</p>
+<h2 class="s-title">The polyether reaction makes nothing</h2>
+<p class="s-sub">A ring at the end of each chain opens and attacks the next chain. No small molecule is produced.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="steps">
+<div class="step"><div><h4>The chains carry aziridine rings</h4><p>Each polyether chain ends in a three-membered ring containing nitrogen &mdash; an <b>aziridine</b> ring. A ring that small is strained, and that stored strain is what makes it spring open. (The dental literature calls it an <i>imine</i> group, which is not strictly correct.)</p></div></div>
+<div class="step"><div><h4>An initiator opens the rings</h4><p>An aromatic sulphonate ester attacks the ring, which springs open and becomes reactive.</p></div></div>
+<div class="step"><div><h4>The opened ring attacks the next chain</h4><p>Cross-links form directly between chains. <b>Nothing is left over</b> &mdash; every atom that was in the paste is still in the rubber.</p></div></div>
+</div>
+<p class="srcline">Van Noort, figures 2.7.8 and 2.7.9. Ring-opening cationic polymerisation.</p>
+</div>
+<div class="col-visual">
+<div class="mech"><span class="k-tag">Mechanism</span>No by-product means <b>no shrinkage from something leaving</b>. This is why polyether has good dimensional stability, and why it can be poured more than once.</div>
+<div class="key"><span class="k-tag">And yet</span>A material that loses nothing should be perfectly stable. The polyether is not, and the reason is on the next slide.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Polyether · Consequence</p>
+<h2 class="s-title">Polyether has no by-product, and still moves</h2>
+<p class="s-sub">The property that makes it pleasant to use is the same property that makes it vulnerable.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="vs">
+<div class="card a"><h3>What the polarity buys</h3><ul>
+<li>Contact angle of <b>49&deg;</b> &mdash; wets a moist preparation better than any other elastomer.</li>
+<li>Gypsum flows into it easily, so fewer bubbles in the cast.</li>
+<li>Records detail well in a field that is never perfectly dry.</li>
+</ul></div>
+<div class="card b"><h3>What the polarity costs</h3><ul>
+<li>The set rubber <b>absorbs water</b> and swells. This is <b>imbibition</b>, the same process met in the alginate slide of Part 0 &mdash; here driven by the polarity of the chain rather than by a water-based gel.</li>
+<li>A swollen impression gives a <b>die smaller than the tooth</b>, and the crown will not seat.</li>
+<li>Store dry. Do not leave in disinfectant longer than instructed.</li>
+<li><b>Never store next to an alginate impression</b> &mdash; the polyether pulls the water out of it.</li>
+</ul></div>
+</div>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/photo-polyether-impression-detail.png" alt=""><p class="figcap">A polyether impression. Detail reproduction is excellent; the risk is what happens after it leaves the mouth.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Polyether · Reference</p>
+<h2 class="s-title">Polyether: figures</h2>
+<p class="s-sub">Typical values quoted across standard textbooks.</p>
+<div class="s-body">
+<div class="col-text">
+<table class="dtable">
+<tr><th>Property</th><th>Typical value</th></tr>
+<tr><td>Working time</td><td>2.5 to 3.5 min</td></tr>
+<tr><td>Setting time in the mouth</td><td>8 to 9 min</td></tr>
+<tr><td>Elastic recovery</td><td>97 to 99%</td></tr>
+<tr><td>Permanent deformation</td><td>1 to 3%</td></tr>
+<tr><td>Contraction at 24 h</td><td>about 0.2 to 0.3%</td></tr>
+<tr><td>Thermal contraction</td><td><b>320 ppm/&deg;C</b> &mdash; the highest of the four</td></tr>
+<tr><td>Contact angle of water</td><td><b>49&deg;</b> &mdash; the lowest of the four, the best wetting</td></tr>
+<tr><td>Rigidity</td><td>traditionally the most rigid; the newer soft versions are not</td></tr>
+</table>
+<p class="srcline">Times: Phillips' table 8-3 (37 &deg;C). Contact angle and thermal contraction: Van Noort. Rigidity: see the slide on the ordering that aged.</p>
+</div>
+<div class="col-visual">
+<div class="mech"><span class="k-tag">Note</span>The high thermal contraction is easy to miss because it has nothing to do with the setting reaction. The impression simply cools from mouth temperature to room temperature, and polyether shrinks more per degree than the others.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Polyether · Reference</p>
+<h2 class="s-title">Polyether: uses and trade-offs</h2>
+<div class="s-body">
+<div class="col-text">
+<div class="vs">
+<div class="card a"><h3>Advantages</h3><ul>
+<li><b>Hydrophilic</b> &mdash; the best wetting of the four.</li>
+<li>Good dimensional stability; casting can be delayed and repeated.</li>
+<li>Good elastic recovery and good compatibility with gypsum.</li>
+<li>Works as a single mix in a stock tray.</li>
+<li>Can be added to already-set material for a corrective impression.</li>
+</ul></div>
+<div class="card b"><h3>Disadvantages</h3><ul>
+<li><b>Rigid and hard to remove</b>, especially over multiple abutments.</li>
+<li><b>Expands</b> in a humid store or in prolonged disinfection.</li>
+<li>Tear strength is <b>better than the silicones</b>, but the stiffness means a thin sulcular tag is more likely to be torn than stretched out.</li>
+<li>Sulphonate esters may cause an allergic reaction.</li>
+<li>Expensive.</li>
+</ul></div>
+</div>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">Applications</span>Crown and bridge work, <b>particularly across several preparations</b>, where its stiffness is an advantage rather than a nuisance. Implant impressions. Border moulding in complete dentures. Indirect inlays and onlays.</div>
+<p class="srcline">Brizuela M, Ali Z. <i>Dental Impression Materials</i>. StatPearls, NCBI Bookshelf NBK574496, 2023. Van Noort, table 2.7.8.</p>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Condensation silicone · Identity</p>
+<h2 class="s-title">Condensation silicone</h2>
+<p class="s-sub">The cheapest of the elastomers, and the one that pays for it in dimensional stability.</p>
+<div class="s-body">
+<div class="col-text">
+<ul class="blist">
+<li><b>Base and catalyst</b>, supplied as putty in jars and as pastes in tubes; the catalyst may be a liquid.</li>
+<li><b>Two different substances are involved</b>, and both are consumed: <b>tetraethyl silicate</b>, which ties the chains together, and a <b>tin compound</b> that drives the reaction. Neither is a catalyst in the strict sense &mdash; unlike the platinum of the addition silicone, they are used up.</li><li><b>The proportion is critical.</b> Too little cross-linker and the network never completes, leaving the material soft and weak. Too much and unreacted arms are left in the set rubber, where they keep reacting and keep releasing ethanol.</li>
+<li><b>Wide range of viscosities</b>, from extra-light to putty, so many techniques are possible.</li>
+<li><b>Mixing is harder</b> than in the other systems, because base and catalyst differ so much in viscosity.</li>
+</ul>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/photo-condensation-putty-kit.png" alt=""><p class="figcap">A typical kit: putty in a jar with its catalyst, and a wash material in a tube.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Condensation silicone · Chemistry</p>
+<h2 class="s-title">The condensation reaction makes ethanol</h2>
+<p class="s-sub">The same reaction family met in Lecture 03 — cross-linking that expels a small molecule.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="steps">
+<div class="step"><div><h4>The chains end in hydroxyl groups</h4><p>Polydimethylsiloxane with an &ndash;OH at each end. On its own it is a viscous liquid.</p></div></div>
+<div class="step"><div><h4>Tetraethyl silicate ties three chains together</h4><p>It has <b>four</b> reactive arms, so it can join three or more chains into a network. Two arms would only make the chain longer, not elastic.</p></div></div>
+<div class="step"><div><h4>Ethanol is expelled</h4><p>Each bond formed releases one molecule of <b>ethyl alcohol</b>, which then evaporates out of the set rubber.</p></div></div>
+</div>
+<p class="srcline">Van Noort, figures 2.7.10 and 2.7.11.</p>
+</div>
+<div class="col-visual">
+<div class="mech"><span class="k-tag">Mechanism</span>Ethanol is small and volatile &mdash; it leaves faster and more completely than the water released by polysulphide. That is the whole reason condensation silicone has <b>the largest contraction of the four</b>.</div>
+<div class="key"><span class="k-tag">Practical consequence</span>Pour the cast <b>as soon as the material has recovered elastically</b>, which is roughly 30 minutes to one hour after removal. Waiting until the next day gives a measurably wrong cast.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Condensation silicone · Reference</p>
+<h2 class="s-title">Condensation silicone: figures</h2>
+<div class="s-body">
+<div class="col-text">
+<table class="dtable">
+<tr><th>Property</th><th>Typical value</th></tr>
+<tr><td>Working time</td><td>2.5 to 3.5 min</td></tr>
+<tr><td>Setting time in the mouth</td><td>8 to 11 min</td></tr>
+<tr><td>Elastic recovery</td><td>about 99%</td></tr>
+<tr><td>Permanent deformation</td><td>about 1%</td></tr>
+<tr><td>Contraction at 24 h</td><td><b>0.4 to 0.6%</b> &mdash; the highest of the four</td></tr>
+<tr><td>Thermal contraction</td><td>200 ppm/&deg;C</td></tr>
+<tr><td>Contact angle of water</td><td>about 98&deg; &mdash; hydrophobic, like the addition silicone</td></tr>
+<tr><td>Consistencies</td><td>extra-light to putty</td></tr>
+</table>
+<p class="srcline">Times: Phillips' table 8-3 (37 &deg;C). Thermal contraction: Van Noort. Contraction at 24 h: consensus range across textbook sources.</p>
+</div>
+<div class="col-visual">
+<div class="mech"><span class="k-tag">Note</span>Note the pattern: <b>good elastic recovery and poor dimensional stability at the same time</b>. The two properties are independent, and this material is the clearest proof of it &mdash; it springs back accurately from the undercut, and then shrinks quietly on the bench.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Condensation silicone · Reference</p>
+<h2 class="s-title">Condensation silicone: uses and trade-offs</h2>
+<div class="s-body">
+<div class="col-text">
+<div class="vs">
+<div class="card a"><h3>Advantages</h3><ul>
+<li><b>The cheapest elastomer</b>.</li>
+<li>Good surface detail on a dry surface.</li>
+<li>Low permanent deformation.</li>
+<li>Wide range of viscosities.</li>
+<li>Easy to disinfect; well accepted by patients.</li>
+</ul></div>
+<div class="card b"><h3>Disadvantages</h3><ul>
+<li><b>Storage contraction</b> &mdash; the cast must be poured within the hour.</li>
+<li>Hydrophobic: the field must be dry.</li>
+<li><b>The lowest tear strength of the four</b> &mdash; thin subgingival extensions are the first thing to go.</li>
+<li>Mixing is less uniform than in the other systems.</li>
+<li>Setting can be erratic if the catalyst has absorbed moisture.</li>
+</ul></div>
+</div>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">Applications</span>Study models, provisional work, and situations where cost matters more than the extra tens of micrometres. Acceptable for single units <b>if the cast is poured promptly</b>. Not the material of choice for multiple preparations or for impressions that will be posted.</div>
+<div class="figbox"><img src="assets/photo-light-body-syringed-at-margin.png" alt=""><p class="figcap">Light body syringed around the margin, ahead of the tray material.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Addition silicone · Identity</p>
+<h2 class="s-title">Addition silicone</h2>
+<p class="s-sub">Also called polyvinyl siloxane, or PVS. The most widely used material in fixed prosthodontics.</p>
+<div class="s-body">
+<div class="col-text">
+<ul class="blist">
+<li><b>Base and catalyst in equal volumes</b>, almost always dispensed through a gun with an automatic mixing tip.</li>
+<li><b>Every consistency is available</b>, from extra-light to putty, so any technique is possible.</li>
+<li><b>The automix system was a real advance</b>: it fixes the proportions, removes mixing bubbles and wastes less material.</li>
+<li><b>Naturally hydrophobic.</b> The versions sold as hydrophilic have a surfactant added to the surface, not a different polymer.</li>
+</ul>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/photo-addition-dispensing-gun.png" alt=""><p class="figcap">Dispensing gun, cartridge and mixing tips &mdash; the standard presentation.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Addition silicone · Chemistry</p>
+<h2 class="s-title">The addition reaction makes nothing</h2>
+<p class="s-sub">The same backbone as the condensation silicone, and a different group at the end of the chain. That is the entire difference.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="steps">
+<div class="step"><div><h4>One paste carries vinyl groups</h4><p>Polydimethylsiloxane ending in a <b>vinyl</b> group, a carbon&ndash;carbon double bond.</p></div></div>
+<div class="step"><div><h4>The other carries Si&ndash;H groups</h4><p>A silicone with <b>silicon&ndash;hydrogen</b> bonds, which will act as the cross-linker.</p></div></div>
+<div class="step"><div><h4>Platinum adds one across the other</h4><p>A platinum catalyst adds the Si&ndash;H group <b>across</b> the vinyl double bond. The two chains become one connected network and <b>nothing is expelled</b>.</p></div></div>
+</div>
+<p class="srcline">Van Noort, figures 2.7.12 and 2.7.13. This is the <b>addition polymerisation</b> of Lecture 03, and the slide before was the condensation &mdash; the same pair, in the same order.</p>
+</div>
+<div class="col-visual">
+<div class="mech"><span class="k-tag">Mechanism</span>Compare with the slide before: the condensation silicone had to <b>break off</b> an ethanol molecule to make each bond. Here the bond is made by <b>adding</b> across a double bond, so there is nothing to break off. Same chain, opposite consequence.</div>
+<div class="key"><span class="k-tag">Practical consequence</span>Nothing leaves and nothing enters, so the impression can be <b>posted to the laboratory</b>, poured days later, and <b>poured more than once</b> from the same impression.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Addition silicone · Reference</p>
+<h2 class="s-title">Addition silicone: figures</h2>
+<div class="s-body">
+<div class="col-text">
+<table class="dtable">
+<tr><th>Property</th><th>Typical value</th></tr>
+<tr><td>Working time</td><td>2 to 3 min &mdash; <b>the shortest of the four</b></td></tr>
+<tr><td>Setting time in the mouth</td><td>6 to 9 min &mdash; <b>the shortest of the four</b></td></tr>
+<tr><td>Elastic recovery</td><td><b>99% and above</b> &mdash; the highest of the four</td></tr>
+<tr><td>Permanent deformation</td><td>below 1% &mdash; the lowest of the four</td></tr>
+<tr><td>Contraction at 24 h</td><td><b>about 0.05%</b> &mdash; the lowest of the four</td></tr>
+<tr><td>Thermal contraction</td><td>200 ppm/&deg;C</td></tr>
+<tr><td>Contact angle of water</td><td>98&deg; without surfactant; close to polyether with it</td></tr>
+<tr><td>Consistencies</td><td>extra-light to putty &mdash; all of them</td></tr>
+</table>
+<p class="srcline">Times: Phillips' table 8-3 (37 &deg;C). Contact angle and thermal contraction: Van Noort. Recovery and contraction: consensus range across textbook sources.</p>
+</div>
+<div class="col-visual">
+<div class="mech"><span class="k-tag">Note</span>Read the first two rows together with the polysulphide sheet: the two materials sit at opposite ends of every time in the table. The addition silicone sets in about half the time the polysulphide needs, which is convenience, not accuracy.</div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Addition silicone · Reference</p>
+<h2 class="s-title">Addition silicone: uses and trade-offs</h2>
+<div class="s-body">
+<div class="col-text">
+<div class="vs">
+<div class="card a"><h3>Advantages</h3><ul>
+<li><b>Excellent dimensional stability</b> &mdash; can be stored, posted and poured more than once.</li>
+<li>The best elastic recovery of the four.</li>
+<li>Short setting time.</li>
+<li>Automix removes proportioning and mixing errors.</li>
+<li>Wide range of viscosities; easy to disinfect.</li>
+</ul></div>
+<div class="card b"><h3>Disadvantages</h3><ul>
+<li><b>Hydrophobic</b> unless a surfactant has been added &mdash; the field must be dry.</li>
+<li>Low tear strength, and the short set leaves little room to recover from a slow, hesitant removal.</li>
+<li><b>Sulphur poisons the platinum catalyst</b>: contact with latex gloves can stop it setting.</li>
+<li><b>The most expensive</b> of the four.</li>
+<li>Very stiff putties can be difficult to remove.</li>
+</ul></div>
+</div>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">Applications</span>Crowns, bridges and implant impressions &mdash; the default choice in fixed prosthodontics. Occlusal registration. Any case where the impression will travel or the cast will be poured more than once.</div>
+<div class="figbox"><img src="assets/photo-addition-wash-over-putty.png" alt=""><p class="figcap">Wash material syringed over set putty in the two-stage technique.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Comparison · Rankings</p>
+<h2 class="s-title">Reading the rankings without getting them backwards</h2>
+<p class="s-sub">Each row is ordered from least to most. What matters is the label saying whether more is better.</p>
+<div class="s-body one-col">
+<table class="dtable rank">
+<tr><th>Property</th><th>More is…</th><th>Least &rarr; most</th></tr>
+<tr><td><b>Permanent deformation</b></td><td class="worse">more is WORSE</td><td>addition &rarr; condensation &rarr; polyether &rarr; <b>polysulphide</b></td></tr>
+<tr><td><b>Tear strength</b></td><td class="better">more is BETTER</td><td>silicones &rarr; polyether &rarr; <b>polysulphide</b></td></tr>
+<tr><td><b>Setting contraction</b></td><td class="worse">more is WORSE</td><td>addition &rarr; polyether &asymp; polysulphide &rarr; <b>condensation</b></td></tr>
+<tr><td><b>Thermal contraction</b></td><td class="worse">more is WORSE</td><td>silicones (200) &rarr; polysulphide (270) &rarr; <b>polyether (320 ppm/&deg;C)</b></td></tr>
+<tr class="hi"><td><b>Contact angle</b></td><td class="worse">a SMALLER angle is better</td><td><b>polyether (49&deg;)</b> &rarr; polysulphide (82&deg;) &rarr; addition and condensation (~98&deg;)</td></tr>
+<tr><td><b>Rigidity</b></td><td class="mid">too soft distorts, too stiff fractures the die</td><td>polysulphide &rarr; condensation &rarr; addition &rarr; <b>polyether</b> &mdash; <i>but see the next slide</i></td></tr>
+</table>
+</div>
+</section>
+<section class="slide">
+<p class="s-eyebrow">Comparison · Rankings</p>
+<h2 class="s-title">Two things to notice in that table</h2>
+<div class="s-body one-col">
+<div class="mech"><span class="k-tag">The direction can invert</span>In the contact-angle row, the <b>number</b> and the <b>quality</b> run in opposite directions: 49&deg; is the best value and it is the smallest. Every other row in the table improves as the number falls or rises consistently. This one does not, which is exactly why it is the row that gets misread in exams.</div>
+<div class="key"><span class="k-tag">No material wins twice</span>Polysulphide heads two lists that point opposite ways &mdash; it is the <b>best at resisting tearing</b> and the <b>worst at recovering its shape</b>. Addition silicone is the reverse. <b>There is no best material, only which error is acceptable in the case in front of you.</b></div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Comparison · Values</p>
+<h2 class="s-title">The four materials side by side</h2>
+<p class="s-sub">Typical values, as quoted across standard textbooks. The exact figure belongs to the product, not to the family.</p>
+<div class="s-body one-col">
+<table class="dtable gloss">
+<tr><th>Property</th><th>Polysulphide</th><th>Polyether</th><th>Condensation</th><th>Addition</th></tr>
+<tr><td><b>By-product</b></td><td class="worse">water</td><td class="better">none</td><td class="worse">ethanol</td><td class="better">none</td></tr>
+<tr><td>Working time (min)</td><td>4&ndash;6</td><td>2.5&ndash;3.5</td><td>2.5&ndash;3.5</td><td>2&ndash;3</td></tr>
+<tr><td>Setting in the mouth (min)</td><td>12&ndash;16</td><td>8&ndash;9</td><td>8&ndash;11</td><td>6&ndash;9</td></tr>
+<tr class="hi"><td>Elastic recovery (%)</td><td>97&ndash;98</td><td>97&ndash;99</td><td>~99</td><td><b>99+</b></td></tr>
+<tr><td>Permanent deformation (%)<br><span style="font-size:.8em;color:var(--muted);font-weight:400">the same measurement as the row above, from the other end: the two add to 100%</span></td><td>2&ndash;3</td><td>1&ndash;3</td><td>~1</td><td><b>&lt;1</b></td></tr>
+<tr class="hi"><td>Contraction at 24 h (%)</td><td>~0.25</td><td>0.2&ndash;0.3</td><td><b>0.4&ndash;0.6</b></td><td><b>~0.05</b></td></tr>
+<tr><td>Thermal contraction (ppm/&deg;C)<br><span style="font-size:.8em;color:var(--muted);font-weight:400">millionths of its length lost per &deg;C of cooling</span></td><td>270</td><td><b>320</b></td><td>200</td><td>200</td></tr>
+<tr><td>Contact angle (&deg;)</td><td>82</td><td><b>49</b></td><td>~98</td><td>98</td></tr>
+<tr class="hi"><td>Tear strength</td><td><b>highest</b></td><td>intermediate</td><td>lowest</td><td>low</td></tr>
+<tr><td>When to pour</td><td class="worse">within 1 h</td><td class="better">can wait &mdash; <b>if kept dry</b></td><td class="worse">within 1 h</td><td class="better">days; more than once</td></tr>
+<tr><td>Relative cost</td><td>low</td><td>high</td><td>lowest</td><td>highest</td></tr>
+</table>
+<p class="srcline">Working and setting times measured at 37 &deg;C by oscillating rheometer: Phillips' <i>Science of Dental Materials</i>, 12th ed., table 8-3. Contact angles and thermal contraction: Van Noort, ch. 2.7. Recovery and 24 h contraction: consensus ranges across textbook sources; the ISO 4823 minimum for elastic recovery is 96.5%, which all four exceed. Tear strength is given as the agreed <b>ranking</b> rather than a number, because the published values overlap heavily between products: silicones &lt; polyether &lt; polysulphide (Craig RG. <i>Review of dental impression materials</i>. Adv Dent Res 1988;2:51-64).</p>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Comparison · Qualification</p>
+<h2 class="s-title">One ranking in the textbooks has aged</h2>
+<p class="s-sub">Polyether is classified as the most rigid of the elastomers. Measurements on current products disagree.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="vs">
+<div class="card a"><h3>What the textbooks say</h3><ul>
+<li>Polyether is <b>the most rigid</b> of the four, and that is why it is hard to remove.</li>
+<li>The ordering is given as polysulphide, then condensation, then addition, then polyether.</li>
+<li>Van Noort, Phillips and StatPearls all state it.</li>
+</ul></div>
+<div class="card b"><h3>What recent measurements show</h3><ul>
+<li>The newer <b>soft polyethers</b> deform <b>more</b> under load than hydrophilic addition silicones, not less.</li>
+<li>Two independent studies report the same direction.</li>
+<li>StatPearls itself concedes it in brackets: <i>"newer polyethers are slightly more flexible"</i>.</li>
+</ul></div>
+</div>
+</div>
+<div class="col-visual">
+<div class="key"><span class="k-tag">Interpretation</span>The ordering describes the <b>traditional</b> polyether. Manufacturers reformulated the material precisely because rigidity was its main complaint, and the table in the textbook did not follow. A ranking is a statement about the products that existed when it was measured.</div>
+<p class="srcline">Lu H, Nguyen B, Powers JM. <i>J Prosthet Dent</i> 2004;92(2):151-4. Pandey P et al. <i>Contemp Clin Dent</i> 2019;10(2):203-7.</p>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Technique · Mixing</p>
+<h2 class="s-title">How the two pastes are brought together</h2>
+<p class="s-sub">Three systems are in use, and they do not carry the same risk of error.</p>
+<div class="s-body">
+<div class="col-text">
+<ul class="blist">
+<li><b>Hand mixing on a pad.</b> The clinician judges the proportions and the spatulation. Air is folded in, and any error in the ratio changes the setting time and the final properties. Still used for polysulphide and for putties.</li>
+<li><b>Automatic mixing in a cartridge.</b> Two barrels are pushed by one plunger, so the ratio is fixed by the geometry of the cartridge. The paste then passes through a static spiral inside the tip, which mixes it without folding in air.</li>
+<li><b>Machine mixing.</b> The same principle in a bench unit, for large volumes of tray material.</li>
+</ul>
+<p class="srcline">Van Noort, ch. 2.7. The mixing tip is discarded with the set material still inside it, which seals the cartridge until the next use.</p>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/photo-automix-tip.png" alt=""><p class="figcap">Static mixing tip: the two pastes are folded together by the fixed spiral, with no air incorporated.</p></div>
+</div>
+</div>
+</section>
+<section class="slide">
+<p class="s-eyebrow">Technique · Viscosities</p>
+<h2 class="s-title">Why two viscosities are used at once</h2>
+<p class="s-sub">The two jobs of an impression material are contradictory, so they are given to two different consistencies of the same material.</p>
+<div class="s-body">
+<div class="col-text">
+<div class="vs">
+<div class="card a"><h3>Light body &mdash; the wash</h3><ul>
+<li>Must <b>flow</b> into the sulcus and over the margin without trapping air.</li>
+<li>Syringed directly onto the preparation.</li>
+<li>Too weak on its own to hold its shape once out of the mouth.</li>
+</ul></div>
+<div class="card b"><h3>Heavy body or putty &mdash; the tray material</h3><ul>
+<li>Must be <b>stiff enough to push</b> the wash into the sulcus.</li>
+<li>Must hold the whole record rigid during removal and during pouring.</li>
+<li>Too thick to record fine detail by itself.</li>
+</ul></div>
+</div>
+<p class="srcline">Van Noort, ch. 2.7. The two are the same chemistry with different filler loading &mdash; more filler makes a stiffer paste.</p>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/photo-two-viscosity-impression.png" alt=""><p class="figcap">The finished impression: the wash records the preparation, the tray material carries it.</p></div>
+</div>
+</div>
+</section>
+<section class="slide">
+<p class="s-eyebrow">Trays · Definition</p>
+<h2 class="s-title">The tray is part of the measuring system</h2>
+<p class="s-sub">It is not a handle. It decides the direction in which the material shrinks.</p>
+<div class="s-body">
+<div class="col-text">
+<ul class="blist">
+<li><b>The material is glued to the tray.</b> When it contracts, it cannot pull away from the tray, so it contracts <b>towards</b> it.</li>
+<li><b>The cavity therefore gets wider</b>, and the die poured into it comes out slightly <b>larger</b> than the preparation. That happens to err in a forgiving direction, but it is not how cement space is created &mdash; that is done deliberately, with a die spacer.</li>
+<li><b>If the tray flexes, the record flexes with it</b>, and there is no way to know by how much.</li>
+<li><b>If the adhesive fails</b>, the material lifts away and the whole impression is lost, usually without any visible sign.</li>
+</ul>
+<p class="srcline">Van Noort, ch. 2.7 and figure 2.7.1: ideal contraction below 0.5%.</p>
+</div>
+<div class="col-visual">
+<div class="figbox"><img src="assets/photo-tray-adhesive-applied.png" alt=""><p class="figcap">Adhesive painted on the tray and left to dry, then the loaded tray. The adhesive is specific to the material family &mdash; a silicone adhesive will not hold a polyether.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Trays · Comparison</p>
+<h2 class="s-title">Rigid and flexible trays</h2>
+<p class="s-sub">Rigid is better for accuracy, and the reason is worth stating rather than assuming.</p>
+<div class="s-body one-col">
+<div class="vs">
+<div class="card a"><h3>Rigid tray — metal, or a custom acrylic tray</h3><ul>
+<li><b>Holds its shape</b> while the tray is seated and while the gypsum is poured.</li>
+<li>A custom tray gives a <b>uniform thickness</b> of material, usually 2 to 3 mm.</li>
+<li>Less material means less total contraction.</li>
+<li><b>Cost:</b> laboratory time for a custom tray; limited sizes for stock metal trays.</li>
+<li><b>Careful:</b> a thin, close-fitting layer is less compressible, so removal past a deep undercut can be harder.</li>
+</ul></div>
+<div class="card b"><h3>Flexible tray — plastic stock tray</h3><ul>
+<li><b>Bends while being seated</b>, and springs back on removal &mdash; the record moves with it.</li>
+<li>Material thickness is uneven, so contraction is uneven.</li>
+<li>The direction of the error becomes unpredictable.</li>
+<li><b>Gain:</b> cheap, disposable, immediately available.</li>
+<li><b>Acceptable</b> for study models and for stiff materials in short spans.</li>
+</ul></div>
+</div>
+<div class="key"><span class="k-tag">General rule</span>The stiffer the impression material, the less the tray matters &mdash; polyether and addition silicone tolerate a rigid stock tray. <b>The more flexible the material, the more the tray has to compensate</b>, which is why polysulphide has always required a custom tray.</div>
+</div>
+</section>
+
+<section class="slide">
+<p class="s-eyebrow">Summary</p>
+<h2 class="s-title">Choosing between the four</h2>
+<p class="s-sub">Each material is the right answer to a different question.</p>
+<div class="s-body one-col">
+<div class="roadmap" style="grid-template-columns:repeat(4,1fr)">
+<div class="rm"><span class="rmn">Polysulphide</span><span class="rmt">When tearing is the risk</span><span class="rmd">The toughest material, and the one that recovers worst. Complete dentures.</span></div>
+<div class="rm"><span class="rmn">Polyether</span><span class="rmt">When the field is moist</span><span class="rmd">The best wetting, and rigid enough for several preparations. Keep it dry afterwards.</span></div>
+<div class="rm a2"><span class="rmn">Condensation silicone</span><span class="rmt">When cost decides</span><span class="rmd">Accurate if poured within the hour. Study models and provisional work.</span></div>
+<div class="rm a2"><span class="rmn">Addition silicone</span><span class="rmt">When the record must keep</span><span class="rmd">The default for crown and bridge. Post it, pour it twice, pour it late.</span></div>
+</div>
+<div class="spine"><b>The single question that predicts the rest:</b> does the setting reaction leave something behind? If it does, the record has a deadline. If it does not, the only remaining question is whether the material takes water <i>in</i> &mdash; and only the polyether does.</div>
+</div>
+</section>
 </div></div>
 <div class="deckbar"><button class="navbtn" id="prev">&lsaquo;</button><button class="navbtn" id="next">&rsaquo;</button>
 <span class="part" id="partLabel"></span><button class="navbtn" id="menuBtn" title="Menu (O)">&#9776;</button><span class="count" id="count"></span></div>
