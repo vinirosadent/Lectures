@@ -488,3 +488,80 @@ conferência, e a oferta de eu refazer em SVG a figura que não sair.
 | # | Questão nova |
 |---|---|
 | Q-08.11 | O texto do Van Noort descreve a pasta-base do silicone de adição como contendo "polivinil siloxano, **silanol** e uma carga". A menção a silanol é imprecisa: na hidrossililação o parceiro do vinil é o **hidreto de silício (Si–H)**; silanol é o grupo do silicone de *condensação*. O deck usa Si–H, que é a química correta. Confirmar contra o original em inglês antes do handout. |
+
+
+---
+
+## 8. Integração das figuras de reação (2026-08-19)
+
+**Cinco das sete figuras chegaram** e foram conferidas uma a uma contra o capítulo do Van Noort
+antes de entrar no deck. Deck agora com **84 slides e 33 figuras**.
+
+### 8a. Conferência química — todas passaram
+
+| Figura | O que foi verificado | Resultado |
+|---|---|---|
+| `reaction-polysulphide.png` | 4 grupos SH por cadeia; cadeias **conectadas** por S–S depois da presa; 3 H₂O saindo com seta; rótulos limitados a SH · S–S · PbO₂ · H₂O | correta |
+| `reaction-polyether.png` | anel com **três** cantos e um N; anel visivelmente **aberto** na banda 2; três cadeias num nitrogênio comum; **nenhuma molécula escapando** | correta |
+| `reaction-condensation-silicone.png` | TES com **quatro** braços; **três** reagem e **um** continua OEt depois da presa; **três** EtOH saindo | correta |
+| `reaction-addition-silicone.png` | dupla ligação com duas linhas antes, **ausente** depois; cadeias unidas ponta a ponta; nenhuma molécula escapando | correta |
+| `four-backbones-comparison.png` | quatro cadeias **desenhadas idênticas**; chave cobrindo só as colunas 3 e 4 | correta |
+
+Nenhum subscrito corrompido, nenhuma valência inventada, nenhum rótulo fora da lista permitida —
+resultado melhor do que o esperado para estrutura química gerada por IA.
+
+**Ressalva medida, uma só:** na figura da adição, a junção das duas cadeias na banda inferior é
+correta mas **visualmente discreta** — as cadeias passam a atravessar a largura toda, e não há
+marcador no ponto de encontro. A legenda dirige o olho ("each chain now runs the full width"),
+mas se voltar a esta figura, vale pedir um marcador na junção.
+
+### 8b. Estrutura por material, agora uniforme nos quatro
+
+A figura de reação exigiu tirar as caixas `.mech` e `.key` do slide de química. Isso na verdade
+consertou uma inconsistência: só o poliéter tinha slide de consequência separado. Agora os quatro
+seguem a mesma sequência:
+
+`identidade (foto)` → `química (steps + figura da reação)` → `consequência` → `valores` → `usos e trade-offs`
+
+O slide 54 também virou dois: **figura** dos quatro backbones, depois a **tabela** com o gatilho de
+cada reação. A nota duplicada sobre os dois silicones saiu da tabela — a figura já faz esse ponto.
+
+### 8c. Um bug de CSS encontrado e consertado
+
+A figura larga (1800×1000) colapsou numa faixa de ~40 px. Duas causas, ambas corrigidas:
+
+1. `.s-body.one-col > .figbox:only-child{flex:1 1 0}` — `.s-body.one-col` é um **grid**, não um flex
+   container, então o `flex-grow` não fazia nada e o `max-height:100%` da imagem resolvia contra um
+   pai de altura automática.
+2. `.figbox{max-width:26vw}`, escrito para as figuras que dividem o slide com texto, esmagava a
+   largura e a altura seguia proporcional.
+
+Solução: classe própria **`.figbox.wide`**, com teto em `vh` (absoluto, não percentual do pai) e
+`max-width:none`. Registrado como reforço de [D-20]: **altura de figura em unidade absoluta ou por
+flex-grow declarado; nunca percentual de um pai sem altura**.
+
+### 8d. Títulos ajustados
+
+| Antes | Depois | Motivo |
+|---|---|---|
+| *What the water costs* · *What losing nothing buys* (×2) · *What the ethanol costs* | **Consequence: …** + o conteúdo | [D-16], registro descritivo |
+| *Polysulphide: the figures* e as outras três | **… : typical values** | "figures" virou ambíguo agora que o deck tem figuras de verdade |
+
+### 8e. Ainda faltam duas figuras
+
+| Fig | Slide | Arquivo esperado | Estado |
+|---|---|---|---|
+| 08.15 | 82 · a moldeira decide a direção da contração | `tray-controls-direction.png` | **não gerada** — slide usa a foto do adesivo |
+| 08.16 | 84 · espaço de decisão sem resposta | `choice-space-no-answer.png` | **não gerada** — slide usa o roadmap de quatro colunas |
+
+Os dois slides funcionam sem elas; as figuras melhoram, não são pré-requisito. Prompts em
+`_ops/prompts/08-impression-materials-reacoes-quimicas.md`.
+
+### 8f. Validação final
+
+`tags balanceadas · 84 slides · 33 figuras · 0 placeholders · todos os src resolvem · nenhuma
+ordenação com < ou > cru · nenhuma frase nem legenda repetida · node --check OK · jsdom 84 slides e
+0 erros de console · WeasyPrint 84 páginas para 84 slides, sem estouro`
+
+Quatro fotos seguem reservadas para a Parte 4 (técnicas): `photo-addition-clinical-sequence`,
+`photo-addition-wash-into-tray`, `photo-impression-defects`, `photo-polyether-tray-adhesive-bottle`.

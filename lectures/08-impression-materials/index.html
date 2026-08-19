@@ -253,8 +253,13 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
    The caption for these slides lives in the slide subtitle instead, so there is no
    image-versus-caption height negotiation to get wrong — the simplest construction that
    cannot be clipped. */
-.s-body.one-col > .figbox:only-child{flex:1 1 0;min-height:0;width:100%;max-width:none;padding:1rem}
-.s-body.one-col > .figbox:only-child img{max-height:100%;width:auto;max-width:100%;object-fit:contain}
+/* CORRIGIDO 2026-08-19. A regra anterior usava `flex:1 1 0` e `max-height:100%`, mas
+   `.s-body.one-col` e um GRID, nao um flex container: o flex-grow nao tem efeito, o pai
+   fica com altura automatica, e o `100%` da imagem resolve contra nada — a figura dos
+   quatro backbones colapsou numa faixa de ~40 px. O teto passa a ser declarado em vh,
+   que e absoluto e nao depende da altura do pai. */
+.s-body.one-col > .figbox:only-child{width:100%;max-width:none;padding:1rem;min-height:0;text-align:center}
+.s-body.one-col > .figbox:only-child img{width:auto;max-width:100%;height:auto;max-height:66vh;object-fit:contain;display:block;margin:0 auto}
 
 /* ---- Images were being clipped at the top. Why, and the fix. ----
    The base rule is `.figbox img{width:100%;height:auto;max-height:76vh}`. Forcing
@@ -287,6 +292,14 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 .col-visual .ph{min-height:60vh;height:100%;width:100%}
 .col-visual .figbox{max-height:100%}
 .s-body.one-col{gap:1.6vh;align-content:center}
+
+/* ---- Figura larga ocupando o slide inteiro ----
+   Nao brigar com a cascata: `.figbox{max-width:26vw}` mais acima existe para as figuras
+   que dividem o slide com texto, e estava esmagando a figura de 1800x1000 numa faixa de
+   40 px. Uma classe propria e mais previsivel que empilhar seletores. */
+.figbox.wide{max-width:none;width:100%;max-height:none;padding:1.1rem}
+.figbox.wide img{width:auto;max-width:100%;height:auto;max-height:56vh;object-fit:contain;display:block;margin:0 auto}
+
 
 </style></head><body>
 <div class="progress" id="prog"></div>
@@ -1182,9 +1195,17 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 </section>
 
 <section class="slide">
-<p class="s-eyebrow">Part 2 · Chemistry in one screen</p>
-<h2 class="s-title">The four backbones and what reacts</h2>
-<p class="s-sub">The chain that carries the material, and the group at the end of it that does the setting.</p>
+<p class="s-eyebrow">Part 2 &middot; Chemistry in one screen</p>
+<h2 class="s-title">The four backbones, side by side</h2>
+<p class="s-sub">Four chains drawn identically. The only difference is the group at the end.</p>
+<div class="s-body one-col">
+<div class="figbox wide"><img src="assets/four-backbones-comparison.png" alt=""><p class="figcap">The two silicones share one backbone and differ only in the end group &mdash; hydroxyl against vinyl. That single difference is the whole reason one releases ethanol and the other releases nothing.</p></div>
+</div>
+</section>
+<section class="slide">
+<p class="s-eyebrow">Part 2 &middot; Chemistry in one screen</p>
+<h2 class="s-title">The same four, as a table</h2>
+<p class="s-sub">The chain that carries the material, the group at the end of it, and what sets it off.</p>
 <div class="s-body one-col">
 <table class="dtable">
 <tr><th>Material</th><th>Main chain</th><th>Reactive group</th><th>What triggers the set</th></tr>
@@ -1193,7 +1214,6 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <tr class="hi"><td><b>Condensation silicone</b></td><td>Polydimethylsiloxane</td><td><b>Hydroxyl</b>, &ndash;OH (silanol)</td><td>Tetraethyl silicate ties three chains together</td></tr>
 <tr class="hi"><td><b>Addition silicone</b></td><td>Polydimethylsiloxane</td><td><b>Vinyl</b> and <b>Si&ndash;H</b></td><td>A platinum catalyst adds Si&ndash;H across the vinyl bond</td></tr>
 </table>
-<div class="key"><span class="k-tag">Note</span>The two silicones share the same backbone and differ only in the group at the end of the chain. That single difference &mdash; hydroxyl versus vinyl &mdash; is the whole reason one of them releases ethanol and the other releases nothing.</div>
 <p class="srcline">Van Noort R. <i>Introduction to Dental Materials</i>, ch. 2.7, figures 2.7.6 to 2.7.13.</p>
 </div>
 </section>
@@ -1231,15 +1251,24 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <p class="srcline">Van Noort, figures 2.7.6 and 2.7.7. The reaction is exothermic, raising the temperature by about 3 to 4 &deg;C.</p>
 </div>
 <div class="col-visual">
+<div class="figbox"><img src="assets/reaction-polysulphide.png" alt=""><p class="figcap">Three separate chains at the top, one connected net at the bottom. The three molecules on the right are what has to leave.</p></div>
+</div>
+</div>
+</section>
+<section class="slide">
+<p class="s-eyebrow">Polysulphide &middot; Consequence</p>
+<h2 class="s-title">Consequence: the impression shrinks as it dries</h2>
+<p class="s-sub">The by-product does not stay. What matters is which way the impression moves as it goes.</p>
+<div class="s-body one-col">
 <div class="mech"><span class="k-tag">Mechanism</span>Losing water means the material <b>shrinks as it dries</b>, and it shrinks towards the tray it is glued to. The cavity therefore gets slightly wider, and the die poured from it comes out <b>slightly larger than the tooth</b>.</div>
 <div class="key"><span class="k-tag">Practical consequence</span>A die that is slightly too large leaves room for the cement, which is not a disaster. But the drift continues, so the cast must be poured within about an hour, and the impression must never be stored in a dry place.</div>
-</div>
+<div class="spine">This is the extra fact promised at the start of Part 2. <b>Now the direction of the error is predictable</b>, not just its size.</div>
 </div>
 </section>
 
 <section class="slide">
 <p class="s-eyebrow">Polysulphide · Reference</p>
-<h2 class="s-title">Polysulphide: the figures</h2>
+<h2 class="s-title">Polysulphide: typical values</h2>
 <p class="s-sub">Kept in the course because it holds both extremes: the toughest material and the one that recovers worst.</p>
 <div class="s-body">
 <div class="col-text">
@@ -1322,12 +1351,19 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <p class="srcline">Van Noort, figures 2.7.8 and 2.7.9. Ring-opening cationic polymerisation.</p>
 </div>
 <div class="col-visual">
-<div class="mech"><span class="k-tag">Mechanism</span>No by-product means <b>no shrinkage from something leaving</b>. This is why polyether has good dimensional stability, and why it can be poured more than once.</div>
-<div class="key"><span class="k-tag">And yet</span>A material that loses nothing should be perfectly stable. The polyether is not, and the reason is on the next slide.</div>
+<div class="figbox"><img src="assets/reaction-polyether.png" alt=""><p class="figcap">The ring opens and three chains meet at one nitrogen. The dashed box marks what is <b>not</b> there.</p></div>
 </div>
 </div>
 </section>
 
+<section class="slide">
+<p class="s-eyebrow">Polyether &middot; Consequence</p>
+<h2 class="s-title">Consequence: good dimensional stability</h2>
+<div class="s-body one-col">
+<div class="mech"><span class="k-tag">Mechanism</span>No by-product means <b>no shrinkage from something leaving</b>. This is why polyether has good dimensional stability, and why it can be poured more than once.</div>
+<div class="key"><span class="k-tag">And yet</span>A material that loses nothing should be perfectly stable. The polyether is not, and the reason is on the next slide.</div>
+</div>
+</section>
 <section class="slide">
 <p class="s-eyebrow">Polyether · Consequence</p>
 <h2 class="s-title">Polyether has no by-product, and still moves</h2>
@@ -1356,7 +1392,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 
 <section class="slide">
 <p class="s-eyebrow">Polyether · Reference</p>
-<h2 class="s-title">Polyether: figures</h2>
+<h2 class="s-title">Polyether: typical values</h2>
 <p class="s-sub">Typical values quoted across standard textbooks.</p>
 <div class="s-body">
 <div class="col-text">
@@ -1441,15 +1477,23 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <p class="srcline">Van Noort, figures 2.7.10 and 2.7.11.</p>
 </div>
 <div class="col-visual">
+<div class="figbox"><img src="assets/reaction-condensation-silicone.png" alt=""><p class="figcap">Three of the silicate&rsquo;s four arms react. The fourth is still unreacted after setting &mdash; look for it bottom right.</p></div>
+</div>
+</div>
+</section>
+<section class="slide">
+<p class="s-eyebrow">Condensation silicone &middot; Consequence</p>
+<h2 class="s-title">Consequence: the largest contraction of the four</h2>
+<p class="s-sub">The same argument as the polysulphide, with a smaller and faster molecule.</p>
+<div class="s-body one-col">
 <div class="mech"><span class="k-tag">Mechanism</span>Ethanol is small and volatile &mdash; it leaves faster and more completely than the water released by polysulphide. That is the whole reason condensation silicone has <b>the largest contraction of the four</b>.</div>
 <div class="key"><span class="k-tag">Practical consequence</span>Pour the cast <b>as soon as the material has recovered elastically</b>, which is roughly 30 minutes to one hour after removal. Waiting until the next day gives a measurably wrong cast.</div>
-</div>
 </div>
 </section>
 
 <section class="slide">
 <p class="s-eyebrow">Condensation silicone · Reference</p>
-<h2 class="s-title">Condensation silicone: figures</h2>
+<h2 class="s-title">Condensation silicone: typical values</h2>
 <div class="s-body">
 <div class="col-text">
 <table class="dtable">
@@ -1533,15 +1577,23 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <p class="srcline">Van Noort, figures 2.7.12 and 2.7.13. This is the <b>addition polymerisation</b> of Lecture 03, and the slide before was the condensation &mdash; the same pair, in the same order.</p>
 </div>
 <div class="col-visual">
-<div class="mech"><span class="k-tag">Mechanism</span>Compare with the slide before: the condensation silicone had to <b>break off</b> an ethanol molecule to make each bond. Here the bond is made by <b>adding</b> across a double bond, so there is nothing to break off. Same chain, opposite consequence.</div>
-<div class="key"><span class="k-tag">Practical consequence</span>Nothing leaves and nothing enters, so the impression can be <b>posted to the laboratory</b>, poured days later, and <b>poured more than once</b> from the same impression.</div>
+<div class="figbox"><img src="assets/reaction-addition-silicone.png" alt=""><p class="figcap">In the bottom band each chain now runs the full width: two chains have become one, and the double bond has gone.</p></div>
 </div>
+</div>
+</section>
+<section class="slide">
+<p class="s-eyebrow">Addition silicone &middot; Consequence</p>
+<h2 class="s-title">Consequence: the impression can be stored and re-poured</h2>
+<p class="s-sub">Same backbone as the slide before. Opposite outcome, from one group at the end of the chain.</p>
+<div class="s-body one-col">
+<div class="mech"><span class="k-tag">Mechanism</span>Compare with the condensation silicone: it had to <b>break off</b> an ethanol molecule to make each bond. Here the bond is made by <b>adding</b> across a double bond, so there is nothing to break off. Same chain, opposite consequence.</div>
+<div class="key"><span class="k-tag">Practical consequence</span>Nothing leaves and nothing enters, so the impression can be <b>posted to the laboratory</b>, poured days later, and <b>poured more than once</b> from the same impression.</div>
 </div>
 </section>
 
 <section class="slide">
 <p class="s-eyebrow">Addition silicone · Reference</p>
-<h2 class="s-title">Addition silicone: figures</h2>
+<h2 class="s-title">Addition silicone: typical values</h2>
 <div class="s-body">
 <div class="col-text">
 <table class="dtable">

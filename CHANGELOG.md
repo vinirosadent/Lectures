@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## Chat 7b — Aula 08: as reações químicas ganham figura (2026-08-19)
+- **Cinco figuras de reação integradas**, conferidas uma a uma contra as figuras 2.7.6 a 2.7.13 do
+  Van Noort antes de entrar: polissulfeto, poliéter, condensação, adição e os quatro backbones lado
+  a lado. Todas passaram na conferência química — nenhum subscrito corrompido, nenhuma valência
+  inventada.
+- **Estrutura por material ficou uniforme nos quatro**: identidade → química com a figura da reação
+  → consequência → valores → usos. Antes só o poliéter tinha slide de consequência separado.
+- **Bug de CSS corrigido**: a figura larga colapsava numa faixa de 40 px porque `flex-grow` foi
+  escrito para um container que é grid, e porque `.figbox{max-width:26vw}` esmagava a largura.
+  Classe `.figbox.wide` com teto em `vh`. Reforça [D-20].
+- **Títulos em registro descritivo**: *What the water costs* e as outras três viraram
+  **Consequence: …**; *the figures* virou **typical values**, que deixou de ser ambíguo agora que o
+  deck tem figuras de verdade.
+- Deck em **84 slides e 33 figuras**. Faltam duas figuras conceituais (moldeira e espaço de
+  decisão); os slides funcionam sem elas.
+
 ## Chat 7 — Aula 08: Parte 2, os quatro elastômeros (2026-08-19)
 - **29 slides novos (52–80)** na ordem polissulfeto → poliéter → condensação → adição. Deck fecha com
   **80 slides e 28 figuras**.
