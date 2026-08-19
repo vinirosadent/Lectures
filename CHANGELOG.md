@@ -1,5 +1,26 @@
 # CHANGELOG
 
+## Chat 7 — Aula 08: Parte 2, os quatro elastômeros (2026-08-19)
+- **29 slides novos (52–80)** na ordem polissulfeto → poliéter → condensação → adição. Deck fecha com
+  **80 slides e 28 figuras**.
+- **Eixo único da parte:** *a reação de presa deixa alguma coisa para trás?* A matriz 2×2 do subproduto é
+  apresentada como **previsão**, não como lista — o aluno deduz dela o prazo de vazamento e se o modelo
+  pode ser vazado duas vezes.
+- **Tabela comparativa ancorada em consenso**, não em artigo isolado: tempos de trabalho e presa da tabela
+  8-3 do *Phillips'* (37 °C, reômetro oscilante), ângulos de contato e contração térmica do Van Noort,
+  recuperação e contração de 24 h como faixas de livro-texto. Tear strength entra como **ranking** porque
+  os valores publicados se sobrepõem demais entre produtos.
+- **Nenhuma ordenação usa `<` ou `>` cru** — cada linha traz o rótulo do sentido (*more is BETTER* ·
+  *more is WORSE* · *too soft distorts, too stiff fractures the die*). Pedido explícito do Vinicius.
+- **Slide de qualificação:** a classificação do poliéter como o mais rígido dos elastômeros **envelheceu** —
+  os poliéteres moles atuais deformam mais que os silicones de adição hidrofílicos (Lu 2004; Pandey 2019).
+- **Hidrogênio e paládio ficam fora**: verificado que a liberação de H₂ é problema dos anos 1980, resolvido
+  pelos fabricantes; produtos atuais não exigem espera antes de vazar.
+- **Moldeiras rígida × flexível** com o mecanismo declarado: a moldeira decide a *direção* da contração.
+- **Revisão pela persona de aluno do 2º ano — 18 dos 20 achados aplicados**, incluindo uma **contradição
+  numérica real** entre a linha de ranking e a tabela de valores, o anel de aziridina chamado de imina, e
+  três cards que repetiam a mesma desvantagem apagando a distinção entre os materiais.
+
 ## Chat 6 — Aula 08 Impression materials: Parte 0, o glossário de propriedades (2026-08-13/14)
 - **Aula 08 criada do zero**: pasta-fonte com `_brief.docx` pré-preenchido, pasta no repo, manifesto de
   fontes e o material histórico do Drive (4 aulas antigas) extraído para `_sources/`.
