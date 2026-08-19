@@ -452,3 +452,39 @@ WeasyPrint 80 páginas para 80 slides (sem estouro)`
 `photo-impression-defects.png` · `photo-polyether-tray-adhesive-bottle.png` — **reservadas para a Parte 4
 (técnicas)**, onde há contexto para elas. `photo-impression-defects.png` em particular pede um slide de
 defeitos que ainda não existe.
+
+
+### 7g. Correções pedidas pelo Vinicius após ver o deck publicado (2026-08-19)
+
+| Pedido | Feito |
+|---|---|
+| Remover o slide *Two things to notice in that table* | Removido — deck volta a 79 slides |
+| *One ranking in the textbooks has aged* — "não quero poesia" | → **Polyether rigidity: textbook ranking versus measurements** |
+| Mesmo motivo, por varredura minha | *Reading the rankings without getting them backwards* → **Property rankings across the four materials** |
+
+**[D-16] reforçado:** títulos de slide são descritivos e nomeiam o conteúdo. Nada de construção
+retórica, mesmo quando ela "funciona" pedagogicamente.
+
+### 7h. As sete figuras que faltam — os prompts estão escritos
+
+O deck descreve as quatro reações químicas **em texto e sem nenhuma figura**. Prompts detalhados em
+`_ops/prompts/08-impression-materials-reacoes-quimicas.md`, no nível de detalhe do capítulo do Van
+Noort (figuras 2.7.6 a 2.7.13), com lista de conferência por figura:
+
+| Fig | Slide | Arquivo esperado |
+|---|---|---|
+| 08.10 | 56 · polissulfeto | `reaction-polysulphide.png` |
+| 08.11 | 60 · poliéter | `reaction-polyether.png` |
+| 08.12 | 65 · condensação | `reaction-condensation-silicone.png` |
+| 08.13 | 69 · adição | `reaction-addition-silicone.png` |
+| 08.14 | 54 · os quatro backbones | `four-backbones-comparison.png` |
+| 08.15 | 77 · moldeira e direção da contração | `tray-controls-direction.png` |
+| 08.16 | 79 · espaço de decisão sem resposta | `choice-space-no-answer.png` |
+
+**Decisão do Vinicius:** prompts para ChatGPT, e não SVG gerado por mim. Registrei a ressalva de que
+estrutura química é o pior caso para geração de imagem por IA; cada prompt traz portanto a lista de
+conferência, e a oferta de eu refazer em SVG a figura que não sair.
+
+| # | Questão nova |
+|---|---|
+| Q-08.11 | O texto do Van Noort descreve a pasta-base do silicone de adição como contendo "polivinil siloxano, **silanol** e uma carga". A menção a silanol é imprecisa: na hidrossililação o parceiro do vinil é o **hidreto de silício (Si–H)**; silanol é o grupo do silicone de *condensação*. O deck usa Si–H, que é a química correta. Confirmar contra o original em inglês antes do handout. |
