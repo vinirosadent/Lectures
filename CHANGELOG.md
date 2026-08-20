@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## Chat 8b — Aula 09: duas figuras de mecanismo e o corte da figura larga (2026-08-21)
+- **Dois slides novos**, ambos trocando texto por mecanismo visual. Deck vai de 25 para **26 slides**
+  e de 6 para **8 figuras**.
+- **Slide 8** (*Particle shape sets how much water is needed*) virou duas colunas com a nova
+  **FIG 09.2**, que mostra ONDE a água se aloja: dentro dos poros do β e entre as partículas nos
+  dois. Não duplica a FIG 09.8 (síntese plaster × stone) — uma é mecanismo, a outra é síntese, e
+  ficam a 16 slides de distância.
+- **Slide 14, novo** (*How each factor acts on the setting reaction*) com a **FIG 09.5**, que amarra
+  os quatro fatores do slide 13 de volta às três batidas da reação. O 13 lista *o que*; o 14 mostra
+  *por que*.
+- **Legendas renumeradas por posição no documento** (via script, não busca-e-substitui), para o deck
+  ler 09.1 → 09.8 em ordem. Nomes de arquivo não mudaram — são descritivos, não numerados.
+- **Corte da figura larga resolvido; exceção a [D-20] documentada no CSS.** Duas construções
+  flexíveis falharam pelo mesmo motivo de fundo: `max-height:100%` não segurou a imagem (a
+  porcentagem não resolve contra um pai cuja altura veio do flex) e o `overflow:hidden` cortou topo
+  e rodapé; `flex:1 1 0` colapsou a imagem para altura nenhuma, o mesmo colapso da Aula 08. O teto
+  em `vh` é a construção correta aqui, e o 68vh foi **calculado** a partir do orçamento vertical do
+  slide, não chutado. Quem pegou o corte foi o smoke-test visual com WeasyPrint — o jsdom passou em
+  100% dos checks com a figura cortada.
+
 ## Chat 8 — Aula 09: Gypsum products, deck completo (2026-08-20)
 - **Aula nova do zero ao publicado no mesmo chat**: esqueleto de pastas, brief pré-preenchido,
   material-fonte lido (`Gypsum.pdf` — cap. Van Noort — e o `Gypsum products 2023.ppt` histórico como

@@ -12,7 +12,7 @@ Cada aula é uma página que roda no navegador, com figuras + animações própr
 |---|---|
 | **Chat atual** | 7 (Aula 09 &mdash; Gypsum products finalizada) |
 | **Identidade visual** | Clinical Clean (**[D-02]**) — teal=ciência, âmbar=clínica, rosa=equívoco, painel escuro=mecanismo |
-| **Aulas prontas** | **03 · Polymers & Polymerization** (45 slides, 17 figuras) · **04 · Colour & Optics** — deck em slides (42 slides · 6 partes, 6 animações; 21 figuras esquemáticas a gerar) · **06 · Bioactivity** — deck horizontal (esquema Aula 03; 23 slides · 6 partes, 6 figuras, sem quiz) · **07 · Principles of 3D printing in dentistry** — deck horizontal (30 slides · 5 partes, 8 figuras, **3 widgets interativos**) &middot; **08 &middot; Impression materials — Parte 0** (glossário de 9 propriedades; 51 slides, 17 figuras, sem widgets) &middot; **09 · Gypsum products** — deck horizontal (25 slides · 6 partes, 6 figuras, sem widgets, sem quiz) |
+| **Aulas prontas** | **03 · Polymers & Polymerization** (45 slides, 17 figuras) · **04 · Colour & Optics** — deck em slides (42 slides · 6 partes, 6 animações; 21 figuras esquemáticas a gerar) · **06 · Bioactivity** — deck horizontal (esquema Aula 03; 23 slides · 6 partes, 6 figuras, sem quiz) · **07 · Principles of 3D printing in dentistry** — deck horizontal (30 slides · 5 partes, 8 figuras, **3 widgets interativos**) &middot; **08 &middot; Impression materials — Parte 0** (glossário de 9 propriedades; 51 slides, 17 figuras, sem widgets) &middot; **09 · Gypsum products** — deck horizontal (26 slides · 6 partes, 8 figuras, sem widgets, sem quiz) |
 | **Próxima sugerida** | Aula 08, Partes 1 a 4 (classificação · reações de presa · propriedades comparadas · técnicas) — ou Aula 10 (Cements for prosthodontics) |
 | **Repositório** | https://github.com/vinirosadent/Lectures |
 | **Publicação** | GitHub Pages → `https://vinirosadent.github.io/Lectures/` |
@@ -26,7 +26,7 @@ Cada aula é uma página que roda no navegador, com figuras + animações própr
 - [x] **06 Bioactivity** ✅ — deck horizontal (esquema Aula 03; autocontido, 23 slides · 6 partes), 6 figuras (FIG 06.1–06.6); sem quiz [D-09]
 - [x] **07 Principles of 3D printing in dentistry** ✅ — deck horizontal autocontido, 30 slides · 5 partes, 8 figuras + **3 widgets em SVG/canvas** (staircase · build angle · gel point); sem quiz [D-09]
 - [~] **08 Impression materials** — **Parte 0 pronta** (glossário de 9 propriedades, 51 slides, 17 figuras, zero placeholders); Partes 1–4 pendentes
-- [x] **09 Gypsum products** ✅ — deck horizontal autocontido, 25 slides · 6 partes, 6 figuras (FIG 09.1–09.6), zero placeholders, sem widgets, sem quiz [D-09]; sem handout ainda
+- [x] **09 Gypsum products** ✅ — deck horizontal autocontido, 26 slides · 6 partes, 8 figuras (FIG 09.1–09.8), zero placeholders, sem widgets, sem quiz [D-09]; sem handout ainda
 - [ ] 10–14 Cements · Composites · Adhesives · Ceramics · CAD/CAM
 - [ ] 15–20 Acrylics · CoCr · Endo · NiTi/aligners · Implants · Degradation
 

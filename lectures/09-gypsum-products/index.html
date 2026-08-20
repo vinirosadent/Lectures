@@ -135,6 +135,22 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 .s-body>.col-visual{justify-content:center}
 .col-visual .figbox{max-height:100%}
 .s-body.one-col{gap:1.6vh;align-content:center}
+/* Figura larga sozinha num slide — EXCECAO DOCUMENTADA a [D-20], teto absoluto em vh.
+   Duas construcoes flexiveis foram tentadas e falharam, pelo mesmo motivo de fundo: a altura
+   da imagem acabava dependendo de uma altura do PAI que so existe depois do proprio layout.
+     1) `max-height:100%` na imagem: a porcentagem nao resolve contra um pai cuja altura veio do
+        flex, a imagem renderizou no tamanho intrinseco (936 px) e o `overflow:hidden` do figbox
+        cortou o topo e o rodape dela.
+     2) `flex:1 1 0` na imagem: com base ZERO ela colapsou para altura nenhuma — o mesmo colapso
+        ja documentado na Aula 08.
+   O teto em vh e absoluto, nao depende de nenhum pai, e por isso e a construcao correta AQUI.
+   O 68vh nao e chute: o slide tem 100vh, menos 4vh e 6.5vh de padding, menos o eyebrow (~2.4vh),
+   o titulo (~5.7vh), o subtitulo de uma linha (~4.3vh), o padding do figbox (~3vh) e a legenda
+   (~2.9vh) — sobram ~71vh, e 68vh deixa margem para o titulo quebrar em duas linhas. */
+.s-body.one-col.figonly{display:flex;align-items:center;justify-content:center;min-height:0}
+.s-body.one-col.figonly > .figbox{width:100%;max-width:none;max-height:100%;padding:1rem}
+.s-body.one-col.figonly > .figbox img{width:auto;max-width:100%;height:auto;max-height:68vh;object-fit:contain;display:block;margin:0 auto}
+.s-body.one-col.figonly > .figbox .figcap{flex:0 0 auto}
 @media (max-width:900px){.s-body,.s-body.text-heavy,.s-body.fig-heavy{grid-template-columns:1fr;gap:1.2rem}.blist.cols{columns:1}.objgrid{grid-template-columns:1fr 1fr}}
 </style></head><body>
 <div class="progress" id="prog"></div>
@@ -207,12 +223,13 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <section class="slide">
 <p class="s-eyebrow">Structure &rarr; property</p>
 <h2 class="s-title">Particle shape sets how much water is needed</h2>
-<div class="s-body one-col" style="justify-content:center">
-<div style="max-width:82ch">
+<div class="s-body fig-heavy">
+<div class="col-text">
 <div class="mech"><span class="k-tag">Mechanism</span> Porous, irregular &beta; particles trap water in their internal spaces and need more of it to wet and flow; dense, regular &alpha; particles pack efficiently and need less.</div>
 <div class="key"><span class="k-tag">Practical consequence</span> Typical water/powder ratios run roughly <b>0.45&ndash;0.60</b> for plaster and <b>0.28&ndash;0.32</b> for stone &mdash; illustrative, manufacturer-specific figures, not an ISO requirement.</div>
 <p class="srcline">Ranges reported across dental-materials textbooks (Van Noort ch. 3.1; Anusavice); exact values are manufacturer-specific and fall outside ISO 6873.</p>
 </div>
+<div class="col-visual"><div class="figbox"><img src="assets/gypsum-water-demand-beta-alpha.png" alt="Water inside the pores and between particles of beta-hemihydrate, versus only between particles of alpha-hemihydrate, with the resulting water demand"><p class="figcap"><b>FIG 09.2</b> In &beta;, water sits both inside the pores and between the particles; in &alpha;, only between them.</p></div></div>
 </div></section>
 
 <section class="slide">
@@ -230,7 +247,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 </table>
 <p class="srcline">ISO 6873:2013, clause 4.</p>
 </div>
-<div class="col-visual"><div class="figbox"><img src="assets/gypsum-classification-tree.png" alt="Classification tree: gypsum products split into plaster (Types 1-2) and stone (Types 3-5)"><p class="figcap"><b>FIG 09.2</b> The five ISO 6873 types, grouped by plaster vs stone.</p></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/gypsum-classification-tree.png" alt="Classification tree: gypsum products split into plaster (Types 1-2) and stone (Types 3-5)"><p class="figcap"><b>FIG 09.3</b> The five ISO 6873 types, grouped by plaster vs stone.</p></div></div>
 </div></section>
 
 <section class="slide slide--divider"><div class="s-eyebrow">Part 3 of 6</div><div class="num">03</div><h2>The setting reaction</h2><div class="d-list"><span>Dissolution &rarr; precipitation</span></div></section>
@@ -247,7 +264,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 </div>
 <div class="mech" style="margin-top:1vh"><span class="k-tag">The point</span> CaSO&#8324;&middot;&#189;H&#8322;O + 1&#189;H&#8322;O &rarr; CaSO&#8324;&middot;2H&#8322;O + heat &mdash; the reaction is measurably exothermic.</div>
 </div>
-<div class="col-visual"><div class="figbox"><img src="assets/setting-reaction-dissolution-precipitation.png" alt="Three panels: hemihydrate dissolving, solution becoming supersaturated, dihydrate crystals interlocking"><p class="figcap"><b>FIG 09.3</b> Dissolution &rarr; supersaturation &rarr; interlocking dihydrate crystals.</p></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/setting-reaction-dissolution-precipitation.png" alt="Three panels: hemihydrate dissolving, solution becoming supersaturated, dihydrate crystals interlocking"><p class="figcap"><b>FIG 09.4</b> Dissolution &rarr; supersaturation &rarr; interlocking dihydrate crystals.</p></div></div>
 </div></section>
 
 <section class="slide slide--divider"><div class="s-eyebrow">Part 4 of 6</div><div class="num">04</div><h2>Controlling the set</h2><div class="d-list"><span>Setting time</span><span>&middot; water/powder ratio</span></div></section>
@@ -263,6 +280,15 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 </div></section>
 
 <section class="slide">
+<p class="s-eyebrow">Mechanism</p>
+<h2 class="s-title">How each factor acts on the setting reaction</h2>
+<p class="s-sub">Each one changes the rate of a step already met in Part 3.</p>
+<div class="s-body one-col figonly">
+<div class="figbox"><img src="assets/setting-time-factors-mechanism.png" alt="Four factors, each acting on one step of the setting reaction, with the resulting effect on setting time"><p class="figcap"><b>FIG 09.5</b> Each factor changes the rate of one step, and the setting time follows.</p></div>
+</div>
+</section>
+
+<section class="slide">
 <p class="s-eyebrow">The master variable</p>
 <h2 class="s-title">Water/powder ratio: effect on setting time and strength</h2>
 <div class="s-body fig-heavy">
@@ -271,7 +297,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <div class="key"><span class="k-tag">Important qualification</span> More water does not make the mix more forgiving &mdash; it makes the finished cast <b>weaker and slower to set</b>, the inverse of what an easier-to-pour mix suggests.</div>
 <p class="srcline">Trend reported for Type III/IV gypsum, e.g. Alsadi et al., &ldquo;Influence of Water Type and Water/Powder Ratio on the Strength and Hardness of Type III and IV Gypsum&rdquo;, <i>BJSTR</i>.</p>
 </div>
-<div class="col-visual"><div class="figbox"><img src="assets/water-powder-ratio-effect.png" alt="Schematic chart: as water/powder ratio rises, setting time rises and compressive strength falls"><p class="figcap"><b>FIG 09.4</b> As the water/powder ratio rises, setting time lengthens and compressive strength falls.</p></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/water-powder-ratio-effect.png" alt="Schematic chart: as water/powder ratio rises, setting time rises and compressive strength falls"><p class="figcap"><b>FIG 09.6</b> As the water/powder ratio rises, setting time lengthens and compressive strength falls.</p></div></div>
 </div>
 </section>
 
@@ -296,7 +322,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <div class="defbox"><div class="term">Hygroscopic expansion</div><div class="def">The much larger expansion that occurs when the same setting reaction proceeds while <b>immersed in, or in contact with, free water</b>, rather than in air.</div></div>
 <div class="mech"><span class="k-tag">Mechanism</span> In air, the surface tension of the small amount of residual mixing water holds the growing crystals back. Free water on the surface removes that restraint, so the same crystals push further before they lock together &mdash; which is why hygroscopic expansion is several times larger than setting expansion in air.</div>
 </div>
-<div class="col-visual"><div class="figbox"><img src="assets/setting-vs-hygroscopic-expansion.png" alt="Crystals restrained by surface tension when setting in air, versus expanding freely when setting against water"><p class="figcap"><b>FIG 09.5</b> In air, residual water&rsquo;s surface tension restrains crystal growth; free water on the surface removes that restraint.</p></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/setting-vs-hygroscopic-expansion.png" alt="Crystals restrained by surface tension when setting in air, versus expanding freely when setting against water"><p class="figcap"><b>FIG 09.7</b> In air, residual water&rsquo;s surface tension restrains crystal growth; free water on the surface removes that restraint.</p></div></div>
 </div></section>
 
 <section class="slide">
@@ -364,7 +390,7 @@ html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f
 <div class="card b"><h3>Stone (&alpha;, Types 3&ndash;5)</h3><ul><li>Dense, regular particles.</li><li>Lower water/powder ratio.</li><li>Higher strength, higher cost.</li></ul></div>
 </div>
 </div>
-<div class="col-visual"><div class="figbox"><img src="assets/plaster-vs-stone-particles.png" alt="Porous irregular plaster particles versus dense regular stone particles, with water/powder ratio and strength annotated"><p class="figcap"><b>FIG 09.6</b> Particle morphology explains the water demand and strength gap between plaster and stone.</p></div></div>
+<div class="col-visual"><div class="figbox"><img src="assets/plaster-vs-stone-particles.png" alt="Porous irregular plaster particles versus dense regular stone particles, with water/powder ratio and strength annotated"><p class="figcap"><b>FIG 09.8</b> Particle morphology explains the water demand and strength gap between plaster and stone.</p></div></div>
 </div></section>
 
 <section class="slide">

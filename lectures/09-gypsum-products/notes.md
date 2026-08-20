@@ -152,14 +152,44 @@ e teal=α/stone consistente nas 6.
 | Figura | Arquivo | Slide | Conferência visual |
 |---|---|---|---|
 | FIG 09.1 | `manufacture-beta-alpha-hemihydrate.png` | 7 | OK — fórmulas exatas, partículas β porosas vs α densas bem distintas |
-| FIG 09.2 | `gypsum-classification-tree.png` | 9 | OK — 5 folhas (2+3), cores consistentes com 09.1 |
-| FIG 09.3 | `setting-reaction-dissolution-precipitation.png` | 11 | OK — progressão dos 3 béqueres clara, equação exata |
-| FIG 09.4 | `water-powder-ratio-effect.png` | 14 | OK — curvas em X, sem valores no eixo X, nota "schematic trend" presente |
-| FIG 09.5 | `setting-vs-hygroscopic-expansion.png` | 17 | OK, com nota — usou setas para dentro/fora em vez de bloco maior à direita (variação aceitável do prompt, mecanismo continua claro) |
-| FIG 09.6 | `plaster-vs-stone-particles.png` | 23 | OK — contraste de empacotamento óbvio, os dois valores de W/P ratio e resistência exatos |
+| FIG 09.2 | `gypsum-water-demand-beta-alpha.png` | 8 | OK — α maciça sem poros (o erro mais provável, evitado), poros do β preenchidos de água, barras ~85%/50% |
+| FIG 09.3 | `gypsum-classification-tree.png` | 9 | OK — 5 folhas (2+3), cores consistentes com 09.1 |
+| FIG 09.4 | `setting-reaction-dissolution-precipitation.png` | 11 | OK — progressão dos 3 béqueres clara, equação exata |
+| FIG 09.5 | `setting-time-factors-mechanism.png` | 14 | OK, com nota — os béqueres da linha 3 não têm exatamente a mesma contagem de pontos (12 vs ~9); o contraste de densidade lê corretamente à distância, não vale regerar |
+| FIG 09.6 | `water-powder-ratio-effect.png` | 15 | OK — curvas em X, sem valores no eixo X, nota "schematic trend" presente |
+| FIG 09.7 | `setting-vs-hygroscopic-expansion.png` | 18 | OK, com nota — usou setas para dentro/fora em vez de bloco maior à direita (variação aceitável do prompt, mecanismo continua claro) |
+| FIG 09.8 | `plaster-vs-stone-particles.png` | 24 | OK — contraste de empacotamento óbvio, os dois valores de W/P ratio e resistência exatos |
 
-Validação pós-integração: tags balanceadas, `node --check` ok, 0 placeholders `.ph` restantes, 6/6
-`<img>` resolvendo em disco, navegação/overview/progresso testados via jsdom — tudo ok.
+### Segunda rodada de figuras (2026-08-21) — dois slides novos, deck vai a 26 slides
+
+Duas figuras extras foram pedidas pelo Vinicius e integradas, ambas de MECANISMO (o "porquê"), em
+slides que antes eram só texto:
+- **Slide 8** (`Particle shape sets how much water is needed`) virou duas colunas e ganhou a
+  **FIG 09.2**, que mostra ONDE a água se aloja — dentro dos poros do β e entre as partículas nos
+  dois. Deliberadamente **não** duplica a FIG 09.8 (síntese plaster × stone): esta é o mecanismo,
+  aquela é a síntese, e ficam a 16 slides de distância. A repetição do W/P ratio nas duas é reforço
+  intencional.
+- **Slide 14, novo** (`How each factor acts on the setting reaction`) recebeu a **FIG 09.5**, figura
+  larga sozinha, que amarra os 4 fatores do slide 13 de volta às três batidas da FIG 09.4. Divisão:
+  o slide 13 lista *o que* são os fatores, o 14 mostra *por que* funcionam.
+
+Renumeração: com as duas inserções, todas as legendas foram renumeradas **por posição no documento**
+(script, não busca-e-substitui manual) para que o deck leia 09.1 → 09.8 em ordem. Os nomes de arquivo
+são descritivos em kebab-case e **não** mudaram.
+
+**Bug de layout resolvido — exceção documentada a [D-20].** A figura larga do slide 14 cortava no
+topo e no rodapé. Duas construções flexíveis foram tentadas e falharam pelo mesmo motivo de fundo (a
+altura da imagem dependia de uma altura do pai que só existe depois do layout): `max-height:100%`
+deixou a imagem no tamanho intrínseco e o `overflow:hidden` do figbox a cortou; `flex:1 1 0` a
+colapsou para altura nenhuma — o mesmo colapso já visto na Aula 08. A solução correta aqui é o teto
+absoluto em `vh`, e o valor **não foi chutado**: 100vh − 4vh − 6.5vh de padding, − eyebrow (~2.4vh),
+título (~5.7vh), subtítulo de uma linha (~4.3vh), padding do figbox (~3vh) e legenda (~2.9vh) ≈ 71vh
+disponíveis; ficou em **68vh**, com margem para o título quebrar em duas linhas. O raciocínio está
+comentado no CSS, na classe `.s-body.one-col.figonly`.
+
+Validação pós-integração (as duas rodadas): tags balanceadas, `node --check` ok, 0 placeholders `.ph`,
+8/8 `<img>` resolvendo em disco, legendas 09.1–09.8 em ordem, navegação/overview/progresso via jsdom,
+e **smoke-test visual com WeasyPrint** nos dois slides novos (foi ele que pegou o corte).
 
 ---
 
