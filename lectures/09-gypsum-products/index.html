@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gypsum Products &middot; Dental Materials &middot; Lecture 09</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FBFCFD;--surface:#fff;--ink:#0F1B2A;--ink-soft:#31465C;--muted:#5E7285;--line:#E3E9EF;
+--primary:#0C7489;--primary-ink:#0A5C6D;--primary-wash:#E7F4F6;--navy:#12315B;
+--clinical:#B45309;--clinical-wash:#FDF3E7;--warn:#BE123C;--warn-wash:#FDECEF;--ok:#15803D;
+--dark:#0B1B2B;--dark-2:#10273B;--dark-ink:#E8F1F6;--dark-muted:#8FA9BC;--dark-line:#1E3A52;
+--f-disp:"Space Grotesk",system-ui,sans-serif;--f-body:"Inter",system-ui,sans-serif;--f-mono:"IBM Plex Mono",monospace;}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:var(--dark);font-family:var(--f-body);color:var(--ink)}
+.deck{height:100vh;width:100vw;overflow:hidden;position:relative}
+.track{display:flex;height:100%;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.slide{min-width:100vw;height:100vh;padding:4vh 4.5vw 6.5vh;background:var(--paper);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.s-eyebrow{font-family:var(--f-mono);font-size:1rem;letter-spacing:.13em;text-transform:uppercase;color:var(--primary-ink);margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem}
+.s-eyebrow::before{content:"";width:30px;height:10px;background:radial-gradient(circle at 5px 5px,var(--primary) 3.2px,transparent 3.6px),radial-gradient(circle at 25px 5px,var(--primary) 3.2px,transparent 3.6px);border-top:2px solid var(--primary)}
+.s-title{font-family:var(--f-disp);font-weight:600;line-height:1.05;color:var(--ink);font-size:clamp(1.9rem,3.4vw,2.9rem);letter-spacing:-.01em;margin-bottom:1.2vh}
+.s-sub{font-size:clamp(1.05rem,1.5vw,1.35rem);color:var(--ink-soft);margin-bottom:1.4vh;max-width:74ch;line-height:1.45}
+.s-body{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:2.5vw;min-height:0;align-items:center;overflow:hidden}
+.s-body.one-col{grid-template-columns:1fr}
+.s-body.text-heavy{grid-template-columns:1.2fr .8fr}
+.s-body.fig-heavy{grid-template-columns:.85fr 1.15fr}
+.col-text{overflow:hidden;padding-right:.3rem;max-height:100%;display:flex;flex-direction:column;justify-content:center}
+.col-visual{height:100%;display:flex;flex-direction:column;justify-content:center;gap:1rem;min-height:0}
+.blist{list-style:none;display:flex;flex-direction:column;gap:1.05vh}
+.blist>li{position:relative;padding-left:1.7rem;font-size:clamp(1.02rem,1.45vw,1.32rem);line-height:1.4;color:var(--ink-soft)}
+.blist>li::before{content:"";position:absolute;left:0;top:.5em;width:11px;height:11px;border-radius:50%;border:2px solid var(--primary);background:var(--primary-wash)}
+.blist>li b{color:var(--ink)}
+.blist .lead-term{font-family:var(--f-disp);font-weight:600;color:var(--primary-ink)}
+.blist.cols{columns:2;column-gap:3rem;display:block}
+.blist.cols>li{break-inside:avoid;margin-bottom:1.3vh}
+.defbox{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--primary);border-radius:0 12px 12px 0;padding:1rem 1.25rem;margin-bottom:1.1vh;box-shadow:0 6px 22px rgba(15,27,42,.05)}
+.defbox .term{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.2rem,1.7vw,1.5rem);color:var(--primary-ink);margin-bottom:.3rem}
+.defbox .def{font-size:clamp(1.02rem,1.45vw,1.28rem);color:var(--ink-soft);line-height:1.4}
+.steps{display:flex;flex-direction:column;gap:1.05vh;counter-reset:st}
+.step{display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:start}
+.step::before{counter-increment:st;content:counter(st);font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:1.05rem;flex:none}
+.step h4{font-family:var(--f-disp);font-size:clamp(1.1rem,1.55vw,1.38rem);color:var(--ink);margin-bottom:.15rem}
+.step p{font-size:clamp(1rem,1.4vw,1.24rem);line-height:1.38;color:var(--ink-soft)}
+.key{margin-top:1.4vh;border-left:5px solid var(--clinical);background:var(--clinical-wash);padding:.9rem 1.15rem;border-radius:0 12px 12px 0;font-size:clamp(1.02rem,1.45vw,1.28rem);color:var(--ink);line-height:1.4}
+.key b{color:var(--clinical)}
+.key .k-tag{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--clinical);display:block;margin-bottom:.35rem}
+.mech{background:var(--primary-wash);border:1px solid #BFE2E8;border-radius:12px;padding:.9rem 1.15rem;font-size:clamp(1.02rem,1.45vw,1.26rem);color:var(--ink-soft);line-height:1.4}
+.mech .k-tag{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--primary-ink);display:block;margin-bottom:.35rem}
+.mech b{color:var(--ink)}
+.figbox{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:.9rem;box-shadow:0 12px 40px rgba(15,27,42,.10);display:flex;flex-direction:column;gap:.5rem;max-height:100%;align-items:center;justify-content:center;overflow:hidden}
+.figbox img{width:100%;height:auto;max-height:76vh;object-fit:contain;display:block;border-radius:8px}
+.figbox.dual{gap:1rem}
+.col-visual > .mech,.col-visual > .key,.col-visual > .dtable{flex:0 0 auto}
+.col-visual .figbox:not(:only-child){flex:0 1 auto;min-height:0}
+.col-visual .figbox:not(:only-child) img{flex:0 1 auto;min-height:0;width:100%;height:auto;max-height:100%;object-fit:contain}
+.col-visual .figbox:not(:only-child) .figcap{flex:0 0 auto}
+.figcap{font-size:1.05rem;color:var(--muted);line-height:1.4;text-align:center}
+.figcap b{color:var(--ink-soft)}
+.ph{border:2.5px dashed var(--primary);border-radius:16px;background:repeating-linear-gradient(135deg,#EAF6F8,#EAF6F8 14px,#E1F0F3 14px,#E1F0F3 28px);padding:1.4rem 1.2rem;text-align:center;display:flex;flex-direction:column;gap:.6rem;align-items:center;justify-content:center;min-height:0}
+.ph .ph-badge{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--primary);padding:.3rem .8rem;border-radius:999px}
+.ph .ph-t{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.25rem,1.85vw,1.55rem);color:var(--primary-ink)}
+.ph .ph-f{font-family:var(--f-mono);font-size:1rem;color:var(--muted)}
+.ph .ph-d{font-size:1.1rem;color:var(--ink-soft);max-width:36ch;line-height:1.4}
+.figbox .ph{width:100%}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-content:center}
+.vs.three{grid-template-columns:1fr 1fr 1fr}
+.vs .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.5rem;box-shadow:0 8px 28px rgba(15,27,42,.07)}
+.vs .card h3{font-family:var(--f-disp);font-size:clamp(1.2rem,1.7vw,1.5rem);margin-bottom:.7rem}
+.vs .card.a h3{color:var(--primary-ink)} .vs .card.b h3{color:var(--warn)}
+.vs .card ul{list-style:none;display:flex;flex-direction:column;gap:.95vh}
+.vs .card li{position:relative;padding-left:1.4rem;font-size:clamp(1rem,1.4vw,1.24rem);line-height:1.38;color:var(--ink-soft)}
+.vs .card li::before{content:"";position:absolute;left:0;top:.5em;width:9px;height:9px;border-radius:50%}
+.vs .card.a li::before{background:var(--primary)} .vs .card.b li::before{background:var(--warn)}
+.vs .card li b{color:var(--ink)}
+.s-body.one-col > .vs{align-content:center}
+.s-body.one-col .vs .card{padding:1.7rem 1.8rem}
+.s-body.one-col .vs .card li{font-size:clamp(1.05rem,1.5vw,1.32rem)}
+.s-body.one-col .vs .card h3{font-size:clamp(1.3rem,1.9vw,1.7rem)}
+.objgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;flex:1;min-height:0}
+.objcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.25rem;box-shadow:0 8px 24px rgba(15,27,42,.06);display:flex;flex-direction:column;gap:.55rem}
+.objnum{font-family:var(--f-mono);font-weight:600;color:#fff;background:var(--primary);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:1.05rem;flex:none}
+.objtxt{font-size:clamp(.98rem,1.4vw,1.2rem);line-height:1.36;color:var(--ink-soft)}
+.objtxt b{color:var(--ink)}
+.lo-body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:2.6vh;min-height:0}
+.lo-body .objcard{padding:1.35rem 1.5rem;gap:.6rem}
+.lo-body .objnum{width:44px;height:44px;font-size:1.15rem}
+.lo-body .objtxt{font-size:clamp(1.08rem,1.55vw,1.32rem);line-height:1.4}
+.flowstrip{background:var(--primary-wash);border:1px solid #BFE2E8;border-radius:14px;padding:1rem 1.4rem;display:flex;align-items:center;justify-content:center}
+.flowstrip svg{width:100%;max-width:900px;height:auto;display:block}
+.slide--title,.slide--divider,.slide--interactive{background:linear-gradient(155deg,var(--dark),var(--dark-2));color:var(--dark-ink);justify-content:center}
+.slide--title .s-eyebrow,.slide--divider .s-eyebrow,.slide--interactive .s-eyebrow{color:#57C6D8}
+.slide--title .s-eyebrow::before,.slide--divider .s-eyebrow::before,.slide--interactive .s-eyebrow::before{background:radial-gradient(circle at 5px 5px,#57C6D8 3.2px,transparent 3.6px),radial-gradient(circle at 25px 5px,#57C6D8 3.2px,transparent 3.6px);border-top-color:#57C6D8}
+.slide--title h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(2.9rem,6.5vw,5.2rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:1.4rem}
+.slide--title .frame{font-size:clamp(1.35rem,2.3vw,1.85rem);color:var(--dark-muted);max-width:42ch;line-height:1.42}
+.slide--divider .num{font-family:var(--f-disp);font-weight:700;font-size:clamp(4.5rem,12vw,9rem);color:var(--dark-line);line-height:1}
+.slide--divider h2{font-family:var(--f-disp);font-weight:600;font-size:clamp(2.4rem,5vw,4rem);color:#fff;margin-top:-1vh}
+.slide--divider .d-list{margin-top:2.2vh;color:var(--dark-muted);font-size:clamp(1.2rem,1.8vw,1.5rem);display:flex;flex-wrap:wrap;gap:.5rem 1.6rem}
+.deckbar{position:fixed;bottom:0;left:0;right:0;height:5vh;min-height:38px;background:rgba(11,27,43,.94);color:#fff;display:flex;align-items:center;gap:1rem;padding:0 1.2rem;z-index:20;font-family:var(--f-mono)}
+.deckbar .part{font-size:.8rem;color:var(--dark-muted);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.deckbar .count{font-size:.85rem;color:#9FCBD6}
+.navbtn{border:0;background:#17425C;color:#EAF4F8;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:grid;place-items:center}
+.navbtn:hover{background:#1E5877}
+.count{cursor:pointer;user-select:none}
+.count:hover{color:#fff;text-decoration:underline}
+.overview{position:fixed;inset:0;z-index:40;background:rgba(8,18,28,.97);display:none;flex-direction:column;padding:3vh 3vw}
+.overview.open{display:flex}
+.overview h3{font-family:var(--f-disp);color:#fff;font-size:1.6rem;margin-bottom:.4rem}
+.overview .ov-hint{font-family:var(--f-mono);color:var(--dark-muted);font-size:.9rem;margin-bottom:2vh}
+.ov-grid{flex:1;overflow-y:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.9rem;align-content:start}
+.ov-item{background:#10273B;border:1px solid #1E3A52;border-radius:10px;padding:.8rem .9rem;cursor:pointer;display:flex;gap:.7rem;align-items:flex-start;transition:background .15s,border-color .15s;text-align:left}
+.ov-item:hover{background:#17425C;border-color:#57C6D8}
+.ov-item .ov-n{font-family:var(--f-mono);font-size:.8rem;color:#57C6D8;flex:none;min-width:1.6rem}
+.ov-item .ov-t{font-size:.92rem;color:#E8F1F6;line-height:1.3}
+.ov-item.is-part{background:#0A5C6D;border-color:#0C7489}
+.ov-item.is-part .ov-t{font-weight:600}
+.ov-close{position:absolute;top:2vh;right:2vw;background:#17425C;color:#fff;border:0;border-radius:8px;padding:.5rem .9rem;cursor:pointer;font-family:var(--f-mono);font-size:.9rem}
+.ov-close:hover{background:#1E5877}
+.progress{position:fixed;top:0;left:0;height:4px;background:#14A0B8;z-index:21;transition:width .3s;width:0}
+.axisnote{font-family:var(--f-mono);font-size:.95rem;color:var(--primary-ink);text-align:center;margin-top:.9vh;letter-spacing:.04em}
+.srcline{font-family:var(--f-mono);font-size:.85rem;color:var(--muted);margin-top:.8vh}
+.dtable{width:100%;border-collapse:collapse;font-size:clamp(1rem,1.35vw,1.2rem)}
+.dtable th,.dtable td{border-bottom:1px solid var(--line);padding:.62rem .7rem;text-align:left;color:var(--ink-soft)}
+.dtable th{font-family:var(--f-mono);font-size:.85rem;letter-spacing:.07em;text-transform:uppercase;color:var(--primary-ink);border-bottom:2px solid var(--primary)}
+.dtable td b{color:var(--ink)}
+.dtable tr.hi td{background:var(--primary-wash)}
+.roadmap{display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem;margin-top:1.6vh}
+.rm{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--primary);border-radius:12px;padding:.8rem .9rem;display:flex;flex-direction:column;gap:.35rem}
+.rm .rmn{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.1em;color:var(--primary-ink)}
+.rm .rmt{font-family:var(--f-disp);font-weight:600;font-size:clamp(1rem,1.3vw,1.16rem);color:var(--ink);line-height:1.22}
+.rm .rmd{font-size:.94rem;color:var(--muted);line-height:1.3}
+.rm.a2{border-top-color:var(--clinical)}
+.col-text .defbox + .defbox{margin-top:.9vh}
+.col-text > .defbox:only-child .term{font-size:clamp(1.35rem,2vw,1.75rem)}
+.col-text > .defbox:only-child .def{font-size:clamp(1.1rem,1.6vw,1.4rem)}
+.col-visual > .figbox{flex:0 1 auto;min-height:0;overflow:hidden}
+.col-visual > .figbox img{width:auto;max-width:100%;height:auto;max-height:100%;object-fit:contain}
+.s-body>.col-visual{justify-content:center}
+.col-visual .figbox{max-height:100%}
+.s-body.one-col{gap:1.6vh;align-content:center}
+@media (max-width:900px){.s-body,.s-body.text-heavy,.s-body.fig-heavy{grid-template-columns:1fr;gap:1.2rem}.blist.cols{columns:1}.objgrid{grid-template-columns:1fr 1fr}}
+</style></head><body>
+<div class="progress" id="prog"></div>
+<div class="deck"><div class="track" id="track">
+
+<section class="slide slide--title"><p class="s-eyebrow">Phase 2 &middot; Clinical materials &middot; Lecture 09</p><h1>Gypsum Products</h1><p class="frame">The material that turns a fluid impression into a rigid, dimensionally stable replica of the mouth.</p></section>
+
+<section class="slide slide--divider"><div class="s-eyebrow">Part 1 of 6</div><div class="num">01</div><h2>What gypsum is, and why dentistry needs it</h2><div class="d-list"><span>Composition</span><span>&middot; clinical uses</span></div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Learning objectives</p>
+<h2 class="s-title">By the end of this lecture you can&hellip;</h2>
+<div class="s-body one-col lo-body">
+<div class="objgrid" style="grid-template-columns:1fr">
+<div class="objcard"><span class="objnum">1</span><div class="objtxt">Differentiate the <b>types of gypsum product</b> used in dentistry, and relate each to how it is manufactured.</div></div>
+<div class="objcard"><span class="objnum">2</span><div class="objtxt">Explain the <b>setting reaction</b> that converts a hemihydrate powder into a rigid dihydrate cast.</div></div>
+<div class="objcard"><span class="objnum">3</span><div class="objtxt">Relate <b>setting and hygroscopic expansion</b>, and the water/powder ratio, to the dimensional accuracy of the cast.</div></div>
+</div>
+<div class="flowstrip">
+<svg viewBox="0 0 820 100" role="img" aria-label="structure to property to performance">
+<defs><marker id="arrowh" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0C7489"/></marker></defs>
+<rect x="10" y="20" width="240" height="60" rx="12" fill="#fff" stroke="#0C7489" stroke-width="2"/>
+<text x="130" y="57" text-anchor="middle" font-family="Space Grotesk" font-weight="600" font-size="24" fill="#0A5C6D">Structure</text>
+<path d="M255 50 L320 50" stroke="#0C7489" stroke-width="3" marker-end="url(#arrowh)"/>
+<rect x="320" y="20" width="240" height="60" rx="12" fill="#fff" stroke="#0C7489" stroke-width="2"/>
+<text x="440" y="57" text-anchor="middle" font-family="Space Grotesk" font-weight="600" font-size="24" fill="#0A5C6D">Property</text>
+<path d="M565 50 L630 50" stroke="#0C7489" stroke-width="3" marker-end="url(#arrowh)"/>
+<rect x="630" y="20" width="240" height="60" rx="12" fill="#fff" stroke="#B45309" stroke-width="2"/>
+<text x="750" y="57" text-anchor="middle" font-family="Space Grotesk" font-weight="600" font-size="24" fill="#B45309">Performance</text>
+</svg>
+</div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Composition</p>
+<h2 class="s-title">From mineral gypsum to dental hemihydrate</h2>
+<div class="s-body one-col" style="justify-content:center">
+<div style="max-width:82ch">
+<div class="defbox"><div class="term">Gypsum products</div><div class="def">Dental powders composed essentially of <b>calcium sulphate hemihydrate</b> (CaSO&#8324;&middot;&#189;H&#8322;O) that, mixed with water, set into <b>calcium sulphate dihydrate</b> (CaSO&#8324;&middot;2H&#8322;O) &mdash; the same mineral, gypsum, that the powder was made from.</div></div>
+<div class="mech"><span class="k-tag">The point</span> Manufacturing removes water from natural gypsum to make the powder; mixing with water at the bench puts it back &mdash; the same reaction, run in reverse.</div>
+</div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Clinical uses</p>
+<h2 class="s-title">Why dentistry needs it</h2>
+<div class="s-body one-col" style="justify-content:center">
+<div style="max-width:82ch">
+<ul class="blist"><li><b>Casts and models</b> &mdash; a rigid, dimensionally stable replica of the arch, for study, diagnosis and treatment planning.</li><li><b>Dies</b> &mdash; an accurate replica of a single <b>prepared tooth</b> (one cut down by the dentist to receive a crown), on which the crown or bridge is built.</li><li><b>Mounting</b> &mdash; fixing casts onto an <b>articulator</b> (a mechanical device that reproduces how the upper and lower jaws bite together) so a restoration can be built to fit that bite outside the mouth.</li><li><b>Investing</b> &mdash; embedding a shaped wax pattern in gypsum before casting molten metal around it, so the metal takes the wax&rsquo;s shape once the wax burns out.</li></ul>
+<div class="mech"><span class="k-tag">The point</span> The impression itself (Lecture 08) exists only long enough to be poured; the gypsum product is what survives on the bench afterwards.</div>
+</div>
+</div></section>
+
+<section class="slide slide--divider"><div class="s-eyebrow">Part 2 of 6</div><div class="num">02</div><h2>Manufacture sets the type</h2><div class="d-list"><span>&beta;- vs &alpha;-hemihydrate</span><span>&middot; classification</span></div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Manufacture</p>
+<h2 class="s-title">Same dihydrate, two different hemihydrates</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="vs" style="grid-template-columns:1fr;gap:.9rem">
+<div class="card a"><h3>&beta;-hemihydrate (plaster)</h3><ul><li><b>Heated in an open vessel</b>, at atmospheric pressure, to drive off water.</li><li>Water leaves quickly and unevenly.</li><li>Particles: <b>porous, irregular, fused together</b>.</li></ul></div>
+<div class="card b"><h3>&alpha;-hemihydrate (stone)</h3><ul><li><b>Heated in an autoclave</b>, under steam pressure, to drive off water.</li><li>Water leaves in a controlled, uniform way.</li><li>Particles: <b>dense, regular, largely non-porous</b>.</li></ul></div>
+</div>
+<div class="mech"><span class="k-tag">The point</span> Same chemical formula, different particle architecture &mdash; and particle architecture is what the rest of this lecture traces forward.</div>
+</div>
+<div class="col-visual"><div class="figbox"><img src="assets/manufacture-beta-alpha-hemihydrate.png" alt="Gypsum manufactured into porous beta-hemihydrate via open-vessel calcination, or dense alpha-hemihydrate via autoclave"><p class="figcap"><b>FIG 09.1</b> Open-vessel calcination yields porous &beta;-hemihydrate; autoclaving under steam pressure yields dense &alpha;-hemihydrate.</p></div></div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Structure &rarr; property</p>
+<h2 class="s-title">Particle shape sets how much water is needed</h2>
+<div class="s-body one-col" style="justify-content:center">
+<div style="max-width:82ch">
+<div class="mech"><span class="k-tag">Mechanism</span> Porous, irregular &beta; particles trap water in their internal spaces and need more of it to wet and flow; dense, regular &alpha; particles pack efficiently and need less.</div>
+<div class="key"><span class="k-tag">Practical consequence</span> Typical water/powder ratios run roughly <b>0.45&ndash;0.60</b> for plaster and <b>0.28&ndash;0.32</b> for stone &mdash; illustrative, manufacturer-specific figures, not an ISO requirement.</div>
+<p class="srcline">Ranges reported across dental-materials textbooks (Van Noort ch. 3.1; Anusavice); exact values are manufacturer-specific and fall outside ISO 6873.</p>
+</div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Classification</p>
+<h2 class="s-title">Five types, ISO 6873:2013</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<table class="dtable">
+<tr><th>Type</th><th>ISO 6873 designation</th><th>Hemihydrate</th></tr>
+<tr><td><b>1</b></td><td>Dental plaster for impressions</td><td>&beta;</td></tr>
+<tr><td><b>2</b></td><td>Dental plaster for mounting (Class 1) or models (Class 2)</td><td>&beta;</td></tr>
+<tr><td><b>3</b></td><td>Dental stone for models</td><td>&alpha;</td></tr>
+<tr><td><b>4</b></td><td>Dental stone, high strength, low expansion</td><td>&alpha;</td></tr>
+<tr><td><b>5</b></td><td>Dental stone, high strength, high expansion</td><td>&alpha;</td></tr>
+</table>
+<p class="srcline">ISO 6873:2013, clause 4.</p>
+</div>
+<div class="col-visual"><div class="figbox"><img src="assets/gypsum-classification-tree.png" alt="Classification tree: gypsum products split into plaster (Types 1-2) and stone (Types 3-5)"><p class="figcap"><b>FIG 09.2</b> The five ISO 6873 types, grouped by plaster vs stone.</p></div></div>
+</div></section>
+
+<section class="slide slide--divider"><div class="s-eyebrow">Part 3 of 6</div><div class="num">03</div><h2>The setting reaction</h2><div class="d-list"><span>Dissolution &rarr; precipitation</span></div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Mechanism</p>
+<h2 class="s-title">Dissolution, then precipitation</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="steps">
+<div class="step"><div><h4>Dissolution</h4><p>Hemihydrate powder dissolves into the mixing water &mdash; it is markedly more soluble than the dihydrate it will become.</p></div></div>
+<div class="step"><div><h4>Supersaturation</h4><p>As more hemihydrate dissolves, the solution becomes supersaturated with calcium sulphate relative to the much lower solubility of the dihydrate.</p></div></div>
+<div class="step"><div><h4>Precipitation</h4><p>Dihydrate crystallises out of the supersaturated solution: needle-like crystals nucleate, grow, and interlock into a rigid mass.</p></div></div>
+</div>
+<div class="mech" style="margin-top:1vh"><span class="k-tag">The point</span> CaSO&#8324;&middot;&#189;H&#8322;O + 1&#189;H&#8322;O &rarr; CaSO&#8324;&middot;2H&#8322;O + heat &mdash; the reaction is measurably exothermic.</div>
+</div>
+<div class="col-visual"><div class="figbox"><img src="assets/setting-reaction-dissolution-precipitation.png" alt="Three panels: hemihydrate dissolving, solution becoming supersaturated, dihydrate crystals interlocking"><p class="figcap"><b>FIG 09.3</b> Dissolution &rarr; supersaturation &rarr; interlocking dihydrate crystals.</p></div></div>
+</div></section>
+
+<section class="slide slide--divider"><div class="s-eyebrow">Part 4 of 6</div><div class="num">04</div><h2>Controlling the set</h2><div class="d-list"><span>Setting time</span><span>&middot; water/powder ratio</span></div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Controlling the set</p>
+<h2 class="s-title">What speeds up or slows down setting</h2>
+<div class="s-body one-col" style="justify-content:center">
+<div style="max-width:82ch">
+<ul class="blist"><li><b>Particle size</b> &mdash; finer powder dissolves faster (more surface area), shortening setting time.</li><li><b>Spatulation</b> &mdash; mixing breaks nascent crystals into more nucleation sites, which speeds the set.</li><li><b>Water/powder ratio</b> &mdash; more water dilutes the solution and lengthens setting time (next slide).</li><li><b>Chemical additives</b> &mdash; accelerators (e.g. potassium sulphate) and retarders (e.g. borax) exist and are used to fine-tune setting time; their individual mechanisms are outside this lecture&rsquo;s scope.</li></ul>
+<p class="srcline">Van Noort, ch. 3.1.</p>
+</div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">The master variable</p>
+<h2 class="s-title">Water/powder ratio: effect on setting time and strength</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="mech"><span class="k-tag">Mechanism</span> A more dilute mix takes longer to become supersaturated, so setting time lengthens. It also leaves more space once the mixing water evaporates, raising porosity and lowering strength once set.</div>
+<div class="key"><span class="k-tag">Important qualification</span> More water does not make the mix more forgiving &mdash; it makes the finished cast <b>weaker and slower to set</b>, the inverse of what an easier-to-pour mix suggests.</div>
+<p class="srcline">Trend reported for Type III/IV gypsum, e.g. Alsadi et al., &ldquo;Influence of Water Type and Water/Powder Ratio on the Strength and Hardness of Type III and IV Gypsum&rdquo;, <i>BJSTR</i>.</p>
+</div>
+<div class="col-visual"><div class="figbox"><img src="assets/water-powder-ratio-effect.png" alt="Schematic chart: as water/powder ratio rises, setting time rises and compressive strength falls"><p class="figcap"><b>FIG 09.4</b> As the water/powder ratio rises, setting time lengthens and compressive strength falls.</p></div></div>
+</div>
+</section>
+
+<section class="slide slide--divider"><div class="s-eyebrow">Part 5 of 6</div><div class="num">05</div><h2>Expansion &mdash; a controlled side effect</h2><div class="d-list"><span>Setting expansion</span><span>&middot; hygroscopic expansion</span></div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Setting expansion</p>
+<h2 class="s-title">Setting expansion: crystal growth in air</h2>
+<div class="s-body one-col" style="justify-content:center">
+<div style="max-width:82ch">
+<div class="defbox"><div class="term">Setting expansion</div><div class="def">A small linear expansion of the cast that occurs as the interlocking dihydrate crystals grow, measured <b>in air</b>.</div></div>
+<div class="mech"><span class="k-tag">Mechanism</span> As dihydrate crystals nucleate throughout the mass and grow toward each other, their outward growth pushes neighbouring crystals apart before mutual contact stops it &mdash; comparable to a frost pattern forming.</div>
+<p class="srcline">ISO 6873:2013, clause 5.4; mechanism: Van Noort, ch. 3.1.</p>
+</div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">A larger effect</p>
+<h2 class="s-title">Hygroscopic expansion: setting against water</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="defbox"><div class="term">Hygroscopic expansion</div><div class="def">The much larger expansion that occurs when the same setting reaction proceeds while <b>immersed in, or in contact with, free water</b>, rather than in air.</div></div>
+<div class="mech"><span class="k-tag">Mechanism</span> In air, the surface tension of the small amount of residual mixing water holds the growing crystals back. Free water on the surface removes that restraint, so the same crystals push further before they lock together &mdash; which is why hygroscopic expansion is several times larger than setting expansion in air.</div>
+</div>
+<div class="col-visual"><div class="figbox"><img src="assets/setting-vs-hygroscopic-expansion.png" alt="Crystals restrained by surface tension when setting in air, versus expanding freely when setting against water"><p class="figcap"><b>FIG 09.5</b> In air, residual water&rsquo;s surface tension restrains crystal growth; free water on the surface removes that restraint.</p></div></div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Clinical significance</p>
+<h2 class="s-title">Clinical significance: expansion as shrinkage compensation</h2>
+<div class="s-body one-col">
+<div class="vs">
+<div class="card a"><h3>Too little expansion</h3><ul><li>The cast comes out <b>smaller</b> than the mould that produced it.</li><li>A crown or metal framework cast to that measurement will not seat correctly.</li></ul></div>
+<div class="card b"><h3>Too much expansion</h3><ul><li>The cast comes out <b>oversized</b> &mdash; the same mismatch, in the opposite direction.</li><li>The gypsum expands more than intended when nothing restrains it.</li></ul></div>
+</div>
+<div class="key"><span class="k-tag">Practical consequence</span> ISO 6873 sets a <b>range</b>, not a minimum &mdash; up to 0.20% for Type 3 (dental stone) and up to 0.15% for Type 4 (die stone) at 2 hours: the same limits already met when an overly flexible impression let a gypsum cast expand unrestrained (Lecture 08).</div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">The numbers</p>
+<h2 class="s-title">Linear setting expansion by type</h2>
+<div class="s-body one-col" style="justify-content:center">
+<table class="dtable" style="max-width:70ch;margin:0 auto">
+<tr><th>Type</th><th>2 h</th><th>24 h</th></tr>
+<tr><td><b>1</b></td><td>0.00&ndash;0.15%</td><td>&mdash;</td></tr>
+<tr><td><b>2</b> (Class 1)</td><td>0.00&ndash;0.05%</td><td>&mdash;</td></tr>
+<tr><td><b>2</b> (Class 2)</td><td>0.06&ndash;0.30%</td><td>&mdash;</td></tr>
+<tr class="hi"><td><b>3</b></td><td>0.00&ndash;0.20%</td><td>&mdash;</td></tr>
+<tr class="hi"><td><b>4</b></td><td>0.00&ndash;0.15%</td><td>0.00&ndash;0.18%</td></tr>
+<tr><td><b>5</b></td><td>0.16&ndash;0.30%</td><td>&mdash;</td></tr>
+</table>
+<p class="srcline" style="text-align:center">ISO 6873:2013, Table 1. Type 2 Class 1 = mounting plaster, Class 2 = model plaster (slide 9). Type 4 is the only type also measured at 24 h, added in the 2013 edition because CAD/CAM die stone must not keep expanding well past the 2 h point.</p>
+</div></section>
+
+<section class="slide slide--divider"><div class="s-eyebrow">Part 6 of 6</div><div class="num">06</div><h2>Strength and choosing a type</h2><div class="d-list"><span>Wet vs dry</span><span>&middot; plaster vs stone</span><span>&middot; selection</span></div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Strength</p>
+<h2 class="s-title">Wet strength, dry strength, and the ISO minimum</h2>
+<div class="s-body one-col" style="justify-content:center">
+<div style="max-width:78ch;margin:0 auto">
+<div class="key"><span class="k-tag">Practical consequence</span> Dry compressive strength is roughly <b>twice</b> wet strength &mdash; trimming or adjusting a cast immediately after setting risks fracture at a load the same cast will tolerate once dry.</div>
+<table class="dtable" style="margin-top:1.4vh">
+<tr><th>Type</th><th>Compressive strength, wet, 1 h (MPa)</th></tr>
+<tr><td><b>1</b></td><td>4.0&ndash;8.0</td></tr>
+<tr><td><b>2</b></td><td>&ge; 9.0</td></tr>
+<tr class="hi"><td><b>3</b></td><td>&ge; 20.0</td></tr>
+<tr class="hi"><td><b>4</b> / <b>5</b></td><td>&ge; 35.0</td></tr>
+</table>
+<p class="srcline">ISO 6873:2013, Table 1. Wet/dry ratio: Van Noort, ch. 3.1.</p>
+</div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">What controls it</p>
+<h2 class="s-title">Factors controlling strength</h2>
+<div class="s-body one-col" style="justify-content:center">
+<div style="max-width:78ch">
+<ul class="blist"><li><b>Water/powder ratio</b> &mdash; the dominant factor: less water packs more dihydrate crystal per unit volume.</li><li><b>Porosity</b> &mdash; voids left by excess water, or air trapped during mixing, weaken the set mass.</li><li><b>Spatulation time</b> &mdash; more mixing creates more, smaller crystals, which can raise strength but also speeds setting.</li></ul>
+</div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Synthesis</p>
+<h2 class="s-title">Plaster and stone, side by side</h2>
+<div class="s-body fig-heavy">
+<div class="col-text">
+<div class="vs" style="grid-template-columns:1fr;gap:.9rem">
+<div class="card a"><h3>Plaster (&beta;, Types 1&ndash;2)</h3><ul><li>Porous, irregular particles.</li><li>Higher water/powder ratio.</li><li>Lower strength, lower cost.</li></ul></div>
+<div class="card b"><h3>Stone (&alpha;, Types 3&ndash;5)</h3><ul><li>Dense, regular particles.</li><li>Lower water/powder ratio.</li><li>Higher strength, higher cost.</li></ul></div>
+</div>
+</div>
+<div class="col-visual"><div class="figbox"><img src="assets/plaster-vs-stone-particles.png" alt="Porous irregular plaster particles versus dense regular stone particles, with water/powder ratio and strength annotated"><p class="figcap"><b>FIG 09.6</b> Particle morphology explains the water demand and strength gap between plaster and stone.</p></div></div>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Clinical selection</p>
+<h2 class="s-title">Matching the type to the task</h2>
+<div class="s-body one-col" style="justify-content:center">
+<table class="dtable" style="max-width:90ch;margin:0 auto">
+<tr><th>Type</th><th>Typical use</th><th>Why</th></tr>
+<tr><td><b>2</b> &mdash; model plaster</td><td>Study casts, mounting casts on an articulator</td><td>Adequate accuracy, low cost, easy to trim</td></tr>
+<tr class="hi"><td><b>3</b> &mdash; dental stone</td><td>The <b>master cast</b> &mdash; the main working replica the crown or bridge is built on</td><td>Stronger and more abrasion-resistant than plaster, still economical</td></tr>
+<tr class="hi"><td><b>4</b> &mdash; die stone</td><td>The <b>die</b> cut from the master cast for one prepared tooth</td><td>High strength and low expansion protect this thin, unsupported piece while it is trimmed and while the crown is waxed onto it</td></tr>
+<tr><td><b>5</b> &mdash; high-expansion die stone</td><td>Dies where extra expansion compensates the metal alloy&rsquo;s own shrinkage as it cools after casting</td><td>Same strength as Type 4, expansion tuned to the technique</td></tr>
+</table>
+<p class="srcline" style="text-align:center">Type 1 (impression plaster) is largely historical &mdash; elastomers and hydrocolloids (Lecture 08) replaced it for most impressions.</p>
+</div></section>
+
+<section class="slide">
+<p class="s-eyebrow">Take-home</p>
+<h2 class="s-title">Gypsum products &mdash; the essentials</h2>
+<div class="s-body one-col lo-body">
+<div class="objgrid" style="grid-template-columns:1fr">
+<div class="objcard"><span class="objnum">1</span><div class="objtxt"><b>Type follows manufacture.</b> &beta;-hemihydrate (open-air calcination, porous particles) gives the plasters (Types 1&ndash;2); &alpha;-hemihydrate (autoclave, dense particles) gives the stones (Types 3&ndash;5).</div></div>
+<div class="objcard"><span class="objnum">2</span><div class="objtxt"><b>Setting is dissolution then precipitation.</b> Hemihydrate dissolves, the solution supersaturates, and interlocking dihydrate crystals precipitate and lock the mass rigid.</div></div>
+<div class="objcard"><span class="objnum">3</span><div class="objtxt"><b>Water/powder ratio governs the trade-off.</b> Less water gives a denser, stronger, less porous cast; more water gives the opposite. Setting and hygroscopic expansion, kept within the ISO 6873 range, compensate shrinkage elsewhere in the workflow.</div></div>
+</div>
+</div></section>
+
+</div></div>
+
+<div class="deckbar"><button class="navbtn" id="prev">&lsaquo;</button><button class="navbtn" id="next">&rsaquo;</button>
+<span class="part" id="partLabel"></span><button class="navbtn" id="menuBtn" title="Menu (O)">&#9776;</button><span class="count" id="count"></span></div>
+<div class="overview" id="overview"><button class="ov-close" id="ovClose">&#10005; close (Esc)</button><h3>Jump to a slide</h3><p class="ov-hint">Click any slide &middot; press O to toggle &middot; Esc to close</p><div class="ov-grid" id="ovGrid"></div></div>
+
+<script>
+var track=document.getElementById("track");
+var slides=[].slice.call(document.querySelectorAll(".slide"));var i=0;
+function show(n){i=Math.max(0,Math.min(slides.length-1,n));track.style.transform="translateX("+(-i*100)+"vw)";
+document.getElementById("count").textContent=(i+1)+" / "+slides.length;
+var eb=slides[i].querySelector(".s-eyebrow, h2");document.getElementById("partLabel").textContent=eb?eb.textContent.trim():"";
+document.getElementById("prog").style.width=((i+1)/slides.length*100)+"%";}
+document.getElementById("next").onclick=function(){show(i+1)};
+document.getElementById("prev").onclick=function(){show(i-1)};
+document.addEventListener("keydown",function(e){if(e.target.tagName==="INPUT")return;
+if(e.key==="ArrowRight"||e.key==="PageDown"||e.key===" "){e.preventDefault();show(i+1)}
+else if(e.key==="ArrowLeft"||e.key==="PageUp"){e.preventDefault();show(i-1)}
+else if(e.key==="Home"){show(0)}else if(e.key==="End"){show(slides.length-1)}
+else if(e.key==="f"||e.key==="F"){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}
+else if(e.key==="o"||e.key==="O"){toggleOverview();}
+else if(e.key==="Escape"){closeOverview();}});
+var ov=document.getElementById("overview"),ovGrid=document.getElementById("ovGrid");
+function buildOverview(){
+  ovGrid.innerHTML="";
+  slides.forEach(function(sl,idx){
+    var isPart=sl.classList.contains("slide--divider");
+    var h=sl.querySelector("h1, h2");
+    var label=h?h.textContent.trim():("Slide "+(idx+1));
+    if(isPart){var num=sl.querySelector(".num"),htxt=sl.querySelector("h2");label=(num?num.textContent+" &middot; ":"")+(htxt?htxt.textContent.trim():label);}
+    var item=document.createElement("button");
+    item.className="ov-item"+(isPart?" is-part":"");
+    item.innerHTML='<span class="ov-n">'+(idx+1)+'</span><span class="ov-t">'+label+'</span>';
+    item.onclick=function(){show(idx);closeOverview();};
+    ovGrid.appendChild(item);
+  });
+}
+function openOverview(){buildOverview();ov.classList.add("open");}
+function closeOverview(){ov.classList.remove("open");}
+function toggleOverview(){ov.classList.contains("open")?closeOverview():openOverview();}
+document.getElementById("menuBtn").onclick=toggleOverview;
+document.getElementById("count").onclick=toggleOverview;
+document.getElementById("ovClose").onclick=closeOverview;
+show(0);
+</script>
+</body></html>

@@ -1,5 +1,28 @@
 # CHANGELOG
 
+## Chat 8 — Aula 09: Gypsum products, deck completo (2026-08-20)
+- **Aula nova do zero ao publicado no mesmo chat**: esqueleto de pastas, brief pré-preenchido,
+  material-fonte lido (`Gypsum.pdf` — cap. Van Noort — e o `Gypsum products 2023.ppt` histórico como
+  molde de escopo/formato), proposta de ensino aprovada, deck construído, 6 figuras geradas e
+  integradas, publicado.
+- **25 slides, 6 partes, sem widgets, sem quiz [D-09]** — decisão do Vinicius de manter a aula simples
+  e curta, no molde do PPT antigo, em vez do formato multi-parte da Aula 08. Sem âncora clínica
+  dedicada (removida a pedido dele).
+- **Números ancorados na ISO 6873:2013** (Tabela 1 — expansão de presa e resistência à compressão por
+  tipo), com dois callbacks reais para a Aula 08, que já citava os mesmos 0.20%/0.15% de expansão
+  para Type 3/Type 4. Extrato da norma arquivado em `lectures/09-gypsum-products/_sources/`.
+- **Revisão por persona de aluno (Ano II, sem clínica) [D-23]** encontrou e corrigiu: vocabulário
+  clínico cru (articulador, dente preparado, investing), "calcined" sem explicar o processo, mecanismo
+  da expansão higroscópica que só existia numa legenda de figura, a subclasse Type 2 Class 1/Class 2
+  aparecendo sem contexto, ambiguidade úmido/seco na tabela de resistência, e "model stone" como
+  terceiro nome para o Type 3.
+- **6 figuras geradas pelo Vinicius e integradas** (`manufacture-beta-alpha-hemihydrate`,
+  `gypsum-classification-tree`, `setting-reaction-dissolution-precipitation`,
+  `water-powder-ratio-effect`, `setting-vs-hygroscopic-expansion`, `plaster-vs-stone-particles`) —
+  já vieram com o nome-alvo exato, sem precisar de rename [D-19]. Todas conferidas visualmente antes
+  de entrar: números exatos, sem texto inventado, paleta consistente.
+- Ligada no menu (`index.html`, Soon → Open). Zero placeholder no deck.
+
 ## Chat 7b — Aula 08: as reações químicas ganham figura (2026-08-19)
 - **Cinco figuras de reação integradas**, conferidas uma a uma contra as figuras 2.7.6 a 2.7.13 do
   Van Noort antes de entrar: polissulfeto, poliéter, condensação, adição e os quatro backbones lado
