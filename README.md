@@ -27,7 +27,9 @@ Cada aula é uma página que roda no navegador, com figuras + animações própr
 - [x] **07 Principles of 3D printing in dentistry** ✅ — deck horizontal autocontido, 30 slides · 5 partes, 8 figuras + **3 widgets em SVG/canvas** (staircase · build angle · gel point); sem quiz [D-09]
 - [~] **08 Impression materials** — **Parte 0 pronta** (glossário de 9 propriedades, 51 slides, 17 figuras, zero placeholders); Partes 1–4 pendentes
 - [x] **09 Gypsum products** ✅ — deck horizontal autocontido, 26 slides · 6 partes, 8 figuras (FIG 09.1–09.8), zero placeholders, sem widgets, sem quiz [D-09]; sem handout ainda
-- [ ] 10–14 Cements · Composites · Adhesives · Ceramics · CAD/CAM
+- [ ] 10–12 Cements · Composites · Adhesives
+- [x] **13 Ceramics** ✅ — deck horizontal autocontido, 133 slides · 6 partes (3 h), 32 figuras + 40 fotos/figuras CC BY + 15 gráficos SVG; subseção de queima/forno em §2; sem quiz [D-09], sem notas de professor
+- [ ] 14 CAD/CAM
 - [ ] 15–20 Acrylics · CoCr · Endo · NiTi/aligners · Implants · Degradation
 
 ---

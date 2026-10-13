@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## Aula 13 — Dental Ceramics, deck completo (2026-10-13)
+- **Aula nova do zero ao publicado no mesmo chat**: briefing arquivado, 11 artigos + 2 PPTs antigos lidos e
+  sintetizados (`_sources/syn-*.md`), 32 figuras geradas e conferidas, 40 fotos dos decks antigos (liberadas,
+  D-13.1) e 3 figuras CC BY (Denry 2010 Fig. 10; Al-Johani 2024 Figs. 1 e 15).
+- **133 slides, 6 partes, 3 h** (Introdução · Porcelana feldspática + queima/forno · Dissilicato de lítio ·
+  Policristalinas · Fadiga · Síntese com 4 tabelas e cerâmica × compósito). Sem quiz [D-09]; sem notas de
+  professor (decisão do Vinicius).
+- **15 gráficos SVG inline gerados de equação/dado com fonte** (Griffith, Weibull, S–N, fases da zircônia,
+  ciclo de queima "typical example", cristalização do LD, sinterização, Belli 2014).
+- **Fotos da zircônia renomeadas**: os nomes machining/sintering/veneering estavam trocados em relação ao
+  slide 89 do deck antigo; corrigido por `mv` nos dois lados.
+- Marca do produto mascarada na tarja do SEM de Denry Fig. 4 (`photos/lithium-disilicate-sem.png`).
+- Validação: tags balanceadas, `node --check` do JS, 71/71 imagens resolvem, Playwright em 1280×720,
+  1440×900 e 1920×1080 sem overflow; varredura de registro [D-16]; revisão por persona [D-23] (15 itens, 15
+  aplicados).
+
 ## Chat 8b — Aula 09: duas figuras de mecanismo e o corte da figura larga (2026-08-21)
 - **Dois slides novos**, ambos trocando texto por mecanismo visual. Deck vai de 25 para **26 slides**
   e de 6 para **8 figuras**.
