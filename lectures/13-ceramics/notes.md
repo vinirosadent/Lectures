@@ -309,3 +309,14 @@ Abertura 5 · §1 25 · §2 35 (queima ≈ 14) · pausa 10 · §3 25 · §4 35 �
 
 Subagente (aluno do 2.º ano, sem experiência clínica) leu o texto integral dos 133 slides. 15 itens, **15 aplicados**:
 veneer × veneering porcelain; K e Y definidos no slide de K_Ic; leucita-reforçada classificada como vitrocerâmica e definição de glass-ceramic ajustada; isotrópico/anisotrópico definidos no 1.º uso; "incongruent melting" e "cubic/tetragonal" explicados; superfície intaglio padronizada; CTE definido; LTD/ageing/hidrotérmica unificados; frase de desgaste do esmalte reescrita; "grãos muito pequenos × maiores" desambiguado; 20 % linear ↔ 25 % oversize explicado (1/0,8); percentuais de Mackert contextualizados; bloco "azul" e 735–770 × 840–850 °C explicados; "bisque" definido; pontic/abutment/coping definidos. Extras aplicados: crack wake, "releases the constraint", Ra.
+
+
+## 8. Revisão 1 — 2026-10-14 (pedidos do Vinicius)
+- Slide de leucita × resistência usa **valores ilustrativos (80, 100, 120, 80 MPa; none/low/moderate/high)** por pedido explícito
+  ("pode ser com dados fictícios"). Rotulado no gráfico e na legenda como não medido. **Atenção:** os dados medidos de Rosa et al. 2011
+  não mostram esse padrão (0 vol% = 110; 12 vol% = 52; 22 vol% = 72 MPa, ar) — três marcas diferentes, confundimento por vidro e forma do
+  cristal. O mecanismo (microtrincas → coalescência → queda de resistência) está documentado (Denry 2010; Borom 1977 via Rosa 2011); a
+  posição do máximo, não.
+- Fonte nova: Rosa V, Cesar PF, Pereira CFS, Pinto MM, Yoshimura HN. Effect of test environment and microstructure on the flexural strength
+  of dental porcelains. J Prosthodont 2011;20:275–9. doi:10.1111/j.1532-849X.2011.00711.x (Fig. 3 da Wiley **não** reutilizada).
+- Bisques: rótulos low/medium/high associados a pescoço / encolhimento de poros / fechamento de poros (descritores de bancada, não padronizados).

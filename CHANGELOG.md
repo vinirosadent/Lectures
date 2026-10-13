@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## Aula 13 — revisão 1 (2026-10-14)
+- **139 slides** (+6). Novos: *Leucite content and strength* (gráfico com **valores ilustrativos** 80/100/120/80, rotulado
+  "not measured data", pedido do Vinicius); *Measured data* e *Leucite and water* (Rosa et al., J Prosthodont 2011 —
+  0/12/22 vol% leucita, ar × saliva, com ressalva de confundimento entre marcas e poder 0,60); *Is the extra leucite an
+  advantage or a disadvantage?*; *Glazing: what it is and why it is done*; *Water during loading lowers the strength of porcelain*.
+- Reescritos: sinterização viscosa com **low/medium/high bisque**; resfriamento × leucita (mecanismo → CTE);
+  corrosão sob tensão (hidrólise M–O–M → 2 M–OH, Rosa 2011); *A crack growing step by step* (4 passos + K_Ic não muda com água);
+  *Leucite microcracks: help or harm?* ganhou figura SVG (deflexão × coalescência).
+- Referência nova: Rosa V, Cesar PF, Pereira CFS, Pinto MM, Yoshimura HN. J Prosthodont 2011;20:275–9.
+- Validação Playwright 1280×720 e 1440×900 sem overflow.
+
 ## Aula 13 — Dental Ceramics, deck completo (2026-10-13)
 - **Aula nova do zero ao publicado no mesmo chat**: briefing arquivado, 11 artigos + 2 PPTs antigos lidos e
   sintetizados (`_sources/syn-*.md`), 32 figuras geradas e conferidas, 40 fotos dos decks antigos (liberadas,
